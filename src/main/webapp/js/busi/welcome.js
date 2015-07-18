@@ -182,7 +182,6 @@ function initDWZ() {
                 }
 //增加读取权限的相关代码
 
-
                 $('#sidebar .toggleCollapse div').trigger('click'); //隐藏侧边栏
                 init_map(); //加载地图
             };

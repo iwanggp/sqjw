@@ -7,7 +7,7 @@ var ZxGis = {};
 //地图对象全局变量
 var map;
 /**
- * 初始化，在welcome.js中调用 
+ * 初始化，在welcome.js中调用
  * @returns {undefined}
  */
 function init_map() {
