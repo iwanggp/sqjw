@@ -8,6 +8,9 @@ and open the template in the editor.
         <title>郑州港区分局社区警务管理系统</title>
         <link href="shared/themes/default/style.css" rel="stylesheet" type="text/css" media="screen"/>
         <link href="shared/themes/css/core.css" rel="stylesheet" type="text/css" media="screen"/>
+        <style type="text/css">
+         
+        </style>
         <link href="shared/themes/css/print.css" rel="stylesheet" type="text/css" media="print"/>
         <script src="shared/jquery/jquery-1.7.2.js" type="text/javascript"></script>
         <script src="shared/jquery/jquery.validate.js" type="text/javascript"></script>
@@ -20,6 +23,7 @@ and open the template in the editor.
         <script type="text/javascript" src="js/map/map.js?key=d72aff96af37952a"></script>
         <script src="js/busi/welcome.js" type="text/javascript"></script>
         <script src="js/busi/load_map.js" type="text/javascript"></script>
+
     </head>
 
     <body scroll="no">
@@ -83,30 +87,23 @@ and open the template in the editor.
                 Copyright&nbsp;©&nbsp;2013&nbsp; 郑州港区分局社区警务管理系统 &nbsp;|&nbsp;
                 &nbsp;|&nbsp;
             </div>
-
+            <div style="display: none">
+                <script type="text/javascript">
+                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    document.write(unescape("%3Cspan id='cnzz_stat_icon_1000501913'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1000501913' type='text/javascript'%3E%3C/script%3E"));
+                </script>
+            </div>
     </body>
 </html>
+
 <script type="text/template" id="mymenu">
-            <div style="border:solid 1px #ff3388;">
-                <div class="panelBar" style="height: 25px;width: 100px;">
-                    <ul class="toolBar">
-                        <li ><a class="add" id="addinfo" onclick="treemenu()"><span >添加信息</span></a></li>
-                    </ul>
-                </div>
-                <div class="panelBar" style="height: 25px;width: 100px">
-                    <ul class="toolBar">
-                        <li ><a class="add" id="addinfo" onclick="treemenu()"><span >添加信息</span></a></li>
-                    </ul>
-                </div>
-                <div class="panelBar" style="height: 25px;width: 100px">
-                    <ul class="toolBar">
-                        <li ><a class="add" id="addinfo" onclick="treemenu()"><span >添加信息</span></a></li>
-                    </ul>
-                </div>
-               <div class="panelBar" style="height: 25px;width: 100px">
-                    <ul class="toolBar">
-                        <li ><a class="add" id="addinfo" onclick="treemenu()"><span >添加信息</span></a></li>
-                    </ul>
-                </div>
-        </div>
+    <div style="border:solid 1px #ff3388;">
+    <!--右击菜单选项模板，以后添加右击菜单时，只要添加如下的一个div节点即可-->
+    <div class="panelBar" style="height: 25px;width: 100px;">
+    <ul class="toolBar">
+    <li ><a class="add" id="addinfo" onclick="treemenu()"><span >添加信息</span></a></li>
+    </ul>
+    </div>
+
+    </div>
 </script>

@@ -1,0 +1,33 @@
+<div class="pageContent">
+    <form method="post" class="pageForm" id="data_form">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>行业编号：</label>
+                <input type="text" name="old_password" id="old_password" size="30" class="required" minlength="5"/>
+            </div>
+            <div class="unit">
+                <label>法人代表：</label>
+                <input type="text" name="new_password" id="new_password" size="30" class="required" minlength="6"/>
+            </div>
+            <div class="unit">
+                <label>许可证号：</label>
+                <input type="text" name="again_password" id="again_password" size="30" class="required" equalto="#new_password" minlength="6"/>
+            </div>
+            <div class="unit">
+                <label>商家地址：</label>
+                <input type="text" name="again_password" id="again_password" size="30" class="required"/>
+            </div>
+            <div class="unit">
+                <label>联系电话：</label>
+                <input type="phone" name="again_password" id="again_password" size="11"   minlength="7"/>
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="add">添加</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" id="close" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

@@ -35,10 +35,10 @@ function init_map() {
 }
 
 function menu(obj, x, y) {
-    var mpoint = map.screen2LonLat(new STMapPoint(x - 30, y - 81));//将屏幕坐标转换成GPS坐标
-    currentLog = mpoint.x;//得到改点的真实经度
-    currentLat = mpoint.y;//得到改点的真实维度
-    var point = map.screen2LonLat(new STMapPoint(x + 30, y - 10));//将屏幕坐标转换成GPS坐标
+    var mpoint = map.screen2LonLat(new STMapPoint(x - 30, y - 81));//将屏幕坐标转换成GPS坐标，适当的调整显示位置
+    currentLog = mpoint.x;//得到该点点的真实经度
+    currentLat = mpoint.y;//得到该点的真实维度
+    var point = map.screen2LonLat(new STMapPoint(x + 30, y - 10));//将屏幕坐标转换成GPS坐标，适当的调整右击菜单位置
     var poly = new STMapCustomOverObj();
     poly.id = "menu";
     poly.point = new STMapPoint(point.x, point.y);
@@ -56,7 +56,16 @@ function treemenu() {
     poly.img = "images/loc128.png"; //【必选】对象的图片地址 url
     poly.infowin = false;
     poly.anchor = "BR";//设置覆盖物的位置
+    poly.setMoveable(true);
     map.addOverlay(poly, true);
     map.pan(-150, 0);//将地图移动N个像素距离,x右为正，左为负。y下为正，上为负。
-    $.pdialog.open("page/menutree.html", 'add_role_pl', "添加信息", {"width": 230, "height": 260});
+    $.pdialog.open("page/menutree.html", 'add_role_pl', "添加信息", {"width": 230, "height": 260, mask: true});//打开树形菜单
+}
+function input() {
+    $('#category1').click(function () {
+        $.pdialog.closeCurrent();//关闭先前的对话框
+        map.pan(-50, 0);//将地图移动N个像素距离,x右为正，左为负。y下为正，上为负。
+        //设置一个属性mask，当打开对话框时地图不能点击，当关闭这个对话框后方可操作
+        $.pdialog.open("page/add/input.html", 'add_info', "添加特种信息", {"width": 380, "height": 260, mask: true});
+    });
 }
