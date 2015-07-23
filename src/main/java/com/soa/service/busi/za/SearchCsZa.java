@@ -16,9 +16,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class SearchCsZa extends BaseService {
 
+    private final String[] KEY = new String[]{"hy", "行业",
+        "mc", "场所名称", "page", "页码", "page_size", "每页显示记录数"};
+
     @Override
     public String[] keys() {
-        return null;
+        return KEY;
     }
 
     @Override
