@@ -316,3 +316,76 @@ function getSession() {
     alertMsg.error('登录超时，请重新登录');
     $.pdialog.open('page/login_dialog.html', 'login_dialog', '登录', {width: 500, height: 300});
 }
+
+//高亮显示坐标点
+function clickLi(data) {
+    $(data).siblings().each(function() {
+        var one = map.getOverlayById($(this).attr('name'));
+        one.size = new STMapSize(30, 30);
+        one.refresh();
+    });
+    var two = map.getOverlayById($(data).attr('name'));
+    two.size = new STMapSize(40, 40);
+    two.refresh();
+}
+//获取场所列表
+function getCS(h, m, page) {
+    mc = m;
+    hy = h;
+    var o = new AjaxOptions();
+    o.isDialog = true; //为弹出窗口
+    o.put("service_code", "S40001");
+    o.put("mc", mc);
+    o.put("hy", hy);
+    o.put("page_size", 2);
+    o.put("page", page);
+    o.sus = function(data) {
+        if (data.result.length > 0) {
+            $.pdialog.closeCurrent();
+            LocationPoint(data);
+            $('#STMap_map').css('width', '85%');
+            $('#mo').text(data.page_count);
+            showList(data);
+        }
+    };
+    $.ajax(o);
+}
+function LocationPoint(data) {
+    //先清除之前的搜索结果
+    map.clearAllOverlays();
+    for (var i = 0; i < data.result.length; i++) {
+        var pt = new STMapMarker();
+        //设置对象的唯一id，id要唯一，如果存在重复id，后添加的覆盖已经存在的对象
+        pt.id = data.result[i].id;
+        pt.point = new STMapPoint(data.result[i].jd, data.result[i].wd);
+        //设置对象的图片URL
+        pt.img = "images/loc128.png";
+        /*******以下为可选对象属性*******/
+        //鼠标提示文字
+        pt.label = data.result[i].mc;
+        //设置对象尺寸,默认为图片本身尺寸
+        pt.size = new STMapSize(30, 30); // 尺寸对象原型：STMapSize(长度,高度);
+        //设置对象定位的锚点位置（相对于图片矩形）;取值范围：BC（下边中心点），BL（左下角），BR（右下角），TL（左上角），TC（上边中心点），TR（右上角），ML（左边中心点），MR（右边中心点），CENTER（图片中心点）
+        pt.anchor = "CENTER";
+        //设置是否点击显示信息窗口，默认为true。
+        pt.infowin = true;
+        //设置属性框的标题
+        pt.title = "";
+        //设置属性框的内容
+        pt.content = data.result[i].mc;
+        //将该对象添加到地图上
+        //参数pt为marker对象，参数true表示是否自动调整视野，如果为true，则地图自动定位到该位置
+        map.addOverlay(pt, true);
+        //pt.bound(1000);
+    }
+}
+
+function showList(data) {
+    var text = '';
+    for (var i = 0; i < data.result.length; i++) {
+        text += "<li onclick='clickLi($(this))' name='" + data.result[i].id + "'>" + data.result[i].mc + "</li>";
+    }
+    $('#dataList').html(text);
+}
+//全局变量：场所名称，所属行业
+var mc, hy;
