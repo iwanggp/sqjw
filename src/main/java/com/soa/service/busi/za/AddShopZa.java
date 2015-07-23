@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * P41001
+ * P41001 添加商铺信息
  *
  * @author wgp
  */
