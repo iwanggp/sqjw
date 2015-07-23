@@ -44,7 +44,7 @@ function menu(obj, x, y) {
     poly.point = new STMapPoint(point.x, point.y);
     poly.html = $('#mymenu').html();
     poly.anchor = new STMapPoint(50, 80);
-    poly.size = new STMapSize(100, 100);
+    poly.size = new STMapSize(100, 100);//标记的尺寸
     poly.infowin = false;
     map.addOverlay(poly, false);
 }
@@ -59,13 +59,5 @@ function treemenu() {
     poly.setMoveable(true);
     map.addOverlay(poly, true);
     map.pan(-150, 0);//将地图移动N个像素距离,x右为正，左为负。y下为正，上为负。
-    $.pdialog.open("page/menutree.html", 'add_role_pl', "添加信息", {"width": 230, "height": 260, mask: true});//打开树形菜单
-}
-function input() {
-    $('#category1').click(function () {
-        $.pdialog.closeCurrent();//关闭先前的对话框
-        map.pan(-50, 0);//将地图移动N个像素距离,x右为正，左为负。y下为正，上为负。
-        //设置一个属性mask，当打开对话框时地图不能点击，当关闭这个对话框后方可操作
-        $.pdialog.open("page/add/input.html", 'add_info', "添加特种信息", {"width": 380, "height": 260, mask: true});
-    });
+    $.pdialog.open("page/menutree.html", 'add_role_pl', "添加信息", {"width": 230, "height": 260});//打开树形菜单
 }
