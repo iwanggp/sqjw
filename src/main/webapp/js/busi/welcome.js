@@ -326,7 +326,8 @@ function clickLi(data) {
     });
     var two = map.getOverlayById($(data).attr('name'));
     two.size = new STMapSize(40, 40);
-    two.refresh();
+    //two.refresh();
+    map.addOverlay(two, true);
 }
 //获取场所列表
 function getCS(h, m, page) {
@@ -337,7 +338,7 @@ function getCS(h, m, page) {
     o.put("service_code", "S40001");
     o.put("mc", mc);
     o.put("hy", hy);
-    o.put("page_size", 2);
+    o.put("page_size", 10);
     o.put("page", page);
     o.sus = function(data) {
         if (data.result.length > 0) {
@@ -376,14 +377,18 @@ function LocationPoint(data) {
         //将该对象添加到地图上
         //参数pt为marker对象，参数true表示是否自动调整视野，如果为true，则地图自动定位到该位置
         map.addOverlay(pt, true);
-        //pt.bound(1000);
+        pt.bound(1000);
     }
+}
+
+function demo(data){
+    alert(hy+","+$(data).attr('name'));
 }
 
 function showList(data) {
     var text = '';
     for (var i = 0; i < data.result.length; i++) {
-        text += "<li onclick='clickLi($(this))' name='" + data.result[i].id + "'>" + data.result[i].mc + "</li>";
+        text += "<li onclick='clickLi($(this))' name='" + data.result[i].id + "'>" + data.result[i].mc + "-<a onclick='demo($(this))' name='"+data.result[i].id+"'>详情</a></li>";
     }
     $('#dataList').html(text);
 }
