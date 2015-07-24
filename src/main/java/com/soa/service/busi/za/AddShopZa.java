@@ -18,16 +18,27 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class AddShopZa extends BaseService {
+//校验不能为空的值，当key为空时会提示不能为空
+
+    private final String[] KEY = {
+        "mc", "商铺名称",
+        "zgbm", "主管部门",
+        "jjxz", "经济性质",
+        "dz", "地址",
+        "jd", "经度",
+        "wd", "维度"
+    };
 
     @Override
     public String[] keys() {
-        return null;
+        return KEY;
     }
 
     @Override
+    @Transactional
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
         //in从页面传来过得值
-        update("insert_shop_add", in);
+        update("add_shop_za", in);
     }
 
 }
