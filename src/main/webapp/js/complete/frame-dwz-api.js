@@ -646,3 +646,107 @@ function cutString(str, len, change) {
  */
 function form2JSON($form, json) {
 }
+
+
+/**
+ * 文件上传对象
+ * @param {array} $divs
+ * @returns {object} 文件上传对象
+ */
+FileOptions = function() {
+};
+
+/**
+ * 设置服务码，也可使用 put('service_code','') 函数
+ * @param {type} service
+ * @returns {undefined}
+ */
+FileOptions.prototype.setService = function(service) {
+    this.data.service_code = service;
+};
+
+/**
+ * 增加参数
+ * @param {type} k
+ * @param {type} v
+ * @returns {undefined}
+ */
+FileOptions.prototype.put = function(k, v) {
+    this.data[k] = v;
+};
+
+/**
+ * 增加一个表单，将包含 disabled 与 display 的元素
+ * @param {jQuery} $form 表单对象
+ * @returns {undefined}
+ */
+FileOptions.prototype.putForm = function($form) {
+    form2JSON($form, this.data);
+};
+
+/**
+ * 获取文件列表
+ * @param {type} id
+ * @returns {undefined}
+ */
+FileOptions.prototype.getFileList = function(id) {
+    return this.files[id];
+};
+
+/**
+ * 上传进度回调，如果定义了上传进度条，需要在完成回调中隐藏
+ * @param {event} e  e.loaded 已上传量， e.total 需上传总量
+ */
+FileOptions.prototype.progress = undefined;
+
+/**
+ * 上传完成回调
+ * @param {event} e  如果定义了上传进度条，需要在完成回调中隐藏
+ */
+FileOptions.prototype.load = undefined;
+
+/**
+ *
+ * @param {type} id
+ * @param {type} files
+ * @returns {undefined}
+ */
+FileOptions.prototype.readFile = function(id, files) {
+    return true;
+};
+
+/**
+ * 发送上传请求
+ * @returns {undefined}
+ */
+FileOptions.prototype.send = function() {
+};
+
+/**
+ * 成功回调
+ * @param {type} data 返回数据
+ * @returns {undefined}
+ */
+FileOptions.prototype.sus = function(data) {
+
+};
+
+/**
+ * 失败回调
+ * @param {type} c
+ * @param {type} d
+ * @returns {undefined}
+ */
+FileOptions.prototype.fal = function(c, d) {
+
+};
+
+/**
+ * ajax结束回调
+ * @param {type} c
+ * @param {type} d
+ * @returns {undefined}
+ */
+FileOptions.prototype.after = function(c, d) {
+
+};
