@@ -30,6 +30,8 @@ and open the template in the editor.
         <style>
             #dataList{height:600px;}
             #dataList li{height:50px;list-style:none;cursor:pointer;padding:5px;}
+            #dataList li p{margin:10px 0px;}
+            #dataList li a{color:blue;}
             #dataList li:hover{background:#F5F5F5;}
             /***************分页******************/
             #fenye{ float:left; margin-top:7px;}
@@ -63,7 +65,7 @@ and open the template in the editor.
             <div id="leftside">
                 <div id="sidebar_s">
                     <div class="collapse">
-                        <div class="toggleCollapse"><div></div></div>
+                        <div class="toggleCollapse"><div onclick="scroll()"></div></div>
                     </div>
                 </div>
                 <div id="sidebar">
@@ -95,7 +97,7 @@ and open the template in the editor.
                                 <!--地图容器div-->
                                 <div id="STMap_map" style="width:100%;top:1px;" layoutH="1"></div>
                             </div>
-                            <div id="contentRight" style="width:15%;top:1px;position:absolute;left:85%;padding:10px;" layoutH="1">
+                            <div id="contentRight" style="width:15%;top:1px;position:absolute;left:85%;padding:10px;display:none;" layoutH="1">
                                 <div id="dataList"></div>
                                 <div id="fenye">
                                     <ul>
@@ -110,18 +112,12 @@ and open the template in the editor.
                                         <li id="down" onclick="downclick()">下一页</a></li>
                                         <!--<li id="last" onclick="last()">末页</li>-->
                                     </ul>
-
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-
-
-            <div id="_pic"></div>
 
             <div id="footer">
                 Copyright&nbsp;©&nbsp;2013&nbsp; 郑州港区分局社区警务管理系统 &nbsp;|&nbsp;

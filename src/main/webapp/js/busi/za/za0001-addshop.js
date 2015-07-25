@@ -21,4 +21,6 @@
             $.ajax(o);
         }
     });
+    //需要在页面加载完成时加载文件拖拽div，不同于AjaxOptions对象
+    var fileOptions = new FileOptions($('#file', $page));
 }).call();

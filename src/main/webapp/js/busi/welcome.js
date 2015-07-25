@@ -344,13 +344,16 @@ function getCS(h, m, page) {
         if (data.result.length > 0) {
             $.pdialog.closeCurrent();
             LocationPoint(data);
-            $('#STMap_map').css('width', '85%');
+            $('#STMap_map').css({width:'85%',overflow:'hidden'});
+            $('#contentRight').css('display', 'block');
             $('#mo').text(data.page_count);
             showList(data);
         }
     };
     $.ajax(o);
 }
+
+//添加标记点
 function LocationPoint(data) {
     //先清除之前的搜索结果
     map.clearAllOverlays();
@@ -381,16 +384,23 @@ function LocationPoint(data) {
     }
 }
 
-function demo(data){
-    alert(hy+","+$(data).attr('name'));
+function demo(data) {
+    alert(hy + "," + $(data).attr('name'));
 }
 
+//显示查询结果
 function showList(data) {
     var text = '';
     for (var i = 0; i < data.result.length; i++) {
-        text += "<li onclick='clickLi($(this))' name='" + data.result[i].id + "'>" + data.result[i].mc + "-<a onclick='demo($(this))' name='"+data.result[i].id+"'>详情</a></li>";
+        text += "<li onclick='clickLi($(this))' name='" + data.result[i].id + "'><p>" + data.result[i].mc + "-<a onclick='demo($(this))' name='" + data.result[i].id + "'>详情</a></p><p>联系方式：" + data.result[i].lxfs + "</p></li>";
     }
     $('#dataList').html(text);
 }
+
+//隐藏滚动条
+function scroll(){
+    $('#STMap_map').css('overflow','hidden');
+}
+
 //全局变量：场所名称，所属行业
 var mc, hy;
