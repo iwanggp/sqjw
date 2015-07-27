@@ -62,6 +62,7 @@ public class AddShopZa extends BaseService {
             in.putStringValue("ajhgz", file1_path);
             in.putStringValue("jypmt", file2_path);
             //in从页面传来过得值
+            in.putStringValue("id", SystemUtil.getSerialNum());
             update("add_shop_za", in);
         } catch (IOException ex) {
             log.debug("error:", ex);

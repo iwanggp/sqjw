@@ -39,12 +39,18 @@ public class SqjwUtil {
      */
     public String upLoad(byte[] file, String sys_path, String fileName) throws IOException {
         String filepath = SystemUtil.getSysConfig(sys_path);
-        log.debug(filepath+"--------0-0-0-0-0-0-0-");
+        log.debug(filepath + "--------0-0-0-0-0-0-0-");
         FileOutputStream fos = null;
         BufferedOutputStream bos = null;
         String extension = getFileExtension(fileName);
         String line = File.separator;//通用文件分割符
         String rel_path = filepath + line + SystemUtil.getSerialNum() + "." + extension;//返回文件的相对路径带扩展名
+//        String rel_path = filepath + line + "za0001" + line + SystemUtil.getSerialNum() + "." + extension;//返回文件的相对路径带扩展名
+//        File newPath = null;
+//        newPath = new File(rel_path);
+//        if (!newPath.exists() && !newPath.isDirectory()) {
+//            newPath.mkdir();
+//        }
         try {
             fos = new FileOutputStream(rel_path);
             bos = new BufferedOutputStream(fos);
