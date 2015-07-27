@@ -32,7 +32,6 @@ function init_map() {
         return false;//屏蔽默认的鼠标右键事件
     }
 }
-
 function menu(obj, x, y) {
     var mpoint = map.screen2LonLat(new STMapPoint(x - 30, y - 81));//将屏幕坐标转换成GPS坐标，适当的调整显示位置
     currentLog = mpoint.x;//得到该点点的真实经度
@@ -48,7 +47,7 @@ function menu(obj, x, y) {
     map.addOverlay(poly, false);
 }
 function treemenu() {
-    map.clearAllOverlays();//删除所有地图覆盖物的对象
+    map.deleteOverlayById("menu");
     var poly = new STMapMarker();
     poly.id = "gang"; //【必选】对象 id
     poly.point = new STMapPoint(currentLog, currentLat); //【必选】经纬度坐标  STMapPoint 类型
@@ -59,4 +58,7 @@ function treemenu() {
     map.addOverlay(poly, true);
     map.pan(-150, 0);//将地图移动N个像素距离,x右为正，左为负。y下为正，上为负。
     $.pdialog.open("page/menutree.html", 'add_role_pl', "添加信息", {"width": 230, "height": 260});//打开树形菜单
+}
+function closeMenu() {
+    map.deleteOverlayById("menu");
 }

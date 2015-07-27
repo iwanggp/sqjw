@@ -55,14 +55,24 @@ public class AddShopZa extends BaseService {
             String name = in.getStringValue("jyxkz_name");
             String name1 = in.getStringValue("ajhgz_name");
             String name2 = in.getStringValue("jypmt_name");
-            String file_path = sqjwUtil.upLoad(file, "za0001_file_path1", "za0001", name).toString();
-            String file1_path = sqjwUtil.upLoad(file1, "za0001_file_path1", "za0001", name1).toString();
-            String file2_path = sqjwUtil.upLoad(file2, "za0001_file_path1", "za0001", name2).toString();
-            in.putStringValue("jyxkz", file_path);//数据库中保存的路径
-            in.putStringValue("ajhgz", file1_path);
-            in.putStringValue("jypmt", file2_path);
+            String file_path = null;
+            String file1_path = null;
+            String file2_path = null;
+            if (name != null) {
+                file_path = sqjwUtil.upLoad(file, "za0001_file_path1", "za0001_addshop", name);
+                in.putStringValue("jyxkz", file_path.toString());//数据库中保存的路径
+            }
+            if (name1 != null) {
+                file1_path = sqjwUtil.upLoad(file1, "za0001_file_path1", "za0001_addshop", name1);
+                in.putStringValue("ajhgz", file1_path.toString());
+            }
+            if (name2 != null) {
+                file2_path = sqjwUtil.upLoad(file2, "za0001_file_path1", "za0001_addshop", name2);
+                in.putStringValue("jypmt", file2_path.toString());
+            }
+
             //in从页面传来过得值
-            in.putStringValue("id", SystemUtil.getSerialNum());
+            in.putStringValue("id", SystemUtil.getSerialNum());//数据库的主码
             update("add_shop_za", in);
         } catch (IOException ex) {
             log.debug("error:", ex);

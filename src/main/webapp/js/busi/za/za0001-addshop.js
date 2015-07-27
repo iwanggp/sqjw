@@ -34,8 +34,9 @@
 
                 alertMsg.error(files[i].name + ' 文件大于是5M');
                 return false;
-            } else {
-                $('#jyxkz', $dialog).empty();
+            } else if (files[i].size == 0) {
+                return false;
+//                $('#jyxkz', $dialog).empty();
             }
         }
         return true;        //返回false时将中止文件加载，需要给出提示
