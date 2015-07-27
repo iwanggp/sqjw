@@ -60,5 +60,5 @@ function treemenu() {
     $.pdialog.open("page/menutree.html", 'add_role_pl', "添加信息", {"width": 230, "height": 260});//打开树形菜单
 }
 function closeMenu() {
-    map.deleteOverlayById("menu");
+    map.deleteOverlayById("menu");//关闭右击菜单
 }
