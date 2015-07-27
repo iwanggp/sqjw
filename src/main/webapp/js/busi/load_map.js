@@ -6,8 +6,8 @@ var ZxGis = {};
 //地图对象全局变量
 var map = null;
 //设置港区的经纬度
-var log = 113.8197010890652;
-var lat = 34.486262701361284;
+var log = 113.52646054188506;
+var lat = 34.66368372392551;
 var currentLog = null;
 var currentLat = null;
 /**
