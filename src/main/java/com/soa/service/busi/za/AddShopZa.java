@@ -55,9 +55,9 @@ public class AddShopZa extends BaseService {
             String name = in.getStringValue("jyxkz_name");
             String name1 = in.getStringValue("ajhgz_name");
             String name2 = in.getStringValue("jypmt_name");
-            String file_path = sqjwUtil.upLoad(file, "za0001_file_path", name).toString();
-            String file1_path = sqjwUtil.upLoad(file1, "za0001_file_path", name1).toString();
-            String file2_path = sqjwUtil.upLoad(file2, "za0001_file_path", name2).toString();
+            String file_path = sqjwUtil.upLoad(file, "za0001_file_path1", "za0001", name).toString();
+            String file1_path = sqjwUtil.upLoad(file1, "za0001_file_path1", "za0001", name1).toString();
+            String file2_path = sqjwUtil.upLoad(file2, "za0001_file_path1", "za0001", name2).toString();
             in.putStringValue("jyxkz", file_path);//数据库中保存的路径
             in.putStringValue("ajhgz", file1_path);
             in.putStringValue("jypmt", file2_path);

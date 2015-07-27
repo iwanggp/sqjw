@@ -32,27 +32,26 @@ public class SqjwUtil {
      *
      * @param file 上传得到的字节数组文件
      * @param sys_path 保存文件模块的地址
+     * @param module_name 你要上传文件所在模块的名字
      * @param fileName 文件的名字
      * @return 返回路径的相对路径
      * @throws IOException 文件不能关闭的异常
      * @author wgp
      */
-    public String upLoad(byte[] file, String sys_path, String fileName) throws IOException {
+    public String upLoad(byte[] file, String sys_path, String module_name, String fileName) throws IOException {
         String filepath = SystemUtil.getSysConfig(sys_path);
-        log.debug(filepath + "--------0-0-0-0-0-0-0-");
         FileOutputStream fos = null;
         BufferedOutputStream bos = null;
         String extension = getFileExtension(fileName);
         String line = File.separator;//通用文件分割符
-        String rel_path = filepath + line + SystemUtil.getSerialNum() + "." + extension;//返回文件的相对路径带扩展名
-//        String rel_path = filepath + line + "za0001" + line + SystemUtil.getSerialNum() + "." + extension;//返回文件的相对路径带扩展名
-//        File newPath = null;
-//        newPath = new File(rel_path);
-//        if (!newPath.exists() && !newPath.isDirectory()) {
-//            newPath.mkdir();
-//        }
+        String rel_path = filepath + line + module_name;//得到绝对路径
+        File newPath = null;
+        newPath = new File(rel_path);
+        if (!newPath.exists() && !newPath.isDirectory()) {//创建文件夹，如果不存在则创建
+            newPath.mkdirs();
+        }
         try {
-            fos = new FileOutputStream(rel_path);
+            fos = new FileOutputStream(rel_path + line + SystemUtil.getSerialNum() + "." + extension);//最终的文件带文件名和扩展名
             bos = new BufferedOutputStream(fos);
             bos.write(file);
             return rel_path;
