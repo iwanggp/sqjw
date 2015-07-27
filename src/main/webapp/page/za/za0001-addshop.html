@@ -35,7 +35,9 @@ and open the template in the editor.
             </div>
             <div class="unit">
                 <label>员工人数：</label>
-                <input type="number" name="lxfs" id="lxfs"  size="50" />
+
+                <input type="number" name="ygrs" id="ygrs"  size="50" />
+
             </div>
             <div class="unit">
                 <label>商铺面积：</label>
@@ -50,6 +52,7 @@ and open the template in the editor.
                 <input type="radio" name="fwzl" id="fwzl"  value="1" checked="true">是</input>
                 <input type="radio" name="fwzl" id="fwzl"  value="0">否</input>
             </div>
+            <<<<<<< HEAD
             <div class="unit" >
                 <label>经营许可证文件：</label>
                 <table class="searchContent" >
@@ -80,69 +83,82 @@ and open the template in the editor.
                         </td>
                     </tr>
                 </table>
+                =======
+                <div class="unit">
+                    <label>经营许可证：</label>
+                    <input type="file" name="jyxkz" id="jyxkz"  size="50" />
+                </div>
+                <div class="unit">
+                    <label>消防安检合格证：</label>
+                    <input type="file" name="ajhgz" id="ajhgz"  size="50" />
+                </div>
+                <div class="unit">
+                    <label>经营平面图：</label>
+                    <input type="file" name="jypmt" id="jypmt"  size="50" />
+                    >>>>>>> origin/DEV-zkf
+                </div>
+                <div class="unit">
+                    <label>建立安全管理制度：</label>
+                    <input type="radio" name="jlaqzd" id="jlaqzd"  value="1" checked="true">是</input>
+                    <input type="radio" name="jlaqzd" id="jlaqzd"  value="0">否</input>
+                </div>
+                <div class="unit">
+                    <label>是否安装监控设施：</label>
+                    <input type="radio" name="jkss" id="jkss"  value="1">是</input>
+                    <input type="radio" name="jkss" id="jkss"  value="0" checked="true">否</input>
+                </div>
+                <div class="unit">
+                    <label>探头数量：</label>
+                    <input type="number" name="ttsl" id="ttsl"  size="50" />
+                </div>
+                <div class="unit">
+                    <label>运行情况：</label>
+                    <input type="text" name="yxqk" id="yxqk"  size="50" />
+                </div>
+                <div class="unit">
+                    <label>保存时间：</label>
+                    <input type="number" name="bcsj" id="bcsj"  size="23" />
+                </div>
+                <div class="unit">
+                    <label>安全检查记录：</label>
+                    <input type="text" name="ajjl" id="ajjl"  size="50" />
+                </div>
+                <div class="unit">
+                    <label>安全出口是否通畅：</label>
+                    <input type="radio" name="aqcktc" id="aqcktc"  value="1" checked="true">是</input>
+                    <input type="radio" name="aqcktc" id="aqcktc"  value="0">否</input>
+                </div>
+                <div class="unit">
+                    <label>灭火器材齐全有效：</label>
+                    <input type="radio" name="mhqcyx" id="mhqcyx"  value="1" checked="true">是</input>
+                    <input type="radio" name="mhqcyx" id="mhqcyx"  value="0">否</input>
+                </div>
+                <div class="unit">
+                    <label>是否有疏散标志：</label>
+                    <input type="radio" name="ssbz" id="ssbz"  value="1" checked="true">是</input>
+                    <input type="radio" name="ssbz" id="ssbz"  value="0">否</input>
+                </div>
+                <div class="unit">
+                    <label>消防设施擅自关停：</label>
+                    <input type="radio" name="xfszgt" id="xfszgt"  value="1" checked="true">是</input>
+                    <input type="radio" name="xfszgt" id="xfszgt"  value="0">否</input>
+                </div>
+                <div class="unit">
+                    <label>消防人员经过培训：</label>
+                    <input type="radio" name="xfrypx" id="xfrypx"  value="1">是</input>
+                    <input type="radio" name="xfrypx" id="xfrypx"  value="0" checked="true">否</input>
+                </div>
+                <div class="unit">
+                    <label>备注：</label>
+                    <input type="text" name="bz" id="bz"  size="50"/>
+                </div>
             </div>
-            <div class="unit">
-                <label>建立安全管理制度：</label>
-                <input type="radio" name="jlaqzd" id="jlaqzd"  value="1" checked="true">是</input>
-                <input type="radio" name="jlaqzd" id="jlaqzd"  value="0">否</input>
+            <div class="formBar">
+                <ul>
+                    <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="add">添加</button></div></div></li>
+                    <li><div class="button"><div class="buttonContent"><button type="button" id="close" class="close">取消</button></div></div></li>
+                </ul>
             </div>
-            <div class="unit">
-                <label>是否安装监控设施：</label>
-                <input type="radio" name="jkss" id="jkss"  value="1">是</input>
-                <input type="radio" name="jkss" id="jkss"  value="0" checked="true">否</input>
-            </div>
-            <div class="unit">
-                <label>探头数量：</label>
-                <input type="number" name="ttsl" id="ttsl"  size="50" />
-            </div>
-            <div class="unit">
-                <label>运行情况：</label>
-                <input type="text" name="yxqk" id="yxqk"  size="50" />
-            </div>
-            <div class="unit">
-                <label>保存时间：</label>
-                <input type="number" name="bcsj" id="bcsj"  size="23" />
-            </div>
-            <div class="unit">
-                <label>安全检查记录：</label>
-                <input type="text" name="ajjl" id="ajjl"  size="50" />
-            </div>
-            <div class="unit">
-                <label>安全出口是否通畅：</label>
-                <input type="radio" name="aqcktc" id="aqcktc"  value="1" checked="true">是</input>
-                <input type="radio" name="aqcktc" id="aqcktc"  value="0">否</input>
-            </div>
-            <div class="unit">
-                <label>灭火器材齐全有效：</label>
-                <input type="radio" name="mhqcyx" id="mhqcyx"  value="1" checked="true">是</input>
-                <input type="radio" name="mhqcyx" id="mhqcyx"  value="0">否</input>
-            </div>
-            <div class="unit">
-                <label>是否有疏散标志：</label>
-                <input type="radio" name="ssbz" id="ssbz"  value="1" checked="true">是</input>
-                <input type="radio" name="ssbz" id="ssbz"  value="0">否</input>
-            </div>
-            <div class="unit">
-                <label>消防设施擅自关停：</label>
-                <input type="radio" name="xfszgt" id="xfszgt"  value="1" checked="true">是</input>
-                <input type="radio" name="xfszgt" id="xfszgt"  value="0">否</input>
-            </div>
-            <div class="unit">
-                <label>消防人员经过培训：</label>
-                <input type="radio" name="xfrypx" id="xfrypx"  value="1">是</input>
-                <input type="radio" name="xfrypx" id="xfrypx"  value="0" checked="true">否</input>
-            </div>
-            <div class="unit">
-                <label>备注：</label>
-                <input type="text" name="bz" id="bz"  size="50"/>
-            </div>
-        </div>
-        <div class="formBar">
-            <ul>
-                <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="add">添加</button></div></div></li>
-                <li><div class="button"><div class="buttonContent"><button type="button" id="close" class="close">取消</button></div></div></li>
-            </ul>
-        </div>
     </form>
 </div>
 </div>
