@@ -51,6 +51,7 @@ public class AddShopZa extends BaseService {
         byte[] file = (byte[]) in.getObjectValue("jyxkz");
         byte[] file1 = (byte[]) in.getObjectValue("ajhgz");
         byte[] file2 = (byte[]) in.getObjectValue("jypmt");
+        final String modul_name = "ZZA";
         try {
             String name = in.getStringValue("jyxkz_name");
             String name1 = in.getStringValue("ajhgz_name");
@@ -59,15 +60,15 @@ public class AddShopZa extends BaseService {
             String file1_path = null;
             String file2_path = null;
             if (name != null) {
-                file_path = sqjwUtil.upLoad(file, "za0001_file_path1", "za0001_addshop", name);
+                file_path = sqjwUtil.upLoad(file, "za0001_file_path1", modul_name, name);
                 in.putStringValue("jyxkz", file_path.toString());//数据库中保存的路径
             }
             if (name1 != null) {
-                file1_path = sqjwUtil.upLoad(file1, "za0001_file_path1", "za0001_addshop", name1);
+                file1_path = sqjwUtil.upLoad(file1, "za0001_file_path1", modul_name, name1);
                 in.putStringValue("ajhgz", file1_path.toString());
             }
             if (name2 != null) {
-                file2_path = sqjwUtil.upLoad(file2, "za0001_file_path1", "za0001_addshop", name2);
+                file2_path = sqjwUtil.upLoad(file2, "za0001_file_path1", modul_name, name2);
                 in.putStringValue("jypmt", file2_path.toString());
             }
 

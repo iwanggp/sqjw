@@ -5,6 +5,7 @@
  */
 package com.soa.util.sqjw;
 
+import com.soa.exception.GlobalException;
 import com.soa.util.SystemUtil;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -51,10 +52,11 @@ public class SqjwUtil {
             newPath.mkdirs();
         }
         try {
-            fos = new FileOutputStream(rel_path + line + SystemUtil.getSerialNum() + "." + extension);//最终的文件带文件名和扩展名
+            String filePath = rel_path + line + SystemUtil.getSerialNum() + "." + extension;
+            fos = new FileOutputStream(filePath);//最终的文件带文件名和扩展名
             bos = new BufferedOutputStream(fos);
             bos.write(file);
-            return rel_path;
+            return filePath;
         } finally {
             if (bos != null) {//用套节流进行操作时只用关闭外层的流即可
                 try {
@@ -79,5 +81,23 @@ public class SqjwUtil {
             return "";
         }
     }
+//
 
+    public boolean deleteFile(String path) {
+        File file = new File(path);
+        // 如果文件路径所对应的文件存在，并且是一个文件，则直接删除  
+        if (path != null) {
+            if (file.exists() && file.isFile()) {
+                if (file.delete()) {
+                    return true;
+                } else {
+                    log.debug("error:", "删除文件出错");
+                    throw new GlobalException(140002);      //删除文件出错了
+                }
+            }
+        } else {
+            return false;
+        }
+        return false;
+    }
 }
