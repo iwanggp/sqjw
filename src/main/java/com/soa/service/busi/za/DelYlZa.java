@@ -15,13 +15,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * P41003 删除商铺信息 同时删除服务器中对应的相应文件
+ * P41004 删除娱乐场所信息 同时删除数据库中对应的相应文件
  *
- * @author wgp exception: 删除文件错误
- *
+ * @author zkf
  */
 @Service
-public class DelShopZa extends BaseService {
+public class DelYlZa extends BaseService {
 
     private final String[] KEY = {
         "id", "主码"
@@ -31,12 +30,12 @@ public class DelShopZa extends BaseService {
     public String[] keys() {
         return KEY;
     }
-    private final Logger log = LoggerFactory.getLogger(DelShopZa.class);
+    private final Logger log = LoggerFactory.getLogger(DelYlZa.class);
 
     @Override
     @Transactional
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
-        String paths[] = {in.getStringValue("jypmt"), in.getStringValue("ajhgz"), in.getStringValue("jyxkz")};
+        String paths[] = {in.getStringValue("cspmt"), in.getStringValue("ajhgz"),in.getStringValue("jyxkz"),in.getStringValue("gsxkz")};
         Object[] obj = new Object[]{in.getStringValue("id")};
         log.debug(paths.length + "[][][][][][][][][][");
         for (int i = 0; i < paths.length; i++) {
@@ -45,15 +44,14 @@ public class DelShopZa extends BaseService {
                 // 如果文件路径所对应的文件存在，并且是一个文件，则直接删除  
                 if (file.exists() && file.isFile()) {
                     if (file.delete()) {
-                        update("del_shop_za", obj);
+                        update("del_yl_za", obj);
                     } else {
                         log.debug("error:", "删除文件出错");
                         throw new GlobalException(140002);      //删除文件出错了
                     }
                 }
             } else {
-                update("del_shop_za", obj);
-
+                update("del_yl_za", obj);
             }
         }
 

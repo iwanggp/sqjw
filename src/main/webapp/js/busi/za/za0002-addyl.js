@@ -17,6 +17,7 @@
             fileOptions.sus = function (data) {
                 alertMsg.correct("添加成功了！");
                 $("#close").trigger("click");
+                getCS(hy, mc, 1);
             };
             fileOptions.after = function (c, d) {
                 console.log(c);

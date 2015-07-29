@@ -384,7 +384,13 @@ function LocationPoint(data) {
     }
 }
 function detail(data) {
-    $.pdialog.open("page/za/za0001-shopdetail.html", 'shop_detail', "商铺详情",
+    var url='';
+    if("za_yl"==hy){
+        url='page/za/za0002-yldetail.html';
+    }else if("za_sp"==hy){
+        url='page/za/za0001-shopdetail.html';
+    }
+    $.pdialog.open(url, 'detail', "详情",
             {"width": 580, "height": 560,
                 param: {hy: hy, id: $(data).attr('name')},
                 close: function(param) {
