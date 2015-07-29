@@ -388,8 +388,7 @@ function detail(data) {
             {"width": 580, "height": 560,
                 param: {hy: hy, id: $(data).attr('name')},
                 close: function(param) {
-                    if (param.isFlush) {
-                    }
+                    map.getOverlayById($(data).attr('name')).moveable = false;//是否可以拖动
                     return true;
                 }
             });
