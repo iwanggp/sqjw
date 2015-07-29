@@ -26,6 +26,7 @@
     $.ajax(opt);
     //#修改信息服务
     $('#modify', $dialog).click(function () {
+<<<<<<< HEAD
         var btns = new Array(); //或者写成：var btns= [];
         var mov = map.getOverlayById(param.id);
         $('.required').each(function (key, value) {
@@ -37,6 +38,10 @@
             }
         });
         mov.moveable = true;//是否可以拖动
+=======
+        var log = 113.84257496754428;
+        var lat = 34.530768351088405;
+>>>>>>> de14caebd30bfbdf82d7ff6172374111b85c3057
         if (f = !f) {
             $("input").removeAttr("disabled");
             $('#jyxkz_pic, #ajhgz_pic,#jypmt_pic', $dialog).show();
@@ -53,8 +58,13 @@
                 fileOptions.putForm($('#shop_form', $dialog));       //添加表单内容
                 fileOptions.setService('P41002');
                 fileOptions.put("id", param.id);
+<<<<<<< HEAD
                 fileOptions.put('jd', mov.point.x);//传递经度参数
                 fileOptions.put('wd', mov.point.y);//传递维度参数
+=======
+                fileOptions.put('jd', log);//传递经度参数
+                fileOptions.put('wd', lat);//传递维度参数
+>>>>>>> de14caebd30bfbdf82d7ff6172374111b85c3057
                 fileOptions.put("jyxkz", $('#jyxkz a').html());
                 fileOptions.put("ajhgz", $('#ajhgz a').html());
                 fileOptions.put("jypmt", $("#jypmt a").html());
