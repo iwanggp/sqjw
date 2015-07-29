@@ -51,7 +51,7 @@ public class AddShopZa extends BaseService {
         byte[] file = (byte[]) in.getObjectValue("jyxkz");
         byte[] file1 = (byte[]) in.getObjectValue("ajhgz");
         byte[] file2 = (byte[]) in.getObjectValue("jypmt");
-        final String modul_name = "ZZA";
+        final String modul_name = "ZASHOP";
         try {
             String name = in.getStringValue("jyxkz_name");
             String name1 = in.getStringValue("ajhgz_name");
