@@ -26,7 +26,7 @@ public class SearchCsDetail extends BaseService {
         String hy = in.getStringValue("hy");
         Object[] obj = new Object[]{in.getStringValue("id")};
         if ("za_sp".equals(hy)) {
-            out.putDataValue("csdata", queryData("get_shop_za", obj));
+            out.putDataValue("csdata", queryData("za_select_sp_id", obj));
         } else if ("za_yl".equals(hy)) {
 
         }

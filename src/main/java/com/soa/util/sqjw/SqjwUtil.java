@@ -7,14 +7,10 @@ package com.soa.util.sqjw;
 
 import com.soa.exception.GlobalException;
 import com.soa.util.SystemUtil;
-import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -52,7 +48,7 @@ public class SqjwUtil {
             newPath.mkdirs();
         }
         try {
-            String filePath = rel_path + line + SystemUtil.getSerialNum() + "." + extension;
+            String filePath=rel_path + line + SystemUtil.getSerialNum() + "." + extension;
             fos = new FileOutputStream(filePath);//最终的文件带文件名和扩展名
             bos = new BufferedOutputStream(fos);
             bos.write(file);
