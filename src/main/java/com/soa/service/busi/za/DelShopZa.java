@@ -16,11 +16,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * <<<<<<< HEAD P41003 删除商铺信息 同时删除服务器中对应的相应文件
+ * P41003 删除商铺信息 同时删除服务器中对应的相应文件
  *
- * @author wgp exception: 删除文件错误 ======= P41003 删除商铺信息 同时删除数据库中对应的相应文件
+ * @author wgp exception: 删除文件错误
  *
- * @author wgp exception: >>>>>>> Dev-zkf
  */
 @Service
 public class DelShopZa extends BaseService {
@@ -39,26 +38,21 @@ public class DelShopZa extends BaseService {
     @Transactional
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
         String paths[] = {in.getStringValue("jypmt"), in.getStringValue("ajhgz"), in.getStringValue("jyxkz")};
-
         Object[] obj = new Object[]{in.getStringValue("id")};
         log.debug(paths.length + "[][][][][][][][][][");
-
         for (int i = 0; i < paths.length; i++) {
             if (paths[i] != null) {
                 File file = new File(paths[i]);
                 // 如果文件路径所对应的文件存在，并且是一个文件，则直接删除  
                 if (file.exists() && file.isFile()) {
                     if (file.delete()) {
-
                         update("del_shop_za", obj);
-
                     } else {
                         log.debug("error:", "删除文件出错");
                         throw new GlobalException(140002);      //删除文件出错了
                     }
                 }
             } else {
-
                 update("del_shop_za", obj);
 
             }
