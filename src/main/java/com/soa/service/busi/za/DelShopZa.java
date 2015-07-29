@@ -16,9 +16,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * P41003 删除商铺信息 同时删除数据库中对应的相应文件
+ * P41003 删除商铺信息 同时删除服务器中对应的相应文件
  *
- * @author wgp exception:
+ * @author wgp exception: 删除文件错误
  */
 @Service
 public class DelShopZa extends BaseService {
@@ -37,7 +37,6 @@ public class DelShopZa extends BaseService {
     @Transactional
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
         String paths[] = {in.getStringValue("jypmt"), in.getStringValue("ajhgz"), in.getStringValue("jyxkz")};
-        log.debug(paths.length + "[][][][][][][][][][");
         for (int i = 0; i < paths.length; i++) {
             if (paths[i] != null) {
                 File file = new File(paths[i]);

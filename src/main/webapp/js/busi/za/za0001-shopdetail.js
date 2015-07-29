@@ -24,6 +24,8 @@
     $.ajax(opt);
     //#修改信息服务
     $('#modify', $dialog).click(function () {
+        var log = 113.84257496754428;
+        var lat = 34.530768351088405;
         if (f = !f) {
             $("input").removeAttr("disabled");
             $('#jyxkz_pic, #ajhgz_pic,#jypmt_pic', $dialog).show();
@@ -34,8 +36,8 @@
                 fileOptions.putForm($('#shop_form', $dialog));       //添加表单内容
                 fileOptions.setService('P41002');
                 fileOptions.put("id", param.id);
-                fileOptions.put('jd', "poly.point.x");//传递经度参数
-                fileOptions.put('wd', "poly.point.y");//传递维度参数
+                fileOptions.put('jd', log);//传递经度参数
+                fileOptions.put('wd', lat);//传递维度参数
                 fileOptions.put("jyxkz", $('#jyxkz a').html());
                 fileOptions.put("ajhgz", $('#ajhgz a').html());
                 fileOptions.put("jypmt", $("#jypmt a").html());
@@ -48,23 +50,6 @@
                 };
                 fileOptions.send();
             }
-//            if (!$('#shop_form', $dialog).valid()) {
-//                return false;
-//            }
-//            var o = new AjaxOptions($('#shop_form', $dialog));//将整个表单出传递过来
-//            o.put("service_code", "P41002");
-//
-//            o.put("jyxkz", $('#jyxkz a').html());
-//            o.put("ajhgz", $('#ajhgz a').html());
-//            o.put("jypmt", $("#jypmt a").html());
-//            o.put('jd', "poly.point.x");//传递经度参数
-//            o.put('wd', "poly.point.y");//传递维度参数
-//            o.put("id", param.id);
-//            o.sus = function () {
-//                alertMsg.correct("更改成功了！");
-//                $('#close', $dialog).trigger("click");
-//            };
-//            $.ajax(o);
         }
     });
     //#删除信息服务
