@@ -17,7 +17,8 @@
     opt.sus = function(data) {
         data.csdata.jyxkz = "<a href='" + data.csdata.jyxkz + "'>" + data.csdata.jyxkz + "</a>";
         data.csdata.ajhgz = "<a href='" + data.csdata.ajhgz + "'>" + data.csdata.ajhgz + "</a>";
-        data.csdata.jypmt = "<a href='" + data.csdata.jypmt + "'>" + data.csdata.jypmt + "</a>";
+        data.csdata.cspmt = "<a href='" + data.csdata.cspmt + "'>" + data.csdata.cspmt + "</a>";
+        data.csdata.gsxkz = "<a href='" + data.csdata.gsxkz + "'>" + data.csdata.gsxkz + "</a>";
         padBackData(data.csdata, $('#shop_form', $dialog)); //回填商铺信息
     };
     $.ajax(opt);
@@ -27,19 +28,20 @@
         mov.moveable = true;//是否可以拖动
         if (f = !f) {
             $("input").removeAttr("disabled");
-            $('#jyxkz_pic, #ajhgz_pic,#jypmt_pic', $dialog).show();
+            $('#cspmt_pic,#gsxkz_pic,#jyxkz_pic,#ajhgz_pic', $dialog).show();
             $(this).html("保存");
         } else {
             $(this).html("修改");
             if ($("#shop_form", $dialog).valid()) {
                 fileOptions.putForm($('#shop_form', $dialog));       //添加表单内容
-                fileOptions.setService('P41002');
+                fileOptions.setService('P41005');
                 fileOptions.put("id", param.id);
                 fileOptions.put('jd', mov.point.x);//传递经度参数
                 fileOptions.put('wd', mov.point.y);//传递维度参数
                 fileOptions.put("jyxkz", $('#jyxkz a').html());
                 fileOptions.put("ajhgz", $('#ajhgz a').html());
-                fileOptions.put("jypmt", $("#jypmt a").html());
+                fileOptions.put("cspmt", $("#cspmt a").html());
+                fileOptions.put("gsxkz", $("#gsxkz a").html());
                 fileOptions.sus = function(data) {
                     alertMsg.correct("修改成功了！");
                     $("#close").trigger("click");
@@ -60,9 +62,10 @@
                     var o = new AjaxOptions();
                     o.put("jyxkz", $('#jyxkz a').html());
                     o.put("ajhgz", $('#ajhgz a').html());
-                    o.put("jypmt", $("#jypmt a").html());
+                    o.put("cspmt", $("#jypmt a").html());
+                    o.put("gsxkz", $("#gsxkz a").html());
                     o.put("id", param.id);
-                    o.put("service_code", "P41003");
+                    o.put("service_code", "P41004");
                     o.sus = function() {
                         alertMsg.correct("删除成功了！");
                         getCS(hy, mc, 1);
@@ -76,10 +79,10 @@
         }
     });
     function hidePic() {
-        $('#jyxkz_pic,#ajhgz_pic,#jypmt_pic', $dialog).hide();
+        $('#jyxkz_pic,#ajhgz_pic,#cspmt_pic,#gsxkz_pic', $dialog).hide();
     }
     //需要在页面加载完成时加载文件拖拽div，不同于AjaxOptions对象
-    var fileOptions = new FileOptions($('#pic_jyxkz', $dialog), $('#pic_ajhgz', $dialog), $('#pic_jypmt', $dialog));
+    var fileOptions = new FileOptions($('#pic_jyxkz', $dialog), $('#pic_ajhgz', $dialog), $('#pic_cspmt', $dialog), $('#pic_gsxkz', $dialog));
     fileOptions.readFile = function(id, files) {      //加载文件的回调函数，可在该函数中进行文件格式与大小校验
         for (var i = 0; i < files.length; i++) {
             console.log(files[i].name + '---' + files[i].size);
