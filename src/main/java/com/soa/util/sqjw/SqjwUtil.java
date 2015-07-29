@@ -5,6 +5,7 @@
  */
 package com.soa.util.sqjw;
 
+import com.soa.exception.GlobalException;
 import com.soa.util.SystemUtil;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -76,5 +77,23 @@ public class SqjwUtil {
             return "";
         }
     }
+//
 
+    public boolean deleteFile(String path) {
+        File file = new File(path);
+        // 如果文件路径所对应的文件存在，并且是一个文件，则直接删除  
+        if (path != null) {
+            if (file.exists() && file.isFile()) {
+                if (file.delete()) {
+                    return true;
+                } else {
+                    log.debug("error:", "删除文件出错");
+                    throw new GlobalException(140002);      //删除文件出错了
+                }
+            }
+        } else {
+            return false;
+        }
+        return false;
+    }
 }

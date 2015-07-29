@@ -383,6 +383,18 @@ function LocationPoint(data) {
         pt.bound(1000);
     }
 }
+function detail(data) {
+    $.pdialog.open("page/za/za0001-shopdetail.html", 'shop_detail', "商铺详情",
+            {"width": 580, "height": 560,
+                param: {hy: hy, id: $(data).attr('name')},
+                close: function(param) {
+                    if (param.isFlush) {
+                    }
+                    return true;
+                }
+            });
+
+}
 
 //显示查询结果
 function showList(data) {

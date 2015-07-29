@@ -6,8 +6,8 @@ var ZxGis = {};
 //地图对象全局变量
 var map = null;
 //设置港区的经纬度
-var log = 113.63761128346226;
-var lat = 34.74705107195592;
+var log = 113.84257496754428;
+var lat = 34.530768351088405;
 var currentLog = null;
 var currentLat = null;
 /**
@@ -20,7 +20,7 @@ function init_map() {
     map = new STMapObj("STMap_map");
 
     //根据中心点和级别定位地图,STMapPoint表示具备x/y属性的二维点对象
-    map.locateMap(new STMapPoint(log, lat), 5);
+    map.locateMap(new STMapPoint(log, lat), 2);
     //设置放大缩小控件是否显示,默认显示
     map.setZoomCompVisible(true);
     //设置比例尺控件是否显示,默认显示
@@ -33,7 +33,7 @@ function init_map() {
     }
 }
 function menu(obj, x, y) {
-    var mpoint = map.screen2LonLat(new STMapPoint(x-22, y -81));//将屏幕坐标转换成GPS坐标，适当的调整显示位置
+    var mpoint = map.screen2LonLat(new STMapPoint(x - 22, y - 81));//将屏幕坐标转换成GPS坐标，适当的调整显示位置
     currentLog = mpoint.x;//得到该点点的真实经度
     currentLat = mpoint.y;//得到该点的真实维度
     var point = map.screen2LonLat(new STMapPoint(x + 30, y - 10));//将屏幕坐标转换成GPS坐标，适当的调整右击菜单位置
