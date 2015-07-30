@@ -68,8 +68,8 @@
                     o.put("service_code", "P41004");
                     o.sus = function() {
                         alertMsg.correct("删除成功了！");
+                        $('#close', $dialog).trigger("click");                        
                         getCS(hy, mc, 1);
-                        $('#close', $dialog).trigger("click");
                     };
                     $.ajax(o);
                 }

@@ -10,7 +10,6 @@ function xifenye() {
     for (var i = 1; i <= pages; i++)
     {
         var H = "<li  onclick='fl(" + i + "," + pages + ")'>" + i + "</li>";//添加一共多少页和点击事件
-
         uljia.append(H);
     }
     scrolltop(page);
@@ -26,6 +25,7 @@ function fl(p1, p2) {
 function topclick() {
     var v = document.getElementById("xiye");
     var num = v.innerHTML;
+    $('#xab').hide();
     if (num > 1)
     {
         num--;
@@ -37,6 +37,7 @@ function topclick() {
 }
 function downclick() {
     var pages = parseInt($("#mo").html());//获取当前的总页数
+    $('#xab').hide();
     var v = $("#xiye");
     var num = parseInt(v.html());
     if (num < pages) {

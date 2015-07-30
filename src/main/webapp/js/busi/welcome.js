@@ -348,6 +348,10 @@ function getCS(h, m, page) {
             $('#contentRight').css('display', 'block');
             $('#mo').text(data.page_count);
             showList(data);
+        } else {
+            map.clearAllOverlays();
+            $('#STMap_map').css({width: '100%', overflow: 'hidden'});
+            $('#contentRight').css('display', 'none');
         }
     };
     $.ajax(o);
