@@ -10,7 +10,6 @@ function xifenye() {
     for (var i = 1; i <= pages; i++)
     {
         var H = "<li  onclick='fl(" + i + "," + pages + ")'>" + i + "</li>";//添加一共多少页和点击事件
-
         uljia.append(H);
     }
     scrolltop(page);

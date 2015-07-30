@@ -57,7 +57,7 @@
     //#删除信息服务
     $('#del', $dialog).click(function() {
         if (param.id != null) {
-            alertMsg.confirm("确定要删除该商铺吗？", {"okCall": function() {
+            alertMsg.confirm("确定要删除该场所信息吗？", {"okCall": function() {
                     $("input", $dialog).removeAttr("disabled");
                     var o = new AjaxOptions();
                     o.put("jyxkz", $('#jyxkz a').html());
@@ -68,8 +68,8 @@
                     o.put("service_code", "P41004");
                     o.sus = function() {
                         alertMsg.correct("删除成功了！");
+                        $('#close', $dialog).trigger("click");                        
                         getCS(hy, mc, 1);
-                        $('#close', $dialog).trigger("click");
                     };
                     $.ajax(o);
                 }
