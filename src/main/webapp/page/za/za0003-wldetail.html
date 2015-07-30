@@ -1,5 +1,7 @@
+
 <!--
-To change this template, choose Tools | Templates
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <div class="pageContent">
@@ -52,10 +54,11 @@ and open the template in the editor.
 
             <div class="unit" >
                 <label>工商行政管理部门许可证：</label>
-                <table class="searchContent" >
+                <span name='gsxkz' id='gsxkz'></span>
+                <table class="searchContent" id="gsxkz_pic" >
                     <tr>
                         <td>
-                            <div id="gsxkz" name="gsxkz" style="width: 120px; height: 80px"></div>
+                            <div id="pic_gsxkz" name="pic_gsxkz" style="width: 120px; height: 80px"></div>
                         </td>
                     </tr>
                 </table>
@@ -76,30 +79,33 @@ and open the template in the editor.
             </div>
             <div class="unit">
                 <label>交通运输管理部门许可证：</label>
-                <table class="searchContent" >
+                <span name='ysxkz' id='ysxkz'></span>
+                <table class="searchContent" id="ysxkz_pic" >
                     <tr>
                         <td>
-                            <div  name="ysxkz" id="ysxkz" style="width: 120px; height: 80px"></div>
+                            <div  name="pic_ysxkz" id="pic_ysxkz" style="width: 120px; height: 80px"></div>
                         </td>
                     </tr>
                 </table>
             </div>
             <div class="unit">
                 <label>消防安检合格证：</label>
-                <table class="searchContent" >
+                <span name="ajhgz" id="ajhgz"></span>
+                <table class="searchContent" id="ajhgz_pic">
                     <tr>
                         <td>
-                            <div  name="ajhgz" id="ajhgz" style="width: 120px; height: 80px"></div>
+                            <div  name="pic_ajhgz" id="pic_ajhgz" style="width: 120px; height: 80px"></div>
                         </td>
                     </tr>
                 </table>
             </div>
             <div class="unit">
                 <label>经营平面图：</label>
-                <table class="searchContent" >
+                <span name="jypmt" id="jypmt"></span>
+                <table class="searchContent" id="jypmt_pic">
                     <tr>
                         <td>
-                            <div  name="jypmt" id="jypmt" style="width: 120px; height: 80px"></div>
+                            <div  name="pic_jypmt" id="pic_jypmt" style="width: 120px; height: 80px"></div>
                         </td>
                     </tr>
                 </table>
@@ -125,10 +131,11 @@ and open the template in the editor.
 
             <div class="unit">
                 <label>邮政管理部门的许可证：</label>
-                <table class="searchContent" >
+                <span name="yzxkz" id="yzxkz"></span>
+                <table class="searchContent" id="yzxkz_pic" >
                     <tr>
                         <td>
-                            <div  name="yzxkz" id="yzxkz" style="width: 120px; height: 80px"></div>
+                            <div  name="pic_yzxkz" id="pic_yzxkz" style="width: 120px; height: 80px"></div>
                         </td>
                     </tr>
                 </table>
@@ -175,10 +182,10 @@ and open the template in the editor.
         </div>
         <div class="formBar">
             <ul>
-                <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="add">添加</button></div></div></li>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="modify">修改</button></div></div></li>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="del">删除</button></div></div></li>
                 <li><div class="button"><div class="buttonContent"><button type="button" id="close" class="close">取消</button></div></div></li>
             </ul>
         </div>
     </form>
 </div>
-
