@@ -15,12 +15,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * P41003 删除商铺信息 同时删除服务器中对应的相应文件
+ * P43001 删除物流场所信息
  *
- * @author wgp exception: 删除文件错误 *
+ * @author Administrator
  */
 @Service
-public class DelShopZa extends BaseService {
+public class DelWlZa extends BaseService {
 
     private final String[] KEY = {
         "id", "主码"

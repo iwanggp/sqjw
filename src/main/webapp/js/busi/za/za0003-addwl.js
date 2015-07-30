@@ -11,7 +11,7 @@
     $("#add", $dialog).click(function () {
         if ($("#shop_form", $dialog).valid()) {
             fileOptions.putForm($('#shop_form', $dialog));       //添加表单内容
-            fileOptions.setService('P41001');
+            fileOptions.setService('P43000');
             fileOptions.put('jd', poly.point.x);//传递经度参数
             fileOptions.put('wd', poly.point.y);//传递维度参数
             fileOptions.sus = function (data) {
@@ -27,12 +27,11 @@
 
     });
 //需要在页面加载完成时加载文件拖拽div，不同于AjaxOptions对象
-    var fileOptions = new FileOptions($('#jyxkz', $dialog), $('#ajhgz', $dialog), $('#jypmt', $dialog));
+    var fileOptions = new FileOptions($('#gsxkz', $dialog), $('#ysxkz', $dialog), $('#ajhgz', $dialog), $('#jypmt', $dialog), $('#yzxkz', $dialog));
     fileOptions.readFile = function (id, files) {      //加载文件的回调函数，可在该函数中进行文件格式与大小校验
         for (var i = 0; i < files.length; i++) {
             console.log(files[i].name + '---' + files[i].size);
             if (files[i].size > 5 * 1024 * 1024) {
-
                 alertMsg.error(files[i].name + ' 文件大于是5M');
                 return false;
             } else if (files[i].size == 0) {
@@ -43,3 +42,5 @@
     };
 
 }).call();
+
+

@@ -31,10 +31,12 @@ public class SearchCsZa extends BaseService {
 //            out.put("cs", querydat("",""))
         } else if ("za_sp".equals(hy)) {
             in.putStringValue("sql", "za_select_sp");
+        } else if ("za_wl".equals(hy)) {
+            in.putStringValue("sql", "za_select_wl");
         }
         in.putObjectValue("args", new Object[]{in.getStringValue("mc")});
         in.putIntValue("page", in.getIntValue("page"));
         in.putIntValue("page_size", in.getIntValue("page_size"));
-        runService("S10001", in, inHead, out, outHead);
+        runService("S10001", in, inHead, out, outHead);//调用分页服务
     }
 }

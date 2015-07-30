@@ -19,7 +19,7 @@
         data.csdata.ajhgz = "<a href='" + data.csdata.ajhgz + "'>" + data.csdata.ajhgz + "</a>";
         data.csdata.cspmt = "<a href='" + data.csdata.cspmt + "'>" + data.csdata.cspmt + "</a>";
         data.csdata.gsxkz = "<a href='" + data.csdata.gsxkz + "'>" + data.csdata.gsxkz + "</a>";
-        padBackData(data.csdata, $('#shop_form', $dialog)); //回填商铺信息
+        padBackData(data.csdata, $('#shop_form', $dialog)); //回填娱乐场所信息
     };
     $.ajax(opt);
     //#修改信息服务
@@ -57,7 +57,7 @@
     //#删除信息服务
     $('#del', $dialog).click(function() {
         if (param.id != null) {
-            alertMsg.confirm("确定要删除该场所信息吗？", {"okCall": function() {
+            alertMsg.confirm("确定要删除该娱乐场所吗？", {"okCall": function() {
                     $("input", $dialog).removeAttr("disabled");
                     var o = new AjaxOptions();
                     o.put("jyxkz", $('#jyxkz a').html());
