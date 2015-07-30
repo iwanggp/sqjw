@@ -26,6 +26,7 @@ function fl(p1, p2) {
 function topclick() {
     var v = document.getElementById("xiye");
     var num = v.innerHTML;
+    $('#xab').hide();
     if (num > 1)
     {
         num--;
@@ -37,6 +38,7 @@ function topclick() {
 }
 function downclick() {
     var pages = parseInt($("#mo").html());//获取当前的总页数
+    $('#xab').hide();
     var v = $("#xiye");
     var num = parseInt(v.html());
     if (num < pages) {
