@@ -17,9 +17,9 @@
     opt.put("hy", param.hy);
     opt.put("id", param.id);
     opt.sus = function (data) {
-        data.csdata.jyxkz = "<a href='" + data.csdata.jyxkz + "'>" + data.csdata.jyxkz + "</a>";
-        data.csdata.ajhgz = "<a href='" + data.csdata.ajhgz + "'>" + data.csdata.ajhgz + "</a>";
-        data.csdata.jypmt = "<a href='" + data.csdata.jypmt + "'>" + data.csdata.jypmt + "</a>";
+        data.csdata.jyxkz = "<a href='" + data.csdata.jyxkz + "' target='_blank'>" + data.csdata.jyxkz + "</a>";
+        data.csdata.ajhgz = "<a href='" + data.csdata.ajhgz + "' target='_blank'>" + data.csdata.ajhgz + "</a>";
+        data.csdata.jypmt = "<a href='" + data.csdata.jypmt + "' target='_blank'>" + data.csdata.jypmt + "</a>";
         padBackData(data.csdata, $('#shop_form', $dialog)); //回填商铺信息
     };
     $.ajax(opt);

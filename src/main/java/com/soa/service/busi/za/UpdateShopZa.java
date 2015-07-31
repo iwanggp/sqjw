@@ -55,7 +55,6 @@ public class UpdateShopZa extends BaseService {
             String name = in.getStringValue("pic_jyxkz_name");
             String name1 = in.getStringValue("pic_ajhgz_name");
             String name2 = in.getStringValue("pic_jypmt_name");
-            log.debug(name2 + "[][][[][[[]");
             String file_path = null;
             String file1_path = null;
             String file2_path = null;

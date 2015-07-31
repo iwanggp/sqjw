@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 
 /**
  *
- *
+ * 一个工具类
  */
 @Component
 public class SqjwUtil {
@@ -37,22 +37,27 @@ public class SqjwUtil {
      */
     public String upLoad(byte[] file, String sys_path, String module_name, String fileName) throws IOException {
         String filepath = SystemUtil.getSysConfig(sys_path);
+        String serverRoot = SystemUtil.getSysConfig("za0001_server_root");//服务器的根目录
         FileOutputStream fos = null;
         BufferedOutputStream bos = null;
         String extension = getFileExtension(fileName);
-        String line = File.separator;//通用文件分割符
-        String rel_path = filepath + line + module_name;//得到绝对路径
+        char line = File.separatorChar;//通用文件分割符
+        String _Path = line + serverRoot + line + module_name;
+        String rel_path = filepath + _Path;//得到绝对路径
         File newPath = null;
         newPath = new File(rel_path);
         if (!newPath.exists() && !newPath.isDirectory()) {//创建文件夹，如果不存在则创建
             newPath.mkdirs();
         }
         try {
-            String filePath=rel_path + line + SystemUtil.getSerialNum() + "." + extension;
+            String dbFileName = SystemUtil.getSerialNum() + "." + extension;
+            String dbFilePath = _Path + line + dbFileName;//数据库中要保存的相对路径及文件名
+//            dbFilePath = dbFilePath.replaceAll("\\\\", "/");
+            String filePath = rel_path + line + dbFileName;//绝对路径，就是要写文件的名字
             fos = new FileOutputStream(filePath);//最终的文件带文件名和扩展名
             bos = new BufferedOutputStream(fos);
             bos.write(file);
-            return filePath;
+            return dbFilePath;
         } finally {
             if (bos != null) {//用套节流进行操作时只用关闭外层的流即可
                 try {
@@ -62,6 +67,17 @@ public class SqjwUtil {
                 }
             }
         }
+    }
+
+    /**
+     * 将数据中的相对路径转换成绝对路径
+     *
+     * @param dbPath
+     * @return
+     */
+    public String getRelPath(String dbPath) {
+        String _path = SystemUtil.getSysConfig("za0001_file_path1");
+        return _path + dbPath;
     }
 
     /**
@@ -88,12 +104,13 @@ public class SqjwUtil {
                     return true;
                 } else {
                     log.debug("error:", "删除文件出错");
-                    throw new GlobalException(140002);      //删除文件出错了
+                    return false;
                 }
+            } else {
+                return true;//文件不存在
             }
         } else {
-            return false;
+            return true;
         }
-        return false;
     }
 }

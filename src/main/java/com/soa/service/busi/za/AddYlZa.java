@@ -71,7 +71,6 @@ public class AddYlZa extends BaseService {
                 file3_path = sqjwUtil.upLoad(file3, "za0001_file_path1", "za0001_addyl", name3);
                 in.putStringValue("gsxkz", file3_path.toString());
             }
-
             //in从页面传来过得值
             in.putStringValue("id", SystemUtil.getSerialNum());//数据库的主码
             update("add_yl_za", in);

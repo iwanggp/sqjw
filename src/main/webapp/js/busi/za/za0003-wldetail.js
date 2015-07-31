@@ -5,6 +5,7 @@
  */
 (function () {
     var f = false; //定义一个开关变量
+
     hidePic();
     var poly = map.getOverlayById("gang");//获得小红点的经纬度，这是一个对象，通过this.point获得点坐标
     var $dialog = $.pdialog.getCurrent();
@@ -16,14 +17,15 @@
     opt.put("id", param.id);
 
     opt.sus = function (data) {
-        data.csdata.ajhgz = "<a href='" + data.csdata.ajhgz + "'>" + data.csdata.ajhgz + "</a>";
-        data.csdata.ysxkz = "<a href='" + data.csdata.ysxkz + "'>" + data.csdata.ysxkz + "</a>";
-        data.csdata.gsxkz = "<a href='" + data.csdata.gsxkz + "'>" + data.csdata.gsxkz + "</a>";
-        data.csdata.jypmt = "<a href='" + data.csdata.jypmt + "'>" + data.csdata.jypmt + "</a>";
-        data.csdata.yzxkz = "<a href='" + data.csdata.yzxkz + "'>" + data.csdata.yzxkz + "</a>";
+        data.csdata.ajhgz = "<a href='" + data.csdata.ajhgz + "' target='_blank'>" + data.csdata.ajhgz + "</a>";
+        data.csdata.ysxkz = "<a href='" + data.csdata.ysxkz + "' target='_blank'>" + data.csdata.ysxkz + "</a>";
+        data.csdata.gsxkz = "<a href='" + data.csdata.gsxkz + "' target='_blank'>" + data.csdata.gsxkz + "</a>";
+        data.csdata.jypmt = "<a href='" + data.csdata.jypmt + "' target='_blank'>" + data.csdata.jypmt + "</a>";
+        data.csdata.yzxkz = "<a href='" + data.csdata.yzxkz + "' target='_blank'>" + data.csdata.yzxkz + "</a>";
         padBackData(data.csdata, $('#shop_form', $dialog)); //回填物流信息
     };
     $.ajax(opt);
+
     //#修改信息服务
     $('#modify', $dialog).click(function () {
         var btns = new Array();
@@ -53,8 +55,10 @@
                 fileOptions.put("ysxkz", $("#ysxkz a").html());
                 fileOptions.put("yzxkz", $("#yzxkz a").html());
                 fileOptions.sus = function (data) {
+                    hidePic();
                     alertMsg.correct("修改成功了！");
-                    $("#close").trigger("click");
+//                      hidePic();
+//                    $("#close").trigger("click");
                     getCS(hy, mc, 1);
                 };
                 fileOptions.after = function (c, d) {
