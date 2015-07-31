@@ -27,7 +27,7 @@ function init_map() {
     map.setScaleCompVisible(true);
     map.setCenter(new STMapPoint(log, lat));//设置地图的中心位置
     map.addEventListner("rightclick", menu);
-    document.oncontextmenu = function ()
+    document.oncontextmenu = function()
     {
         return false;//屏蔽默认的鼠标右键事件
     }
@@ -57,7 +57,11 @@ function treemenu() {
     poly.setMoveable(true);
     map.addOverlay(poly, true);
     map.pan(-150, 0);//将地图移动N个像素距离,x右为正，左为负。y下为正，上为负。
-    $.pdialog.open("page/menutree.html", 'add_role_pl', "添加信息", {"width": 230, "height": 260});//打开树形菜单
+    $.pdialog.open("page/tree/addtree.html", 'add_role_pl', "添加信息", {"width": 230, "height": 260});//打开树形菜单
+}
+function searchTree() {
+    map.deleteOverlayById("menu");
+    $.pdialog.open("page/tree/searchtree.html", 'searchtree', "查询信息", {"width": 230, "height": 260});//打开树形菜单
 }
 function closeMenu() {
     map.deleteOverlayById("menu");//关闭右击菜单

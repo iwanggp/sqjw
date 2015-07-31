@@ -52,7 +52,7 @@ and open the template in the editor.
                     <a class="logo" href="#this">标志</a>
                     <!--<div id="header-title"></div>-->
                     <ul class="nav">
-                        <li><a href="page/search_map.html" target="dialog" rel="search_map">搜索</a></li>
+                        <!--<li><a href="page/search_map.html" target="dialog" rel="search_map">搜索</a></li>-->
                         <li><a href="#this">欢迎使用：<span id="login-user"></span></a></li>
                         <li><a href="page/update_psw.html" target="dialog" rel="update_psw">修改密码</a></li>
                         <li><a href="#this" id="welcome_logout">退出</a></li>
@@ -131,7 +131,12 @@ and open the template in the editor.
     <li ><a class="add" id="addinfo" onclick="treemenu()"><span >添加信息</span></a></li>
     </ul>
     </div>
-<div class="panelBar" style="height: 25px;width: 100px;">
+    <div class="panelBar" style="height: 25px;width: 100px;">
+    <ul class="toolBar">
+    <li ><a class="add" id="search" onclick="searchTree()"><span >查询信息</span></a></li>
+    </ul>
+    </div>
+    <div class="panelBar" style="height: 25px;width: 100px;">
     <ul class="toolBar">
     <li><a id="close" onclick="closeMenu()"><span >取消</span></a></li>
     </ul>

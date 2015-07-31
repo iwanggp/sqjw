@@ -28,7 +28,6 @@ public class SearchCsZa extends BaseService {
         String hy = in.getStringValue("hy");
         if ("za_yl".equals(hy)) {
             in.putStringValue("sql", "za_select_yl");
-//            out.put("cs", querydat("",""))
         } else if ("za_sp".equals(hy)) {
             in.putStringValue("sql", "za_select_sp");
         } else if ("za_wl".equals(hy)) {

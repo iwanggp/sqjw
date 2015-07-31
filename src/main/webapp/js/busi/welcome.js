@@ -7,7 +7,7 @@ var words = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N
 $.ajax({
     url: ajaxUrl,
     data: 'service_code=S11002&_type=ajax', //获取用户权限
-    success: function (data) {
+    success: function(data) {
         try {
             returnData = eval('(' + data + ')');       //把字符串转为json
         } catch (e) {
@@ -29,7 +29,7 @@ $.ajax({
             cMenu(returnData, 1);       //创建菜单
         }
     },
-    error: function (request, status, error) {
+    error: function(request, status, error) {
         switch (status) {
             case "timeout":
                 console.error("请求超时，请稍候检查操作是否成功！");
@@ -77,7 +77,7 @@ $.ajax({
             this.after(request.status, error_msg);
         }
     },
-    complete: function (request, status) {
+    complete: function(request, status) {
         if (returnData.head.response_code == "000000") {
             console.debug("开始执行initDWZ()");
             initDWZ();
@@ -108,10 +108,10 @@ function cMenu(data, level) {
 //                                alert("根权限："+data.m_id)
 //根权限
         var rootNodes = data.menus
-        $(rootNodes).each(function (i, n) {
+        $(rootNodes).each(function(i, n) {
             rootDom(n);
             //递归
-            $(n.chidren).each(function (i, n) {
+            $(n.chidren).each(function(i, n) {
                 var levelC = level + 1;
                 cMenu(n, levelC)
             });
@@ -121,7 +121,7 @@ function cMenu(data, level) {
         if (data.m_type == 1) {
             cTreeDom(data);
             //递归
-            $(data.chidren).each(function (i, n) {
+            $(data.chidren).each(function(i, n) {
                 var levelC = level + 1;
                 cMenu(n, levelC)
             });
@@ -139,12 +139,12 @@ function initDWZ() {
         statusCode: {ok: 200, error: 300, timeout: 301}, //【可选】
         pageInfo: {pageNum: "pageNum", numPerPage: "numPerPage", orderField: "orderField", orderDirection: "orderDirection"}, //【可选】
         debug: true, // 调试模式 【true|false】
-        callback: function () {
+        callback: function() {
             initEnv();
             $("#themeList").theme({themeBase: "themes"}); // themeBase 相对于index页面的主题base路径
 
             //为hphm加载一个keydown事件，自动把字母转大写
-            $('#hphm').live('keypress ', function (e) {
+            $('#hphm').live('keypress ', function(e) {
                 console.log(e.keyCode);
                 if (e.keyCode >= 97 && e.keyCode <= 122) {
 //a~z 触发
@@ -152,10 +152,10 @@ function initDWZ() {
                     e.preventDefault();
                 }
             });
-            $("#welcome_logout").click(function () {
+            $("#welcome_logout").click(function() {
                 var o = new AjaxOptions();
                 o.put("service_code", "S11001"); //用户注销
-                o.after = function () {
+                o.after = function() {
                     localStorage.removeItem('sqjw_user');
                     localStorage.removeItem('sqjw_pwd');
                     location.href = "index.html";
@@ -165,11 +165,11 @@ function initDWZ() {
             var o = new AjaxOptions();
             o.put("service_code", "S10002"); //获取系统参数
             o.isPadBack = false;
-            o.beforeSend = function () {
+            o.beforeSend = function() {
                 this.data = this.data + "&_type=ajax";
                 return true;
             };
-            o.sus = function (data) {
+            o.sus = function(data) {
                 var list = data.st_para;
                 for (var i = 0; i < list.length; i++) {
                     var key = list[i].table_name + "." + list[i].col_name;
@@ -190,7 +190,7 @@ function initDWZ() {
     });
 }
 
-var createMenu = function (menus, menuTag) {
+var createMenu = function(menus, menuTag) {
     if (!menus)
         return; //为空时，退出
     var m, a, li, ul;
@@ -271,13 +271,13 @@ function createBusiMenu(menus, menuTag) {
 
 //每次查询之后，存储单元格各个宽度，兼容过滤
 function cacheWidths(panel, page_widths) {
-    $.each($($("#xy_list-grid tbody tr", panel).eq(0)).find("td"), function (i, n) {
+    $.each($($("#xy_list-grid tbody tr", panel).eq(0)).find("td"), function(i, n) {
         page_widths[i] = $(n).css("width");
     });
 }
 //重绘，每次过滤完，重新设置首行不隐藏的宽度
 function reSetWidths(panel, page_widths) {
-    $.each($($("#xy_list-grid tbody tr:visible", panel).eq(0)).find("td"), function (i, n) {
+    $.each($($("#xy_list-grid tbody tr:visible", panel).eq(0)).find("td"), function(i, n) {
         $(n).css("width", page_widths[i]);
     });
 }
@@ -290,18 +290,18 @@ var UnloadConfirm = {}; //窗口关闭事件
  * @param {type} fun 点击确定的回调函数
  * @returns {undefined}
  */
-UnloadConfirm.set = function (msg, fun) {
-    window.onbeforeunload = function (e) {
+UnloadConfirm.set = function(msg, fun) {
+    window.onbeforeunload = function(e) {
         e = e || window.event;
         e.returnValue = msg;
         return msg
     };
     $(window).unbind('unload').unload(fun);
 };
-UnloadConfirm.clear = function () {
-    window.onbeforeunload = function () {
+UnloadConfirm.clear = function() {
+    window.onbeforeunload = function() {
     };
-    window.onunload = function () {
+    window.onunload = function() {
     };
 //    fckDraft.delDraftById();
 };
@@ -319,7 +319,7 @@ function getSession() {
 
 //高亮显示坐标点
 function clickLi(data) {
-    $(data).siblings().each(function () {
+    $(data).siblings().each(function() {
         var one = map.getOverlayById($(this).attr('name'));
         one.size = new STMapSize(30, 30);
         one.refresh();
@@ -340,7 +340,7 @@ function getCS(h, m, page) {
     o.put("hy", hy);
     o.put("page_size", 10);
     o.put("page", page);
-    o.sus = function (data) {
+    o.sus = function(data) {
         if (data.result.length > 0) {
             $.pdialog.closeCurrent();
             LocationPoint(data);
@@ -387,6 +387,43 @@ function LocationPoint(data) {
         pt.bound(1000);
     }
 }
+function LocationPointJfss(data) {
+    //先清除之前的搜索结果
+    map.clearAllOverlays();
+    for (var i = 0; i < data.jfss.length; i++) {
+        var img = '';
+        if (data.jfss[i].sx == "dl") {
+            img = 'images/wl.png';
+        } else if (data.jfss[i].sx == "jg") {
+            img = 'images/yl.png';
+        } else if (data.jfss[i].sx == "jzw") {
+            img = 'images/shop.png';
+        }
+        var pt = new STMapMarker();
+        //设置对象的唯一id，id要唯一，如果存在重复id，后添加的覆盖已经存在的对象
+        pt.id = data.jfss[i].id;
+        pt.point = new STMapPoint(data.jfss[i].jd, data.jfss[i].wd);
+        //设置对象的图片URL
+        pt.img = img;
+        /*******以下为可选对象属性*******/
+        //鼠标提示文字
+        pt.label = data.jfss[i].azdm;
+        //设置对象尺寸,默认为图片本身尺寸
+        pt.size = new STMapSize(30, 30); // 尺寸对象原型：STMapSize(长度,高度);
+        //设置对象定位的锚点位置（相对于图片矩形）;取值范围：BC（下边中心点），BL（左下角），BR（右下角），TL（左上角），TC（上边中心点），TR（右上角），ML（左边中心点），MR（右边中心点），CENTER（图片中心点）
+        pt.anchor = "CENTER";
+        //设置是否点击显示信息窗口，默认为true。
+        pt.infowin = false;
+        //设置属性框的标题
+        pt.title = "";
+        //设置属性框的内容
+        pt.content = ""
+        //将该对象添加到地图上
+        //参数pt为marker对象，参数true表示是否自动调整视野，如果为true，则地图自动定位到该位置
+        map.addOverlay(pt, true);
+        pt.bound(1000);
+    }
+}
 function detail(data) {
     var url = '';
     if ("za_yl" == hy) {
@@ -399,7 +436,7 @@ function detail(data) {
     $.pdialog.open(url, 'detail', "详情",
             {"width": 580, "height": 560,
                 param: {hy: hy, id: $(data).attr('name')},
-                close: function (param) {
+                close: function(param) {
                     map.getOverlayById($(data).attr('name')).moveable = false;//是否可以拖动
                     return true;
                 }
