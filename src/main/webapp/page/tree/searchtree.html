@@ -1,0 +1,16 @@
+
+<div style="float:left; display:block; margin:10px; overflow:auto; width:200px; height:200px; border:solid 1px #CCC; line-height:21px; background:#FFF;">
+    <p>选择种类添加</p>
+    <ul class="tree treeFolder collapse">
+        <li><a href="#">治安管理</a>
+            <ul>
+                <li><a href="#">特种行业</a>
+                    <!-- 通过复制上面的li节点可以创建父菜单，可以指定他的href-->
+                    <ul id="csList">
+                        <!-- 创建子菜单，其中rel为标识弹出层id为可选项，target必须指定为dialog方能显示为对话框,title为对话框的标题，width，height为宽和高-->
+                        <li  rel="1" id="csSearch" ><a href="page/za/search_cs.html" target="dialog" mask=true title="场所查询" width="580" height="260">场所查询</a></li>
+                    </ul>
+                    <li  rel="1" id="addjfss" ><a href="page/za/za0004-searchjfss.html" target="dialog" mask=true title="查询技防设施" width="580" height="260">查询技防设施</a></li>
+            </ul>
+    </ul>
+</div>
