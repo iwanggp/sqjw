@@ -21,4 +21,7 @@
             getJfss($('#sblx').val(), str, 1);
         }
     });
+    $('span.sxd',$dialog).click(function(){
+        $(this).prev().attr("checked",!$(this).prev().is(':checked'));
+    })
 }).call();
