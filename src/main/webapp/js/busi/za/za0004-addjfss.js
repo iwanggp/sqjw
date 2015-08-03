@@ -22,7 +22,7 @@
             o.sus = function(data) {
                 alertMsg.correct('添加成功');
                 $('#close', $dialog).trigger('click');
-                getJfss(sblx, sx);
+                getJfss(sblx, sx, 1);
             };
             $.ajax(o);
         }

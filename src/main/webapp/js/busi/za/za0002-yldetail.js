@@ -26,6 +26,9 @@
     //#修改信息服务
     $('#modify', $dialog).click(function () {
         var mov = map.getOverlayById(param.id);
+        var d=map.lonlat2Screen(new STMapPoint(mov.point.x,mov.point.y));
+        var m = map.screen2LonLat(new STMapPoint(d.x+22, d.y+81));
+        mov.point=new STMapPoint(m.x, m.y);
         mov.moveable = true;//是否可以拖动
         if (f = !f) {
             $("input").removeAttr("disabled");
