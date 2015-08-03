@@ -9,7 +9,6 @@
     var $dialog = $.pdialog.getCurrent();
     var param = $dialog.data('param');      //父窗口传递的参数
     var poly = map.getOverlayById("gang");//获得标注点的经纬度，这是一个对象，通过this.point获得点坐标
-
     initServiceParaSelect('za_jfss.yxzt', $('#yxzt', $dialog));
     initServiceParaSelect('za_jfss.sblb', $('#sblb', $dialog));
     initServiceParaSelect('za_jfss.sblx', $('#sblx', $dialog));

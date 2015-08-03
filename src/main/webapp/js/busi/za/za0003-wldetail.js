@@ -17,11 +17,11 @@
     opt.put("id", param.id);
 
     opt.sus = function (data) {
-        data.csdata.ajhgz = "<a href='" + data.csdata.ajhgz + "' target='_blank'>" + data.csdata.ajhgz + "</a>";
-        data.csdata.ysxkz = "<a href='" + data.csdata.ysxkz + "' target='_blank'>" + data.csdata.ysxkz + "</a>";
-        data.csdata.gsxkz = "<a href='" + data.csdata.gsxkz + "' target='_blank'>" + data.csdata.gsxkz + "</a>";
-        data.csdata.jypmt = "<a href='" + data.csdata.jypmt + "' target='_blank'>" + data.csdata.jypmt + "</a>";
-        data.csdata.yzxkz = "<a href='" + data.csdata.yzxkz + "' target='_blank'>" + data.csdata.yzxkz + "</a>";
+        data.csdata.ajhgz = "<a href='" + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
+        data.csdata.ysxkz = "<a href='" + data.csdata.ysxkz + "' target='_blank'>" + "查看运输合格证" + "</a>";
+        data.csdata.gsxkz = "<a href='" + data.csdata.gsxkz + "' target='_blank'>" + "查看工商许可证" + "</a>";
+        data.csdata.jypmt = "<a href='" + data.csdata.jypmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
+        data.csdata.yzxkz = "<a href='" + data.csdata.yzxkz + "' target='_blank'>" + "查看邮政许可证" + "</a>";
         padBackData(data.csdata, $('#shop_form', $dialog)); //回填物流信息
     };
     $.ajax(opt);
@@ -49,11 +49,11 @@
                 fileOptions.put("id", param.id);
                 fileOptions.put('jd', mov.point.x);//传递经度参数
                 fileOptions.put('wd', mov.point.y);//传递维度参数
-                fileOptions.put("gsxkz", $('#gsxkz a').html());
-                fileOptions.put("ajhgz", $('#ajhgz a').html());
-                fileOptions.put("jypmt", $("#jypmt a").html());
-                fileOptions.put("ysxkz", $("#ysxkz a").html());
-                fileOptions.put("yzxkz", $("#yzxkz a").html());
+                fileOptions.put("gsxkz", $('#gsxkz a').attr("href"));
+                fileOptions.put("ajhgz", $('#ajhgz a').attr("href"));
+                fileOptions.put("jypmt", $("#jypmt a").attr("href"));
+                fileOptions.put("ysxkz", $("#ysxkz a").attr("href"));
+                fileOptions.put("yzxkz", $("#yzxkz a").attr("href"));
                 fileOptions.sus = function (data) {
                     hidePic();
                     alertMsg.correct("修改成功了！");

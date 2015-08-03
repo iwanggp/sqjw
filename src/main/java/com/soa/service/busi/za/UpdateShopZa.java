@@ -50,7 +50,8 @@ public class UpdateShopZa extends BaseService {
         byte[] file1 = (byte[]) in.getObjectValue("pic_ajhgz");
         byte[] file2 = (byte[]) in.getObjectValue("pic_jypmt");
         final String modul_name = "ZASHOP";
-        String paths[] = {in.getStringValue("jypmt"), in.getStringValue("ajhgz"), in.getStringValue("jyxkz")};
+        log.debug(in.getStringValue("jyxkz")+"][][[[][][[[------->>>>>");
+//        String paths[] = {in.getStringValue("jypmt"), in.getStringValue("ajhgz"), in.getStringValue("jyxkz")};
         try {
             String name = in.getStringValue("pic_jyxkz_name");
             String name1 = in.getStringValue("pic_ajhgz_name");
@@ -60,19 +61,19 @@ public class UpdateShopZa extends BaseService {
             String file2_path = null;
             if (name != null) {
                 file_path = sqjwUtil.upLoad(file, "za0001_file_path1", modul_name, name);
-                if (sqjwUtil.deleteFile(in.getStringValue("jyxkz"))) {//删除以前的文件
+                if (sqjwUtil.deleteFile(sqjwUtil.getRelPath(in.getStringValue("jyxkz")))) {//删除以前的文件
                     in.putStringValue("jyxkz", file_path.toString());//数据库中保存的路径
                 }
             }
             if (name1 != null) {
                 file1_path = sqjwUtil.upLoad(file1, "za0001_file_path1", modul_name, name1);
-                if (sqjwUtil.deleteFile(in.getStringValue("ajhgz"))) {//删除以前的文件
+                if (sqjwUtil.deleteFile(sqjwUtil.getRelPath(in.getStringValue("ajhgz")))) {//删除以前的文件
                     in.putStringValue("ajhgz", file1_path.toString());
                 }
             }
             if (name2 != null) {
                 file2_path = sqjwUtil.upLoad(file2, "za0001_file_path1", modul_name, name2);
-                if (sqjwUtil.deleteFile(in.getStringValue("jypmt"))) {//删除以前的文件
+                if (sqjwUtil.deleteFile(sqjwUtil.getRelPath(in.getStringValue("jypmt")))) {//删除以前的文件
                     in.putStringValue("jypmt", file2_path.toString());
                 }
             }

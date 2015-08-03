@@ -15,10 +15,10 @@
     opt.put("hy", param.hy);
     opt.put("id", param.id);
     opt.sus = function (data) {
-        data.csdata.jyxkz = "<a href='" + data.csdata.jyxkz + "' target='_blank'>" + data.csdata.jyxkz + "</a>";
-        data.csdata.ajhgz = "<a href='" + data.csdata.ajhgz + "' target='_blank'>" + data.csdata.ajhgz + "</a>";
-        data.csdata.cspmt = "<a href='" + data.csdata.cspmt + "' target='_blank'>" + data.csdata.cspmt + "</a>";
-        data.csdata.gsxkz = "<a href='" + data.csdata.gsxkz + "' target='_blank'>" + data.csdata.gsxkz + "</a>";
+        data.csdata.jyxkz = "<a href='" + data.csdata.jyxkz + "' target='_blank'>" + "查看经营许可证" + "</a>";
+        data.csdata.ajhgz = "<a href='" + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
+        data.csdata.cspmt = "<a href='" + data.csdata.cspmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
+        data.csdata.gsxkz = "<a href='" + data.csdata.gsxkz + "' target='_blank'>" + "查看工商许可证" + "</a>";
 
         padBackData(data.csdata, $('#shop_form', $dialog)); //回填娱乐场所信息
     };
@@ -39,10 +39,10 @@
                 fileOptions.put("id", param.id);
                 fileOptions.put('jd', mov.point.x);//传递经度参数
                 fileOptions.put('wd', mov.point.y);//传递维度参数
-                fileOptions.put("jyxkz", $('#jyxkz a').html());
-                fileOptions.put("ajhgz", $('#ajhgz a').html());
-                fileOptions.put("cspmt", $("#cspmt a").html());
-                fileOptions.put("gsxkz", $("#gsxkz a").html());
+                fileOptions.put("jyxkz", $('#jyxkz a').attr("href"));
+                fileOptions.put("ajhgz", $('#ajhgz a').attr("href"));
+                fileOptions.put("cspmt", $("#cspmt a").attr("href"));
+                fileOptions.put("gsxkz", $("#gsxkz a").attr("href"));
                 fileOptions.sus = function (data) {
                     alertMsg.correct("修改成功了！");
                     $("#close").trigger("click");

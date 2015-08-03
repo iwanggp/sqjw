@@ -17,9 +17,9 @@
     opt.put("hy", param.hy);
     opt.put("id", param.id);
     opt.sus = function (data) {
-        data.csdata.jyxkz = "<a href='" + data.csdata.jyxkz + "' target='_blank'>" + data.csdata.jyxkz + "</a>";
-        data.csdata.ajhgz = "<a href='" + data.csdata.ajhgz + "' target='_blank'>" + data.csdata.ajhgz + "</a>";
-        data.csdata.jypmt = "<a href='" + data.csdata.jypmt + "' target='_blank'>" + data.csdata.jypmt + "</a>";
+        data.csdata.jyxkz = "<a href='" + data.csdata.jyxkz + "' target='_blank'>" + "查看经营许可证" + "</a>";
+        data.csdata.ajhgz = "<a href='" + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
+        data.csdata.jypmt = "<a href='" + data.csdata.jypmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
         padBackData(data.csdata, $('#shop_form', $dialog)); //回填商铺信息
     };
     $.ajax(opt);
@@ -46,12 +46,12 @@
                 fileOptions.put("id", param.id);
                 fileOptions.put('jd', mov.point.x);//传递经度参数
                 fileOptions.put('wd', mov.point.y);//传递维度参数
-                fileOptions.put("jyxkz", $('#jyxkz a').html());
-                fileOptions.put("ajhgz", $('#ajhgz a').html());
-                fileOptions.put("jypmt", $("#jypmt a").html());
+                fileOptions.put("jyxkz", $('#jyxkz a').attr("href"));
+                fileOptions.put("ajhgz", $('#ajhgz a').attr("href"));
+                fileOptions.put("jypmt", $("#jypmt a").attr("href"));
                 fileOptions.sus = function (data) {
                     alertMsg.correct("修改成功了！");
-                    $("#close").trigger("click");
+                    $("#close",$dialog).trigger("click");
                     getCS(hy, mc, 1);
                 };
                 fileOptions.after = function (c, d) {

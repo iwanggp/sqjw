@@ -326,7 +326,6 @@ function clickLi(data) {
     });
     var two = map.getOverlayById($(data).attr('name'));
     two.size = new STMapSize(40, 40);
-    //two.refresh();
     map.addOverlay(two, true);
 }
 //获取场所列表
