@@ -53,8 +53,6 @@ public class UpdateWlZa extends BaseService {
         byte[] file3 = (byte[]) in.getObjectValue("pic_jypmt");
         byte[] file4 = (byte[]) in.getObjectValue("pic_yzxkz");
         final String modul_name = "ZAWL";
-//        String paths[] = {in.getStringValue("gsxkz"), in.getStringValue("ysxkz"), in.getStringValue("jyxkz")};
-
         try {
             String name = in.getStringValue("pic_gsxkz_name");
             String name1 = in.getStringValue("pic_ysxkz_name");
@@ -68,31 +66,31 @@ public class UpdateWlZa extends BaseService {
             String file4_path = null;
             if (name != null) {
                 file_path = sqjwUtil.upLoad(file, "za0001_file_path1", modul_name, name);
-                if (sqjwUtil.deleteFile(in.getStringValue("gsxkz"))) {//删除以前的文件
+                if (sqjwUtil.deleteFile(sqjwUtil.getRelPath(in.getStringValue("gsxkz")))) {//删除以前的文件
                     in.putStringValue("gsxkz", file_path.toString());//数据库中保存的路径
                 }
             }
             if (name1 != null) {
                 file1_path = sqjwUtil.upLoad(file1, "za0001_file_path1", modul_name, name1);
-                if (sqjwUtil.deleteFile(in.getStringValue("ysxkz"))) {//删除以前的文件
+                if (sqjwUtil.deleteFile(sqjwUtil.getRelPath(in.getStringValue("ysxkz")))) {//删除以前的文件
                     in.putStringValue("ysxkz", file1_path.toString());
                 }
             }
             if (name2 != null) {
                 file2_path = sqjwUtil.upLoad(file2, "za0001_file_path1", modul_name, name2);
-                if (sqjwUtil.deleteFile(in.getStringValue("ajhgz"))) {//删除以前的文件
+                if (sqjwUtil.deleteFile(sqjwUtil.getRelPath(in.getStringValue("ajhgz")))) {//删除以前的文件
                     in.putStringValue("ajhgz", file2_path.toString());
                 }
             }
             if (name3 != null) {
                 file3_path = sqjwUtil.upLoad(file3, "za0001_file_path1", modul_name, name3);
-                if (sqjwUtil.deleteFile(in.getStringValue("jypmt"))) {//删除以前的文件
+                if (sqjwUtil.deleteFile(sqjwUtil.getRelPath(in.getStringValue("jypmt")))) {//删除以前的文件
                     in.putStringValue("jypmt", file3_path.toString());
                 }
             }
             if (name4 != null) {
                 file4_path = sqjwUtil.upLoad(file4, "za0001_file_path1", modul_name, name4);
-                if (sqjwUtil.deleteFile(in.getStringValue("yzxkz"))) {//删除以前的文件
+                if (sqjwUtil.deleteFile(sqjwUtil.getRelPath(in.getStringValue("yzxkz")))) {//删除以前的文件
                     in.putStringValue("yzxkz", file4_path.toString());
                 }
             }

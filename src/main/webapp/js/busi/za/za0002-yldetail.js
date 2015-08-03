@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-(function() {
+(function () {
     var f = false; //定义一个开关变量
     hidePic();
     var poly = map.getOverlayById("gang");//获得小红点的经纬度，这是一个对象，通过this.point获得点坐标
@@ -14,16 +14,17 @@
     opt.put("service_code", "S40002");
     opt.put("hy", param.hy);
     opt.put("id", param.id);
-    opt.sus = function(data) {
-        data.csdata.jyxkz = "<a href='" + data.csdata.jyxkz + "'>" + data.csdata.jyxkz + "</a>";
-        data.csdata.ajhgz = "<a href='" + data.csdata.ajhgz + "'>" + data.csdata.ajhgz + "</a>";
-        data.csdata.cspmt = "<a href='" + data.csdata.cspmt + "'>" + data.csdata.cspmt + "</a>";
-        data.csdata.gsxkz = "<a href='" + data.csdata.gsxkz + "'>" + data.csdata.gsxkz + "</a>";
+    opt.sus = function (data) {
+        data.csdata.jyxkz = "<a href='" + data.csdata.jyxkz + "' target='_blank'>" + "查看经营许可证" + "</a>";
+        data.csdata.ajhgz = "<a href='" + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
+        data.csdata.cspmt = "<a href='" + data.csdata.cspmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
+        data.csdata.gsxkz = "<a href='" + data.csdata.gsxkz + "' target='_blank'>" + "查看工商许可证" + "</a>";
+
         padBackData(data.csdata, $('#shop_form', $dialog)); //回填娱乐场所信息
     };
     $.ajax(opt);
     //#修改信息服务
-    $('#modify', $dialog).click(function() {
+    $('#modify', $dialog).click(function () {
         var mov = map.getOverlayById(param.id);
         mov.moveable = true;//是否可以拖动
         if (f = !f) {
@@ -44,16 +45,16 @@
                 fileOptions.put("id", param.id);
                 fileOptions.put('jd', mov.point.x);//传递经度参数
                 fileOptions.put('wd', mov.point.y);//传递维度参数
-                fileOptions.put("jyxkz", $('#jyxkz a').html());
-                fileOptions.put("ajhgz", $('#ajhgz a').html());
-                fileOptions.put("cspmt", $("#cspmt a").html());
-                fileOptions.put("gsxkz", $("#gsxkz a").html());
-                fileOptions.sus = function(data) {
+                fileOptions.put("jyxkz", $('#jyxkz a').attr("href"));
+                fileOptions.put("ajhgz", $('#ajhgz a').attr("href"));
+                fileOptions.put("cspmt", $("#cspmt a").attr("href"));
+                fileOptions.put("gsxkz", $("#gsxkz a").attr("href"));
+                fileOptions.sus = function (data) {
                     alertMsg.correct("修改成功了！");
                     $("#close").trigger("click");
                     getCS(hy, mc, 1);
                 };
-                fileOptions.after = function(c, d) {
+                fileOptions.after = function (c, d) {
                     console.log(c);
                 };
                 fileOptions.send();
@@ -61,9 +62,9 @@
         }
     });
     //#删除信息服务
-    $('#del', $dialog).click(function() {
+    $('#del', $dialog).click(function () {
         if (param.id != null) {
-            alertMsg.confirm("确定要删除该娱乐场所吗？", {"okCall": function() {
+            alertMsg.confirm("确定要删除该娱乐场所吗？", {"okCall": function () {
                     $("input", $dialog).removeAttr("disabled");
                     var o = new AjaxOptions();
                     o.put("jyxkz", $('#jyxkz a').html());
@@ -72,9 +73,9 @@
                     o.put("gsxkz", $("#gsxkz a").html());
                     o.put("id", param.id);
                     o.put("service_code", "P41004");
-                    o.sus = function() {
+                    o.sus = function () {
                         alertMsg.correct("删除成功了！");
-                        $('#close', $dialog).trigger("click");                        
+                        $('#close', $dialog).trigger("click");
                         getCS(hy, mc, 1);
                     };
                     $.ajax(o);
@@ -89,7 +90,7 @@
     }
     //需要在页面加载完成时加载文件拖拽div，不同于AjaxOptions对象
     var fileOptions = new FileOptions($('#pic_jyxkz', $dialog), $('#pic_ajhgz', $dialog), $('#pic_cspmt', $dialog), $('#pic_gsxkz', $dialog));
-    fileOptions.readFile = function(id, files) {      //加载文件的回调函数，可在该函数中进行文件格式与大小校验
+    fileOptions.readFile = function (id, files) {      //加载文件的回调函数，可在该函数中进行文件格式与大小校验
         for (var i = 0; i < files.length; i++) {
             console.log(files[i].name + '---' + files[i].size);
             if (files[i].size > 5 * 1024 * 1024) {

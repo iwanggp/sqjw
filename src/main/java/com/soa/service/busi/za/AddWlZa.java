@@ -33,7 +33,7 @@ public class AddWlZa extends BaseService {
         "jd", "经度",
         "wd", "维度"
     };
-    private final Logger log = LoggerFactory.getLogger(AddShopZa.class);
+    private final Logger log = LoggerFactory.getLogger(AddWlZa.class);
 
     @Resource
     private SqjwUtil sqjwUtil;
@@ -46,7 +46,6 @@ public class AddWlZa extends BaseService {
     @Override
     @Transactional
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
-//          $('#gsxkz_pic, #ysxkz_pic,#ajhgz_pic,#jypmt_pic,#yzxkz_pic', $dialog).show();
         byte[] file = (byte[]) in.getObjectValue("gsxkz");
         byte[] file1 = (byte[]) in.getObjectValue("ysxkz");
         byte[] file2 = (byte[]) in.getObjectValue("ajhgz");

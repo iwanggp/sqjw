@@ -59,26 +59,26 @@ public class UpdateYlZa extends BaseService {
             String file2_path = null;
             String file3_path = null;
             if (name != null) {
-                file_path = sqjwUtil.upLoad(file, "za0001_file_path1", "ZZA", name);
-                if (sqjwUtil.deleteFile(in.getStringValue("jyxkz"))) {//删除以前的文件
+                file_path = sqjwUtil.upLoad(file, "za0001_file_path1", "za0001_addyl", name);
+                if (sqjwUtil.deleteFile(sqjwUtil.getRelPath(in.getStringValue("jyxkz")))) {//删除以前的文件
                     in.putStringValue("jyxkz", file_path.toString());//数据库中保存的路径
                 }
             }
             if (name1 != null) {
-                file1_path = sqjwUtil.upLoad(file1, "za0001_file_path1", "ZZA", name1);
-                if (sqjwUtil.deleteFile(in.getStringValue("ajhgz"))) {//删除以前的文件
+                file1_path = sqjwUtil.upLoad(file1, "za0001_file_path1", "za0001_addyl", name1);
+                if (sqjwUtil.deleteFile(sqjwUtil.getRelPath(in.getStringValue("ajhgz")))) {//删除以前的文件
                     in.putStringValue("ajhgz", file1_path.toString());
                 }
             }
             if (name2 != null) {
-                file2_path = sqjwUtil.upLoad(file2, "za0001_file_path1", "ZZA", name2);
-                if (sqjwUtil.deleteFile(in.getStringValue("cspmt"))) {//删除以前的文件
+                file2_path = sqjwUtil.upLoad(file2, "za0001_file_path1", "za0001_addyl", name2);
+                if (sqjwUtil.deleteFile(sqjwUtil.getRelPath(in.getStringValue("cspmt")))) {//删除以前的文件
                     in.putStringValue("cspmt", file2_path.toString());
                 }
             }
             if (name3 != null) {
-                file3_path = sqjwUtil.upLoad(file3, "za0001_file_path1", "ZZA", name3);
-                if (sqjwUtil.deleteFile(in.getStringValue("gsxkz"))) {//删除以前的文件
+                file3_path = sqjwUtil.upLoad(file3, "za0001_file_path1", "za0001_addyl", name3);
+                if (sqjwUtil.deleteFile(sqjwUtil.getRelPath(in.getStringValue("gsxkz")))) {//删除以前的文件
                     in.putStringValue("gsxkz", file3_path.toString());
                 }
             }

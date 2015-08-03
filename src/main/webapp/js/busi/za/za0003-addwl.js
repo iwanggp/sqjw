@@ -11,12 +11,12 @@
     $("#add", $dialog).click(function () {
         if ($("#shop_form", $dialog).valid()) {
             fileOptions.putForm($('#shop_form', $dialog));       //添加表单内容
-            fileOptions.setService('P43000');
+            fileOptions.setService('P43006');
             fileOptions.put('jd', poly.point.x);//传递经度参数
             fileOptions.put('wd', poly.point.y);//传递维度参数
             fileOptions.sus = function (data) {
                 alertMsg.correct("添加成功了！");
-                $("#close").trigger("click");
+                $("#close", $dialog).trigger("click");
                 getCS(hy, mc, 1);
             };
             fileOptions.after = function (c, d) {

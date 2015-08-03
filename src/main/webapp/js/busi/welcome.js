@@ -326,7 +326,6 @@ function clickLi(data) {
     });
     var two = map.getOverlayById($(data).attr('name'));
     two.size = new STMapSize(40, 40);
-    //two.refresh();
     map.addOverlay(two, true);
 }
 //获取场所列表
@@ -505,6 +504,7 @@ function showJfssList(data) {
 function scroll() {
     $('#STMap_map').css('overflow', 'hidden');
 }
+
 
 //全局变量：场所名称，所属行业,设备类型,属性点,分页类别
 var mc, hy, sblx, sx,fylb;
