@@ -338,7 +338,7 @@ function getCS(h, m, page) {
     o.put("service_code", "S40001");
     o.put("mc", mc);
     o.put("hy", hy);
-    o.put("page_size", 1);
+    o.put("page_size", 10);
     o.put("page", page);
     o.sus = function(data) {
         if (data.result.length > 0) {
@@ -366,7 +366,7 @@ function getJfss(one, two, page) {
     o.put("dl", two[0]);
     o.put("jg", two[1]);
     o.put("jzw", two[2]);
-    o.put("page_size", 1);
+    o.put("page_size", 10);
     o.put("page", page);
     o.sus = function(data) {
         if (data.result.length > 0) {

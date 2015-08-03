@@ -45,7 +45,7 @@
                     if (data.res == 1) {
                         alertMsg.correct("更新成功！");
                         $('#close', $dialog).trigger("click");
-                        getJfss(sblx, sx);
+                        getJfss(sblx, sx, 1);
                     }
                 };
                 $.ajax(up);
@@ -63,7 +63,7 @@
                         if (data.res == 1) {
                             alertMsg.correct("删除成功！");
                             $('#close', $dialog).trigger("click");
-                            getJfss(sblx, sx);
+                            getJfss(sblx, sx, 1);
                         }
                     };
                     $.ajax(o);
