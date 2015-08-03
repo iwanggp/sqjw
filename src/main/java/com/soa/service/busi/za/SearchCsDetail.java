@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 /**
  * S40002 查询单个场所信息
  *
- * @author Administrator
+ * @author zkf
  */
 @Service
 public class SearchCsDetail extends BaseService {

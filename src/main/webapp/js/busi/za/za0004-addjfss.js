@@ -12,6 +12,7 @@
     initServiceParaSelect('za_jfss.yxzt', $('#yxzt', $dialog));
     initServiceParaSelect('za_jfss.sblb', $('#sblb', $dialog));
     initServiceParaSelect('za_jfss.sblx', $('#sblx', $dialog));
+    initServiceParaSelect('za_jfss.sx', $('#sx', $dialog));
     $('#add', $dialog).on('click', function() {
         if ($('#jfss_form', $dialog).valid()) {
             var o = new AjaxOptions($('#jfss_form', $dialog));
@@ -21,6 +22,7 @@
             o.sus = function(data) {
                 alertMsg.correct('添加成功');
                 $('#close', $dialog).trigger('click');
+                getJfss(sblx, sx);
             };
             $.ajax(o);
         }

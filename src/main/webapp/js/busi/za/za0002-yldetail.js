@@ -32,7 +32,13 @@
             $('#cspmt_pic,#gsxkz_pic,#jyxkz_pic,#ajhgz_pic', $dialog).show();
             $(this).html("保存");
         } else {
-            $(this).html("修改");
+            f = !f;
+            $('.required').each(function (key, value) {
+                btns[key] = $(this).val();
+                if (btns[key] != null) {
+                    $('#modify').html("保存");
+                }
+            });
             if ($("#shop_form", $dialog).valid()) {
                 fileOptions.putForm($('#shop_form', $dialog));       //添加表单内容
                 fileOptions.setService('P41005');

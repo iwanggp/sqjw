@@ -356,6 +356,34 @@ function getCS(h, m, page) {
     $.ajax(o);
 }
 
+function getJfss(one, two, page) {
+    sblx = one;
+    sx = two;
+    var o = new AjaxOptions();
+    o.put('service_code', 'S44000');
+    o.put("sblx", one);
+    o.put("dl", two[0]);
+    o.put("jg", two[1]);
+    o.put("jzw", two[2]);
+    o.put("page_size", 10);
+    o.put("page", page);
+    o.sus = function(data) {
+        if (data.result.length > 0) {
+            $.pdialog.closeCurrent();
+            LocationPointJfss(data);
+            $('#STMap_map').css({width: '85%', overflow: 'hidden'});
+            $('#contentRight').css('display', 'block');
+            $('#mo').text(data.page_count);
+            showJfssList(data);
+        } else {
+            map.clearAllOverlays();
+            $('#STMap_map').css({width: '100%', overflow: 'hidden'});
+            $('#contentRight').css('display', 'none');
+        }
+    };
+    $.ajax(o);
+}
+
 //添加标记点
 function LocationPoint(data) {
     //先清除之前的搜索结果
@@ -389,24 +417,24 @@ function LocationPoint(data) {
 function LocationPointJfss(data) {
     //先清除之前的搜索结果
     map.clearAllOverlays();
-    for (var i = 0; i < data.jfss.length; i++) {
+    for (var i = 0; i < data.result.length; i++) {
         var img = '';
-        if (data.jfss[i].sx == "dl") {
+        if (data.result[i].sx == "0") {
             img = 'images/wl.png';
-        } else if (data.jfss[i].sx == "jg") {
+        } else if (data.result[i].sx == "1") {
             img = 'images/yl.png';
-        } else if (data.jfss[i].sx == "jzw") {
+        } else if (data.result[i].sx == "2") {
             img = 'images/shop.png';
         }
         var pt = new STMapMarker();
         //设置对象的唯一id，id要唯一，如果存在重复id，后添加的覆盖已经存在的对象
-        pt.id = data.jfss[i].id;
-        pt.point = new STMapPoint(data.jfss[i].jd, data.jfss[i].wd);
+        pt.id = data.result[i].id;
+        pt.point = new STMapPoint(data.result[i].jd, data.result[i].wd);
         //设置对象的图片URL
         pt.img = img;
         /*******以下为可选对象属性*******/
         //鼠标提示文字
-        pt.label = data.jfss[i].azdm;
+        pt.label = data.result[i].azdm;
         //设置对象尺寸,默认为图片本身尺寸
         pt.size = new STMapSize(30, 30); // 尺寸对象原型：STMapSize(长度,高度);
         //设置对象定位的锚点位置（相对于图片矩形）;取值范围：BC（下边中心点），BL（左下角），BR（右下角），TL（左上角），TC（上边中心点），TR（右上角），ML（左边中心点），MR（右边中心点），CENTER（图片中心点）
@@ -423,7 +451,7 @@ function LocationPointJfss(data) {
         pt.bound(1000);
     }
 }
-function detail(data) {
+function detailCs(data) {
     var url = '';
     if ("za_yl" == hy) {
         url = 'page/za/za0002-yldetail.html';
@@ -432,7 +460,7 @@ function detail(data) {
     } else if ("za_wl" == hy) {
         url = 'page/za/za0003-wldetail.html';
     }
-    $.pdialog.open(url, 'detail', "详情",
+    $.pdialog.open(url, 'detailCs', "详情",
             {"width": 580, "height": 560,
                 param: {hy: hy, id: $(data).attr('name')},
                 close: function(param) {
@@ -443,11 +471,31 @@ function detail(data) {
 
 }
 
-//显示查询结果
+function detailJfss(data) {
+    $.pdialog.open("page/za/za0004-jfssdetail.html", 'detailJfss', "详情",
+            {"width": 580, "height": 280,
+                param: {id: $(data).attr('name')},
+                close: function(param) {
+                    map.getOverlayById($(data).attr('name')).moveable = false;//是否可以拖动
+                    return true;
+                }
+            });
+}
+
+//显示场所查询结果
 function showList(data) {
     var text = '';
     for (var i = 0; i < data.result.length; i++) {
-        text += "<li onclick='clickLi($(this))' name='" + data.result[i].id + "'><p>" + data.result[i].mc + "-<a onclick='detail($(this))' name='" + data.result[i].id + "'>详情</a></p><p>联系方式：" + data.result[i].lxfs + "</p></li>";
+        text += "<li onclick='clickLi($(this))' name='" + data.result[i].id + "'><p>" + data.result[i].mc + "-<a onclick='detailCs($(this))' name='" + data.result[i].id + "'>详情</a></p><p>联系方式：" + data.result[i].lxfs + "</p></li>";
+    }
+    $('#dataList').html(text);
+}
+
+//显示技防设施结果
+function showJfssList(data) {
+    var text = '';
+    for (var i = 0; i < data.result.length; i++) {
+        text += "<li onclick='clickLi($(this))' name='" + data.result[i].id + "'><p>" + data.result[i].azdm + "-<a onclick='detailJfss($(this))' name='" + data.result[i].id + "'>详情</a></p></li>";
     }
     $('#dataList').html(text);
 }
@@ -457,5 +505,5 @@ function scroll() {
     $('#STMap_map').css('overflow', 'hidden');
 }
 
-//全局变量：场所名称，所属行业
-var mc, hy;
+//全局变量：场所名称，所属行业,设备类型,属性点,分页类别
+var mc, hy, sblx, sx,fylb;
