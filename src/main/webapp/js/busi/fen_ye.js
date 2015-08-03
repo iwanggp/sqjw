@@ -17,7 +17,11 @@ function xifenye() {
 //点击分页显示的方法
 function fl(p1, p2) {
     $("#xiye").empty();
-    getCS(hy, mc, p1);
+    if (fylb == 'search_cs') {
+        getCS(hy, mc, p1);
+    } else if (fylb == 'search_jfss') {
+        getJfss(sblx, sx, p1);
+    }
     $("#xiye").html(p1);//给显示的页数赋值
 
 }
@@ -32,7 +36,11 @@ function topclick() {
         v.innerHTML = num;
         var hei = 25 * num - 25;
         $("#xab").scrollTop(hei);
-        getCS(hy, mc, num);
+        if (fylb == 'search_cs') {
+            getCS(hy, mc, num);
+        } else if (fylb == 'search_jfss') {
+            getJfss(sblx, sx, num);
+        }
     }
 }
 function downclick() {
@@ -44,7 +52,11 @@ function downclick() {
         num = ++num;
         v.html(num);
         scrolltop(num);
-        getCS(hy, mc, num);
+        if (fylb == 'search_cs') {
+            getCS(hy, mc, num);
+        } else if (fylb == 'search_jfss') {
+            getJfss(sblx, sx, num);
+        }
     }
 }
 //分页的的首页和未页
