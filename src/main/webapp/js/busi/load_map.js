@@ -8,8 +8,6 @@ window.map = null;
 //设置港区的经纬度
 var log = 113.84257496754428;
 var lat = 34.530768351088405;
-var currentLog = null;
-var currentLat = null;
 /**
  * 初始化，在welcome.js中调用
  * @returns {undefined}
@@ -33,8 +31,8 @@ function init_map() {
 }
 function menu(obj, x, y) {
     var mpoint = map.screen2LonLat(new STMapPoint(x - 22, y - 81));//将屏幕坐标转换成GPS坐标，适当的调整显示位置
-    currentLog = mpoint.x;//得到该点的真实经度
-    currentLat = mpoint.y;//得到该点的真实维度
+    gangjd = mpoint.x;//得到该点的真实经度
+    gangwd = mpoint.y;//得到该点的真实维度
     var point = map.screen2LonLat(new STMapPoint(x + 30, y - 10));//将屏幕坐标转换成GPS坐标，适当的调整右击菜单位置
     var poly = new STMapCustomOverObj();
     poly.id = "menu";
@@ -47,19 +45,18 @@ function menu(obj, x, y) {
 }
 function treemenu() {
     map.deleteOverlayById("menu");
-    var poly = new STMapMarker();
+    poly = new STMapMarker();
     poly.id = "gang"; //【必选】对象 id
-    poly.point = new STMapPoint(currentLog, currentLat); //【必选】经纬度坐标  STMapPoint 类型
+    poly.point = new STMapPoint(gangjd, gangwd); //【必选】经纬度坐标  STMapPoint 类型
     poly.img = "images/loc128.png"; //【必选】对象的图片地址 url
     poly.infowin = false;
     poly.anchor = "BR";//设置覆盖物的位置
     poly.setMoveable(true);
     map.addOverlay(poly, true);
-    map.pan(-120, 0);//将地图移动N个像素距离,x右为正，左为负。y下为正，上为负。
-    $.pdialog.open("page/tree/addtree.html", 'add_role_pl', "添加信息", {width: 200, height: 260, maxable: false,
-        param: {jd: currentLog, wd: currentLat},
+    map.pan(-150, 0);//将地图移动N个像素距离,x右为正，左为负。y下为正，上为负。
+    $.pdialog.open("page/tree/addtree.html", 'add_role_pl', "添加信息", {width: 230, height: 260,
         close: function () {
-            map.setOverlayVisible("gang", false);
+            map.deleteOverlayById("gang");
             return true;//这样才能关闭窗口
         }
     });//打开树形菜单

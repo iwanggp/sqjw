@@ -38,7 +38,6 @@ public class SqjwUtil {
     public String upLoad(byte[] file, String sys_path, String module_name, String fileName) throws IOException {
         String filepath = SystemUtil.getSysConfig(sys_path);
         String serverRoot = SystemUtil.getSysConfig("za0001_server_root");//服务器的根目录
-        FileOutputStream fos = null;
         BufferedOutputStream bos = null;
         String extension = getFileExtension(fileName);
         char line = File.separatorChar;//通用文件分割符
@@ -54,8 +53,7 @@ public class SqjwUtil {
             String dbFilePath = _Path + line + dbFileName;//数据库中要保存的相对路径及文件名
 //            dbFilePath = dbFilePath.replaceAll("\\\\", "/");
             String filePath = rel_path + line + dbFileName;//绝对路径，就是要写文件的名字
-            fos = new FileOutputStream(filePath);//最终的文件带文件名和扩展名
-            bos = new BufferedOutputStream(fos);
+            bos = new BufferedOutputStream(new FileOutputStream(filePath));     //最终的文件带文件名和扩展名
             bos.write(file);
             return dbFilePath;
         } finally {
@@ -93,7 +91,6 @@ public class SqjwUtil {
             return "";
         }
     }
-//
 
     public boolean deleteFile(String path) {
         File file = new File(path);
