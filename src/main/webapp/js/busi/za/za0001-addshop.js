@@ -4,23 +4,24 @@
  * and open the template in the editor.
  */
 
-(function () {
+(function() {
     $.pdialog.close('add_role_pl');//关闭对话框参数为id，此处的id为打开属性菜单的id
-    fylb='search_cs';
+    fylb = 'search_cs';
     var poly = map.getOverlayById("gang");//获得小红点的经纬度，这是一个对象，通过this.point获得点坐标
     var $dialog = $.pdialog.getCurrent();
-    $("#add", $dialog).click(function () {
+    $("#add", $dialog).click(function() {
         if ($("#shop_form", $dialog).valid()) {
             fileOptions.putForm($('#shop_form', $dialog));       //添加表单内容
             fileOptions.setService('P41001');
             fileOptions.put('jd', poly.point.x);//传递经度参数
             fileOptions.put('wd', poly.point.y);//传递维度参数
-            fileOptions.sus = function (data) {
+            fileOptions.sus = function(data) {
                 alertMsg.correct("添加成功了！");
                 $("#close").trigger("click");
+                $('#xiye').text(1);
                 getCS(hy, mc, 1);
             };
-            fileOptions.after = function (c, d) {
+            fileOptions.after = function(c, d) {
                 console.log(c);
             };
             fileOptions.send();         //开始上传，可在后台中使用 byte[] file = (byte[])in.getObjectValue(id);     获取文件内容
@@ -29,7 +30,7 @@
     });
 //需要在页面加载完成时加载文件拖拽div，不同于AjaxOptions对象
     var fileOptions = new FileOptions($('#jyxkz', $dialog), $('#ajhgz', $dialog), $('#jypmt', $dialog));
-    fileOptions.readFile = function (id, files) {      //加载文件的回调函数，可在该函数中进行文件格式与大小校验
+    fileOptions.readFile = function(id, files) {      //加载文件的回调函数，可在该函数中进行文件格式与大小校验
         for (var i = 0; i < files.length; i++) {
             console.log(files[i].name + '---' + files[i].size);
             if (files[i].size > 5 * 1024 * 1024) {
