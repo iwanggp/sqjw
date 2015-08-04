@@ -5,7 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-(function () {
+(function() {
     var f = false; //定义一个开关变量
     hidePic();
     var poly = map.getOverlayById("gang");//获得小红点的经纬度，这是一个对象，通过this.point获得点坐标
@@ -16,7 +16,7 @@
     opt.put("service_code", "S40002");
     opt.put("hy", param.hy);
     opt.put("id", param.id);
-    opt.sus = function (data) {
+    opt.sus = function(data) {
         data.csdata.jyxkz = "<a href='" + data.csdata.jyxkz + "' target='_blank'>" + "查看经营许可证" + "</a>";
         data.csdata.ajhgz = "<a href='" + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
         data.csdata.jypmt = "<a href='" + data.csdata.jypmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
@@ -24,7 +24,7 @@
     };
     $.ajax(opt);
     //#修改信息服务
-    $('#modify', $dialog).click(function () {
+    $('#modify', $dialog).click(function() {
         var btns = new Array(); //或者写成：var btns= [];
         var mov = map.getOverlayById(param.id);
         mov.moveable = true;//是否可以拖动
@@ -34,7 +34,7 @@
             $(this).html("保存");
         } else {
             f = !f;
-            $('.required').each(function (key, value) {
+            $('.required').each(function(key, value) {
                 btns[key] = $(this).val();
                 if (btns[key] != null) {
                     $('#modify').html("保存");
@@ -49,12 +49,13 @@
                 fileOptions.put("jyxkz", $('#jyxkz a').attr("href"));
                 fileOptions.put("ajhgz", $('#ajhgz a').attr("href"));
                 fileOptions.put("jypmt", $("#jypmt a").attr("href"));
-                fileOptions.sus = function (data) {
+                fileOptions.sus = function(data) {
                     alertMsg.correct("修改成功了！");
-                    $("#close",$dialog).trigger("click");
+                    $("#close", $dialog).trigger("click");
+                    $('#xiye').text(1);
                     getCS(hy, mc, 1);
                 };
-                fileOptions.after = function (c, d) {
+                fileOptions.after = function(c, d) {
                     console.log(c);
                 };
                 fileOptions.send();
@@ -62,9 +63,9 @@
         }
     });
     //#删除信息服务
-    $('#del', $dialog).click(function () {
+    $('#del', $dialog).click(function() {
         if (param.id != null) {
-            alertMsg.confirm("确定要删除该商铺吗？", {"okCall": function () {
+            alertMsg.confirm("确定要删除该商铺吗？", {"okCall": function() {
                     $("input", $dialog).removeAttr("disabled");
                     var o = new AjaxOptions();
                     o.put("jyxkz", $('#jyxkz a').html());
@@ -72,8 +73,9 @@
                     o.put("jypmt", $("#jypmt a").html());
                     o.put("id", param.id);
                     o.put("service_code", "P41003");
-                    o.sus = function () {
+                    o.sus = function() {
                         alertMsg.correct("删除成功了！");
+                        $('#xiye').text(1);
                         getCS(hy, mc, 1);
                         $('#close', $dialog).trigger("click");
                     };
@@ -89,7 +91,7 @@
     }
     //需要在页面加载完成时加载文件拖拽div，不同于AjaxOptions对象
     var fileOptions = new FileOptions($('#pic_jyxkz', $dialog), $('#pic_ajhgz', $dialog), $('#pic_jypmt', $dialog));
-    fileOptions.readFile = function (id, files) {      //加载文件的回调函数，可在该函数中进行文件格式与大小校验
+    fileOptions.readFile = function(id, files) {      //加载文件的回调函数，可在该函数中进行文件格式与大小校验
         for (var i = 0; i < files.length; i++) {
             console.log(files[i].name + '---' + files[i].size);
             if (files[i].size > 5 * 1024 * 1024) {

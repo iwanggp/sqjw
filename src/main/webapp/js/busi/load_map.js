@@ -4,7 +4,7 @@
  */
 var ZxGis = {};
 //地图对象全局变量
-var map = null;
+window.map = null;
 //设置港区的经纬度
 var log = 113.84257496754428;
 var lat = 34.530768351088405;
@@ -18,7 +18,6 @@ function init_map() {
 
     //初始化地图对象
     map = new STMapObj("STMap_map");
-
     //根据中心点和级别定位地图,STMapPoint表示具备x/y属性的二维点对象
     map.locateMap(new STMapPoint(log, lat), 2);
     //设置放大缩小控件是否显示,默认显示
@@ -57,11 +56,17 @@ function treemenu() {
     poly.setMoveable(true);
     map.addOverlay(poly, true);
     map.pan(-150, 0);//将地图移动N个像素距离,x右为正，左为负。y下为正，上为负。
-    $.pdialog.open("page/tree/addtree.html", 'add_role_pl', "添加信息", {"width": 230, "height": 260});//打开树形菜单
+    $.pdialog.open("page/tree/addtree.html", 'add_role_pl', "添加信息", {width: 230, height: 260,
+        param: {jd: currentLog, wd: currentLat},
+        close: function () {
+//            map.setOverlayVisible("gang", false);
+            return true;//这样才能关闭窗口
+        }
+    });//打开树形菜单
 }
 function searchTree() {
     map.deleteOverlayById("menu");
-    $.pdialog.open("page/tree/searchtree.html", 'searchtree', "查询信息", {"width": 230, "height": 260});//打开树形菜单
+    $.pdialog.open("page/tree/searchtree.html", 'searchtree', "查询信息", {"width": 230, "height": 260, "maxable": false});//打开树形菜单
 }
 function closeMenu() {
     map.deleteOverlayById("menu");//关闭右击菜单

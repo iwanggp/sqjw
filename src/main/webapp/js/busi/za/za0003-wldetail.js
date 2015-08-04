@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-(function () {
+(function() {
     var f = false; //定义一个开关变量
 
     hidePic();
@@ -16,7 +16,7 @@
     opt.put("hy", param.hy);
     opt.put("id", param.id);
 
-    opt.sus = function (data) {
+    opt.sus = function(data) {
         data.csdata.ajhgz = "<a href='" + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
         data.csdata.ysxkz = "<a href='" + data.csdata.ysxkz + "' target='_blank'>" + "查看运输合格证" + "</a>";
         data.csdata.gsxkz = "<a href='" + data.csdata.gsxkz + "' target='_blank'>" + "查看工商许可证" + "</a>";
@@ -27,7 +27,7 @@
     $.ajax(opt);
 
     //#修改信息服务
-    $('#modify', $dialog).click(function () {
+    $('#modify', $dialog).click(function() {
         var btns = new Array();
         var mov = map.getOverlayById(param.id);
         mov.moveable = true;//是否可以拖动
@@ -37,7 +37,7 @@
             $(this).html("保存");
         } else {
             f = !f;
-            $('.required').each(function (key, value) {
+            $('.required').each(function(key, value) {
                 btns[key] = $(this).val();
                 if (btns[key] != null) {
                     $('#modify').html("保存");
@@ -54,14 +54,13 @@
                 fileOptions.put("jypmt", $("#jypmt a").attr("href"));
                 fileOptions.put("ysxkz", $("#ysxkz a").attr("href"));
                 fileOptions.put("yzxkz", $("#yzxkz a").attr("href"));
-                fileOptions.sus = function (data) {
+                fileOptions.sus = function(data) {
                     hidePic();
                     alertMsg.correct("修改成功了！");
-//                      hidePic();
-//                    $("#close").trigger("click");
+                    $('#xiye').text(1);
                     getCS(hy, mc, 1);
                 };
-                fileOptions.after = function (c, d) {
+                fileOptions.after = function(c, d) {
                     console.log(c);
                 };
                 fileOptions.send();
@@ -69,9 +68,9 @@
         }
     });
     //#删除信息服务
-    $('#del', $dialog).click(function () {
+    $('#del', $dialog).click(function() {
         if (param.id != null) {
-            alertMsg.confirm("确定要删除改物流公司吗？", {"okCall": function () {
+            alertMsg.confirm("确定要删除改物流公司吗？", {"okCall": function() {
                     $("input", $dialog).removeAttr("disabled");
                     var o = new AjaxOptions();
                     o.put("gsxkz", $('#gsxkz a').html());
@@ -81,9 +80,10 @@
                     o.put("yzxkz", $("#yzxkz a").html());
                     o.put("id", param.id);
                     o.put("service_code", "P43001");
-                    o.sus = function () {
+                    o.sus = function() {
                         alertMsg.correct("删除成功了！");
                         getCS(hy, mc, 1);
+                        $('#xiye').text(1);
                         $('#close', $dialog).trigger("click");
                     };
                     $.ajax(o);
@@ -98,7 +98,7 @@
     }
     //需要在页面加载完成时加载文件拖拽div，不同于AjaxOptions对象
     var fileOptions = new FileOptions($('#pic_gsxkz', $dialog), $('#pic_ysxkz', $dialog), $('#pic_ajhgz', $dialog), $('#pic_jypmt', $dialog), $('#pic_yzxkz', $dialog));
-    fileOptions.readFile = function (id, files) {      //加载文件的回调函数，可在该函数中进行文件格式与大小校验
+    fileOptions.readFile = function(id, files) {      //加载文件的回调函数，可在该函数中进行文件格式与大小校验
         for (var i = 0; i < files.length; i++) {
             console.log(files[i].name + '---' + files[i].size);
             if (files[i].size > 5 * 1024 * 1024) {
