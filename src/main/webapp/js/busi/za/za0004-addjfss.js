@@ -6,6 +6,7 @@
 
 (function() {
     $.pdialog.close('add_role_pl');//关闭对话框参数为id，此处的id为打开属性菜单的id
+    fylb = 'search_jfss';
     var $dialog = $.pdialog.getCurrent();
     var param = $dialog.data('param');      //父窗口传递的参数
     var poly = map.getOverlayById("gang");//获得标注点的经纬度，这是一个对象，通过this.point获得点坐标
@@ -22,7 +23,7 @@
             o.sus = function(data) {
                 alertMsg.correct('添加成功');
                 $('#close', $dialog).trigger('click');
-                getJfss(sblx, sx);
+                getJfss(sblx, sx, 1);
             };
             $.ajax(o);
         }
