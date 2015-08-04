@@ -2,7 +2,7 @@
 (function() {
     console.log('remark ...');
     var $dialog = $.pdialog.getCurrent();
-    var param = $dialog.data('param');      //父页面传递的参数
+    var param = $dialog.data('param');      //父页面传递的参数.
 
     initServiceParaSelect('pl_user.tstj', $('#tstj', $dialog));
     //加载角色列表

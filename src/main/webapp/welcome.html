@@ -53,7 +53,7 @@ and open the template in the editor.
                     <a class="logo" href="#this">标志</a>
                     <!--<div id="header-title"></div>-->
                     <ul class="nav">
-                        <li><a href="page/za/search_cs.html" target="dialog" rel="search_map">搜索</a></li>
+
                         <li><a href="#this">欢迎使用：<span id="login-user"></span></a></li>
                         <li><a href="page/update_psw.html" target="dialog" rel="update_psw">修改密码</a></li>
                         <li><a href="#this" id="welcome_logout">退出</a></li>
@@ -124,22 +124,22 @@ and open the template in the editor.
 </html>
 <!--在地图上右键菜单html模板，通过这个模板来增加右键选项-->
 <script type="text/template" id="mymenu">
-   <div style="border:solid 1px #ff3388;">
+    <div style="border:solid 1px #ff3388;">
     <!--右击菜单选项模板，以后添加右击菜单时，只要添加如下的一个div节点即可-->
     <div class="panelBar" style="height: 25px;width: 100px;">
-        <ul class="toolBar">
-            <li ><a class="add" id="addinfo" onclick="treemenu()"><span >添加信息</span></a></li>
-        </ul>
+    <ul class="toolBar">
+    <li ><a class="add" id="addinfo" onclick="treemenu()"><span >添加信息</span></a></li>
+    </ul>
     </div>
     <div class="panelBar" style="height: 25px;width: 100px;">
-        <ul class="toolBar">
-            <li ><a class="add" id="search" onclick="searchTree()"><span >查询信息</span></a></li>
-        </ul>
+    <ul class="toolBar">
+    <li ><a class="add" id="search" onclick="searchTree()"><span >查询信息</span></a></li>
+    </ul>
     </div>
     <div class="panelBar" style="height: 25px;width: 100px;">
-        <ul class="toolBar">
-            <li><a id="close" onclick="closeMenu()"><span >取消</span></a></li>
-        </ul>
+    <ul class="toolBar">
+    <li><a id="close" onclick="closeMenu()"><span >取消</span></a></li>
+    </ul>
     </div>
-</div>
+    </div>
 </script>

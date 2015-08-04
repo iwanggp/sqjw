@@ -51,7 +51,7 @@
                 fileOptions.put("jypmt", $("#jypmt a").attr("href"));
                 fileOptions.sus = function (data) {
                     alertMsg.correct("修改成功了！");
-                    $("#close",$dialog).trigger("click");
+                    $("#close", $dialog).trigger("click");
                     getCS(hy, mc, 1);
                 };
                 fileOptions.after = function (c, d) {
