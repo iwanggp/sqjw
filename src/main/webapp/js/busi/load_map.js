@@ -18,7 +18,6 @@ function init_map() {
 
     //初始化地图对象
     map = new STMapObj("STMap_map");
-
     //根据中心点和级别定位地图,STMapPoint表示具备x/y属性的二维点对象
     map.locateMap(new STMapPoint(log, lat), 2);
     //设置放大缩小控件是否显示,默认显示
@@ -34,7 +33,6 @@ function init_map() {
 }
 function menu(obj, x, y) {
     var mpoint = map.screen2LonLat(new STMapPoint(x - 22, y - 81));//将屏幕坐标转换成GPS坐标，适当的调整显示位置
-//    var mpoint = map.screen2LonLat(new STMapPoint(x, y));
     currentLog = mpoint.x;//得到该点的真实经度
     currentLat = mpoint.y;//得到该点的真实维度
     var point = map.screen2LonLat(new STMapPoint(x + 30, y - 10));//将屏幕坐标转换成GPS坐标，适当的调整右击菜单位置
@@ -58,11 +56,15 @@ function treemenu() {
     poly.setMoveable(true);
     map.addOverlay(poly, true);
     map.pan(-150, 0);//将地图移动N个像素距离,x右为正，左为负。y下为正，上为负。
-    $.pdialog.open("page/tree/addtree.html", 'add_role_pl', "添加信息", {"width": 230, "height": 260});//打开树形菜单
+    $.pdialog.open("page/tree/addtree.html", 'add_role_pl', "添加信息", {width: 200, height: 260, maxable: false, close: function () {
+            map.deleteOverlayById("gang");
+            return true;//这样才能关闭窗口
+        }
+    });//打开树形菜单
 }
 function searchTree() {
     map.deleteOverlayById("menu");
-    $.pdialog.open("page/tree/searchtree.html", 'searchtree', "查询信息", {"width": 230, "height": 260});//打开树形菜单
+    $.pdialog.open("page/tree/searchtree.html", 'searchtree', "查询信息", {"width": 230, "height": 260, "maxable": false});//打开树形菜单
 }
 function closeMenu() {
     map.deleteOverlayById("menu");//关闭右击菜单

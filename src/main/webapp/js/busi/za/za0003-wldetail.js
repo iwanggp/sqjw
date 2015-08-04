@@ -57,8 +57,6 @@
                 fileOptions.sus = function (data) {
                     hidePic();
                     alertMsg.correct("修改成功了！");
-//                      hidePic();
-//                    $("#close").trigger("click");
                     getCS(hy, mc, 1);
                 };
                 fileOptions.after = function (c, d) {
