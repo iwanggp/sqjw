@@ -34,7 +34,6 @@ function init_map() {
 }
 function menu(obj, x, y) {
     var mpoint = map.screen2LonLat(new STMapPoint(x - 22, y - 81));//将屏幕坐标转换成GPS坐标，适当的调整显示位置
-//    var mpoint = map.screen2LonLat(new STMapPoint(x, y));
     currentLog = mpoint.x;//得到该点的真实经度
     currentLat = mpoint.y;//得到该点的真实维度
     var point = map.screen2LonLat(new STMapPoint(x + 30, y - 10));//将屏幕坐标转换成GPS坐标，适当的调整右击菜单位置
