@@ -43,7 +43,7 @@
                 up.put("wd", mov.point.y);
                 up.sus = function(data) {
                     if (data.res == 1) {
-                        alertMsg.correct("更新成功！");
+                        alertMsg.correct("更新成功");
                         $('#close', $dialog).trigger("click");
                         $('#xiye').text(1);
                         getJfss(sblx, sx, 1);
@@ -62,7 +62,7 @@
                     o.put("service_code", "P44008");
                     o.sus = function(data) {
                         if (data.res == 1) {
-                            alertMsg.correct("删除成功！");
+                            alertMsg.correct("删除成功");
                             $('#close', $dialog).trigger("click");
                             $('#xiye').text(1);
                             getJfss(sblx, sx, 1);

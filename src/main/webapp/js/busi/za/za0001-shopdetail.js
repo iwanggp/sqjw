@@ -50,7 +50,7 @@
                 fileOptions.put("ajhgz", $('#ajhgz a').attr("href"));
                 fileOptions.put("jypmt", $("#jypmt a").attr("href"));
                 fileOptions.sus = function(data) {
-                    alertMsg.correct("修改成功了！");
+                    alertMsg.correct("修改成功");
                     $("#close", $dialog).trigger("click");
                     $('#xiye').text(1);
                     getCS(hy, mc, 1);
@@ -74,7 +74,7 @@
                     o.put("id", param.id);
                     o.put("service_code", "P41003");
                     o.sus = function() {
-                        alertMsg.correct("删除成功了！");
+                        alertMsg.correct("删除成功");
                         $('#xiye').text(1);
                         getCS(hy, mc, 1);
                         $('#close', $dialog).trigger("click");
