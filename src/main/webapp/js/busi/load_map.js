@@ -4,7 +4,7 @@
  */
 var ZxGis = {};
 //地图对象全局变量
-var map = null;
+window.map = null;
 //设置港区的经纬度
 var log = 113.84257496754428;
 var lat = 34.530768351088405;
@@ -55,8 +55,10 @@ function treemenu() {
     poly.anchor = "BR";//设置覆盖物的位置
     poly.setMoveable(true);
     map.addOverlay(poly, true);
-    map.pan(-150, 0);//将地图移动N个像素距离,x右为正，左为负。y下为正，上为负。
-    $.pdialog.open("page/tree/addtree.html", 'add_role_pl', "添加信息", {width: 200, height: 260, maxable: false, close: function () {
+    map.pan(-120, 0);//将地图移动N个像素距离,x右为正，左为负。y下为正，上为负。
+    $.pdialog.open("page/tree/addtree.html", 'add_role_pl', "添加信息", {width: 200, height: 260, maxable: false,
+        param: {poly: poly},
+        close: function () {
             map.deleteOverlayById("gang");
             return true;//这样才能关闭窗口
         }

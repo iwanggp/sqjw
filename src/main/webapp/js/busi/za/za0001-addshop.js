@@ -6,7 +6,7 @@
 
 (function () {
     $.pdialog.close('add_role_pl');//关闭对话框参数为id，此处的id为打开属性菜单的id
-    fylb='search_cs';
+    fylb = 'search_cs';
     var poly = map.getOverlayById("gang");//获得小红点的经纬度，这是一个对象，通过this.point获得点坐标
     var $dialog = $.pdialog.getCurrent();
     $("#add", $dialog).click(function () {
@@ -17,7 +17,7 @@
             fileOptions.put('wd', poly.point.y);//传递维度参数
             fileOptions.sus = function (data) {
                 alertMsg.correct("添加成功了！");
-                $("#close").trigger("click");
+                $("#close", $dialog).trigger("click");
                 getCS(hy, mc, 1);
             };
             fileOptions.after = function (c, d) {
