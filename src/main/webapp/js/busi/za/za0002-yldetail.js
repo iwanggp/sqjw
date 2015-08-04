@@ -54,7 +54,7 @@
                 fileOptions.put("cspmt", $("#cspmt a").attr("href"));
                 fileOptions.put("gsxkz", $("#gsxkz a").attr("href"));
                 fileOptions.sus = function(data) {
-                    alertMsg.correct("修改成功了！");
+                    alertMsg.correct("修改成功");
                     $("#close").trigger("click");
                     $('#xiye').text(1);
                     getCS(hy, mc, 1);
