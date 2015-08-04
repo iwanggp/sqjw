@@ -508,4 +508,5 @@ function scroll() {
 
 
 //全局变量：场所名称，所属行业,设备类型,属性点,分页类别
-var mc, hy, sblx, sx, fylb;
+var mc, hy, sblx, fylb;
+var sx=[];
