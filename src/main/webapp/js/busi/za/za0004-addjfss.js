@@ -6,6 +6,7 @@
 
 (function() {
     $.pdialog.close('add_role_pl');//关闭对话框参数为id，此处的id为打开属性菜单的id
+    map.setOverlayVisible("gang", true);
     fylb = 'search_jfss';
     var $dialog = $.pdialog.getCurrent();
     var param = $dialog.data('param');      //父窗口传递的参数

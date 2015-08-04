@@ -57,9 +57,9 @@ function treemenu() {
     map.addOverlay(poly, true);
     map.pan(-120, 0);//将地图移动N个像素距离,x右为正，左为负。y下为正，上为负。
     $.pdialog.open("page/tree/addtree.html", 'add_role_pl', "添加信息", {width: 200, height: 260, maxable: false,
-        param: {poly: poly},
+        param: {jd: currentLog, wd: currentLat},
         close: function () {
-            map.deleteOverlayById("gang");
+            map.setOverlayVisible("gang", false);
             return true;//这样才能关闭窗口
         }
     });//打开树形菜单
