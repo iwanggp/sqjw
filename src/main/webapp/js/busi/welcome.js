@@ -395,6 +395,7 @@ function LocationPoint(data) {
         pt.point = new STMapPoint(data.result[i].jd, data.result[i].wd);
         //设置对象的图片URL
         pt.img = "images/loc128.png";
+        
         /*******以下为可选对象属性*******/
         //鼠标提示文字
         pt.label = data.result[i].mc;

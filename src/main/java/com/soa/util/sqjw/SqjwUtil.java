@@ -37,10 +37,11 @@ public class SqjwUtil {
      */
     public String upLoad(byte[] file, String sys_path, String module_name, String fileName) throws IOException {
         String filepath = SystemUtil.getSysConfig(sys_path);
+
         String serverRoot = SystemUtil.getSysConfig("za0001_server_root");//服务器的根目录
         BufferedOutputStream bos = null;
         String extension = getFileExtension(fileName);
-        char line = File.separatorChar;//通用文件分割符
+        String line = File.separator;//通用文件分割符
         String _Path = line + serverRoot + line + module_name;
         String rel_path = filepath + _Path;//得到绝对路径
         File newPath = null;
