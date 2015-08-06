@@ -15,20 +15,21 @@
     opt.put("hy", param.hy);
     opt.put("id", param.id);
     opt.sus = function (data) {
-        data.csdata.jyxkz = "<a href='" + data.csdata.jyxkz + "' target='_blank'>" + "查看经营许可证" + "</a>";
-        data.csdata.ajhgz = "<a href='" + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
-        data.csdata.cspmt = "<a href='" + data.csdata.cspmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
-        data.csdata.gsxkz = "<a href='" + data.csdata.gsxkz + "' target='_blank'>" + "查看工商许可证" + "</a>";
+        data.csdata.jyxkz = "<a href='" + server_root + data.csdata.jyxkz + "' target='_blank'>" + "查看经营许可证" + "</a>";
+        data.csdata.ajhgz = "<a href='" + server_root + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
+        data.csdata.cspmt = "<a href='" + server_root + data.csdata.cspmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
+        data.csdata.gsxkz = "<a href='" + server_root + data.csdata.gsxkz + "' target='_blank'>" + "查看工商许可证" + "</a>";
 
         padBackData(data.csdata, $('#shop_form', $dialog)); //回填娱乐场所信息
     };
     $.ajax(opt);
     //#修改信息服务
     $('#modify', $dialog).click(function () {
+        var btns = new Array(); //或者写成：var btns= [];
         var mov = map.getOverlayById(param.id);
-        var d=map.lonlat2Screen(new STMapPoint(mov.point.x,mov.point.y));
-        var m = map.screen2LonLat(new STMapPoint(d.x+22, d.y+81));
-        mov.point=new STMapPoint(m.x, m.y);
+        var d = map.lonlat2Screen(new STMapPoint(mov.point.x, mov.point.y));
+        var m = map.screen2LonLat(new STMapPoint(d.x + 22, d.y + 81));
+        mov.point = new STMapPoint(m.x, m.y);
         mov.moveable = true;//是否可以拖动
         if (f = !f) {
             $("input").removeAttr("disabled");
@@ -53,8 +54,9 @@
                 fileOptions.put("cspmt", $("#cspmt a").attr("href"));
                 fileOptions.put("gsxkz", $("#gsxkz a").attr("href"));
                 fileOptions.sus = function (data) {
-                    alertMsg.correct("修改成功了！");
+                    alertMsg.correct("修改成功");
                     $("#close").trigger("click");
+                    $('#xiye').text(1);
                     getCS(hy, mc, 1);
                 };
                 fileOptions.after = function (c, d) {
@@ -79,6 +81,7 @@
                     o.sus = function () {
                         alertMsg.correct("删除成功了！");
                         $('#close', $dialog).trigger("click");
+                        $('#xiye').text(1);
                         getCS(hy, mc, 1);
                     };
                     $.ajax(o);

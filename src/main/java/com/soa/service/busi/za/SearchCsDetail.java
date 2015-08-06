@@ -32,7 +32,12 @@ public class SearchCsDetail extends BaseService {
             out.putDataValue("csdata", queryData("za_select_yl_id", obj));
         } else if ("za_wl".equals(hy)) {
             out.putDataValue("csdata", queryData("za_select_wl_id", obj));
+        } else if ("za_wb".equals(hy)) {
+            out.putDataValue("csdata", queryData("za_select_wb_id", obj));
+        } else if ("za_lg".equals(hy)) {
+            out.putDataValue("csdata", queryData("za_select_lg_id", obj));
+        }else {
+            out.putDataValue("csdata", queryData("za_select_cs_id", obj));
         }
     }
-
 }

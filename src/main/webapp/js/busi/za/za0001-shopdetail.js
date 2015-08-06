@@ -17,9 +17,9 @@
     opt.put("hy", param.hy);
     opt.put("id", param.id);
     opt.sus = function (data) {
-        data.csdata.jyxkz = "<a href='" + data.csdata.jyxkz + "' target='_blank'>" + "查看经营许可证" + "</a>";
-        data.csdata.ajhgz = "<a href='" + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
-        data.csdata.jypmt = "<a href='" + data.csdata.jypmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
+        data.csdata.jyxkz = "<a href='" + server_root + data.csdata.jyxkz + "' target='_blank'>" + "查看经营许可证" + "</a>";
+        data.csdata.ajhgz = "<a href='" + server_root + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
+        data.csdata.jypmt = "<a href='" + server_root + data.csdata.jypmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
         padBackData(data.csdata, $('#shop_form', $dialog)); //回填商铺信息
     };
     $.ajax(opt);
@@ -52,6 +52,7 @@
                 fileOptions.sus = function (data) {
                     alertMsg.correct("修改成功了！");
                     $("#close", $dialog).trigger("click");
+                    $('#xiye').text(1);
                     getCS(hy, mc, 1);
                 };
                 fileOptions.after = function (c, d) {
@@ -74,6 +75,7 @@
                     o.put("service_code", "P41003");
                     o.sus = function () {
                         alertMsg.correct("删除成功了！");
+                        $('#xiye').text(1);
                         getCS(hy, mc, 1);
                         $('#close', $dialog).trigger("click");
                     };

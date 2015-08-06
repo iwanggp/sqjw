@@ -30,9 +30,26 @@ public class SearchCsZa extends BaseService {
             in.putStringValue("sql", "za_select_yl");
         } else if ("za_sp".equals(hy)) {
             in.putStringValue("sql", "za_select_sp");
+            cutPage(in, inHead, out, outHead);
         } else if ("za_wl".equals(hy)) {
             in.putStringValue("sql", "za_select_wl");
+            cutPage(in, inHead, out, outHead);
+        } else if ("za_wb".equals(hy)) {
+            in.putStringValue("sql", "za_select_wb");
+            cutPage(in, inHead, out, outHead);
+        } else if ("za_lg".equals(hy)) {
+            in.putStringValue("sql", "za_select_lg");
+            cutPage(in, inHead, out, outHead);
+        } else {
+            in.putStringValue("sql", "za_select_cs");
+            in.putObjectValue("args", new Object[]{in.getStringValue("mc"), hy});
+            in.putIntValue("page", in.getIntValue("page"));
+            in.putIntValue("page_size", in.getIntValue("page_size"));
+            runService("S10001", in, inHead, out, outHead);//调用分页服务
         }
+    }
+
+    private void cutPage(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
         in.putObjectValue("args", new Object[]{in.getStringValue("mc")});
         in.putIntValue("page", in.getIntValue("page"));
         in.putIntValue("page_size", in.getIntValue("page_size"));

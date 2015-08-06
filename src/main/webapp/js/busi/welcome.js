@@ -420,13 +420,10 @@ function LocationPointJfss(data) {
     for (var i = 0; i < data.result.length; i++) {
         var img = '';
         if (data.result[i].sblx == "0") {
-            img = 'images/wl.png';
+            img = 'images/qiang.png';
         } else if (data.result[i].sblx == "1") {
-            img = 'images/yl.png';
+            img = 'images/qiu.png';
         }
-//        else if (data.result[i].sx == "2") {
-//            img = 'images/shop.png';
-//        }
         var pt = new STMapMarker();
         //设置对象的唯一id，id要唯一，如果存在重复id，后添加的覆盖已经存在的对象
         pt.id = data.result[i].id;
@@ -460,6 +457,12 @@ function detailCs(data) {
         url = 'page/za/za0001-shopdetail.html';
     } else if ("za_wl" == hy) {
         url = 'page/za/za0003-wldetail.html';
+    } else if ("za_wb" == hy) {
+        url = 'page/za/za0005-wbdetail.html';
+    } else if ("za_lg" == hy) {
+        url = 'page/za/za0006-lgdetail.html';
+    } else {
+        url = 'page/za/za0007-csdetail.html';
     }
     $.pdialog.open(url, 'detailCs', "详情",
             {"width": 580, "height": 560,
@@ -508,5 +511,6 @@ function scroll() {
 
 
 //全局变量：场所名称，所属行业,设备类型,属性点,分页类别
-var mc, hy, sblx, fylb, gangjd, gangwd,poly;
+var mc, hy, sblx, fylb, gangjd, gangwd, poly;
+var server_root = "sqjw_upload\\";
 var sx = [];

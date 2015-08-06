@@ -17,11 +17,11 @@
     opt.put("id", param.id);
 
     opt.sus = function (data) {
-        data.csdata.ajhgz = "<a href='" + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
-        data.csdata.ysxkz = "<a href='" + data.csdata.ysxkz + "' target='_blank'>" + "查看运输合格证" + "</a>";
-        data.csdata.gsxkz = "<a href='" + data.csdata.gsxkz + "' target='_blank'>" + "查看工商许可证" + "</a>";
-        data.csdata.jypmt = "<a href='" + data.csdata.jypmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
-        data.csdata.yzxkz = "<a href='" + data.csdata.yzxkz + "' target='_blank'>" + "查看邮政许可证" + "</a>";
+        data.csdata.ajhgz = "<a href='" + server_root + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
+        data.csdata.ysxkz = "<a href='" + server_root + data.csdata.ysxkz + "' target='_blank'>" + "查看运输合格证" + "</a>";
+        data.csdata.gsxkz = "<a href='" + server_root + data.csdata.gsxkz + "' target='_blank'>" + "查看工商许可证" + "</a>";
+        data.csdata.jypmt = "<a href='" + server_root + data.csdata.jypmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
+        data.csdata.yzxkz = "<a href='" + server_root + data.csdata.yzxkz + "' target='_blank'>" + "查看邮政许可证" + "</a>";
         padBackData(data.csdata, $('#shop_form', $dialog)); //回填物流信息
     };
     $.ajax(opt);
@@ -57,6 +57,7 @@
                 fileOptions.sus = function (data) {
                     hidePic();
                     alertMsg.correct("修改成功了！");
+                    $('#xiye').text(1);
                     getCS(hy, mc, 1);
                 };
                 fileOptions.after = function (c, d) {
@@ -82,6 +83,7 @@
                     o.sus = function () {
                         alertMsg.correct("删除成功了！");
                         getCS(hy, mc, 1);
+                        $('#xiye').text(1);
                         $('#close', $dialog).trigger("click");
                     };
                     $.ajax(o);
