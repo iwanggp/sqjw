@@ -16,7 +16,7 @@
             fileOptions.put('jd', gangjd);//传递经度参数
             fileOptions.put('wd', gangwd);//传递维度参数
             fileOptions.sus = function (data) {
-                alertMsg.correct("添加成功了！");
+                alertMsg.correct("添加成功");
                 $("#close", $dialog).trigger("click");
                 $('#xiye').text(1);
                 getCS(hy, mc, 1);

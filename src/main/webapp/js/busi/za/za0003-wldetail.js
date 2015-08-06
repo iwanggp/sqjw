@@ -56,7 +56,7 @@
                 fileOptions.put("yzxkz", $("#yzxkz a").attr("href"));
                 fileOptions.sus = function (data) {
                     hidePic();
-                    alertMsg.correct("修改成功了！");
+                    alertMsg.correct("修改成功");
                     $('#xiye').text(1);
                     getCS(hy, mc, 1);
                 };
