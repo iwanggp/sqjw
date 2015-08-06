@@ -54,7 +54,7 @@ function treemenu() {
     poly.setMoveable(true);
     map.addOverlay(poly, true);
     map.pan(-150, 0);//将地图移动N个像素距离,x右为正，左为负。y下为正，上为负。
-    $.pdialog.open("page/tree/addtree.html", 'add_role_pl', "添加信息", {width: 270, height: 300,
+    $.pdialog.open("page/tree/addtree.html", 'add_role_pl', "添加信息", {width: 270, height: 310,
         close: function () {
             map.deleteOverlayById("gang");
             return true;//这样才能关闭窗口
