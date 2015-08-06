@@ -10,18 +10,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * P44007 修改技防设施
+ * P47004 删除警情信息
  *
  * @author zkf
  */
 @Service
-public class UpdateJfssZa  extends BaseService{
+public class DelJqxxZa extends BaseService {
 
-    //校验不能为空的值，当key为空时会提示不能为空
+   //校验不能为空的值，当key为空时会提示不能为空
     private final String[] KEY = {
-        "azdm", "安装点名",
-        "jd", "经度",
-        "wd", "维度"
+        "id", "ID"
     };
 
     @Override
@@ -32,7 +30,7 @@ public class UpdateJfssZa  extends BaseService{
     @Override
     @Transactional
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
-        out.putIntValue("res", update("update_jfss_za", in));
+        out.putIntValue("res", update("del_jqxx_za", in));
     }
     
 }

@@ -21,6 +21,8 @@ function fl(p1, p2) {
         getCS(hy, mc, p1);
     } else if (fylb == 'search_jfss') {
         getJfss(sblx, sx, p1);
+    } else if (fylb == 'search_jqxx') {
+        getJqxx(ajfl, sx, p1, kssj, jzsj);
     }
     $("#xiye").html(p1);//给显示的页数赋值
 
@@ -40,6 +42,8 @@ function topclick() {
             getCS(hy, mc, num);
         } else if (fylb == 'search_jfss') {
             getJfss(sblx, sx, num);
+        } else if (fylb == 'search_jqxx') {
+            getJqxx(ajfl, sx, num, kssj, jzsj);
         }
     }
 }
@@ -56,6 +60,8 @@ function downclick() {
             getCS(hy, mc, num);
         } else if (fylb == 'search_jfss') {
             getJfss(sblx, sx, num);
+        } else if (fylb == 'search_jqxx') {
+            getJqxx(ajfl, sx, num, kssj, jzsj);
         }
     }
 }
