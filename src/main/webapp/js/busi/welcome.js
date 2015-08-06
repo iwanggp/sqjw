@@ -420,13 +420,10 @@ function LocationPointJfss(data) {
     for (var i = 0; i < data.result.length; i++) {
         var img = '';
         if (data.result[i].sblx == "0") {
-            img = 'images/wl.png';
+            img = 'images/qiang.png';
         } else if (data.result[i].sblx == "1") {
-            img = 'images/yl.png';
+            img = 'images/qiu.png';
         }
-//        else if (data.result[i].sx == "2") {
-//            img = 'images/shop.png';
-//        }
         var pt = new STMapMarker();
         //设置对象的唯一id，id要唯一，如果存在重复id，后添加的覆盖已经存在的对象
         pt.id = data.result[i].id;

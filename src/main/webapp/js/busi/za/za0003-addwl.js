@@ -18,6 +18,7 @@
             fileOptions.sus = function (data) {
                 alertMsg.correct("添加成功了！");
                 $("#close", $dialog).trigger("click");
+                $('#xiye').text(1);
                 getCS(hy, mc, 1);
             };
             fileOptions.after = function (c, d) {
