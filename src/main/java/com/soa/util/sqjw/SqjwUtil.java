@@ -56,6 +56,7 @@ public class SqjwUtil {
             String filePath = rel_path + line + dbFileName;//绝对路径，就是要写文件的名字
             bos = new BufferedOutputStream(new FileOutputStream(filePath));     //最终的文件带文件名和扩展名
             bos.write(file);
+            bos.flush();
             return dbFilePath;
         } finally {
             if (bos != null) {//用套节流进行操作时只用关闭外层的流即可

@@ -4,13 +4,11 @@
  * and open the template in the editor.
  */
 
-(function() {
-    $.pdialog.close('searchtree');//关闭对话框参数为id，此处的id为打开属性菜单的id
+(function () {
     fylb = 'search_jqxx';
     var $dialog = $.pdialog.getCurrent();
-
     initServiceParaSelect('za_jqxx.ajfl', $('#ajfl', $dialog));
-    $('#sear', $dialog).on('click', function() {
+    $('#sear', $dialog).on('click', function () {
         $('#xiye').text(1);
         if ($('#jqxx_form', $dialog).valid()) {
             var str = [];
@@ -21,7 +19,7 @@
             getJqxx($('#ajfl', $dialog).val(), str, 1, $('#kssj', $dialog).val(), $('#jzsj', $dialog).val());
         }
     });
-    $('span.sxd', $dialog).click(function() {
+    $('span.sxd', $dialog).click(function () {
         $(this).prev().attr("checked", !$(this).prev().is(':checked'));
     })
 }).call();

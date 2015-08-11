@@ -1,37 +1,40 @@
-<div class="pageContent">
-    <form method="post" class="pageForm" id="data_form">
-        <div class="pageFormContent" layoutH="58">
-            <div class="unit">
-                <label>行业：</label>
-                <select id="hy">
-                    <option value="za_yl">娱乐</option>
-                    <option value="za_sp">沿街商铺</option>
-                    <option value="za_wl">物流公司</option>
-                    <option value="za_wb">网吧</option>
-                    <option value="za_lg">旅馆</option>
-                    <option value="za_jdcwx">机动车维修</option>
-                    <option value="za_ys">印刷业</option>
-                    <option value="za_bfchs">报废车回收业</option>
-                    <option value="za_qczl">汽车租赁</option>
-                    <option value="za_jyss">金银首饰加工和置换业</option>
-                    <option value="za_jm">寄卖业</option>
-                    <option value="za_ks">开锁</option>
-                    <option value="za_fjshs">废金属回收</option>
-                    <option value="za_gzkz">公章刻制</option>
-                    <option value="za_ddxx">典当信息</option>
-                </select>
-            </div>
-            <div class="unit">
-                <label>场所名称：</label>
-                <input type="text" name="mc" id="mc"/>
-            </div>
-        </div>
-        <div class="formBar">
-            <ul>
-                <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="search">确定</button></div></div></li>
-                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
-            </ul>
+<div class="pageHeader" style="border:1px #B8D0D6 solid">
+    <form id="pagerForm">
+        <div class="searchBar">
+
+            <table class="searchContent">
+                <tr>
+
+                    <td>
+                        行业名称：  <input type="text" name="mc" id="mc"/>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        行业类型：
+                        <select id="hy">
+                            <option value="za_yl">娱乐</option>
+                            <option value="za_sp">沿街商铺</option>
+                            <option value="za_wl">物流公司</option>
+                            <option value="za_wb">网吧</option>
+                            <option value="za_lg">旅馆</option>
+                            <option value="za_jdcwx">机动车维修</option>
+                            <option value="za_ys">印刷业</option>
+                            <option value="za_bfchs">报废车回收业</option>
+                            <option value="za_qczl">汽车租赁</option>
+                            <option value="za_jyss">金银首饰加工和置换业</option>
+                            <option value="za_jm">寄卖业</option>
+                            <option value="za_ks">开锁</option>
+                            <option value="za_fjshs">废金属回收</option>
+                            <option value="za_gzkz">公章刻制</option>
+                            <option value="za_ddxx">典当信息</option>
+                        </select>
+                    </td>
+
+                    <td><div class="buttonActive"><div class="buttonContent"><button type="button" id="search">搜索</button></div></div></td>
+                </tr>
+            </table>
         </div>
     </form>
 </div>
-

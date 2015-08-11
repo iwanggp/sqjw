@@ -27,6 +27,18 @@ and open the template in the editor.
         <script src="js/busi/welcome.js" type="text/javascript"></script>
         <script src="js/busi/load_map.js" type="text/javascript"></script>
         <script src="js/busi/fen_ye.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function () {
+                $("#nav li").hover(
+                        function () {
+                            $(this).children('ul').hide();
+                            $(this).children('ul').slideDown('fast');
+                        },
+                        function () {
+                            $('ul', this).slideUp('fast');
+                        });
+            });
+        </script>
         <style>
             #dataList{height:600px;}
             #dataList li{height:50px;list-style:none;cursor:pointer;padding:5px;}
@@ -43,7 +55,124 @@ and open the template in the editor.
             #fenye ul li .xab{ float:left; position:absolute; width:39px; border:1px solid #ccc; height:123px; overflow-y: auto;overflow-x: hidden;top:-125px; background-color: #fff; display:inline;left:-1px; width:50px;}
             #fenye ul li .xab ul{ margin-left:0; padding-bottom:0;}
             #fenye ul li .xab ul li{ float:none;border:0; color:#999; width:25px; text-align:center;}
+            #nav{  
+                height: 25px;  
+                font: 12px Geneva, Arial, Helvetica, sans-serif;  
+                text-justify: auto;
+                border: 1px solid #323232;   
+                border-radius: 0px;  
+                min-width:100px;  
+                margin-left: 0px;  
+                padding-left: 0px; 
+            }     
+            .yahoo{
+                height: 25px;  
+                font: 12px Geneva, Arial, Helvetica, sans-serif;  
+                text-justify: auto;
+                margin-bottom: 2px;
+                border: 1px solid #323232;   
+                background: #ffffff;
+                border-radius: 0px;  
+                min-width:100px;  
+                margin-left: 0px;  
+                padding-left: 0px;  
+            }
+            #nav li{  
+                list-style: none;  
+                display: block;  
+                float: left;  
+                height: 30px;  
+                position: relative;  
+                border-right: 1px solid #323232;  
+            }  
 
+            #nav li a{  
+                padding: 0px 10px 0px 30px;  
+                margin: 0px 0;  
+                line-height: 30px;  
+                text-decoration: none;  
+                border-right: 1px solid #636161;  
+                height: 40px;  
+                color: #FFF;  
+                text-shadow: 1px 1px 1px #66696B;  
+            }  
+
+            #nav ul{  
+                background: #f2f5f6;   
+                padding: 0px;  
+                border-bottom: 0px solid #DDDDDD;  
+                border-right: 1px solid #DDDDDD;  
+                border-left:1px solid #DDDDDD;  
+                border-radius: 0px 0px 3px 3px;  
+                box-shadow: 2px 2px 3px #ECECEC;  
+                -webkit-box-shadow: 2px 2px 3px #ECECEC;  
+                -moz-box-shadow:2px 2px 3px #ECECEC;  
+                width:120px;  
+            }  
+            #nav li.yahoo{  
+                background:  no-repeat 9px 12px;  
+            }  
+            #nav li.yahoo:hover  {  
+                background: #DDDDDD no-repeat 9px 12px #010101; 
+                /*                document.getElementById("img1").style.zIndex="1";*/
+            }  
+            .yahoo:hover{
+                background: #DDDDDD no-repeat 9px 12px #010101; 
+            }
+            #nav li:hover{  
+                background: #fffff1;  
+            }  
+            #nav li a{  
+                display: block;  
+            }  
+            #nav ul li {  
+                border-right:none;  
+                border-bottom:1px solid #DDDDDD;  
+                width:120px;  
+                height:39px;  
+            }  
+            #nav ul li a {  
+                border-right: none;  
+                color:#6791AD;  
+                text-shadow: 1px 1px 1px #FFF;  
+                border-bottom:1px solid #FFFFFF;  
+            }  
+            #nav ul li:hover{background:#DFEEF0;}  
+            #nav ul li:last-child { border-bottom: none;}  
+            #nav ul li:last-child a{ border-bottom: none;}  
+            /* Sub menus */  
+            #nav ul{  
+                display: none;  
+                visibility:hidden;  
+                position: absolute;  
+                top: 40px;  
+            }  
+
+            /* Third-level menus */  
+            #nav ul ul{  
+                top: 0px;  
+                left:120px;  
+                display: none;  
+                visibility:hidden;  
+                border: 1px solid #DDDDDD;  
+            }  
+            /* Fourth-level menus */  
+            #nav ul ul ul{  
+                top: 0px;  
+                left:120px;  
+                display: none;  
+                visibility:hidden;  
+                border: 1px solid #DDDDDD;  
+            }  
+
+            #nav ul li{  
+                display: block;  
+                visibility:visible;  
+            }  
+            #nav li:hover > ul{  
+                display: block;  
+                visibility:visible;  
+            }  
         </style>
     </head>
     <body scroll="no">
@@ -51,14 +180,67 @@ and open the template in the editor.
             <div id="header">
                 <div class="headerNav">
                     <a class="logo" href="#this">标志</a>
-                    <!--<div id="header-title"></div>-->
                     <ul class="nav">
+                        <li id="switchEnvBox"><a href="javascript:">搜索信息</a>
+                            <ul id="nav">  
+                                <li class="yahoo"><a href="#">搜索信息</a>  
+                                    <ul>  
+                                        <li><a href="#">治安管理</a>              
+                                            <ul>  
+                                                <li><a href="http://www.baidu.com">特种行业</a>
+                                                    <ul>  
+                                                        <li><a href="#">导航菜单4</a></li>  
+                                                        <li><a href="#">1</a></li>  
+                                                    </ul>  </li>  
 
+                                                <ul>  
+                                                    <li><a href="#">导航菜单4</a></li>  
+                                                    <li><a href="#">1</a></li>  
+                                                </ul>  
+                                            </ul>
+                                        </li>  
+                                    </ul>  
+                                </li>  
+                                <li  rel="1" id="addjfss" ><a href="page/za/za0004-searchjfss.html" target="dialog" mask=true title="查询技防设施" width="580" height="280">查询技防设施</a></li>
+                                <li><a href="#">警情信息查询</a></li>  
+                            </ul>
+                            <ul>
+                                <li class="yahoo"><a href="sidebar_1.html">北京</a></li>
+                                <li><a href="sidebar_2.html">上海</a></li>
+                                <li><a href="sidebar_2.html">南京</a></li>
+                                <li><a href="sidebar_2.html">深圳</a></li>
+                                <li><a href="sidebar_2.html">广州</a></li>
+                                <li><a href="sidebar_2.html">天津</a></li>
+                                <li><a href="sidebar_2.html">杭州</a></li>
+                            </ul>
+                        </li>
                         <li><a href="#this">欢迎使用：<span id="login-user"></span></a></li>
                         <li><a href="page/update_psw.html" target="dialog" rel="update_psw">修改密码</a></li>
                         <li><a href="#this" id="welcome_logout">退出</a></li>
                     </ul>
+                    <!--                    <ul id="nav" style="">  
+                                            <li class="yahoo"><a href="#">搜索信息</a>  
+                                                <ul>  
+                                                    <li><a href="#">治安管理</a>              
+                                                        <ul>  
+                                                            <li><a href="http://www.baidu.com">特种行业</a>
+                                                                <ul>  
+                                                                    <li><a href="#">导航菜单4</a></li>  
+                                                                    <li><a href="#">1</a></li>  
+                                                                </ul>  </li>  
+                    
+                                                            <ul>  
+                                                                <li><a href="#">导航菜单4</a></li>  
+                                                                <li><a href="#">1</a></li>  
+                                                            </ul>  
+                                                    </li>  
+                                                </ul>  
+                                            </li>  
+                                            <li  rel="1" id="addjfss" ><a href="page/za/za0004-searchjfss.html" target="dialog" mask=true title="查询技防设施" width="580" height="280">查询技防设施</a></li>
+                                            <li><a href="#">警情信息查询</a></li>  
+                                        </ul>  -->
                 </div>
+
             </div>
             <div id="leftside">
                 <div id="sidebar_s">
@@ -74,6 +256,7 @@ and open the template in the editor.
             </div>
             <div id="container">
                 <div id="navTab" class="tabsPage">
+
                     <div class="tabsPageHeader">
                         <div class="tabsPageHeaderContent"><!-- 显示左右控制时添加 class="tabsPageHeaderMargin" -->
                             <ul class="navTab-tab">
@@ -136,10 +319,6 @@ and open the template in the editor.
     <li ><a class="add" id="search" onclick="searchTree()"><span >查询信息</span></a></li>
     </ul>
     </div>
-    <div class="panelBar" style="height: 25px;width: 100px;">
-    <ul class="toolBar">
-    <li><a id="close" onclick="closeMenu()"><span >取消</span></a></li>
-    </ul>
-    </div>
+
     </div>
 </script>

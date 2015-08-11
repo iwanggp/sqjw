@@ -18,6 +18,7 @@
             fileOptions.sus = function (data) {
                 alertMsg.correct("添加成功");
                 $("#close", $dialog).trigger("click");
+                map.getOverlayById('gang').moveable = false;
                 $('#xiye').text(1);
                 getCS(hy, mc, 1);
             };

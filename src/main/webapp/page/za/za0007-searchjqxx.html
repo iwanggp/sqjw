@@ -4,38 +4,45 @@ and open the template in the editor.
 -->
 <style>
     .sxd,.unit input{cursor:pointer;}
-    .unit input{vertical-align:middle}
+    .searchContent input{vertical-align:middle}
 </style>
-<div class="pageContent">
-    <form  id="jqxx_form" class="pageForm">
-        <div class="pageFormContent" layoutH="58">
-            <div class="unit">
-                <label>案件分类：</label>
-                <select id="ajfl" name="ajfl">
-                    <option value="">--全部--</option>
-                </select>
-            </div>
-            <div class="unit">
-                <label>开始时间：</label>
-                <input type="datetime-local" name="kssj" id="kssj"/>
-            </div>
-            <div class="unit">
-                <label>截止时间：</label>
-                <input type="datetime-local" name="jzsj" id="jzsj"/>
-            </div>
-            <div class="unit">
-                <label>属性点：</label>
-                <input type="checkbox" value="0" name="sx"/><span class="sxd">道路</span>
-                <input type="checkbox" value="1" name="sx"/><span class="sxd">机构</span>
-                <input type="checkbox" value="2" name="sx"/><span class="sxd">建筑物</span>
-            </div>
-        </div>
-        <div class="formBar">
-            <ul>
-                <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="sear">确定</button></div></div></li>
-                <li><div class="button"><div class="buttonContent"><button type="button" id="close" class="close">取消</button></div></div></li>
-            </ul>
+
+<div class="pageHeader" style="border:1px #B8D0D6 solid">
+    <form id="jqxx_form">
+        <div class="searchBar">
+
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        案件分类：
+                        <select id="ajfl" name="ajfl">
+                            <option value="">--全部--</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        开始时间：
+                        <input type="datetime-local" name="kssj" id="kssj"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        截止时间：
+                        <input type="datetime-local" name="jzsj" id="jzsj"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        属性点:
+                        <input type="checkbox" value="0" name="sx"/><span class="sxd">道路</span>
+                        <input type="checkbox" value="1" name="sx"/><span class="sxd">机构</span>
+                        <input type="checkbox" value="2" name="sx"/><span class="sxd">建筑物</span>
+                    </td>
+
+                    <td><div class="buttonActive"><div class="buttonContent"><button type="button" id="sear">搜索</button></div></div></td>
+                </tr>
+            </table>
         </div>
     </form>
 </div>
-

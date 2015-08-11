@@ -24,6 +24,7 @@ function init_map() {
     map.setScaleCompVisible(true);
     map.setCenter(new STMapPoint(log, lat));//设置地图的中心位置
     map.addEventListner("rightclick", menu);
+    map.addEventListner('click', closeMenu);
     document.oncontextmenu = function ()
     {
         return false;//屏蔽默认的鼠标右键事件
@@ -63,8 +64,8 @@ function treemenu() {
 }
 function searchTree() {
     map.deleteOverlayById("menu");
-    $.pdialog.open("page/tree/searchtree.html", 'searchtree', "查询信息", {"width": 230, "height": 260, "maxable": false});//打开树形菜单
+    $.pdialog.open("page/tree/searchtree.html", 'searchtree', "查询信息", {"width": 600, "height": 260});//打开树形菜单
 }
 function closeMenu() {
-    map.deleteOverlayById("menu");//关闭右击菜单
+    map.setOverlayVisible('menu', false);
 }
