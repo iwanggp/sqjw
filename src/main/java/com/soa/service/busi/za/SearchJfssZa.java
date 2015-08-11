@@ -5,17 +5,13 @@
 package com.soa.service.busi.za;
 
 import com.lianzt.commondata.AbstractCommonData;
-import com.lianzt.commondata.DataConvertFactory;
 import com.soa.service.BaseService;
-import java.util.ArrayList;
-import java.util.List;
-import org.apache.tomcat.util.digester.ObjectParamRule;
 import org.springframework.stereotype.Service;
 
 /**
  * S44000 查询技防设施
  *
- * @author zkf
+ * @author zkf  
  */
 @Service
 public class SearchJfssZa extends BaseService {

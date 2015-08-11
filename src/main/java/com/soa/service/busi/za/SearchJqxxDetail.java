@@ -7,21 +7,17 @@ package com.soa.service.busi.za;
 import com.lianzt.commondata.AbstractCommonData;
 import com.soa.service.BaseService;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
- * P44007 修改技防设施
+ * S47002 查询单个警情信息
  *
  * @author zkf
  */
 @Service
-public class UpdateJfssZa  extends BaseService{
+public class SearchJqxxDetail extends BaseService {
 
-    //校验不能为空的值，当key为空时会提示不能为空
     private final String[] KEY = {
-        "azdm", "安装点名",
-        "jd", "经度",
-        "wd", "维度"
+        "id", "ID"
     };
 
     @Override
@@ -30,9 +26,7 @@ public class UpdateJfssZa  extends BaseService{
     }
 
     @Override
-    @Transactional
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
-        out.putIntValue("res", update("update_jfss_za", in));
+        out.putDataValue("jqxx", queryData("za_select_jqxx_id", in));
     }
-    
 }

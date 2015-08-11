@@ -7,6 +7,7 @@ package com.soa.service.busi.za;
 import com.lianzt.commondata.AbstractCommonData;
 import com.soa.service.BaseService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * P44008 删除技防设施
@@ -27,6 +28,7 @@ public class DelJfssZa extends BaseService {
     }
 
     @Override
+    @Transactional
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
         out.putIntValue("res", update("del_jfss_za", in));
     }
