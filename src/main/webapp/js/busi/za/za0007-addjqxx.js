@@ -25,7 +25,7 @@
                 alertMsg.correct('添加成功');
                 $('#close', $dialog).trigger('click');
                 $('#xiye').text(1);
-                getJqxx(ajfl, sx, 1, kssj, jzsj);
+                getJqxx('', '', 1, '', '');
             };
             $.ajax(o);
         }

@@ -15,11 +15,26 @@
     opt.put("hy", param.hy);
     opt.put("id", param.id);
     opt.sus = function (data) {
-        data.csdata.jyxkz = "<a href='" + server_root + data.csdata.jyxkz + "' target='_blank'>" + "查看经营许可证" + "</a>";
-        data.csdata.ajhgz = "<a href='" + server_root + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
-        data.csdata.cspmt = "<a href='" + server_root + data.csdata.cspmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
-        data.csdata.gsxkz = "<a href='" + server_root + data.csdata.gsxkz + "' target='_blank'>" + "查看工商许可证" + "</a>";
-
+        if (isNaN(data.csdata.jyxkz)) {
+            data.csdata.jyxkz = "<a href='" + server_root + data.csdata.jyxkz + "' target='_blank'>" + "查看经营许可证" + "</a>";
+        } else {
+            data.csdata.jyxkz = "<span>" + "无" + "</span>";
+        }
+        if (isNaN(data.csdata.ajhgz)) {
+            data.csdata.ajhgz = "<a href='" + server_root + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
+        } else {
+            data.csdata.ajhgz = "<span>" + "无" + "</span>";
+        }
+        if (isNaN(data.csdata.cspmt)) {
+            data.csdata.cspmt = "<a href='" + server_root + data.csdata.cspmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
+        } else {
+            data.csdata.cspmt = "<span>" + "无" + "</span>";
+        }
+        if (isNaN(data.csdata.gsxkz)) {
+            data.csdata.gsxkz = "<a href='" + server_root + data.csdata.gsxkz + "' target='_blank'>" + "查看工商许可证" + "</a>";
+        } else {
+            data.csdata.gsxkz = "<span>" + "无" + "</span>";
+        }
         padBackData(data.csdata, $('#shop_form', $dialog)); //回填娱乐场所信息
     };
     $.ajax(opt);

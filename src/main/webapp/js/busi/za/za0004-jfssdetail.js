@@ -11,7 +11,7 @@
     initServiceParaSelect('za_jfss.sblb', $('#sblb', $dialog));
     initServiceParaSelect('za_jfss.sblx', $('#sblx', $dialog));
     initServiceParaSelect('za_jfss.sx', $('#sx', $dialog));
-    $("input,select").attr("disabled", "disabled"); //让输入框为只读状态
+    $("input,select",$dialog).attr("disabled", "disabled"); //让输入框为只读状态
     var param = $dialog.data('param'); //父窗口传递的参数
     var opt = new AjaxOptions();
     opt.put("service_code", "S44006");
@@ -26,7 +26,7 @@
         var btns = new Array();
         mov.moveable = true;//是否可以拖动
         if (f = !f) {
-            $("input,select").removeAttr("disabled");
+            $("input,select",$dialog).removeAttr("disabled");
             $(this).html("保存");
         } else {
             f = !f;

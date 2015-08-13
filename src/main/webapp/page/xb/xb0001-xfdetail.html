@@ -1,0 +1,143 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="pageContent">
+    <form  id="shop_form" class="pageForm">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>单位名称：</label>
+                <input type="text" name="mc" id="mc" size="50" class="required"  />
+            </div>
+            <div class="unit">
+                <label>单位地址：</label>
+                <input type="text" name="dz" id="dz"  size="50"  class="required" />
+            </div>
+            <div class="unit">
+                <label>联系方式：</label>
+                <input type="text" name="lxfs" id="lxfs"  size="50" class="required"/>
+            </div>
+            <div class="unit">
+                <label>主管部门：</label>
+                <input type="text" name="sjzg" id="sjzg"  size="50"  />
+            </div>
+            <div class="unit">
+                <label>生产经营：</label>
+                <input type="text" name="scjy" id="scjy"  size="50"/>
+            </div>
+            <div class="unit">
+                <label>经济类别：</label>
+                <input type="text" name="lb" id="lb"  size="50" />
+            </div>
+            <div class="unit">
+                <label>单位面积：</label>
+                <input type="text" name="mj" id="mj"  size="23"  class="number"></input><span class="unit">平方米</span>
+            </div>
+            <div class="unit">
+                <label>员工人数：</label>
+                <input type="text" name="ygrs" id="ygrs"  size="23" class="number"/>
+            </div>
+            <div class="unit">
+                <label>楼层数：</label>
+                <input type="text" name="cs" id="cs"  size="23" class="number"/>
+            </div>
+            <div class="unit">
+                <label>法人代表：</label>
+                <input type="text" name="frdb" id="frdb"  size="50" />
+            </div>
+            <div class="unit">
+                <label>检查人员：</label>
+                <input type="text" name="jcry" id="jcry"  size="50" />
+            </div>
+            <div class="unit">
+                <label>检查时间：</label>
+                <input type="text" name="jcsj" id="jcsj"  date-format="yyyy-MM-dd" size="23" class="date"/>
+            </div>
+            <div class="unit">
+                <label>检查内容：</label>
+                <input type="text" name="jcnr" id="jcnr"  size="50" />
+            </div>
+            <div class="unit">
+                <label>检查情况：</label>
+                <input type="text" name="jcqk" id="jcqk"  size="50" />
+            </div>
+            <div class="unit">
+                <label>消防安全责任人：</label>
+                <input type="text" name="xfaqzrr" id="xfaqzrr"  size="50" />
+            </div>
+            <div class="unit">
+                <label>消防责任人联系方式：</label>
+                <input type="text" name="xfzrrlxfs" id="xfzrrlxfs"  size="50" />
+            </div>
+            <div class="unit">
+                <label>检查意见：</label>
+                <input type="text" name="jcyj" id="jcyj"  size="50" />
+            </div>
+            <div class="unit">
+                <label>行政处罚情况：</label>
+                <input type="text" name="xzcfqk" id="xzcfqk"  size="50" />
+            </div>
+            <div class="unit">
+                <label>是否消防宣传教育：</label>
+                <input type="radio" name="xfxcjy" id="xfxcjy"  value="1" checked="true">是</input>
+                <input type="radio" name="xfxcjy" id="xfxcjy"  value="0">否</input>
+            </div>
+            <div class="unit">
+                <label>消防教育时间：</label>
+                <input type="text" name="jysj" id="jysj"   date-format="yyyy-MM-dd" size="23"  class="date"/>
+            </div>
+            <div class="unit">
+                <label>消防教育地点：</label>
+                <input type="text" name="jydd" id="jydd"  size="50" />
+            </div>
+            <div class="unit">
+                <label>教育宣传内容：</label>
+                <input type="text" name="xcnr" id="xcnr"  size="50" />
+            </div>
+            <div class="unit" >
+                <label>重点部位内部图：</label>
+                 <span name="zdbwnbt" id="zdbwnbt"></span>
+                <table class="searchContent" id="zdbwnbt_pic">
+                    <tr>
+                        <td>
+                            <div  name="pic_zdbwnbt" id="pic_zdbwnbt" style="width: 120px; height: 80px"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="unit">
+                <label>重点部位外部图：</label>
+                <span name="zdbwwbt" id="zdbwwbt"></span>
+                <table class="searchContent" id="zdbwwbt_pic" >
+                    <tr>
+                        <td>
+                            <div  name="pic_zdbwwbt" id="pic_zdbwwbt" style="width: 120px; height: 80px"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="unit">
+                <label>消防设施是否齐全：</label>
+                <input type="radio" name="xfssqq" id="xfssqq"  value="1" checked="true">是</input>
+                <input type="radio" name="xfssqq" id="xfssqq"  value="0">否</input>
+            </div>
+            <div class="unit">
+                <label>消防人员经过培训：</label>
+                <input type="radio" name="xfpx" id="xfpx"  value="1">是</input>
+                <input type="radio" name="xfpx" id="xfpx"  value="0" checked="true">否</input>
+            </div>
+            <div class="unit">
+                <label>备注：</label>
+                <input type="text" name="bz" id="bz"  size="50"/>
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="modify">修改</button></div></div></li>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="del">删除</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" id="close" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

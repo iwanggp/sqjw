@@ -17,11 +17,31 @@
     opt.put("id", param.id);
 
     opt.sus = function (data) {
-        data.csdata.ajhgz = "<a href='" + server_root + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
-        data.csdata.ysxkz = "<a href='" + server_root + data.csdata.ysxkz + "' target='_blank'>" + "查看运输合格证" + "</a>";
-        data.csdata.gsxkz = "<a href='" + server_root + data.csdata.gsxkz + "' target='_blank'>" + "查看工商许可证" + "</a>";
-        data.csdata.jypmt = "<a href='" + server_root + data.csdata.jypmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
-        data.csdata.yzxkz = "<a href='" + server_root + data.csdata.yzxkz + "' target='_blank'>" + "查看邮政许可证" + "</a>";
+        if (isNaN(data.csdata.ajhgz)) {
+            data.csdata.ajhgz = "<a href='" + server_root + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
+        } else {
+            data.csdata.ajhgz = "<span>" + "无" + "</span>";
+        }
+        if (isNaN(data.csdata.ysxkz)) {
+            data.csdata.ysxkz = "<a href='" + server_root + data.csdata.ysxkz + "' target='_blank'>" + "查看运输合格证" + "</a>";
+        } else {
+            data.csdata.ysxkz = "<span>" + "无" + "</span>";
+        }
+        if (isNaN(data.csdata.gsxkz)) {
+            data.csdata.gsxkz = "<a href='" + server_root + data.csdata.gsxkz + "' target='_blank'>" + "查看工商许可证" + "</a>";
+        } else {
+            data.csdata.gsxkz = "<span>" + "无" + "</span>";
+        }
+        if (isNaN(data.csdata.jypmt)) {
+            data.csdata.jypmt = "<a href='" + server_root + data.csdata.jypmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
+        } else {
+            data.csdata.jypmt = "<span>" + "无" + "</span>";
+        }
+        if (isNaN(data.csdata.yzxkz)) {
+            data.csdata.yzxkz = "<a href='" + server_root + data.csdata.yzxkz + "' target='_blank'>" + "查看邮政许可证" + "</a>";
+        } else {
+            data.csdata.yzxkz = "<span>" + "无" + "</span>";
+        }
         padBackData(data.csdata, $('#shop_form', $dialog)); //回填物流信息
     };
     $.ajax(opt);

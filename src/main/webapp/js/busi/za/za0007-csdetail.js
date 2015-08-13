@@ -8,7 +8,7 @@
     hidePic();
     var poly = map.getOverlayById("gang");//获得小红点的经纬度，这是一个对象，通过this.point获得点坐标
     var $dialog = $.pdialog.getCurrent();
-    $("input").attr("disabled", "disabled"); //让输入框为只读状态
+    $("input", $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     var param = $dialog.data('param'); //父窗口传递的参数
     var opt = new AjaxOptions();
     opt.put("service_code", "S40002");
@@ -16,8 +16,17 @@
     opt.put("id", param.id);
 
     opt.sus = function (data) {
-        data.csdata.ajhgz = "<a href='" + server_root + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
-        data.csdata.jyxkz = "<a href='" + server_root + data.csdata.jyxkz + "' target='_blank'>" + "查看经营许可证" + "</a>";
+        if (isNaN(data.csdata.jyxkz)) {
+            data.csdata.jyxkz = "<a href='" + server_root + data.csdata.jyxkz + "' target='_blank'>" + "查看经营许可证" + "</a>";
+        } else {
+            data.csdata.jyxkz = "<span>" + "无" + "</span>";
+        }
+        if (isNaN(data.csdata.ajhgz)) {
+            data.csdata.ajhgz = "<a href='" + server_root + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
+        } else {
+            data.csdata.ajhgz = "<span>" + "无" + "</span>";
+        }
+
         padBackData(data.csdata, $('#shop_form', $dialog)); //回填物流信息
     };
     $.ajax(opt);
@@ -28,7 +37,7 @@
         var mov = map.getOverlayById(param.id);
         mov.moveable = true;//是否可以拖动
         if (f = !f) {
-            $("input").removeAttr("disabled");
+            $("input", $dialog).removeAttr("disabled");
             $('#ajhgz_pic,#jyxkz_pic', $dialog).show();
             $(this).html("保存");
         } else {

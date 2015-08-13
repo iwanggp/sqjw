@@ -5,7 +5,7 @@
  */
 (function () {
     var $dialog = $.pdialog.getCurrent();
-    $("#csList li a", $dialog).click(function () {
+    $("#addList li a", $dialog).click(function () {
         hy = $(this).attr('name');
     });
 

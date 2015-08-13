@@ -16,9 +16,21 @@
     opt.put("id", param.id);
 
     opt.sus = function (data) {
-        data.csdata.ajhgz = "<a href='" + server_root + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
-        data.csdata.jypmt = "<a href='" + server_root + data.csdata.jypmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
-        data.csdata.jyxkz = "<a href='" + server_root + data.csdata.jyxkz + "' target='_blank'>" + "查看经营许可证" + "</a>";
+        if (isNaN(data.csdata.ajhgz)) {
+            data.csdata.ajhgz = "<a href='" + server_root + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
+        } else {
+            data.csdata.ajhgz = "<span>" + "无" + "</span>";
+        }
+        if (isNaN(data.csdata.jypmt)) {
+            data.csdata.jypmt = "<a href='" + server_root + data.csdata.jypmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
+        } else {
+            data.csdata.jypmt = "<span>" + "无" + "</span>";
+        }
+        if (isNaN(data.csdata.jyxkz)) {
+            data.csdata.jyxkz = "<a href='" + server_root + data.csdata.jyxkz + "' target='_blank'>" + "查看经营许可证" + "</a>";
+        } else {
+            data.csdata.jyxkz = "<span>" + "无" + "</span>";
+        }
         padBackData(data.csdata, $('#shop_form', $dialog)); //回填物流信息
     };
     $.ajax(opt);
@@ -65,7 +77,7 @@
     //#删除信息服务
     $('#del', $dialog).click(function () {
         if (param.id != null) {
-            alertMsg.confirm("确定要删除该网吧吗？", {"okCall": function () {
+            alertMsg.confirm("确定要删除该旅馆吗？", {"okCall": function () {
                     $("input", $dialog).removeAttr("disabled");
                     var o = new AjaxOptions();
                     o.put("ajhgz", $('#ajhgz a').html());
@@ -73,7 +85,7 @@
                     o.put("jyxkz", $("#jyxkz a").html());
                     o.put("id", param.id);
                     o.put("service_code", 'P43007');
-                    o.sus = function () {
+                    o.sus = function (data) {
                         alertMsg.correct("删除成功了！");
                         getCS(hy, mc, 1);
                         $('#xiye').text(1);

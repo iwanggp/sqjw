@@ -1,5 +1,3 @@
-
-
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,16 +8,28 @@
     hidePic();
     var poly = map.getOverlayById("gang");//获得小红点的经纬度，这是一个对象，通过this.point获得点坐标
     var $dialog = $.pdialog.getCurrent();
-    $("input").attr("disabled", "disabled"); //让输入框为只读状态
+    $("input", $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     var param = $dialog.data('param'); //父窗口传递的参数
     var opt = new AjaxOptions();
     opt.put("service_code", "S40002");
     opt.put("hy", param.hy);
     opt.put("id", param.id);
     opt.sus = function (data) {
-        data.csdata.jyxkz = "<a href='" + server_root + data.csdata.jyxkz + "' target='_blank'>" + "查看经营许可证" + "</a>";
-        data.csdata.ajhgz = "<a href='" + server_root + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
-        data.csdata.jypmt = "<a href='" + server_root + data.csdata.jypmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
+        if (isNaN(data.csdata.jyxkz)) {
+            data.csdata.jyxkz = "<a href='" + server_root + data.csdata.jyxkz + "' target='_blank'>" + "查看经营许可证" + "</a>";
+        } else {
+            data.csdata.jyxkz = "<span>" + "无" + "</span>";
+        }
+        if (isNaN(data.csdata.ajhgz)) {
+            data.csdata.ajhgz = "<a href='" + server_root + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
+        } else {
+            data.csdata.ajhgz = "<span>" + "无" + "</span>";
+        }
+        if (isNaN(data.csdata.jypmt)) {
+            data.csdata.jypmt = "<a href='" + server_root + data.csdata.jypmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
+        } else {
+            data.csdata.jypmt = "<span>" + "无" + "</span>";
+        }
         padBackData(data.csdata, $('#shop_form', $dialog)); //回填商铺信息
     };
     $.ajax(opt);
@@ -29,7 +39,7 @@
         var mov = map.getOverlayById(param.id);
         mov.moveable = true;//是否可以拖动
         if (f = !f) {
-            $("input").removeAttr("disabled");
+            $("input", $dialog).removeAttr("disabled");
             $('#jyxkz_pic, #ajhgz_pic,#jypmt_pic', $dialog).show();
             $(this).html("保存");
         } else {
@@ -49,7 +59,7 @@
                 fileOptions.put("jyxkz", $('#jyxkz a').attr("href"));
                 fileOptions.put("ajhgz", $('#ajhgz a').attr("href"));
                 fileOptions.put("jypmt", $("#jypmt a").attr("href"));
-                fileOptions.sus = function(data) {
+                fileOptions.sus = function (data) {
                     alertMsg.correct("修改成功");
                     $("#close", $dialog).trigger("click");
                     $('#xiye').text(1);
@@ -73,11 +83,12 @@
                     o.put("jypmt", $("#jypmt a").html());
                     o.put("id", param.id);
                     o.put("service_code", "P41003");
-                    o.sus = function() {
+                    o.sus = function (data) {
                         alertMsg.correct("删除成功");
                         $('#xiye').text(1);
                         getCS(hy, mc, 1);
                         $('#close', $dialog).trigger("click");
+
                     };
                     $.ajax(o);
                 }

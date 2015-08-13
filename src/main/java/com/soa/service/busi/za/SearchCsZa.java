@@ -28,6 +28,7 @@ public class SearchCsZa extends BaseService {
         String hy = in.getStringValue("hy");
         if ("za_yl".equals(hy)) {
             in.putStringValue("sql", "za_select_yl");
+            cutPage(in, inHead, out, outHead);
         } else if ("za_sp".equals(hy)) {
             in.putStringValue("sql", "za_select_sp");
             cutPage(in, inHead, out, outHead);
@@ -39,6 +40,9 @@ public class SearchCsZa extends BaseService {
             cutPage(in, inHead, out, outHead);
         } else if ("za_lg".equals(hy)) {
             in.putStringValue("sql", "za_select_lg");
+            cutPage(in, inHead, out, outHead);
+        } else if ("xb_xf".equals(hy)) {
+            in.putStringValue("sql", "za_select_xf");
             cutPage(in, inHead, out, outHead);
         } else {
             in.putStringValue("sql", "za_select_cs");

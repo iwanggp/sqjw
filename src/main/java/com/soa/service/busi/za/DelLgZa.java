@@ -44,12 +44,12 @@ public class DelLgZa extends BaseService {
         for (int i = 0; i < paths.length; i++) {
             if (paths[i] != null) {
                 if (sqjwUtil.deleteFile(paths[i])) {
-                    update("del_lg_za", obj);
+                    out.putIntValue("res", update("del_lg_za", obj));
                 } else {
                     throw new GlobalException(140002);      //删除文件出错了
                 }
             } else {
-                update("del_lg_za", obj);
+                out.putIntValue("res", update("del_lg_za", obj));
             }
         }
     }
