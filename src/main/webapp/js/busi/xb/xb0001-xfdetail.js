@@ -47,25 +47,8 @@
                     $('#modify').html("保存");
                 }
             });
-            if ($("#shop_form", $dialog).valid()) {
-                fileOptions.putForm($('#shop_form', $dialog));       //添加表单内容
-                fileOptions.setService('P45003');
-                fileOptions.put("id", param.id);
-                fileOptions.put('jd', mov.point.x);//传递经度参数
-                fileOptions.put('wd', mov.point.y);//传递维度参数
-                fileOptions.put("zdbwnbt", $('#zdbwnbt a').attr("href"));
-                fileOptions.put("zdbwwbt", $('#zdbwwbt a').attr("href"));
-                fileOptions.sus = function (data) {
-                    alertMsg.correct("修改成功");
-                    $("#close", $dialog).trigger("click");
-                    $('#xiye').text(1);
-                    getCS(hy, mc, 1);
-                };
-                fileOptions.after = function (c, d) {
-                    console.log(c);
-                };
-                fileOptions.send();
-            }
+            
+         
         }
     });
     //#删除信息服务

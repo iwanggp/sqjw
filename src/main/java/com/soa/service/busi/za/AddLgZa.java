@@ -30,6 +30,9 @@ public class AddLgZa extends BaseService {
         "pid", "企业编号",
         "mc", "企业名称",
         "dz", "企业地址",
+        "jz_id", "建筑id",
+        "sq_id", "社区id",
+        "dz", "地址",
         "jd", "经度",
         "wd", "维度"
     };
@@ -69,6 +72,10 @@ public class AddLgZa extends BaseService {
                 file2_path = sqjwUtil.upLoad(file2, "za0001_file_path1", modul_name, name2);
                 in.putStringValue("jypmt", file2_path.toString());
             }
+            AbstractCommonData acd = getSession(in);
+            in.put("cjrxm", acd.get("xm"));
+            //in从页面传来过得值
+            in.put("cjr", acd.get(SystemUtil.loginRemark));
             //in从页面传来过得值
             in.putStringValue("id", SystemUtil.getSerialNum());//数据库的主码
             update("add_lg_za", in);

@@ -19,10 +19,16 @@ function fl(p1, p2) {
     $("#xiye").empty();
     if (fylb == 'search_cs') {
         getCS(hy, mc, p1);
+    } else if (fylb == 'search_sp') {
+        getSpCS(hy, mc, p1);
     } else if (fylb == 'search_jfss') {
         getJfss(sblx, sx, p1);
+    } else if (fylb == 'search_jz') {
+        getJZ(mc, p1);
     } else if (fylb == 'search_jqxx') {
         getJqxx(ajfl, sx, p1, kssj, jzsj);
+    } else if (fylb == 'search_sq') {
+        getSq(mc, p1);
     }
     $("#xiye").html(p1);//给显示的页数赋值
 
@@ -40,10 +46,16 @@ function topclick() {
         $("#xab").scrollTop(hei);
         if (fylb == 'search_cs') {
             getCS(hy, mc, num);
+        } else if (fylb == 'search_sp') {
+            getSpCS(hy, mc, num);
         } else if (fylb == 'search_jfss') {
             getJfss(sblx, sx, num);
         } else if (fylb == 'search_jqxx') {
             getJqxx(ajfl, sx, num, kssj, jzsj);
+        } else if (fylb == 'search_jz') {
+            getJZ(mc, num);
+        } else if (fylb == 'search_sq') {
+            getSq(mc, num);
         }
     }
 }
@@ -58,10 +70,16 @@ function downclick() {
         scrolltop(num);
         if (fylb == 'search_cs') {
             getCS(hy, mc, num);
+        } else if (fylb == 'search_sp') {
+            getSpCS(hy, mc, num);
         } else if (fylb == 'search_jfss') {
             getJfss(sblx, sx, num);
         } else if (fylb == 'search_jqxx') {
             getJqxx(ajfl, sx, num, kssj, jzsj);
+        } else if (fylb == 'search_jz') {
+            getJZ(mc, num);
+        } else if (fylb == 'search_sq') {
+            getSq(mc, num);
         }
     }
 }

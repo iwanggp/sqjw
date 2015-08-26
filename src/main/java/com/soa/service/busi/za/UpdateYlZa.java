@@ -8,6 +8,8 @@ package com.soa.service.busi.za;
 import com.lianzt.commondata.AbstractCommonData;
 import com.soa.exception.GlobalException;
 import com.soa.service.BaseService;
+import static com.soa.service.BaseService.getSession;
+import com.soa.util.SystemUtil;
 import com.soa.util.sqjw.SqjwUtil;
 import java.io.IOException;
 import javax.annotation.Resource;
@@ -19,7 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * P41005 更新娱乐场所信息
  *
- * @author zkf
+ * @author wgp
  */
 @Service
 public class UpdateYlZa extends BaseService {
@@ -27,9 +29,7 @@ public class UpdateYlZa extends BaseService {
     //校验不能为空的值，当key为空时会提示不能为空
     private final String[] KEY = {
         "mc", "场所名称",
-        "dz", "地址",
-        "jd", "经度",
-        "wd", "维度"
+        "dz", "地址"
     };
     private final Logger log = LoggerFactory.getLogger(UpdateYlZa.class);
 
@@ -48,6 +48,10 @@ public class UpdateYlZa extends BaseService {
         byte[] file1 = (byte[]) in.getObjectValue("pic_ajhgz");
         byte[] file2 = (byte[]) in.getObjectValue("pic_cspmt");
         byte[] file3 = (byte[]) in.getObjectValue("pic_gsxkz");
+        AbstractCommonData acd = getSession(in);
+        in.put("cjrxm", acd.get("xm"));
+        //in从页面传来过得值
+        in.put("cjr", acd.get(SystemUtil.loginRemark));
         String paths[] = {in.getStringValue("cspmt"), in.getStringValue("ajhgz"), in.getStringValue("jyxkz"), in.getStringValue("gsxkz")};
         try {
             String name = in.getStringValue("pic_jyxkz_name");

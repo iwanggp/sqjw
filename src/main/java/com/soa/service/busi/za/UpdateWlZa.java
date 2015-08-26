@@ -8,6 +8,8 @@ package com.soa.service.busi.za;
 import com.lianzt.commondata.AbstractCommonData;
 import com.soa.exception.GlobalException;
 import com.soa.service.BaseService;
+import static com.soa.service.BaseService.getSession;
+import com.soa.util.SystemUtil;
 import com.soa.util.sqjw.SqjwUtil;
 import java.io.IOException;
 import javax.annotation.Resource;
@@ -30,8 +32,6 @@ public class UpdateWlZa extends BaseService {
         "pid", "企业编号",
         "mc", "企业名称",
         "dz", "地址",
-        "jd", "经度",
-        "wd", "维度"
     };
     private final Logger log = LoggerFactory.getLogger(UpdateShopZa.class);
 
@@ -53,6 +53,10 @@ public class UpdateWlZa extends BaseService {
         byte[] file3 = (byte[]) in.getObjectValue("pic_jypmt");
         byte[] file4 = (byte[]) in.getObjectValue("pic_yzxkz");
         final String modul_name = "ZAWL";
+        AbstractCommonData acd = getSession(in);
+        in.put("cjrxm", acd.get("xm"));
+        //in从页面传来过得值
+        in.put("cjr", acd.get(SystemUtil.loginRemark));
         try {
             String name = in.getStringValue("pic_gsxkz_name");
             String name1 = in.getStringValue("pic_ysxkz_name");

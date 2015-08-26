@@ -1,5 +1,8 @@
 (function () {
     var $dialog = $.pdialog.getCurrent();
-//    var $page = navTab.getCurrentPanel();
+//    alert($dialog.html());
+    setTimeout(function () {
+        $('#sqss', $dialog).click();
+    }, 0);
 }).call();
 

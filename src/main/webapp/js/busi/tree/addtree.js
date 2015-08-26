@@ -5,9 +5,14 @@
  */
 (function () {
     var $dialog = $.pdialog.getCurrent();
-    $("#addList li a", $dialog).click(function () {
+    var param = $dialog.data('param'); //父窗口传递的参数
+    $("#addList_v li a").click(function () {
         hy = $(this).attr('name');
+        jzid = param.id;
+        console.debug(jzid + "[][[][][][][]-----");
+        jzjd = param.jd;
+        console.debug(jzjd + "[][[][][][][]-----");
+        jzwd = param.wd;
     });
-
 }).call();
 

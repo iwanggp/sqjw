@@ -5,7 +5,6 @@
  */
 package com.soa.service.busi.za;
 
-import ch.qos.logback.classic.util.ContextInitializer;
 import com.lianzt.commondata.AbstractCommonData;
 import com.soa.exception.GlobalException;
 import com.soa.service.BaseService;
@@ -31,6 +30,8 @@ public class AddShopZa extends BaseService {
         "mc", "商铺名称",
         "zgbm", "主管部门",
         "jjxz", "经济性质",
+        "jz_id", "建筑id",
+        "sq_id", "社区id",
         "dz", "地址",
         "jd", "经度",
         "wd", "维度"
@@ -52,6 +53,10 @@ public class AddShopZa extends BaseService {
         byte[] file1 = (byte[]) in.getObjectValue("ajhgz");
         byte[] file2 = (byte[]) in.getObjectValue("jypmt");
         final String modul_name = "ZASHOP";
+        AbstractCommonData acd = getSession(in);
+        in.put("cjrxm", acd.get("xm"));
+        //in从页面传来过得值
+        in.put("cjr", acd.get(SystemUtil.loginRemark));
         try {
             String name = in.getStringValue("jyxkz_name");
             String name1 = in.getStringValue("ajhgz_name");
@@ -71,9 +76,8 @@ public class AddShopZa extends BaseService {
                 file2_path = sqjwUtil.upLoad(file2, "za0001_file_path1", modul_name, name2);
                 in.putStringValue("jypmt", file2_path.toString());
             }
-
             //in从页面传来过得值
-            in.putStringValue("id", SystemUtil.getSerialNum());//数据库的主码
+            in.putStringValue("spid", SystemUtil.getSerialNum());//数据库的主码
             update("add_shop_za", in);
         } catch (IOException ex) {
             log.debug("error:", ex);

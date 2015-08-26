@@ -17,7 +17,7 @@ function init_map() {
     //初始化地图对象
     map = new STMapObj("STMap_map");
     //根据中心点和级别定位地图,STMapPoint表示具备x/y属性的二维点对象
-    map.locateMap(new STMapPoint(log, lat), 2);
+    map.locateMap(new STMapPoint(log, lat), 4);
     //设置放大缩小控件是否显示,默认显示
     map.setZoomCompVisible(true);
     //设置比例尺控件是否显示,默认显示
@@ -55,17 +55,35 @@ function treemenu() {
     poly.setMoveable(true);
     map.addOverlay(poly, true);
     map.pan(-150, 0);//将地图移动N个像素距离,x右为正，左为负。y下为正，上为负。
-    $.pdialog.open("page/tree/addtree.html", 'add_role_pl', "添加信息", {width: 270, height: 310,
+    $.pdialog.open("page/tree/addtree.html", 'add_role_pl', "添加信息", {width: 270, height: 310, mask: false,
         close: function () {
-            map.deleteOverlayById("gang");
+//            map.deleteOverlayById("gang");
             return true;//这样才能关闭窗口
         }
     });//打开树形菜单
 }
 function searchTree() {
     map.deleteOverlayById("menu");
-    $.pdialog.open("page/tree/searchtree.html", 'searchtree', "查询信息", {"width": 600, "height": 260});//打开树形菜单
+    $.pdialog.open("page/tree/searchtree.html", 'searchtree', "查询信息", {"width": 750, "height": 260});//打开树形菜单
 }
 function closeMenu() {
     map.setOverlayVisible('menu', false);
+}
+function add() {
+    map.deleteOverlayById("menu");
+    poly = new STMapMarker();
+    poly.id = "gang"; //【必选】对象 id
+    poly.point = new STMapPoint(gangjd, gangwd); //【必选】经纬度坐标  STMapPoint 类型
+    poly.img = "images/loc128.png"; //【必选】对象的图片地址 url
+    poly.infowin = false;
+    poly.anchor = "BR";//设置覆盖物的位置
+    poly.setMoveable(true);
+    map.addOverlay(poly, true);
+    map.pan(-150, 0);//将地图移动N个像素距离,x右为正，左为负。y下为正，上为负。
+    $.pdialog.open("page/add/addsq.html", 'add_root_pl', "添加社区", {width: 550, height: 360, mask: false,
+        close: function () {
+            map.deleteOverlayById("gang");
+            return true;//这样才能关闭窗口
+        }
+    });//打开树形菜单
 }

@@ -328,6 +328,17 @@ function clickLi(data) {
     two.size = new STMapSize(40, 40);
     map.addOverlay(two, true);
 }
+//高亮显示坐标点
+function clickSqLi(data) {
+    $(data).siblings().each(function () {
+        var one = map.getOverlayById($(this).attr('name'));
+        one.size = new STMapSize(60, 60);
+        one.refresh();
+    });
+    var two = map.getOverlayById($(data).attr('name'));
+    two.size = new STMapSize(100, 100);
+    map.addOverlay(two, true);
+}
 //获取场所列表
 function getCS(h, m, page) {
     mc = m;
@@ -355,7 +366,33 @@ function getCS(h, m, page) {
     };
     $.ajax(o);
 }
-
+//获取商铺信息
+function getSpCS(h, m, page) {
+    mc = m;
+    hy = h;
+    var o = new AjaxOptions();
+    o.isDialog = true; //为弹出窗口
+    o.put("service_code", "S40001");
+    o.put("mc", mc);
+    o.put("hy", hy);
+    o.put("page_size", 10);
+    o.put("page", page);
+    o.sus = function (data) {
+        if (data.result.length > 0) {
+            $.pdialog.closeCurrent();
+            LocationPoint(data);
+            $('#STMap_map').css({width: '85%', overflow: 'hidden'});
+            $('#contentRight').css('display', 'block');
+            $('#mo').text(data.page_count);
+            showSPList(data);
+        } else {
+            map.clearAllOverlays();
+            $('#STMap_map').css({width: '100%', overflow: 'hidden'});
+            $('#contentRight').css('display', 'none');
+        }
+    };
+    $.ajax(o);
+}
 //获取技防设施
 /*
  * @param {type} one 设备类型
@@ -441,14 +478,15 @@ function LocationPoint(data) {
         var img = '';
         var pt = new STMapMarker();
         //设置对象的唯一id，id要唯一，如果存在重复id，后添加的覆盖已经存在的对象
-        pt.id = data.result[i].id;
-        pt.point = new STMapPoint(data.result[i].jd, data.result[i].wd);
-        if (hy == 'za_sp') {
+        if (data.result[i].hylb == 'za_sp') {
+            pt.id = data.result[i].spid;
             img = 'images/shop_128px.png'
-            $('img').css('background', i);
-        } else {
-            img = 'images/loc128.png'
         }
+        else {
+            img = 'images/loc128.png';
+            pt.id = data.result[i].id;
+        }
+        pt.point = new STMapPoint(data.result[i].jd, data.result[i].wd);
         //设置对象的图片URL
         pt.img = img;
 
@@ -464,10 +502,149 @@ function LocationPoint(data) {
         //设置属性框的标题
         pt.title = '';
         //设置属性框的内容
-        pt.content = "<div class='con'>名称：" + data.result[i].mc + "</div><div class='con'>地址：" + data.result[i].dz + "</div><div class='con'>详情：" + "<a class='det' onclick='detailCs($(this))' name='" + data.result[i].id + "'>点击查看详情</a>" + "</div>";
+        pt.content = "<div class='con'>名称：" + data.result[i].mc + "</div><div class='con'>地址：" + data.result[i].dz + "</div><div class='con'>详情：" + "<a class='det' onclick='detailCs($(this))' name='" + pt.id + "' >点击查看详情</a>" + "</div>";
         //将该对象添加到地图上
         //参数pt为marker对象，参数true表示是否自动调整视野，如果为true，则地图自动定位到该位置
         map.addOverlay(pt, true);
+        pt.bound(1000);
+    }
+}
+
+function bringDialogToFront($dialog) {
+//       setTimeout(function () {
+//        $('#ygxx', $dialog).click();
+//    }, 50);
+    $("<input />")
+            .attr({"id": "_temp_d", "type": "hidden"})
+            .appendTo($dialog.find(".formBar"))
+            .click(function () {
+                $(this).remove();
+            });
+    setTimeout(function () {
+        $('#_temp_d', $dialog).click();
+    }, 100);
+}
+//添加住家户标记点
+function LocationPointZjh(data) {
+    //先清除之前的搜索结果
+    map.clearAllOverlays();
+    for (var i = 0; i < data.result.length; i++) {
+        var img = '';
+        var pt = new STMapMarker();
+        //设置对象的唯一id，id要唯一，如果存在重复id，后添加的覆盖已经存在的对象
+        pt.id = data.result[i].id;
+        pt.point = new STMapPoint(data.result[i].jd, data.result[i].wd);
+        img = 'images/loc128.png'
+        //设置对象的图片URL
+        pt.img = img;
+        /*******以下为可选对象属性*******/
+        //鼠标提示文字
+        pt.label = data.result[i].mph;
+        //设置对象尺寸,默认为图片本身尺寸
+        pt.size = new STMapSize(30, 30); // 尺寸对象原型：STMapSize(长度,高度);
+        //设置对象定位的锚点位置（相对于图片矩形）;取值范围：BC（下边中心点），BL（左下角），BR（右下角），TL（左上角），TC（上边中心点），TR（右上角），ML（左边中心点），MR（右边中心点），CENTER（图片中心点）
+        pt.anchor = "CENTER";
+        //设置是否点击显示信息窗口，默认为true。
+        pt.infowin = true;
+        //设置属性框的标题
+        pt.title = '';
+        //设置属性框的内容
+        pt.content = "<div class='con'>名称：" + data.result[i].mph + "</div><div class='con'>地址：" + data.result[i].fzxm + "</div><div class='con'>详情：" + "<a class='det' onclick='detaiZjh($(this))' name='" + data.result[i].id + "'>点击查看详情</a>" + "</div>";
+        //将该对象添加到地图上
+        //参数pt为marker对象，参数true表示是否自动调整视野，如果为true，则地图自动定位到该位置
+        map.addOverlay(pt, true);
+        pt.bound(1000);
+    }
+}
+//添加建筑标记点
+function LocationPointJz(data) {
+    //先清除之前的搜索结果
+    map.clearAllOverlays();
+    for (var i = 0; i < data.result.length; i++) {
+        var img = '';
+        var pt = new STMapMarker();
+        //设置对象的唯一id，id要唯一，如果存在重复id，后添加的覆盖已经存在的对象
+        pt.id = data.result[i].jzid;
+        pt.point = new STMapPoint(data.result[i].jd, data.result[i].wd);
+        img = 'images/loc128.png'
+        //设置对象的图片URL
+        pt.img = img;
+        /*******以下为可选对象属性*******/
+        //鼠标提示文字
+        pt.label = data.result[i].mc;
+        //设置对象尺寸,默认为图片本身尺寸
+        pt.size = new STMapSize(30, 30); // 尺寸对象原型：STMapSize(长度,高度);
+        //设置对象定位的锚点位置（相对于图片矩形）;取值范围：BC（下边中心点），BL（左下角），BR（右下角），TL（左上角），TC（上边中心点），TR（右上角），ML（左边中心点），MR（右边中心点），CENTER（图片中心点）
+        pt.anchor = "CENTER";
+        //设置是否点击显示信息窗口，默认为true。
+        pt.infowin = true;
+        //设置属性框的标题
+        pt.title = '';
+        //设置属性框的内容
+        pt.content = "<div class='con'>名称：" + data.result[i].mc + "</div><div class='con'>地址：" + data.result[i].dz + "</div><div class='con'>详情：" + "<a class='det' onclick='detaiJz($(this))' name='" + data.result[i].jzid + "'>点击查看详情</a>" + "</div>";
+        //将该对象添加到地图上
+        //参数pt为marker对象，参数true表示是否自动调整视野，如果为true，则地图自动定位到该位置
+        map.addOverlay(pt, true);
+        pt.bound(1000);
+    }
+}
+//添加建筑标记点
+function LocationPointSq(data) {
+    //先清除之前的搜索结果
+    map.clearAllOverlays();
+    for (var i = 0; i < data.result.length; i++) {
+        var img = '';
+        var pt = new STMapMarker();
+        var oval = new STMapOval();
+        oval.id = data.result[i].sqid + "yuan"; //【必选】对象id
+        oval.center = new STMapPoint(data.result[i].jd, data.result[i].wd); //【必选】圆或椭圆的中心点，STMapPoint类型
+        oval.width = data.result[i].fw; //【必选】图形的宽度（米）
+        oval.height = data.result[i].fw; //【必选】图形的高度（米）
+        oval.strokeColor = "red"; //【可选】边线的颜色
+        oval.strokeWeight = 1;//【可选】边线宽度
+        oval.strokeOpacity = "1.0";//【可选】边线透明度
+        oval.dashStyle = "Solid";//【可选】边线线形
+        oval.filled = true;//【可选】是否填充
+        oval.fillColor = "red";//【可选】填充颜色
+        oval.fillOpacity = "0.1";//【可选】填充透明度
+        oval.autoClose = false; //【可选】是否自动闭合
+        oval.infowin = false; //【可选】是否点击显示信息窗口，默认为true。
+        oval.tooltip = ""; //【可选】鼠标提示。
+        oval.title = data.result[i].sqmc; //【可选】属性信息库标题，支持html代码
+        var sqlb = data.result[i].sqlb;
+//        oval.content = "<div class='con'>名称：" + data.result[i].sqmc + "</div><div class='con'>地址：" + data.result[i].dz + "</div><div class='con'>详情：" + "<a class='det' onclick='detaiJz($(this))' name='" + data.result[i].sqid + "' jd='" + data.result[i].jd + "' wd='" + data.result[i].wd + "'>点击查看详情</a>" + "</div>";
+        //设置对象的唯一id，id要唯一，如果存在重复id，后添加的覆盖已经存在的对象
+        pt.id = data.result[i].sqid;
+        pt.point = new STMapPoint(data.result[i].jd, data.result[i].wd);
+        if (sqlb == '0') {
+            img = 'images/Company_house.png';
+        } else if (sqlb == "1") {
+            img = 'images/house.png';
+        } else if (sqlb == "3") {
+            img = 'images/City_house.png';
+        } else {
+            img == 'images/building.png'
+        }
+
+        //设置对象的图片URL
+        pt.img = img;
+        /*******以下为可选对象属性*******/
+        //鼠标提示文字
+        pt.label = data.result[i].sqmc;
+        //设置对象尺寸,默认为图片本身尺寸
+        pt.size = new STMapSize(50, 50); // 尺寸对象原型：STMapSize(长度,高度);
+        //设置对象定位的锚点位置（相对于图片矩形）;取值范围：BC（下边中心点），BL（左下角），BR（右下角），TL（左上角），TC（上边中心点），TR（右上角），ML（左边中心点），MR（右边中心点），CENTER（图片中心点）
+        pt.anchor = "CENTER";
+        //设置是否点击显示信息窗口，默认为true。
+        pt.infowin = true;
+        //设置属性框的标题
+        pt.title = '';
+        //设置属性框的内容
+        pt.content = "<div class='con'>名称：" + data.result[i].sqmc + "</div><div class='con'>地址：" + data.result[i].dz + "</div><div class='con'>详情：" + "<a class='det' onclick='detaiSq($(this))' name='" + data.result[i].sqid + "' jd='" + data.result[i].jd + "' wd='" + data.result[i].wd + "'>点击查看详情</a>" + "</div>";
+        //将该对象添加到地图上
+        //参数pt为marker对象，参数true表示是否自动调整视野，如果为true，则地图自动定位到该位置
+        map.addOverlay(pt, true);
+        map.addOverlay(oval, true);
         pt.bound(1000);
     }
 }
@@ -552,17 +729,44 @@ function detailCs(data) {
     } else {
         url = 'page/za/za0007-csdetail.html';
     }
-    $.pdialog.open(url, 'detailCs', "详情",
+    $.pdialog.open(url, 'mydetail', "详情",
             {"width": 580, "height": 560, mask: true,
-                param: {hy: hy, id: $(data).attr('name')},
+                param: {hylb: hy, hyid: $(data).attr('name')},
                 close: function (param) {
-                    map.getOverlayById($(data).attr('name')).moveable = false;//是否可以拖动
                     return true;
                 }
             });
 
 }
-
+function  detaiZjh(data) {
+    $.pdialog.open("page/za/za0009-zjhdetail.html", 'mydetail', "详情",
+            {"width": 580, "height": 280, mask: false,
+                param: {hyid: $(data).attr('name'), hylb: 'za_zjh'},
+                close: function (param) {
+                    return true;
+                }
+            });
+}
+function  detaiJz(data) {
+    $.pdialog.open("page/add/add0001-loudetail.html", 'detailJz', "详情",
+            {"width": 580, "height": 280, mask: false,
+                param: {jzid: $(data).attr('name')},
+                close: function (param) {
+//                    map.getOverlayById($(data).attr('name')).moveable = false;//是否可以拖动
+                    return true;
+                }
+            });
+}
+function  detaiSq(data) {
+    $.pdialog.open("page/add/add0001-sqdetail.html", 'detailSq', "详情",
+            {"width": 580, "height": 350, mask: false,
+                param: {sqid: $(data).attr('name'), jd: $(data).attr('jd'), wd: $(data).attr('wd')},
+                close: function (param) {
+//                    map.getOverlayById($(data).attr('name')).moveable = false;//是否可以拖动
+                    return true;
+                }
+            });
+}
 function detailJfss(data) {
     $.pdialog.open("page/za/za0004-jfssdetail.html", 'detailJfss', "详情",
             {"width": 580, "height": 280, mask: true,
@@ -587,8 +791,71 @@ function detailJqxx(data) {
 //显示场所查询结果
 function showList(data) {
     var text = '';
+    map.locateMap(new STMapPoint(data.result[0].jd, data.result[0].wd), 1);
     for (var i = 0; i < data.result.length; i++) {
-        text += "<li onclick='clickLi($(this))' name='" + data.result[i].id + "'><p>" + data.result[i].mc + "-<a onclick='detailCs($(this))' name='" + data.result[i].id + "'>详情</a></p><p>联系方式：" + data.result[i].lxfs + "</p></li>";
+        text += "<li onclick='clickLi($(this))' name='" + data.result[i].id + "'><p>" + data.result[i].mc + "-<a onclick='detailCs($(this))' name='" + data.result[i].id + "'>详情</a></p><p>地址：" + data.result[i].dz + "</p></li>";
+    }
+    $('#dataList').html(text);
+}
+//显示建筑查询结果
+function showSPList(data) {
+    var text = '';
+    map.locateMap(new STMapPoint(data.result[0].jd, data.result[0].wd), 1);
+    for (var i = 0; i < data.result.length; i++) {
+        text += "<li onclick='clickLi($(this))' name='" + data.result[i].spid + "'><p>" + data.result[i].mc + "-<a onclick='detailCs($(this))' name='" + data.result[i].spid + "'>详情</a></p><p>联系方式：" + data.result[i].lxfs + "</p></li>";
+    }
+    $('#dataList').html(text);
+}
+function searchZjh(mph, dz, m, page) {
+    fylb = 'search_zjh';
+    var o = new AjaxOptions();
+    o.isDialog = true; //为弹出窗口
+    o.put("service_code", "S20012");
+    o.put("mph", mph);
+    o.put("dz", dz);
+    o.put("fzxm", m);
+    o.put("page_size", 10);
+    o.put("page", page);
+    o.sus = function (data) {
+        if (data.result.length > 0) {
+            $.pdialog.closeCurrent();
+            LocationPointZjh(data);
+            $('#STMap_map').css({width: '85%', overflow: 'hidden'});
+            $('#contentRight').css('display', 'block');
+            $('#mo').text(data.page_count);
+            showZjhList(data);
+        } else {
+            map.clearAllOverlays();
+            $('#STMap_map').css({width: '100%', overflow: 'hidden'});
+            $('#contentRight').css('display', 'none');
+        }
+    };
+    $.ajax(o);
+}
+//显示建筑查询结果
+function showZjhList(data) {
+    var text = '';
+    map.locateMap(new STMapPoint(data.result[0].jd, data.result[0].wd), 1);
+    for (var i = 0; i < data.result.length; i++) {
+        text += "<li onclick='clickLi($(this))' name='" + data.result[i].id + "'><p>" + data.result[i].mph + "-<a onclick='detaiZjh($(this))' name='" + data.result[i].id + "'>详情</a></p><p>联系方式：" + data.result[i].lxfs + "</p></li>";
+    }
+    $('#dataList').html(text);
+}
+//显示建筑查询结果
+function showJZList(data) {
+    var text = '';
+    map.locateMap(new STMapPoint(data.result[0].jd, data.result[0].wd), 1);
+    for (var i = 0; i < data.result.length; i++) {
+        text += "<li onclick='clickLi($(this))' name='" + data.result[i].jzid + "'><p>" + data.result[i].mc + "-<a onclick='detaiJz($(this))' name='" + data.result[i].jzid + "'>详情</a></p><p>联系方式：" + data.result[i].lxfs + "</p></li>";
+    }
+    $('#dataList').html(text);
+}
+//显示建筑查询结果
+function showSqList(data) {
+    var text = '';
+    map.locateMap(new STMapPoint(data.result[0].jd, data.result[0].wd), 1);
+    for (var i = 0; i < data.result.length; i++) {
+        text += "<li onclick='clickSqLi($(this))' name='" + data.result[i].sqid + "'><p>" + data.result[i].sqmc + "-<a onclick='detaiSq($(this))' name='" + data.result[i].sqid + "'>详情</a></p><p>地址：" + data.result[i].dz + "</p></li>";
     }
     $('#dataList').html(text);
 }
@@ -609,15 +876,39 @@ function showJqxxList(data) {
     }
     $('#dataList').html(text);
 }
-
 //隐藏滚动条
 function scroll() {
     $('#STMap_map').css('overflow', 'hidden');
 }
+//获取建筑场所列表
+function getJZCS(h, page, rid) {
+    hy = h;
+    var o = new AjaxOptions();
+    o.isDialog = true; //为弹出窗口
+    o.put("service_code", "S20004");
+    o.put("hy", hy);
+    o.put("page_size", 10);
+    o.put("rid", rid);
+    o.put("page", page);
+    o.sus = function (data) {
+        if (data.result.length > 0) {
+            $.pdialog.closeCurrent();
+            LocationPoint(data);
+            $('#STMap_map').css({width: '85%', overflow: 'hidden'});
+            $('#contentRight').css('display', 'block');
+            $('#mo').text(data.page_count);
+            showJZList(data);
+        } else {
+            map.clearAllOverlays();
+            $('#STMap_map').css({width: '100%', overflow: 'hidden'});
+            $('#contentRight').css('display', 'none');
+        }
+    };
+    $.ajax(o);
+}
 
 
-
-//全局变量：场所名称，所属行业,设备类型,分页类别,开始时间，截止时间,案件分类
-var mc, hy, sblx, fylb, gangjd, gangwd, poly, kssj, jzsj, ajfl;
+//全局变量：场所名称，所属行业,设备类型,分页类别,开始时间，截止时间,案件分类,建筑id,建筑经度，建筑维度，是否是搜索
+var mc, hy, sblx, fylb, gangjd, gangwd, poly, kssj, jzsj, ajfl, jzid, jzjd, jzwd, isSearch = false;
 var sx = [];//属性点
 var server_root = "sqjw_upload\\";

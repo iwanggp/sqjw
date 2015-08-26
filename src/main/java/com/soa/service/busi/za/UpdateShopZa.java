@@ -8,6 +8,8 @@ package com.soa.service.busi.za;
 import com.lianzt.commondata.AbstractCommonData;
 import com.soa.exception.GlobalException;
 import com.soa.service.BaseService;
+import static com.soa.service.BaseService.getSession;
+import com.soa.util.SystemUtil;
 import com.soa.util.sqjw.SqjwUtil;
 import java.io.IOException;
 import javax.annotation.Resource;
@@ -29,9 +31,7 @@ public class UpdateShopZa extends BaseService {
         "mc", "商铺名称",
         "zgbm", "主管部门",
         "jjxz", "经济性质",
-        "dz", "地址",
-        "jd", "经度",
-        "wd", "维度"
+        "dz", "单位地址"
     };
     private final Logger log = LoggerFactory.getLogger(UpdateShopZa.class);
 
@@ -50,8 +50,11 @@ public class UpdateShopZa extends BaseService {
         byte[] file1 = (byte[]) in.getObjectValue("pic_ajhgz");
         byte[] file2 = (byte[]) in.getObjectValue("pic_jypmt");
         final String modul_name = "ZASHOP";
-        log.debug(in.getStringValue("jyxkz")+"][][[[][][[[------->>>>>");
-//        String paths[] = {in.getStringValue("jypmt"), in.getStringValue("ajhgz"), in.getStringValue("jyxkz")};
+        log.debug(in.getStringValue("jyxkz") + "][][[[][][[[------->>>>>");
+        AbstractCommonData acd = getSession(in);
+        in.put("cjrxm", acd.get("xm"));
+        //in从页面传来过得值
+        in.put("cjr", acd.get(SystemUtil.loginRemark));
         try {
             String name = in.getStringValue("pic_jyxkz_name");
             String name1 = in.getStringValue("pic_ajhgz_name");

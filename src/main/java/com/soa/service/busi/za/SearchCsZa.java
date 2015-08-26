@@ -6,6 +6,8 @@ package com.soa.service.busi.za;
 
 import com.lianzt.commondata.AbstractCommonData;
 import com.soa.service.BaseService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
@@ -22,10 +24,12 @@ public class SearchCsZa extends BaseService {
     public String[] keys() {
         return KEY;
     }
+    private final Logger log = LoggerFactory.getLogger(SearchCsZa.class);
 
     @Override
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
         String hy = in.getStringValue("hy");
+        log.debug(hy + "sdsfsdfsddfsdfsdfsdfsdf");
         if ("za_yl".equals(hy)) {
             in.putStringValue("sql", "za_select_yl");
             cutPage(in, inHead, out, outHead);
@@ -40,6 +44,10 @@ public class SearchCsZa extends BaseService {
             cutPage(in, inHead, out, outHead);
         } else if ("za_lg".equals(hy)) {
             in.putStringValue("sql", "za_select_lg");
+            cutPage(in, inHead, out, outHead);
+        } else if ("za_zjh".equals(hy)) {
+            in.putStringValue("sql", "za_select_zjh");
+            
             cutPage(in, inHead, out, outHead);
         } else if ("xb_xf".equals(hy)) {
             in.putStringValue("sql", "za_select_xf");

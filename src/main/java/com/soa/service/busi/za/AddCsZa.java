@@ -27,9 +27,12 @@ public class AddCsZa extends BaseService {
 //校验不能为空的值，当key为空时会提示不能为空
 
     private final String[] KEY = {
-//        "id", "主码",
+        //        "id", "主码",
         "mc", "企业名称",
         "dz", "企业地址",
+        "jz_id", "建筑id",
+        "sq_id", "社区id",
+        "dz", "地址",
         "jd", "经度",
         "wd", "维度"
     };
@@ -48,8 +51,11 @@ public class AddCsZa extends BaseService {
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
         byte[] file = (byte[]) in.getObjectValue("jyxkz");
         byte[] file1 = (byte[]) in.getObjectValue("ajhgz");
-
         final String modul_name = "ZACS";
+        AbstractCommonData acd = getSession(in);
+        in.put("cjrxm", acd.get("xm"));
+        //in从页面传来过得值
+        in.put("cjr", acd.get(SystemUtil.loginRemark));
         try {
             String name = in.getStringValue("jyxkz_name");
             String name1 = in.getStringValue("ajhgz_name");

@@ -24,7 +24,7 @@ public class SearchCsDetail extends BaseService {
 
     @Override
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
-        String hy = in.getStringValue("hy");
+        String hy = in.getStringValue("hylb");
         Object[] obj = new Object[]{in.getStringValue("id")};
         if ("za_sp".equals(hy)) {
             out.putDataValue("csdata", queryData("za_select_sp_id", obj));
@@ -38,6 +38,8 @@ public class SearchCsDetail extends BaseService {
             out.putDataValue("csdata", queryData("za_select_lg_id", obj));
         } else if ("xb_xf".equals(hy)) {
             out.putDataValue("csdata", queryData("za_select_xf_id", obj));
+        } else if ("za_zjh".equals(hy)) {
+            out.putDataValue("csdata", queryData("za_select_zjh_id", obj));
         } else {
             out.putDataValue("csdata", queryData("za_select_cs_id", obj));
         }

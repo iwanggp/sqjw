@@ -30,6 +30,9 @@ public class AddWlZa extends BaseService {
         "pid", "企业编号",
         "mc", "企业名称",
         "dz", "企业地址",
+        "jz_id", "建筑id",
+        "sq_id", "社区id",
+        "dz", "地址",
         "jd", "经度",
         "wd", "维度"
     };
@@ -52,6 +55,10 @@ public class AddWlZa extends BaseService {
         byte[] file3 = (byte[]) in.getObjectValue("jypmt");
         byte[] file4 = (byte[]) in.getObjectValue("yzxkz");
         final String modul_name = "ZAWL";
+        AbstractCommonData acd = getSession(in);
+        in.put("cjrxm", acd.get("xm"));
+        //in从页面传来过得值
+        in.put("cjr", acd.get(SystemUtil.loginRemark));
         try {
             String name = in.getStringValue("gsxkz_name");
             String name1 = in.getStringValue("ysxkz_name");

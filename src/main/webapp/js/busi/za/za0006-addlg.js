@@ -5,21 +5,25 @@
  */
 
 (function () {
-    $.pdialog.close('add_role_pl');//关闭对话框参数为id，此处的id为打开属性菜单的id
-    map.addOverlay(poly, true);
-    fylb = 'search_cs';
-    var $dialog = $.pdialog.getCurrent();
+    var $dialog = $("body").data('add_jz_xx');//必须通过这种方法
+    bringDialogToFront($dialog);
+    var param = $dialog.data('param'); //父窗口传递的参数
     $("#add", $dialog).click(function () {
         if ($("#shop_form", $dialog).valid()) {
             fileOptions.putForm($('#shop_form', $dialog));       //添加表单内容
             fileOptions.setService('P43006');
-            fileOptions.put('jd', gangjd);//传递经度参数
-            fileOptions.put('wd', gangwd);//传递维度参数
+             fileOptions.put('hylb', 'za_lg');
+            fileOptions.put('sq_id', param.sqid);
+            fileOptions.put('jz_id', param.jzid);
+            fileOptions.put('jd', param.jd);//传递经度参数
+            fileOptions.put('wd', param.wd);//传递维度参数
             fileOptions.sus = function (data) {
                 alertMsg.correct("添加成功了！");
                 $("#close", $dialog).trigger("click");
-                $('#xiye').text(1);
-                getCS(hy, mc, 1);
+                var $dia = $("body").data('add_jz_info');
+                setTimeout(function () {
+                    $('#jzxx', $dia).click();
+                }, 0);
             };
             fileOptions.after = function (c, d) {
                 console.log(c);

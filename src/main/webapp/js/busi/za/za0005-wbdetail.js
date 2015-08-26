@@ -6,14 +6,14 @@
 (function () {
     var f = false; //定义一个开关变量
     hidePic();
-    var $dialog = $.pdialog.getCurrent();
-    $("input").attr("disabled", "disabled"); //让输入框为只读状态
+    var $dialog = $("body").data('mydetail');
+    bringDialogToFront($dialog);
+    $("input", $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     var param = $dialog.data('param'); //父窗口传递的参数
     var opt = new AjaxOptions();
     opt.put("service_code", "S40002");
-    opt.put("hy", param.hy);
-    opt.put("id", param.id);
-
+    opt.put("hylb", param.hylb);
+    opt.put("id", param.hyid);
     opt.sus = function (data) {
         if (isNaN(data.csdata.ajhgz)) {
             data.csdata.ajhgz = "<a href='" + server_root + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
@@ -37,10 +37,8 @@
     //#修改信息服务
     $('#modify', $dialog).click(function () {
         var btns = new Array();
-        var mov = map.getOverlayById(param.id);
-        mov.moveable = true;//是否可以拖动
         if (f = !f) {
-            $("input").removeAttr("disabled");
+            $("input", $dialog).removeAttr("disabled");
             $('#ajhgz_pic,#jypmt_pic,#jyxkz_pic', $dialog).show();
             $(this).html("保存");
         } else {
@@ -54,17 +52,23 @@
             if ($("#shop_form", $dialog).valid()) {
                 fileOptions.putForm($('#shop_form', $dialog));       //添加表单内容
                 fileOptions.setService('P43005');
-                fileOptions.put("id", param.id);
-                fileOptions.put('jd', mov.point.x);//传递经度参数
-                fileOptions.put('wd', mov.point.y);//传递维度参数
+                fileOptions.put("id", param.hyid);
                 fileOptions.put("ajhgz", $('#ajhgz a').attr("href"));
                 fileOptions.put("jypmt", $("#jypmt a").attr("href"));
                 fileOptions.put("jyxkz", $("#jyxkz a").attr("href"));
                 fileOptions.sus = function (data) {
                     hidePic();
                     alertMsg.correct("修改成功了！");
-                    $('#xiye').text(1);
-                    getCS(hy, mc, 1);
+                    var page = parseInt($("#xiye").html());//获取当前的页数
+                    if (isSearch) {
+                        getCS('za_wb', '', page);
+                    }
+                    isSearch = false;
+                    var $dia = $("body").data('add_jz_info');
+                    setTimeout(function () {
+                        $('#jzxx', $dia).click();
+                    }, 0);
+                    $("#close", $dialog).trigger("click");
                 };
                 fileOptions.after = function (c, d) {
                     console.log(c);
@@ -75,19 +79,26 @@
     });
     //#删除信息服务
     $('#del', $dialog).click(function () {
-        if (param.id != null) {
+        if (param.hyid != null) {
             alertMsg.confirm("确定要删除该网吧吗？", {"okCall": function () {
                     $("input", $dialog).removeAttr("disabled");
                     var o = new AjaxOptions();
                     o.put("ajhgz", $('#ajhgz a').html());
                     o.put("jypmt", $("#jypmt a").html());
                     o.put("jyxkz", $("#jyxkz a").html());
-                    o.put("id", param.id);
+                    o.put("id", param.hyid);
                     o.put("service_code", 'P43004');
                     o.sus = function (data) {
                         alertMsg.correct("删除成功了！");
-                        getCS(hy, mc, 1);
-                        $('#xiye').text(1);
+                        var page = parseInt($("#xiye").html());//获取当前的页数
+                        if (isSearch) {
+                            getCS('za_wb', '', page);
+                        }
+                        isSearch = false;
+                        var $dia = $("body").data('add_jz_info');
+                        setTimeout(function () {
+                            $('#jzxx', $dia).click();
+                        }, 0);
                         $('#close', $dialog).trigger("click");
                     };
                     $.ajax(o);
