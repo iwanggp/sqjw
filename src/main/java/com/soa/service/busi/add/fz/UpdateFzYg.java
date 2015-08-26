@@ -46,6 +46,11 @@ public class UpdateFzYg extends BaseService {
         } else {
             out.putStringValue("xb_desc", "男");
         }
+        if (in.getStringValue("hyzk").equals("1")) {
+            out.putStringValue("hyzk_desc", "已婚");
+        } else {
+            out.putStringValue("hyzk_desc", "未婚");
+        }
 
     }
 }

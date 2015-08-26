@@ -43,7 +43,7 @@
             setTimeout(function () {
                 $('#rkck', $dia).css({'visibility': 'visible'});
                 $('#rkxx', $dia).click();
-            }, 0);
+            }, 150);
         } else {
             alertMsg.warn("请先选择一条数据！");
         }
@@ -62,7 +62,7 @@
                             var $dia = $("body").data('add_jz_info');
                             setTimeout(function () {
                                 $('#jzxx', $dia).click();
-                            }, 0);
+                            }, 50);
                             $('#close', $dialog).trigger("click");
                         };
                         $.ajax(o);

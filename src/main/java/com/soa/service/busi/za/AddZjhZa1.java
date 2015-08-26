@@ -56,6 +56,5 @@ public class AddZjhZa1 extends BaseService {
         //in从页面传来过得值
         in.putStringValue("id", SystemUtil.getSerialNum());//数据库的主码
         update("add_za_zjh", in);
-
     }
 }

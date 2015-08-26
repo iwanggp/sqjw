@@ -74,6 +74,7 @@ public class AddCsZa extends BaseService {
             //in从页面传来过得值
             in.putStringValue("id", SystemUtil.getSerialNum());//数据库的主码
             update("add_cs_za", in);
+
         } catch (IOException ex) {
             log.debug("error:", ex);
             throw new GlobalException(140001, ex);      //上传文件出错了

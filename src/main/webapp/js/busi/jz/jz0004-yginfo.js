@@ -51,7 +51,6 @@
     });
     $('#edit', $dialog).click(function () {
         var rowData = $(this).getRow();
-        console.log("rowDataORG = " + json2string(rowData));
         if (rowData) {
             $.pdialog.open('page/fz/yg0001-updateyg.html', 'mod_yg_info11', '员工信息修改', {
                 width: 600,

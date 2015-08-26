@@ -29,6 +29,8 @@ function fl(p1, p2) {
         getJqxx(ajfl, sx, p1, kssj, jzsj);
     } else if (fylb == 'search_sq') {
         getSq(mc, p1);
+    } else if (fylb == 'search_ajdq') {
+        searchAjdq(sjxz, p1);
     }
     $("#xiye").html(p1);//给显示的页数赋值
 
@@ -56,6 +58,8 @@ function topclick() {
             getJZ(mc, num);
         } else if (fylb == 'search_sq') {
             getSq(mc, num);
+        } else if (fylb == 'search_ajdq') {
+            searchAjdq(sjxz, num);
         }
     }
 }
@@ -80,6 +84,8 @@ function downclick() {
             getJZ(mc, num);
         } else if (fylb == 'search_sq') {
             getSq(mc, num);
+        } else if (fylb == 'search_ajdq') {
+            searchAjdq(sjxz, num);
         }
     }
 }

@@ -76,10 +76,9 @@ public class AddWbZa extends BaseService {
                 file2_path = sqjwUtil.upLoad(file2, "za0001_file_path1", modul_name, name2);
                 in.putStringValue("jypmt", file2_path.toString());
             }
-
-            //in从页面传来过得值
-            in.putStringValue("id", SystemUtil.getSerialNum());//数据库的主码
-            update("add_wb_za", in);
+                //in从页面传来过得值
+                in.putStringValue("id", SystemUtil.getSerialNum());//数据库的主码
+                update("add_wb_za", in);
         } catch (IOException ex) {
             log.debug("error:", ex);
             throw new GlobalException(140001, ex);      //上传文件出错了

@@ -22,6 +22,7 @@
             form2JSON($('#fz_form', $dialog), param.row);      //把修改后的数据写回
             param.isFlush = true;       //刷新表格
             param.row['xb_desc'] = data['xb_desc'];
+            param.row['hyzk_desc'] = data['hyzk_desc'];
             $("#qx", $dialog).trigger("click");
         };
         $.ajax(opt);

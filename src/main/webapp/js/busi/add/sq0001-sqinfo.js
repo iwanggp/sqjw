@@ -9,6 +9,6 @@
     var param = $dialog.data('param'); //父窗口传递的参数
     setTimeout(function () {
         $('#sqjz', $dialog).click();
-    }, 0);
+    }, 50);
 }).call();
 

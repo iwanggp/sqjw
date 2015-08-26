@@ -509,7 +509,43 @@ function LocationPoint(data) {
         pt.bound(1000);
     }
 }
-
+//添加标记点
+function LocationPointDq(data) {
+    //先清除之前的搜索结果
+    map.clearAllOverlays();
+    for (var i = 0; i < data.result.length; i++) {
+        var img = '';
+        var pt = new STMapMarker();
+        pt.id = data.result[i].id;
+        //设置对象的唯一id，id要唯一，如果存在重复id，后添加的覆盖已经存在的对象
+        if (data.result[i].hylb == 'za_sp') {
+            img = 'images/shop_128px.png'
+        }
+        else {
+            img = 'images/loc128.png';
+        }
+        pt.point = new STMapPoint(data.result[i].jd, data.result[i].wd);
+        //设置对象的图片URL
+        pt.img = img;
+        /*******以下为可选对象属性*******/
+        //鼠标提示文字
+        pt.label = data.result[i].mc;
+        //设置对象尺寸,默认为图片本身尺寸
+        pt.size = new STMapSize(30, 30); // 尺寸对象原型：STMapSize(长度,高度);
+        //设置对象定位的锚点位置（相对于图片矩形）;取值范围：BC（下边中心点），BL（左下角），BR（右下角），TL（左上角），TC（上边中心点），TR（右上角），ML（左边中心点），MR（右边中心点），CENTER（图片中心点）
+        pt.anchor = "CENTER";
+        //设置是否点击显示信息窗口，默认为true。
+        pt.infowin = true;
+        //设置属性框的标题
+        pt.title = '';
+        //设置属性框的内容
+        pt.content = "<div class='con'>名称：" + data.result[i].mc + "</div><div class='con'>地址：" + data.result[i].dz + "</div><div class='con'>详情：" + "<a class='det' onclick='detailAjdq($(this))' name='" + data.result[i].id + "' hylb='" + data.result[i].hylb + "' >点击查看详情</a>" + "</div>";
+        //将该对象添加到地图上
+        //参数pt为marker对象，参数true表示是否自动调整视野，如果为true，则地图自动定位到该位置
+        map.addOverlay(pt, true);
+        pt.bound(1000);
+    }
+}
 function bringDialogToFront($dialog) {
 //       setTimeout(function () {
 //        $('#ygxx', $dialog).click();
@@ -712,6 +748,33 @@ function LocationPointJfss(data) {
         pt.bound(1000);
     }
 }
+function detailAjdq(data) {
+    var url = '';
+    var hylb = $(data).attr('hylb');
+    if ("za_yl" == hylb) {
+        url = 'page/za/za0002-yldetail.html';
+    } else if ("za_sp" == hylb) {
+        url = 'page/za/za0001-shopdetail.html';
+    } else if ("za_wl" == hylb) {
+        url = 'page/za/za0003-wldetail.html';
+    } else if ("za_wb" == hylb) {
+        url = 'page/za/za0005-wbdetail.html';
+    } else if ("za_lg" == hylb) {
+        url = 'page/za/za0006-lgdetail.html';
+    } else if ("xb_xf" == hylb) {
+        url = 'page/xb/xb0001-xfdetail.html';
+    } else {
+        url = 'page/za/za0007-csdetail.html';
+    }
+    $.pdialog.open(url, 'mydetail', "详情",
+            {"width": 580, "height": 560, mask: true,
+                param: {hylb: hylb, hyid: $(data).attr('name')},
+                close: function (param) {
+                    return true;
+                }
+            });
+
+}
 function detailCs(data) {
     var url = '';
     if ("za_yl" == hy) {
@@ -787,7 +850,15 @@ function detailJqxx(data) {
                 }
             });
 }
-
+//显示场所查询结果
+function showAjdqList(data) {
+    var text = '';
+    map.locateMap(new STMapPoint(data.result[0].jd, data.result[0].wd), 1);
+    for (var i = 0; i < data.result.length; i++) {
+        text += "<li onclick='clickLi($(this))' name='" + data.result[i].id + "'><p>" + data.result[i].mc + "-<a onclick='detailAjdq($(this))' name='" + data.result[i].id + "' hylb='" + data.result[i].hylb + "'>详情</a></p><p>地址：" + data.result[i].dz + "</p></li>";
+    }
+    $('#dataList').html(text);
+}
 //显示场所查询结果
 function showList(data) {
     var text = '';
@@ -824,6 +895,31 @@ function searchZjh(mph, dz, m, page) {
             $('#contentRight').css('display', 'block');
             $('#mo').text(data.page_count);
             showZjhList(data);
+        } else {
+            map.clearAllOverlays();
+            $('#STMap_map').css({width: '100%', overflow: 'hidden'});
+            $('#contentRight').css('display', 'none');
+        }
+    };
+    $.ajax(o);
+}
+//查询消防合格证过期日期
+function searchAjdq(dqsj, page) {
+    fylb = 'search_ajdq';
+    var o = new AjaxOptions();
+    o.isDialog = true; //为弹出窗口
+    o.put("service_code", "P30010");
+    o.put("dqsj", dqsj);
+    o.put("page_size", 10);
+    o.put("page", page);
+    o.sus = function (data) {
+        if (data.result.length > 0) {
+            $.pdialog.closeCurrent();
+            LocationPointDq(data);
+            $('#STMap_map').css({width: '85%', overflow: 'hidden'});
+            $('#contentRight').css('display', 'block');
+            $('#mo').text(data.page_count);
+            showAjdqList(data);
         } else {
             map.clearAllOverlays();
             $('#STMap_map').css({width: '100%', overflow: 'hidden'});
@@ -909,6 +1005,6 @@ function getJZCS(h, page, rid) {
 
 
 //全局变量：场所名称，所属行业,设备类型,分页类别,开始时间，截止时间,案件分类,建筑id,建筑经度，建筑维度，是否是搜索
-var mc, hy, sblx, fylb, gangjd, gangwd, poly, kssj, jzsj, ajfl, jzid, jzjd, jzwd, isSearch = false;
+var mc, hy, sblx, fylb, gangjd, gangwd, poly, kssj, jzsj, ajfl, jzid, jzjd, jzwd, sjxz, isSearch = false;
 var sx = [];//属性点
 var server_root = "sqjw_upload\\";

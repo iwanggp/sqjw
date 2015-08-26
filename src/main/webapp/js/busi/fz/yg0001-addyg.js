@@ -39,7 +39,7 @@
             var $dia = $("body").data('add_jz_info');
             setTimeout(function () {
                 $('#rkxx', $dia).click();
-            }, 0);
+            }, 50);
             $("#close", $dialog).trigger("click");
         };
         $.ajax(o);

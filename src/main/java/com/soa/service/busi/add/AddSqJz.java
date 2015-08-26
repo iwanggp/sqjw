@@ -47,6 +47,5 @@ public class AddSqJz extends BaseService {
         in.put("cjr", acd.get(SystemUtil.loginRemark));
         in.putStringValue("jzid", SystemUtil.getSerialNum());//数据库的主码
         update("add_sq_jz", in);
-
     }
 }
