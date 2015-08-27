@@ -67,7 +67,8 @@ function getSq(m, page) {
     o.put("page", page);
     o.sus = function (data) {
         if (data.result.length > 0) {
-            $.pdialog.closeCurrent();
+            if ($.pdialog.getCurrent() != null)
+                $.pdialog.closeCurrent();
             LocationPointSq(data);
             $('#STMap_map').css({width: '85%', overflow: 'hidden'});
             $('#contentRight').css('display', 'block');
@@ -92,7 +93,8 @@ function searchSq(sqmc, sqdz, page) {
     o.put("page", page);
     o.sus = function (data) {
         if (data.result.length > 0) {
-            $.pdialog.closeCurrent();
+            if ($.pdialog.getCurrent() != null)
+                $.pdialog.closeCurrent();
             LocationPointSq(data);
             $('#STMap_map').css({width: '85%', overflow: 'hidden'});
             $('#contentRight').css('display', 'block');

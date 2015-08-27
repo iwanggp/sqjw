@@ -24,7 +24,8 @@ function init_map() {
     map.setScaleCompVisible(true);
     map.setCenter(new STMapPoint(log, lat));//设置地图的中心位置
     map.addEventListner("rightclick", menu);
-    map.addEventListner('click', closeMenu);
+    searchSq('', '', 1);
+//    map.addEventListner('click', closeMenu);
     document.oncontextmenu = function ()
     {
         return false;//屏蔽默认的鼠标右键事件

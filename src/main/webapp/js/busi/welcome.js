@@ -877,7 +877,10 @@ function showSPList(data) {
     }
     $('#dataList').html(text);
 }
-function searchZjh(mph, dz, m, page) {
+function searchZjh(omph, odz, m, page) {
+    mph = omph;
+    dz = odz;
+    mc = m;
     fylb = 'search_zjh';
     var o = new AjaxOptions();
     o.isDialog = true; //为弹出窗口
@@ -1004,7 +1007,7 @@ function getJZCS(h, page, rid) {
 }
 
 
-//全局变量：场所名称，所属行业,设备类型,分页类别,开始时间，截止时间,案件分类,建筑id,建筑经度，建筑维度，是否是搜索
-var mc, hy, sblx, fylb, gangjd, gangwd, poly, kssj, jzsj, ajfl, jzid, jzjd, jzwd, sjxz, isSearch = false;
+//全局变量：场所名称，所属行业,设备类型,分页类别,开始时间，截止时间,案件分类,建筑id,建筑经度，建筑维度，是否是搜索,是否查询
+var mc, hy, sblx, fylb, gangjd, gangwd, poly, kssj, jzsj, ajfl, jzid, jzjd, jzwd, sjxz, isSearch = false, dz, mph;
 var sx = [];//属性点
 var server_root = "sqjw_upload\\";

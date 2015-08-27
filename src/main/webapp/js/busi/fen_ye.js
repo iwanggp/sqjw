@@ -19,6 +19,8 @@ function fl(p1, p2) {
     $("#xiye").empty();
     if (fylb == 'search_cs') {
         getCS(hy, mc, p1);
+    } else if (fylb == 'search_zjh') {
+        searchZjh(mph, dz, mc, p1);
     } else if (fylb == 'search_sp') {
         getSpCS(hy, mc, p1);
     } else if (fylb == 'search_jfss') {
@@ -48,6 +50,8 @@ function topclick() {
         $("#xab").scrollTop(hei);
         if (fylb == 'search_cs') {
             getCS(hy, mc, num);
+        } else if (fylb == 'search_zjh') {
+            searchZjh(mph, dz, mc, num);
         } else if (fylb == 'search_sp') {
             getSpCS(hy, mc, num);
         } else if (fylb == 'search_jfss') {
@@ -74,6 +78,8 @@ function downclick() {
         scrolltop(num);
         if (fylb == 'search_cs') {
             getCS(hy, mc, num);
+        } else if (fylb == 'search_zjh') {
+            searchZjh(mph, dz, mc, num);
         } else if (fylb == 'search_sp') {
             getSpCS(hy, mc, num);
         } else if (fylb == 'search_jfss') {
