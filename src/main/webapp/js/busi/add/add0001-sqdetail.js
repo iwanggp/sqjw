@@ -7,13 +7,16 @@
 (function () {
     var f = false; //定义一个开关变量
     initServiceParaSelect('jw_sq.lb', $('#sqlb', $dialog));
-    var $dialog = $.pdialog.getCurrent();
+    initServiceParaSelect('jw_sq.zgbm', $('#zgbm', $dialog));
+    var $dialog = $("body").data('detailSq');
     var param = $dialog.data('param'); //父窗口传递的参数
+    console.log(json2string(param) + 'hahahahahhaha');
     var sqname = "";//社区的名称
     var opt = new AjaxOptions();
     opt.put("service_code", "S21004");
     opt.put("sqid", param.sqid);
     $('#sqlb', $dialog).attr("disabled", "disabled");
+    $('#zgbm', $dialog).attr("disabled", "disabled");
     $('#fw', $dialog).attr("disabled", "disabled");
     $("input", $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     opt.sus = function (data) {

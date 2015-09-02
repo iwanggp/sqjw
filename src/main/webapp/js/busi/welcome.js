@@ -602,7 +602,7 @@ function LocationPointJz(data) {
         //设置对象的唯一id，id要唯一，如果存在重复id，后添加的覆盖已经存在的对象
         pt.id = data.result[i].jzid;
         pt.point = new STMapPoint(data.result[i].jd, data.result[i].wd);
-        img = 'images/loc128.png'
+        img = 'images/loc128.png';
         //设置对象的图片URL
         pt.img = img;
         /*******以下为可选对象属性*******/
@@ -676,7 +676,7 @@ function LocationPointSq(data) {
         //设置属性框的标题
         pt.title = '';
         //设置属性框的内容
-        pt.content = "<div class='con'>名称：" + data.result[i].sqmc + "</div><div class='con'>地址：" + data.result[i].dz + "</div><div class='con'>详情：" + "<a class='det' onclick='detaiSq($(this))' name='" + data.result[i].sqid + "' jd='" + data.result[i].jd + "' wd='" + data.result[i].wd + "'>点击查看详情</a>" + "</div>";
+        pt.content = "<div class='con'>名称：" + data.result[i].sqmc + "</div><div class='con'>地址：" + data.result[i].dz + "</div><div class='con'>详情：" + "<a class='det' onclick='detaiSq($(this))' name='" + data.result[i].sqid + "' jd='" + data.result[i].jd + "'  wd='" + data.result[i].wd + "'>点击查看详情</a>" + "</div>";
         //将该对象添加到地图上
         //参数pt为marker对象，参数true表示是否自动调整视野，如果为true，则地图自动定位到该位置
         map.addOverlay(pt, true);
@@ -822,10 +822,9 @@ function  detaiJz(data) {
 }
 function  detaiSq(data) {
     $.pdialog.open("page/add/add0001-sqdetail.html", 'detailSq', "详情",
-            {"width": 580, "height": 350, mask: false,
+            {"width": 580, "height": 450, mask: false,
                 param: {sqid: $(data).attr('name'), jd: $(data).attr('jd'), wd: $(data).attr('wd')},
                 close: function (param) {
-//                    map.getOverlayById($(data).attr('name')).moveable = false;//是否可以拖动
                     return true;
                 }
             });
@@ -954,7 +953,7 @@ function showSqList(data) {
     var text = '';
     map.locateMap(new STMapPoint(data.result[0].jd, data.result[0].wd), 1);
     for (var i = 0; i < data.result.length; i++) {
-        text += "<li onclick='clickSqLi($(this))' name='" + data.result[i].sqid + "'><p>" + data.result[i].sqmc + "-<a onclick='detaiSq($(this))' name='" + data.result[i].sqid + "'>详情</a></p><p>地址：" + data.result[i].dz + "</p></li>";
+        text += "<li onclick='clickSqLi($(this))' name='" + data.result[i].sqid + "'><p>" + data.result[i].sqmc + "-<a onclick='detaiSq($(this))' name='" + data.result[i].sqid + "' jd='" + data.result[i].jd + "'  wd='" + data.result[i].wd + "'>详情</a></p><p>地址：" + data.result[i].dz + "</p></li>";
     }
     $('#dataList').html(text);
 }
@@ -1006,8 +1005,7 @@ function getJZCS(h, page, rid) {
     $.ajax(o);
 }
 
-
 //全局变量：场所名称，所属行业,设备类型,分页类别,开始时间，截止时间,案件分类,建筑id,建筑经度，建筑维度，是否是搜索,是否查询
-var mc, hy, sblx, fylb, gangjd, gangwd, poly, kssj, jzsj, ajfl, jzid, jzjd, jzwd, sjxz, isSearch = false, dz, mph;
+var mc, hy, sblx, fylb, gangjd, gangwd, poly, kssj, jzsj, ajfl, jzid, jzjd, jzwd, sjxz, isSearch = false, dz, mph, currentPage = 1;
 var sx = [];//属性点
 var server_root = "sqjw_upload\\";

@@ -11,7 +11,7 @@
                 <ul>
                     <li><a href="javascript:;"><span>社区搜索</span></a></li>
                     <li><a href="javascript:;"><span>按建筑查询</span></a></li>
-                    <li><a href="javascript:;"><span>选择种类查询</span></a></li>
+                    <li><a href="javascript:;"><span>治安管理</span></a></li>
                     <li><a href="page/za/search_ajdq.html" target="ajax" rel="jbsxBoxgq" class="selected"></a><span>证件过期查询</span></a></li>
                     <li><a href="javascript:;"><span>暂时待定</span></a></li>
                 </ul>
@@ -52,13 +52,29 @@
                         <li><a href="#">治安管理</a>
                             <ul>
                                 <li><a href="page/za/search_cs.html" target="ajax"  rel="jbsxBox">特种行业</a>
+                                    <ul id="csList">
+                                        <!--创建子菜单，其中rel为标识弹出层id为可选项，target必须指定为dialog方能显示为对话框,title为对话框的标题，width，height为宽和高-->
+                                        <li ><a href="page/za/search_cs.html" target="ajax"  rel="jbsxBox">旅馆业</a>
+                                            <ul id="dd">
+                                                <!--创建子菜单，其中rel为标识弹出层id为可选项，target必须指定为dialog方能显示为对话框,title为对话框的标题，width，height为宽和高-->
+                                                <li ><a href="page/za/search_cs.html" target="ajax"  rel="jbsxBox">宾馆，酒店，饭店(可住宿)</a></li>
+                                                <li ><a href="page/za/search_zjh.html" target="ajax"  rel="jbsxBox">商务会馆</a></li>
+                                                <li ><a href="page/za/search_zjh.html" target="ajax"  rel="jbsxBox">度假村</a></li>
+                                                <li ><a href="page/za/search_zjh.html" target="ajax"  rel="jbsxBox">农家院</a></li>
+                                                <li ><a href="page/za/search_zjh.html" target="ajax"  rel="jbsxBox">其它住宿场所</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                     <!--                                    通过复制上面的li节点可以创建父菜单，可以指定他的href-->
                                     <ul id="csList">
                                         <!--创建子菜单，其中rel为标识弹出层id为可选项，target必须指定为dialog方能显示为对话框,title为对话框的标题，width，height为宽和高-->
                                         <li ><a href="page/za/search_cs.html" target="ajax"  rel="jbsxBox">场所查询</a></li>
                                         <li ><a href="page/za/search_zjh.html" target="ajax"  rel="jbsxBox">住家户查询</a></li>
                                     </ul>
+
+                                </li>
                             </ul>
+                        </li>
                         <li><a href="page/za/za0004-searchjfss.html" target="ajax" rel="jbsxBox">查询技防设施</a></li>
                         <li><a href="page/za/za0007-searchjqxx.html"  target="ajax" rel="jbsxBox">查询警情信息</a></li>
                     </ul>
@@ -70,7 +86,7 @@
                                 <!--创建子菜单，其中rel为标识弹出层id为可选项，target必须指定为dialog方能显示为对话框,title为对话框的标题，width，height为宽和高-->
                                 <li ><a href="page/xb/xb0001-searchxf.html" target="ajax"  rel="jbsxBox">名称查询</a></li>
                             </ul>
-
+                        </li>
                     </ul>
                 </div>
 

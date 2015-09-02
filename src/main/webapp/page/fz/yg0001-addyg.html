@@ -7,7 +7,7 @@ and open the template in the editor.
         <div class="pageFormContent" layoutH="58">
             <div class="unit">
                 <label>身份证号码：</label>
-                <input type="text" name="sfid" id="sfid" size="50" class="required"  />
+                <input type="text" name="sfid" id="sfid" size="20" maxlength="18" minlength="15" class="required"  />
             </div>
             <div class="unit">
                 <label>姓名：</label>
@@ -25,6 +25,10 @@ and open the template in the editor.
             <div class="unit">
                 <label>出生日期：</label>
                 <input type="text" name="csrq" id="csrq"  size="15" class="date"/>
+            </div>
+            <div class="unit">
+                <label>员工行业：</label>
+                <select id="yghy" name="yghy"></select>
             </div>
             <div class="unit">
                 <label>民族：</label>
@@ -57,7 +61,7 @@ and open the template in the editor.
             </div>
             <div class="unit">
                 <label>家庭地址：</label>
-                <input type="text" name="jtdz" id="jtdz"  size="50" />
+                <input type="text" name="jtdz" id="jtdz"  size="50" class="required"/>
             </div>
             <div class="unit">
                 <label>联系电话：</label>

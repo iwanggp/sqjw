@@ -72,6 +72,7 @@
                     setTimeout(function () {
                         $('#jzxx', $dia).click();
                     }, 50);
+                    $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
                     $("#close", $dialog).trigger("click");
                 };
                 fileOptions.after = function (c, d) {
@@ -105,7 +106,7 @@
                             $('#jzxx', $dia).click();
                         }, 50);
                         $('#close', $dialog).trigger("click");
-
+                        $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
                     };
                     $.ajax(o);
                 }

@@ -7,12 +7,14 @@
 (function () {
     var $dialog = $("body").data('add_jz_xx');//必须通过这种方法
     bringDialogToFront($dialog);
+    initServiceParaSelect('za_lg.hyl', $('#hyl', $dialog));
+    initServiceParaSelect('za_lg.lgxj', $('#lgxj', $dialog));
     var param = $dialog.data('param'); //父窗口传递的参数
     $("#add", $dialog).click(function () {
         if ($("#shop_form", $dialog).valid()) {
             fileOptions.putForm($('#shop_form', $dialog));       //添加表单内容
             fileOptions.setService('P43006');
-             fileOptions.put('hylb', 'za_lg');
+            fileOptions.put('hylb', 'za_lg');
             fileOptions.put('sq_id', param.sqid);
             fileOptions.put('jz_id', param.jzid);
             fileOptions.put('jd', param.jd);//传递经度参数

@@ -6,6 +6,7 @@
 (function () {
     var $page = $("body").data('add_sq_info');
     var param = $page.data('param'); //父窗口传递的参数
+    console.log(json2string(param)+"wwwwwwwwwwwwwwwwwwwww");
     var tableData;      // 存放临时数据
     var keyValue = {};  // 数据索引
     var sqid = param.sqid;

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="tabs">
+    <div class="tabsHeader">
+        <div class="tabsHeaderContent">
+            <ul>
+                <li><a href="javascript:;"><span>信息管理</span></a></li>
+                <li style="visibility: hidden" id="csyg"><a href="page/search/unionyg.html" target="ajax" rel="jbsxBoxcsyg" id="csyginfo"><span>员工人员信息</span></a></li>
+                <!--                <li><a href="javascript:;"><span>管理人员</span></a></li>
+                                <li><a href="javascript:;"><span>从业人员</span></a></li>
+                                <li><a href="javascript:;"><span>保安人员</span></a></li>
+                                <li><a href="javascript:;"><span>检查登记</span></a></li>
+                                <li><a href="javascript:;"><span>违章情况</span></a></li>-->
+            </ul>
+        </div>
+    </div>
+
+    <div class="tabsContent">
+        <div>
+            <div class="pageHeader">
+                <form id="search-form">
+                    <div class="searchBar">
+                        <table class="searchContent" width="60%">
+                            <tr>
+                                <td width="20%">
+                                    所属派出所:
+                                </td>
+                                <td width="20%">
+                                    <input id="zgbm" name="zgbm" type="text"  size="60"/>
+                                </td>
+                                <td width="25%">
+                                    行业类型：
+                                    <select id="hylb">
+                                        <option value="za_yl">娱乐场所</option>
+                                        <option value="za_sp">沿街商铺</option>
+                                        <option value="za_wl">物流公司</option>
+                                        <option value="za_wb">网吧</option>
+                                        <option value="za_jdcwx">机动车维修</option>
+                                        <option value="za_ys">印刷业</option>
+                                        <option value="za_bfchs">报废车回收业</option>
+                                        <option value="za_qczl">汽车租赁</option>
+                                        <option value="za_jyss">金银首饰加工和置换业</option>
+                                        <option value="za_jm">寄卖业</option>
+                                        <option value="za_ks">开锁</option>
+                                        <option value="za_fjshs">废金属回收</option>
+                                        <option value="za_gzkz">公章刻制</option>
+                                        <option value="za_ddxx">典当信息</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%">
+                                    特业名称：
+                                </td>
+                                <td>
+                                    <input id="mc" name="mc" type="text" size="60"/>
+                                </td>
+                                <td width="25%">
+                                    特业地址：<input id="dz" name="dz" type="text"  size="60"/>
+                                </td>
+                                <td width="25%">
+                                    <div class="buttonActive"><div class="buttonContent"><button type="button" id="search-button">查询</button></div></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            <div class="panelBar">
+                <ul class="toolBar">
+                    <li><a class="edit" id ="edit" target-table="ssxx"><span>编辑</span></a></li>
+                    <li><a class="add" id="biaoji" target-table="ssxx"><span>将当前页标记在地图上</span></a></li>
+                    <li><a class="icon" id="look" target-table="ssxx"><span>查看人员信息</span></a></li>
+                </ul>
+            </div>
+            <table class="table" width="100%" layoutH="175" id="ssxx">
+                <thead>
+                    <tr>
+                        <th data-key="zgbm">主管部门</th>
+                        <th data-key="mc">特业名称</th>
+                        <th data-key="dz">特业地址</th>
+                        <th data-key="frdb">法人代表(户主)</th>
+                        <th data-key="lxfs">联系方式</th>
+                        <th data-key="jzmj">实际面积</th>
+                        <th data-key="bz">备注</th>
+                        <th data-key="dqrq"  date-format="yyyy-MM-dd">到期日期</th>
+                        <th data-key="map_link">进入地图</th>
+                        <th data-key="name_link" id="xq">查看详情</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div> 
+            <div id="jbsxBoxcsyg" class="unitBox" style="margin-left:5px;"></div>
+        </div>
+    </div>
+
+

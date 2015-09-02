@@ -27,7 +27,7 @@ public class SearchSq extends BaseService {
     @Override
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
         in.putStringValue("sql", "get_select_sq");
-        in.putObjectValue("args", new Object[]{in.getStringValue("sqmc"), in.getStringValue("dz")});
+        in.putObjectValue("args", new Object[]{in.getStringValue("sqmc"), in.getStringValue("sqdz")});
         in.putIntValue("page", in.getIntValue("page"));
         in.putIntValue("page_size", in.getIntValue("page_size"));
         runService("S10001", in, inHead, out, outHead);//调用分页服务 

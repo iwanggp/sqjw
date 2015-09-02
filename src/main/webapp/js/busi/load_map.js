@@ -24,12 +24,12 @@ function init_map() {
     map.setScaleCompVisible(true);
     map.setCenter(new STMapPoint(log, lat));//设置地图的中心位置
     map.addEventListner("rightclick", menu);
-    searchSq('', '', 1);
-//    map.addEventListner('click', closeMenu);
+    searchSq('', '', 1);//进入地图时查询一下整个社区
+//    map.addEventListner("click", closeMenu);
     document.oncontextmenu = function ()
     {
         return false;//屏蔽默认的鼠标右键事件
-    }
+    };
 }
 function menu(obj, x, y) {
     var mpoint = map.screen2LonLat(new STMapPoint(x - 22, y - 81));//将屏幕坐标转换成GPS坐标，适当的调整显示位置
@@ -68,6 +68,7 @@ function searchTree() {
     $.pdialog.open("page/tree/searchtree.html", 'searchtree', "查询信息", {"width": 750, "height": 260});//打开树形菜单
 }
 function closeMenu() {
+//    $('#mymenu').css('display', 'none');
     map.setOverlayVisible('menu', false);
 }
 function add() {
@@ -87,4 +88,65 @@ function add() {
             return true;//这样才能关闭窗口
         }
     });//打开树形菜单
+}
+function openDetail(hyval, hyid, hymc) {
+    if ("za_yl" == hyval) {
+        url = 'page/za/za0002-yldetail.html';
+    } else if ("za_sp" == hyval) {
+        url = 'page/za/za0001-shopdetail.html';
+    } else if ("za_wl" == hyval) {
+        url = 'page/za/za0003-wldetail.html';
+    } else if ("za_wb" == hyval) {
+        url = 'page/za/za0005-wbdetail.html';
+    } else if ("za_lg" == hyval) {
+        url = 'page/za/za0006-lgdetail.html';
+    } else if ("za_zjh" == hyval) {
+        url = 'page/za/za0009-zjhdetail.html';
+    } else {
+        url = 'page/za/za0007-csdetail.html';
+    }
+    $.pdialog.open(url, 'mydetail', hymc + "详细情况",
+            {"width": 580, "height": 560, mask: true,
+                param: {hylb: hyval, hyid: hyid},
+                close: function (param) {
+                    return true;
+                }
+            });
+}
+function locationSearch(id, log, lat, mc, dz, hylb) {
+//    map.clearAllOverlays();
+//    searchSq('', '', 1);//进入地图时查询一下整个社区
+    //先清除之前的搜索结果
+    var img = 'images/search.png';
+    var pt = new STMapMarker();
+    //设置对象的唯一id，id要唯一，如果存在重复id，后添加的覆盖已经存在的对象
+//    pt.id = "mySearchId";
+    pt.id = id;
+    pt.point = new STMapPoint(log, lat);
+    map.setCenter(new STMapPoint(log, lat), 3);
+    //设置对象的图片URL
+    pt.img = img;
+    /*******以下为可选对象属性*******/
+    //鼠标提示文字
+    pt.label = mc;
+    //设置对象尺寸,默认为图片本身尺寸
+    pt.size = new STMapSize(50, 50); // 尺寸对象原型：STMapSize(长度,高度);
+    //设置对象定位的锚点位置（相对于图片矩形）;取值范围：BC（下边中心点），BL（左下角），BR（右下角），TL（左上角），TC（上边中心点），TR（右上角），ML（左边中心点），MR（右边中心点），CENTER（图片中心点）
+    pt.anchor = "CENTER";
+    //设置是否点击显示信息窗口，默认为true。
+    pt.infowin = true;
+    //设置属性框的标题
+    pt.title = '';
+    //设置属性框的内容
+    pt.content = "<div class='con'>名称：" + mc + "</div><div class='con'>地址：" + dz + "</div><div class='con'>详情：" + "<a class='det' onclick='showInfo($(this))' name='" + mc + "' hyid='" + id + "' hylb='" + hylb + "' >点击查看详情</a>" + "</div>";
+    //将该对象添加到地图上
+    //参数pt为marker对象，参数true表示是否自动调整视野，如果为true，则地图自动定位到该位置
+    map.addOverlay(pt, true);
+    pt.bound(1000);
+}
+function showInfo(data) {
+    var id = $(data).attr('hyid');
+    var hylb = $(data).attr("hylb");
+    var mc = $(data).attr("name");
+    openDetail(hylb, id, mc);
 }

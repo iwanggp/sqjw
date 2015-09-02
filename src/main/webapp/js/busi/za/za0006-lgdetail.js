@@ -8,7 +8,11 @@
     hidePic();
     var $dialog = $("body").data('mydetail');
     bringDialogToFront($dialog);
+    initServiceParaSelect('za_lg.hyl', $('#hyl', $dialog));
+    initServiceParaSelect('za_lg.lgxj', $('#lgxj', $dialog));
     $("input", $dialog).attr("disabled", "disabled"); //让输入框为只读状态
+    $('#hyl', $dialog).attr("disabled", "disabled");
+    $("#lgxj", $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     var param = $dialog.data('param'); //父窗口传递的参数
     var opt = new AjaxOptions();
     opt.put("service_code", "S40002");
@@ -39,7 +43,7 @@
     $('#modify', $dialog).click(function () {
         var btns = new Array();
         if (f = !f) {
-            $("input", $dialog).removeAttr("disabled");
+            $(":input", $dialog).removeAttr("disabled");
             $('#ajhgz_pic,#jypmt_pic,#jyxkz_pic', $dialog).show();
             $(this).html("保存");
         } else {
@@ -69,6 +73,7 @@
                     setTimeout(function () {
                         $('#jzxx', $dia).click();
                     }, 0);
+                    $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
                     $('#close', $dialog).trigger("click");
                 };
                 fileOptions.after = function (c, d) {
@@ -100,6 +105,7 @@
                         setTimeout(function () {
                             $('#jzxx', $dia).click();
                         }, 0);
+                        $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
                         $('#close', $dialog).trigger("click");
                     };
                     $.ajax(o);

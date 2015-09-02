@@ -8,6 +8,7 @@
     var $dialog = $("body").data('add_yg_xx'); //必须通过这种方法
     bringDialogToFront($dialog);
     var param = $dialog.data('param'); //父窗口传递的参数
+    initServiceParaSelect('za_yg.yghy', $('#yghy', $dialog));
 //            param: {sqid: obj['sq_id'], jzid: obj['jz_id'], jd: obj['jd'], wd: obj['wd'], fzid: obj['did']};
     $("#add", $dialog).click(function () {
         if (!$('#fz_form', $dialog).valid()) {

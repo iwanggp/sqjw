@@ -69,6 +69,7 @@
                         getCS('za_wb', '', page);
                     }
                     isSearch = false;
+                    $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
                     $('#close', $dialog).trigger('click');
 //                    $('#xiye').text(1);
 //                    getCS(hy, mc, 1);
@@ -103,6 +104,7 @@
                         }, 50);
 //                        getCS(hy, mc, 1);
 //                        $('#xiye').text(1);
+                        $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
                         $('#close', $dialog).trigger("click");
                     };
                     $.ajax(o);

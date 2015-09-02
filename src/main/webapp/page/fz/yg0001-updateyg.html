@@ -7,7 +7,7 @@ and open the template in the editor.
         <div class="pageFormContent" layoutH="58">
             <div class="unit">
                 <label>身份证号码：</label>
-                <input type="text" name="sfid" id="sfid" size="50" class="required"  />
+                <input type="text" name="sfid" id="sfid" size="20" maxlength="18" minlength="15" class="required"  />
             </div>
             <div class="unit">
                 <label>姓名：</label>
@@ -21,6 +21,10 @@ and open the template in the editor.
                 <label>性别：</label>
                 <input type="radio" name="xb" id="xb"  value="1">男</input>
                 <input type="radio" name="xb" id="xb"  value="0">女</input>
+            </div>
+            <div class="unit">
+                <label>员工行业：</label>
+                <select id="yghy" name="yghy"></select>
             </div>
             <div class="unit">
                 <label>出生日期：</label>

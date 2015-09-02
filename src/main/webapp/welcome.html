@@ -23,7 +23,6 @@ and open the template in the editor.
         <script src="js/busi/fen_ye.js" type="text/javascript"></script>
         <script src="js/busi/addroot.js" type="text/javascript"></script>
         <script type="text/javascript">
-
             $(function () {
                 $("#nav li").hover(
                         function () {
@@ -106,7 +105,7 @@ and open the template in the editor.
                     <div class="tabsPageHeader">
                         <div class="tabsPageHeaderContent"><!-- 显示左右控制时添加 class="tabsPageHeaderMargin" -->
                             <ul class="navTab-tab">
-                                <li tabid="main1" class="main"><a href="javascript:;"><span><span  class="home_icon">主页</span></span></a></li>
+                                <li tabid="main1" class="main"><a href="javascript:;"><span><span  class="home_icon">地图主页</span></span></a></li>
                             </ul>
                         </div>
                         <div class="tabsLeft">left</div><!-- 禁用只需要添加一个样式 class="tabsLeft tabsLeftDisabled" -->
@@ -122,27 +121,41 @@ and open the template in the editor.
                                 <div id="STMap_map" style="width:100%;top:1px; overflow: auto" layoutH="1">
                                     <div id="hidlist" onclick="hideData()">
                                         <div > <img src="images/right.png" id="arrow"/></div>
-                                        <!--                                        <div class="toggleCollapse"><div id="tt"></div></div>-->
                                     </div>
+                                </div>
+                            </div>
+                            <div id="contentRight" style="width:15%;top:1px;position:absolute;left:85%;padding:10px;display:none;" layoutH="1">
+                                <div id="dataList"></div>
+                                <div id="fenye">
+                                    <ul>
+                                        <li id="top" onclick="topclick()">上一页</li>
+                                        <li class="xifenye" id="xifenye" onclick="xifenye()">
+                                            <a id="xiye">1</a>/<a id="mo"></a>
+                                            <div class="xab" id="xab" style="display:none">
+                                                <ul id="uljia"></ul>
+                                            </div>
+                                        </li>
+                                        <li id="down" onclick="downclick()">下一页</a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
 
-                        <div id="contentRight" style="width:15%;top:1px;position:absolute;left:85%;padding:10px;display:none;" layoutH="1">
-                            <div id="dataList"></div>
-                            <div id="fenye">
-                                <ul>
-                                    <li id="top" onclick="topclick()">上一页</li>
-                                    <li class="xifenye" id="xifenye" onclick="xifenye()">
-                                        <a id="xiye">1</a>/<a id="mo"></a>
-                                        <div class="xab" id="xab" style="display:none">
-                                            <ul id="uljia"></ul>
-                                        </div>
-                                    </li>
-                                    <li id="down" onclick="downclick()">下一页</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        <!--                        <div id="contentRight" style="width:15%;top:1px;position:absolute;left:85%;padding:10px;display:none;" layoutH="1">
+                                                    <div id="dataList"></div>
+                                                    <div id="fenye">
+                                                        <ul>
+                                                            <li id="top" onclick="topclick()">上一页</li>
+                                                            <li class="xifenye" id="xifenye" onclick="xifenye()">
+                                                                <a id="xiye">1</a>/<a id="mo"></a>
+                                                                <div class="xab" id="xab" style="display:none">
+                                                                    <ul id="uljia"></ul>
+                                                                </div>
+                                                            </li>
+                                                            <li id="down" onclick="downclick()">下一页</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>-->
 
                     </div>
                 </div>
@@ -169,9 +182,9 @@ and open the template in the editor.
     <li ><a class="add" id="search" onclick="searchTree()"><span >查询信息</span></a></li>
     </ul>
     </div>
-   <div class="panelBar" style="height: 25px;width: 100px;">
+    <div class="panelBar" style="height: 25px;width: 100px;">
     <ul class="toolBar">
-    <li ><a class="add" id="search" onclick="closeMenu  ()"><span >取消</span></a></li>
+    <li ><a class="add" id="close" onclick="closeMenu()"><span >取消</span></a></li>
     </ul>
     </div>
     </div>

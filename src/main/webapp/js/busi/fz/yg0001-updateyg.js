@@ -8,6 +8,7 @@
     var $dialog = $("body").data('mod_yg_info11');
     bringDialogToFront($dialog);
     var param = $dialog.data('param');      //父窗口传递的参数
+    initServiceParaSelect('za_yg.yghy', $('#yghy', $dialog));
     padBackData(param.row, $('#fz_form', $dialog));
     //修改员工信息
     $("#update", $dialog).click(function () {

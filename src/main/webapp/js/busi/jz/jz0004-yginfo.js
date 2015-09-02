@@ -25,32 +25,45 @@
                     }
                 });
     });
-    $('#delete', $dialog).click(function () {
-        var rowData = $(this).getRow();
-        if (rowData) {
-            if (rowData.id) {
-                alertMsg.confirm("确定要删除该员工信息吗！", {"okCall": function () {
-                        var o = new AjaxOptions();
-                        o.put("id", rowData.id);
-                        o.put('service_code', 'P30007'); //删除社区建筑信息
-                        o.sus = function (data) {
-                            alertMsg.correct("删除成功");
-                            $('#close', $dialog).trigger("click");
-                            getyg();
-                        };
-                        $.ajax(o);
-                    }
-                });
-            } else {
-                alertMsg.error("没有找到该数据");
-            }
-        }
-        else {
-            alertMsg.warn("请先选择一条数据！");
-        }
-    });
+//    $('#delete', $dialog).click(function () {
+//        var $mychecked = $("input[type='checkbox']:checked");
+//        var len=$mychecked.length;
+//        alert($mychecked.length);
+//        $mychecked.each(function () {
+//            alert($(this).attr('id'));
+//        });
+//        var rowData = $(this).getRow();
+//        if (rowData) {
+//            if (rowData.id) {
+//                alertMsg.confirm("确定要删除该员工信息吗！", {"okCall": function () {
+//                        var o = new AjaxOptions();
+//                        o.put("id", rowData.id);
+//                        o.put('service_code', 'P30007'); //删除社区建筑信息
+//                        o.sus = function (data) {
+//                            alertMsg.correct("删除成功");
+//                            $('#close', $dialog).trigger("click");
+//                            getyg();
+//                        };
+//                        $.ajax(o);
+//                    }
+//                });
+//            } else {
+//                alertMsg.error("没有找到该数据");
+//            }
+//        }
+//        else {
+//            alertMsg.warn("请先选择一条数据！");
+//        }
+//    });
     $('#edit', $dialog).click(function () {
+//        $("input[type='checkbox']", $dialog).attr('checked', "checked");
         var rowData = $(this).getRow();
+        console.log(json2string(rowData) + "---------->>>>>>>>>>>>>>>>>>");
+//        var $mychecked = $("input[type='checkbox']:checked");
+//        alert($mychecked.length);
+//        $mychecked.each(function () {
+//            alert($(this).attr('id'));
+//        });
         if (rowData) {
             $.pdialog.open('page/fz/yg0001-updateyg.html', 'mod_yg_info11', '员工信息修改', {
                 width: 600,
@@ -79,7 +92,39 @@
             for (var i = 0; i < data.length; i++) {
                 var item = data[i]; // 获取到table每一行数据
                 keyValue[item["id"]] = i;
+                item.xz = $('<input type="checkbox"/>').attr({
+                    "id": item.id,
+                    "checked": false
+//                    "hymc": item.mc,
+                }).css({"cursor": "pointer"});
             }
         });
     }
+    $('#delete', $dialog).click(function () {
+        var $mychecked = $("input[type='checkbox']:checked");
+        var len = $mychecked.length;
+        if (len) {
+            alertMsg.confirm("确定要删除该员工信息吗！", {"okCall": function () {
+                    $mychecked.each(function () {
+                        var oid = $(this).attr('id');
+                        if (oid) {
+                            var o = new AjaxOptions();
+                            o.put("id", oid);
+                            o.put('service_code', 'P30007'); //删除社区建筑信息
+                            o.sus = function (data) {
+                                alertMsg.correct("删除成功");
+                                $('#close', $dialog).trigger("click");
+                            };
+                            $.ajax(o);
+                        } else {
+                            alertMsg.error("没有找到该数据");
+                        }
+                    });
+                    getyg();
+                }
+            });
+        } else {
+            alertMsg.warn("请先选择至少一条数据！");
+        }
+    });
 }).call();

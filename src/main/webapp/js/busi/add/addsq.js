@@ -9,6 +9,7 @@
     map.addOverlay(poly, true);
     var $dialog = $.pdialog.getCurrent();
     initServiceParaSelect('jw_sq.lb', $('#sqlb', $dialog));
+    initServiceParaSelect('jw_sq.zgbm', $('#zgbm', $dialog));
     $("#add", $dialog).click(function () {
         if (!$('#sq_form', $dialog).valid()) {
             return false;

@@ -15,7 +15,7 @@
             fileOptions.put('hylb', 'za_wl');
             fileOptions.put('sq_id', param.sqid);
             fileOptions.put('jz_id', param.jzid);
-            fileOptions.put('jd', param.jd);//传递经度参数
+            fileOptions.put('jd', param.jd);//传递经度参数 
             fileOptions.put('wd', param.wd);//传递维度参数
             fileOptions.sus = function (data) {
                 alertMsg.correct("添加成功");

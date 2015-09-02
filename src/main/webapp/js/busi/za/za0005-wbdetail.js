@@ -68,6 +68,7 @@
                     setTimeout(function () {
                         $('#jzxx', $dia).click();
                     }, 0);
+                    $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
                     $("#close", $dialog).trigger("click");
                 };
                 fileOptions.after = function (c, d) {
@@ -90,15 +91,16 @@
                     o.put("service_code", 'P43004');
                     o.sus = function (data) {
                         alertMsg.correct("删除成功了！");
-                        var page = parseInt($("#xiye").html());//获取当前的页数
-                        if (isSearch) {
-                            getCS('za_wb', '', page);
-                        }
-                        isSearch = false;
+//                        var page = parseInt($("#xiye").html());//获取当前的页数
+//                        if (isSearch) {
+//                            getCS('za_wb', '', page);
+//                        }
+//                        isSearch = false;
                         var $dia = $("body").data('add_jz_info');
                         setTimeout(function () {
                             $('#jzxx', $dia).click();
                         }, 0);
+                        $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
                         $('#close', $dialog).trigger("click");
                     };
                     $.ajax(o);
