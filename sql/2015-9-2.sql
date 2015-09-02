@@ -516,6 +516,7 @@ insert into ST_SERVICE_BEAN (service_code, bean_name, service_desc, is_login, mo
 values ('P30003', 'delSqJz', '删除社区建筑信息', 'Y', 'jz');
 insert into ST_SERVICE_BEAN (service_code, bean_name, service_desc, is_login, module)
 values ('P43013', 'delZjhZa', '删除住家户信息', 'Y', 'za');
+<<<<<<< HEAD
 create table ZA_LG
 (
   id     VARCHAR2(20) not null,
