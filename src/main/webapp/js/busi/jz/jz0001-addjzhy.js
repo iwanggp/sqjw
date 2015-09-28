@@ -18,7 +18,7 @@
         openAdd(myhy);
     });
     $('#add', $dialog).click(function () {
-        var omyhy = $('#jzhy').val();
+        var omyhy = $('#dwlb', $dialog).val();
         openAdd(omyhy);
     });
     function openAdd(hyval) {
@@ -34,8 +34,6 @@
             url = 'page/za/za0006-addlg.html';
         } else if ("xb_xf" == hyval) {
             url = 'page/xb/xb0001-addxf.html';
-        } else if ("za_zjh" == hyval) {
-            url = 'page/za/za0008-addzjh.html';
         } else {
             url = 'page/za/za0007-addcs.html';
         }

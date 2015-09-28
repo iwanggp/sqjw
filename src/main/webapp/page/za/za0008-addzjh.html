@@ -10,12 +10,20 @@ and open the template in the editor.
                 <input type="text" name="mph" id="mph" size="50" class="required"  />
             </div>
             <div class="unit">
-                <label>家庭地址：</label>
+                <label>地址：</label>
                 <input type="text" name="dz" id="dz" size="50" class="required"  />
             </div>
             <div class="unit">
                 <label>房主姓名：</label>
                 <input type="text" name="fzxm" id="fzxm"  size="50" class="required"/>
+            </div>
+            <div class="unit">
+                <label>房主身份证号码：</label>
+                <input type="text" name="fzsfzh" id="fzsfzh" size="20" maxlength="18" minlength="15" class="required"  />
+            </div>
+            <div class="unit">
+                <label>管辖公安机关：</label>
+                <input type="text" name="zgbm" id="zgbm"  size="50" class="required"/>
             </div>
             <div class="unit">
                 <label>联系方式：</label>
@@ -27,15 +35,22 @@ and open the template in the editor.
             </div>
             <div class="unit">
                 <label>备注：</label>
-                <input type="text" name="bz" id="bz"  size="50"/>
+                <textarea rows="5" cols="55" id="bz" name="bz" />
+            </div>
+            <div class="unit" style="margin:0 auto;   
+                 width:300px;   
+                 height:200px;">
+                <ul>
+                    <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="add">保存</button></div></div></li>
+                </ul>
             </div>
         </div>
-        <div class="formBar">
-            <ul>
-                <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="add">添加</button></div></div></li>
-                <li><div class="button"><div class="buttonContent"><button type="button" id="close" class="close">取消</button></div></div></li>
-            </ul>
-        </div>
+        <!--        <div class="formBar">
+                    <ul>
+                        <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="add">添加</button></div></div></li>
+                        <li><div class="button"><div class="buttonContent"><button type="button" id="close" class="close">取消</button></div></div></li>
+                    </ul>
+                </div>-->
     </form>
 </div>
 

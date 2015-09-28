@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<div class="tabs">
+    <div class="tabsHeader">
+        <div class="tabsHeaderContent">
+            <ul>
+                <li><a href="javascript:;"><span>金融行业信息管理</span></a></li>
+                <li style="display: none" id="unionyg"><a href="page/search/unionyg.html" rel="jbsxBoxyg" target="ajax"><span>人员信息</span></a></li>
+                <li style="display: none" id="jcdj"><a href="page/search/csjcdj.html" rel="jbsxBoxjcdj" target="ajax"><span>检查登记</span></a></li>
+                <li style="display: none" id="wzqk"><a href="page/search/cswzxx.html" rel="jbsxBoxwzqk" target="ajax"><span>违章情况</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tabsContent">
+        <div>
+            <div class="pageHeader">
+                <form id="search-form">
+                    <div class="searchBar">
+                        <table class="searchContent" width="60%">
+                            <tr>
+                                <td width="20%">
+                                    所属派出所:
+                                </td>
+                                <td width="20%">
+                                    <input id="zgbm" name="zgbm" type="text"  size="60"/>
+                                </td>
+                                <td width="25%">
+                                    行业类型：
+                                    <select id="dwlb">
+                                        <!--<option value="jr_all">全部</option>-->
+                                        <option value="jr_jrzbd">金银珠宝店</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%">
+                                    单位名称：
+                                </td>
+                                <td>
+                                    <input id="mc" name="mc" type="text" size="60"/>
+                                </td>
+                                <td width="25%">
+                                    单位地址：<input id="dz" name="dz" type="text"  size="60"/>
+                                </td>
+                                <td width="25%">
+                                    采集时间：
+                                </td>
+                                <td>
+                                    <input id="ks" name="ks" class="date" size="15"/>
+                                </td>
+                                <td>
+                                    至
+                                </td>
+                                <td>
+                                    <input id="js" name="js"  size="15" class="date"/>
+                                </td>
+                                <td width="25%">
+                                    <div class="buttonActive"><div class="buttonContent"><button type="button" id="search-button">查询</button></div></div>
+                                </td>
+
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            <div class="panelBar">
+                <ul class="toolBar">
+                    <li><a class="edit" id ="superedit" target-table="ssxx"><span>编辑</span></a></li>
+                    <li><a class="add" id="biaoji" target-table="ssxx"><span>将当前页标记在地图上</span></a></li>
+                    <li><a class="icon" id="look" target-table="ssxx"><span>查看人员信息</span></a></li>
+                    <li><a class="icon" id="ckjcdj" target-table="ssxx"><span>查看检查登记</span></a></li>
+                    <li><a class="icon" id="ckwzqk" target-table="ssxx"><span>查看违章情况</span></a></li>
+                    <li><a class="add" id="jgjd" target-table="ssxx"><span>添加监督</span></a></li>
+                </ul>
+            </div>
+            <table class="table" width="100%" layoutH="170" id="ssxx">
+                <thead>
+                    <tr>
+                        <th data-key="zgbm">管辖部门</th>
+                        <th data-key="mc">单位名称</th>
+                        <th data-key="dz">单位地址</th>
+                        <th data-key="frdb">主要负责人</th>
+                        <th data-key="lxfs">联系方式</th>
+                        <th data-key="abfzr">安保负责人</th>
+                        <th data-key="dh">安保负责人联系电话</th>
+                        <th data-key="bz">备注</th>
+                        <th data-key="map_link">进入地图</th>
+                        <th data-key="name_link" id="xq">查看详情</th>
+                        <th data-key="jd_link" id="jd">监督检查表</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div> 
+            <div id="jbsxBoxyg" class="unitBox" style="margin-left:5px;"></div>
+        </div>
+        <div> 
+            <div id="jbsxBoxjcdj" class="unitBox" style="margin-left:5px;"></div>
+        </div>
+        <div> 
+            <div id="jbsxBoxwzqk" class="unitBox" style="margin-left:5px;"></div>
+        </div>
+    </div>
+</div>
+
+

@@ -16,7 +16,7 @@
         getCurrentResult();
     });
     //打开修改用户对话框
-    $('#edit', $page).click(function () {
+    $('#superedit', $page).click(function () {
         var rowData = $(this).getRow();
         if (rowData) {
             currentPage = rowData.cut_row;
@@ -44,15 +44,39 @@
     });
     // 查看人员信息
     $('#look', $page).on('click', function () {
+        var rowData11 = $(this).getRow();
+        if (rowData11) {
+            sessionStorage.unionyg = JSON.stringify(rowData11);//放到session中暂存一段时间
+            $('#jbsxBoxyg', $page).loadUrl('page/search/unionyg.html', {}, function () {
+                $('#unionyg', $page).show().trigger('click');
+                $('#jbsxBoxyg', $page).find("[layoutH]").layoutH();
+            });
+        } else {
+            alertMsg.warn("请先选择一条数据！");
+        }
+    });
+    // 查看检查登记
+    $('#ckjcdj', $page).on('click', function () {
         var rowData = $(this).getRow();
-//        console.log("rowDataORG = " + json2string(rowData));
         if (rowData) {
             sessionStorage.unionyg = JSON.stringify(rowData);//放到session中暂存一段时间
-            console.log(sessionStorage.unionyg + "tandidezhiddddddddddddddddd");
-            setTimeout(function () {
-                $('#unionyg', $page).css({'visibility': 'visible'});
-                $('#unionyginfo', $page).click();
-            }, 150);
+            $('#jbsxBoxjcdj', $page).loadUrl('page/search/csjcdj.html', {}, function () {
+                $('#jcdj', $page).show().trigger('click');
+                $('#jbsxBoxjcdj', $page).find("[layoutH]").layoutH();
+            });
+        } else {
+            alertMsg.warn("请先选择一条数据！");
+        }
+    });
+    // 查看违章情况
+    $('#ckwzqk', $page).on('click', function () {
+        var rowData = $(this).getRow();
+        if (rowData) {
+            sessionStorage.unionyg = JSON.stringify(rowData);//放到session中暂存一段时间
+            $('#jbsxBoxwzqk', $page).loadUrl('page/search/cswzxx.html', {}, function () {
+                $('#wzqk', $page).show().trigger('click');
+                $('#jbsxBoxwzqk', $page).find("[layoutH]").layoutH();
+            });
         } else {
             alertMsg.warn("请先选择一条数据！");
         }

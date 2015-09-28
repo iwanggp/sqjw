@@ -304,7 +304,7 @@ create table ZA_YG
   lrsj     DATE,
   cjrxm    VARCHAR2(200),
   cjr      VARCHAR2(200),
-  sfid     VARCHAR2(20) not null,
+  sfzh     VARCHAR2(20) not null,
   mz       VARCHAR2(30),
   hyzk     VARCHAR2(2),
   sg       NUMBER,
@@ -353,7 +353,7 @@ comment on column ZA_YG.cjrxm
   is '创建人姓名';
 comment on column ZA_YG.cjr
   is '创建人';
-comment on column ZA_YG.sfid
+comment on column ZA_YG.sfzh
   is '员工的身份证号码';
 comment on column ZA_YG.mz
   is '民族';

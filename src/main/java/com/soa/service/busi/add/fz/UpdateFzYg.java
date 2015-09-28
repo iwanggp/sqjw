@@ -25,7 +25,7 @@ public class UpdateFzYg extends BaseService {
 
     //校验不能为空的值，当key为空时会提示不能为空
     private final String[] KEY = {
-        "sfid", "身份证号码"};
+        "sfzh", "身份证号码"};
     private final Logger log = LoggerFactory.getLogger(UpdateFzYg.class);
 
     @Override

@@ -8,6 +8,8 @@ window.map = null;
 //设置港区的经纬度
 var log = 113.84257496754428;
 var lat = 34.530768351088405;
+//var log = 113.82666;
+//var lat = 34.55882;
 /**
  * 初始化，在welcome.js中调用
  * @returns {undefined}
@@ -18,6 +20,8 @@ function init_map() {
     map = new STMapObj("STMap_map");
     //根据中心点和级别定位地图,STMapPoint表示具备x/y属性的二维点对象
     map.locateMap(new STMapPoint(log, lat), 4);
+    var poly = new STMapMarker();
+//    test();
     //设置放大缩小控件是否显示,默认显示
     map.setZoomCompVisible(true);
     //设置比例尺控件是否显示,默认显示
@@ -45,24 +49,24 @@ function menu(obj, x, y) {
     poly.infowin = false;
     map.addOverlay(poly, false);
 }
-function treemenu() {
-    map.deleteOverlayById("menu");
-    poly = new STMapMarker();
-    poly.id = "gang"; //【必选】对象 id
-    poly.point = new STMapPoint(gangjd, gangwd); //【必选】经纬度坐标  STMapPoint 类型
-    poly.img = "images/loc128.png"; //【必选】对象的图片地址 url
-    poly.infowin = false;
-    poly.anchor = "BR";//设置覆盖物的位置
-    poly.setMoveable(true);
-    map.addOverlay(poly, true);
-    map.pan(-150, 0);//将地图移动N个像素距离,x右为正，左为负。y下为正，上为负。
-    $.pdialog.open("page/tree/addtree.html", 'add_role_pl', "添加信息", {width: 270, height: 310, mask: false,
-        close: function () {
-//            map.deleteOverlayById("gang");
-            return true;//这样才能关闭窗口
-        }
-    });//打开树形菜单
-}
+//function treemenu() {
+//    map.deleteOverlayById("menu");
+//    poly = new STMapMarker();
+//    poly.id = "gang"; //【必选】对象 id
+//    poly.point = new STMapPoint(gangjd, gangwd); //【必选】经纬度坐标  STMapPoint 类型
+//    poly.img = "images/loc128.png"; //【必选】对象的图片地址 url
+//    poly.infowin = false;
+//    poly.anchor = "BR";//设置覆盖物的位置
+//    poly.setMoveable(true);
+//    map.addOverlay(poly, true);
+//    map.pan(-150, 0);//将地图移动N个像素距离,x右为正，左为负。y下为正，上为负。
+//    $.pdialog.open("page/tree/addtree.html", 'add_role_pl', "添加信息", {width: 270, height: 310, mask: false,
+//        close: function () {
+////            map.deleteOverlayById("gang");
+//            return true;//这样才能关闭窗口
+//        }
+//    });//打开树形菜单
+//}
 function searchTree() {
     map.deleteOverlayById("menu");
     $.pdialog.open("page/tree/searchtree.html", 'searchtree', "查询信息", {"width": 750, "height": 260});//打开树形菜单
@@ -82,7 +86,7 @@ function add() {
     poly.setMoveable(true);
     map.addOverlay(poly, true);
     map.pan(-150, 0);//将地图移动N个像素距离,x右为正，左为负。y下为正，上为负。
-    $.pdialog.open("page/add/addsq.html", 'add_root_pl', "添加社区", {width: 550, height: 360, mask: false,
+    $.pdialog.open("page/add/addsq.html", 'add_root_pl', "添加社区", {width: 580, height: 360, mask: false,
         close: function () {
             map.deleteOverlayById("gang");
             return true;//这样才能关闭窗口
@@ -102,8 +106,40 @@ function openDetail(hyval, hyid, hymc) {
         url = 'page/za/za0006-lgdetail.html';
     } else if ("za_zjh" == hyval) {
         url = 'page/za/za0009-zjhdetail.html';
+    } else if ("za_ssrk" == hyval) {
+        url = 'page/fz/fz0000-rkdetail.html';
+    } else if ("za_dw" == hyval) {
+        url = 'page/za/za0010-dwdetail.html';
+    } else if ("za_fzll" == hyval) {
+        url = 'page/za/za0026-fzlldetail.html';
+    } else if ("dw_jyz" == hyval) {
+        url = 'page/za/za0010-dwdetail.html';
+    } else if ("za_yg" == hyval) {
+        url = 'page/fz/yg0001-ygdetail.html';
+    } else if ("za_jrhy" == hyval) {
+        url = 'page/za/za0010-dwdetail.html';
+    } else if ("sc_sc" == hyval) {
+        url = 'page/za/za0010-dwdetail.html';
+    } else if ("qtdw" == hyval) {
+        url = 'page/za/za0010-dwdetail.html';
+    } else if ("za_ggcs" == hyval) {
+        url = 'page/za/za0010-dwdetail.html';
+    } else if ("za_jcss" == hyval) {
+        url = 'page/add/jcssdetail.html';
+    } else if ("ydtx" == hyval) {
+        url = 'page/za/za0010-dwdetail.html';
+    } else if ("dw_shfl" == hyval) {
+        url = 'page/za/za0010-dwdetail.html';
+    } else if ("za_school" == hyval) {
+        url = 'page/za/za0015-schooldetail.html';
+    } else if ("za_yy" == hyval) {
+        url = 'page/za/za0016-yydetail.html';
+    } else if ("za_dz" == hyval) {
+        url = 'page/za/za0011-bzdzdetail.html';
+    } else if ("za_ttdp" == hyval) {
+        url = 'page/za/za0012-ttdpdetail.html';
     } else {
-        url = 'page/za/za0007-csdetail.html';
+        url = "page/za/za0007-csdetail.html";
     }
     $.pdialog.open(url, 'mydetail', hymc + "详细情况",
             {"width": 580, "height": 560, mask: true,
@@ -130,7 +166,7 @@ function locationSearch(id, log, lat, mc, dz, hylb) {
     //鼠标提示文字
     pt.label = mc;
     //设置对象尺寸,默认为图片本身尺寸
-    pt.size = new STMapSize(50, 50); // 尺寸对象原型：STMapSize(长度,高度);
+    pt.size = new STMapSize(30, 30); // 尺寸对象原型：STMapSize(长度,高度);
     //设置对象定位的锚点位置（相对于图片矩形）;取值范围：BC（下边中心点），BL（左下角），BR（右下角），TL（左上角），TC（上边中心点），TR（右上角），ML（左边中心点），MR（右边中心点），CENTER（图片中心点）
     pt.anchor = "CENTER";
     //设置是否点击显示信息窗口，默认为true。
@@ -149,4 +185,31 @@ function showInfo(data) {
     var hylb = $(data).attr("hylb");
     var mc = $(data).attr("name");
     openDetail(hylb, id, mc);
+}
+function test() {
+    poly.id = "gang111"; //【必选】对象 id
+    poly.point = new STMapPoint(log, lat); //【必选】经纬度坐标  STMapPoint 类型
+    poly.img = "images/loc128.png"; //【必选】对象的图片地址 url
+    poly.infowin = false;
+    poly.anchor = "BR";//设置覆盖物的位置
+//    poly.setMoveable(true);
+    map.addOverlay(poly, true);
+}
+function addJcss() {
+    map.deleteOverlayById("menu");
+    poly = new STMapMarker();
+    poly.id = "gangjcss"; //【必选】对象 id
+    poly.point = new STMapPoint(gangjd, gangwd); //【必选】经纬度坐标  STMapPoint 类型
+    poly.img = "images/loc128.png"; //【必选】对象的图片地址 url
+    poly.infowin = false;
+    poly.anchor = "BR";//设置覆盖物的位置
+    poly.setMoveable(true);
+    map.addOverlay(poly, true);
+    map.pan(-170, 0);//将地图移动N个像素距离,x右为正，左为负。y下为正，上为负。
+    $.pdialog.open("page/add/addjcss.html", 'add_za_jcss', "基础设施", {width: 580, height: 360, mask: false,
+        close: function () {
+            map.deleteOverlayById("gangjcss");
+            return true;//这样才能关闭窗口
+        }
+    });//打开树形菜单
 }

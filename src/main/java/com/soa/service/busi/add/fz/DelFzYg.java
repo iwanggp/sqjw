@@ -39,9 +39,7 @@ public class DelFzYg extends BaseService {
     @Override
     @Transactional
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
-
         Object[] obj = new Object[]{in.getStringValue("id")};
         update("del_fz_yg", obj);
-
     }
 }

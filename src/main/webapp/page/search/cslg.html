@@ -4,9 +4,9 @@
         <div class="tabsHeaderContent">
             <ul>
                 <li><a href="javascript:;"><span>宾馆，酒店，饭店(可住宿)信息管理</span></a></li>
-                <li style="visibility: hidden" id="unionyg"><a href="page/search/unionyg.html" target="ajax" rel="jbsxBoxcxyg" id="unionyginfo"><span>员工人员信息</span></a></li>
-
-                <!--                    <li style="visibility: hidden" id="rkck"><a  href="page/jz/jz0004-yginfo.html" target="ajax" rel="jbsxBoxrk" id="rkxx"><span>人口信息</span></a></li>-->
+                <li style="display: none" id="unionyg"><a href="page/search/unionyg.html" rel="jbsxBoxyg" target="ajax"><span>员工人员信息</span></a></li>
+                <li style="display: none" id="jcdj"><a href="page/search/csjcdj.html" rel="jbsxBoxjcdj" target="ajax"><span>检查登记</span></a></li>
+                <li style="display: none" id="wzqk"><a href="page/search/cswzxx.html" rel="jbsxBoxwzqk" target="ajax"><span>违章情况</span></a></li>
             </ul>
         </div>
     </div>
@@ -69,10 +69,12 @@
             </div>
             <div class="panelBar">
                 <ul class="toolBar">
-                    <li><a class="delete" id="delete" target-table="ssxx"><span>删除</span></a></li>
-                    <li><a class="edit" id ="edit" target-table="ssxx"><span>编辑</span></a></li>
+                    <!--<li><a class="delete" id="delete" target-table="ssxx"><span>删除</span></a></li>-->
+                    <li><a class="edit" id ="superedit" target-table="ssxx"><span>编辑</span></a></li>
                     <li><a class="add" id="biaoji" target-table="ssxx"><span>将当前页标记在地图上</span></a></li>
                     <li><a class="icon" id="look" target-table="ssxx"><span>查看人员信息</span></a></li>
+                    <li><a class="icon" id="ckjcdj" target-table="ssxx"><span>查看检查登记</span></a></li>
+                    <li><a class="icon" id="ckwzqk" target-table="ssxx"><span>查看违章情况</span></a></li>
                 </ul>
             </div>
             <table class="table" width="100%" layoutH="170" id="ssxx">
@@ -95,9 +97,14 @@
                 </tbody>
             </table>
         </div>
-        <!--<div></div>-->
         <div> 
-            <div id="jbsxBoxcxyg" class="unitBox" style="margin-left:5px;"></div>
+            <div id="jbsxBoxyg" class="unitBox" style="margin-left:5px;"></div>
+        </div>
+        <div> 
+            <div id="jbsxBoxjcdj" class="unitBox" style="margin-left:5px;"></div>
+        </div>
+        <div> 
+            <div id="jbsxBoxwzqk" class="unitBox" style="margin-left:5px;"></div>
         </div>
     </div>
 

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<div class="tabs">
+    <div class="tabsHeader">
+        <div class="tabsHeaderContent">
+            <ul>
+                <li><a href="javascript:;"><span>房屋信息管理</span></a></li>
+                <li style="display: none" id="unionyg"><a href="page/search/jzry.html" rel="jbsxBoxry" target="ajax"><span>人员信息</span></a></li>
+                <li style="display: none" id="yginfo"><a href="page/search/unionyg.html" rel="jbsxBoxyg" target="ajax"><span>员工信息</span></a></li>
+                    <li style="display: none" id="unionyg1"><a href="page/search/addpeople.html" rel="jbsxBoxyg1" target="ajax"><span>人员详细信息</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="tabsContent">
+        <div>
+            <div class="pageHeader">
+                <form id="search-form">
+                    <div class="searchBar">
+                        <table class="searchContent" width="60%">
+                            <tr>
+                                <td width="20%">
+                                    所属管辖公安机关:
+                                </td>
+                                <td width="20%">
+                                    <input id="zgbm" name="zgbm" type="text"  size="60"/>
+                                </td>
+                                <td width="25%">
+                                    门牌号：<input id="mph" name="mph" type="text"  size="60"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%">
+                                    房主姓名：
+                                </td>
+                                <td>
+                                    <input id="fzxm" name="fzxm" type="text" size="60"/>
+                                </td>
+                                <td width="25%">
+                                    地址：<input id="dz" name="dz" type="text"  size="60"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%">
+                                    采集时间：
+                                </td>
+                                <td>
+                                    <input id="ks" name="ks" class="date" size="15"/>
+                                    至
+                                    <input id="js" name="js"  size="15" class="date"/>
+                                </td>
+                                <td width="25%">
+                                    <div class="buttonActive"><div class="buttonContent"><button type="button" id="search-button">查询</button></div></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            <div class="panelBar">
+                <ul class="toolBar">
+                    <li><a class="edit" id ="superedit" target-table="ssxx"><span>编辑</span></a></li>
+                    <!--<li><a class="add" id="add" target-table="ssxx"><span>添加流动人口</span></a></li>-->
+<!--                    <li><a class="add" id="addrk" target-table="ssxx"><span>添加人口</span></a></li>-->
+                    <li><a class="icon" id="look" target-table="ssxx"><span>查看该房屋人员信息</span></a></li>
+                    <!--<li><a class="icon" id="yglook" target-table="ssxx"><span>查看该房屋员工信息</span></a></li>-->
+                </ul>
+            </div>
+            <table class="table" width="100%" layoutH="200" id="ssxx">
+                <thead>
+                    <tr>
+                        <th data-key="zgbm">管辖公安机关</th>
+                        <th data-key="mph">门牌号</th>
+                        <th data-key="dz">地址</th>
+                        <th data-key="fzxm">房主姓名</th>
+                        <th data-key="cjrxm">创建人</th>
+                        <th data-key="lrsj" date-format="yyyy-MM-dd">创建时间</th>
+                        <!--<th data-key="map_link">进入地图</th>-->
+                        <th data-key="name_link" id="xq">查看详情</th>
+<!--                        <th data-key="people_link" id="people">人员查看</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div> 
+            <div id="jbsxBoxry" class="unitBox" style="margin-left:5px;"></div>
+        </div>
+        <div> 
+            <div id="jbsxBoxyg" class="unitBox" style="margin-left:5px;"></div>
+        </div>
+          <div> 
+            <div id="jbsxBoxyg1" class="unitBox" style="margin-left:5px;"></div>
+        </div>
+    </div>
+
+

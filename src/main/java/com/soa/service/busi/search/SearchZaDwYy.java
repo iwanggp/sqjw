@@ -7,21 +7,19 @@ package com.soa.service.busi.search;
 
 import com.lianzt.commondata.AbstractCommonData;
 import com.soa.service.BaseService;
-import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * S50002 查询旅馆的员工信息
+ * S52005 查询单位医院的所有信息
  *
  * @author wgp
  */
 @Service
-public class SearchLgYg extends BaseService {
-
-    private final Logger log = LoggerFactory.getLogger(SearchLgYg.class);
+public class SearchZaDwYy extends BaseService {
+    private final Logger log = LoggerFactory.getLogger(SearchZaDwYy.class);
 
     @Override
     public String[] keys() {
@@ -31,8 +29,14 @@ public class SearchLgYg extends BaseService {
     @Override
     @Transactional
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
-        in.putStringValue("sql", "search_select_lg_yg");
-        in.putObjectValue("args", new Object[]{in.getStringValue("yg_fz_id"), in.getStringValue("sfid"), in.getStringValue("xm"), in.getStringValue("jtdz"), in.getStringValue("xb")});
+        String lb = in.getStringValue("lb");
+        if (lb.equals("yy_all")) {
+            in.putStringValue("sql", "search_za_dw_yy");
+            in.putObjectValue("args", new Object[]{in.getStringValue("zgbm"), in.getStringValue("mc"), in.getStringValue("dz"), in.getStringValue("ks"), in.getStringValue("js")});
+        } else {
+            in.putStringValue("sql", "search_za_dw_yy_hy");
+            in.putObjectValue("args", new Object[]{in.getStringValue("zgbm"), in.getStringValue("mc"), in.getStringValue("lb"), in.getStringValue("dz"), in.getStringValue("ks"), in.getStringValue("js")});
+        }
         in.putIntValue("page_size", in.getIntValue("page_size"));
         runService("S10001", in, inHead, out, outHead);
     }

@@ -53,6 +53,15 @@ public class SearchAll extends BaseService {
         } else if ("xb_xf".equals(lb)) {
             in.putStringValue("sql", "za_select_xf");
             cutPage(in, inHead, out, outHead);
+        } else if ("za_dw".equals(lb)) {
+            in.putStringValue("sql", "za_select_dw");
+            cutPage(in, inHead, out, outHead);
+        } else if ("za_school".equals(lb)) {
+            in.putStringValue("sql", "za_select_dw");
+            cutPage(in, inHead, out, outHead);
+        } else if ("za_ttdp".equals(lb)) {
+            in.putStringValue("sql", "search_za_tt_all");
+            cutPage(in, inHead, out, outHead);
         } else {
             in.putStringValue("sql", "za_select_cs");
             in.putObjectValue("args", new Object[]{in.getStringValue("mc"), lb});

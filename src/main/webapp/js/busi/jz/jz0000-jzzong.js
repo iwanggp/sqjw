@@ -6,7 +6,7 @@
 
 (function () {
     var $dialog = $("body").data('add_jz_info');
-//    var $dialog=$.pdialog.getCurrent();
+    var currentPage = 1;
     var param = $dialog.data('param'); //父窗口传递的参数
     bringDialogToFront($dialog);
     var keyValue = {};  // 数据索引
@@ -15,7 +15,6 @@
     // 查看人员信息
     $('#look', $dialog).on('click', function () {
         var rowData = $(this).getRow();
-        console.log("rowDataORG = " + json2string(rowData));
         if (rowData) {
             sessionStorage.jz0004_yginfo = JSON.stringify(rowData);//放到session中暂存一段时间
             var $dia = $("body").data('add_jz_info');
@@ -31,7 +30,6 @@
         var rowData = $(this).getRow();
         currentPage = rowData.cut_row;
         currentPage = parseInt(currentPage / 20) + 1;
-        console.log(currentPage + "----[][][]][][------>>>>>>");
         if (rowData) {
             if (rowData.did != null) {
                 alertMsg.confirm("确定要删除该记录吗？", {"okCall": function () {
@@ -42,10 +40,6 @@
                         o.sus = function (data) {
                             alertMsg.correct("删除成功");
                             getcurrentResult();
-//                            var $dia = $("body").data('add_jz_info');
-//                            setTimeout(function () {
-//                                $('#jzxx', $dia).click();
-//                            }, 50);
                             $('#close', $dialog).trigger("click");
                         };
                         $.ajax(o);

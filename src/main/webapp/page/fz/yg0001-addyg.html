@@ -7,7 +7,7 @@ and open the template in the editor.
         <div class="pageFormContent" layoutH="58">
             <div class="unit">
                 <label>身份证号码：</label>
-                <input type="text" name="sfid" id="sfid" size="20" maxlength="18" minlength="15" class="required"  />
+                <input type="text" name="sfzh" id="sfzh" size="20" maxlength="18" minlength="15" class="required"  />
             </div>
             <div class="unit">
                 <label>姓名：</label>
@@ -19,29 +19,27 @@ and open the template in the editor.
             </div>
             <div class="unit">
                 <label>性别：</label>
-                <input type="radio" name="xb" id="xb"  value="1">男</input>
-                <input type="radio" name="xb" id="xb"  value="0" checked="true">女</input>
+                <select id="xb" name="xb" class="required"></select>
             </div>
             <div class="unit">
                 <label>出生日期：</label>
                 <input type="text" name="csrq" id="csrq"  size="15" class="date"/>
             </div>
             <div class="unit">
-                <label>员工行业：</label>
+                <label>人员行业：</label>
                 <select id="yghy" name="yghy"></select>
             </div>
             <div class="unit">
                 <label>民族：</label>
-                <input type="text" name="mz" id="mz"  size="10"/>
+                <select id="mz" name="mz"></select>
             </div>
             <div class="unit">
                 <label>婚姻状况：</label>
-                <input type="radio" name="hyzk" id="hyzk"  value="1">已婚</input>
-                <input type="radio" name="hyzk" id="hyzk"  value="0" checked="true">未婚</input>
+                <select id="hyzk" name="hyzk"></select>
             </div>
             <div class="unit">
                 <label>文化程度：</label>
-                <input type="text" name="whcd" id="whcd"  size="50" />
+                <select id="whcd" name="whcd"></select>
             </div>
             <div class="unit">
                 <label>身高：</label>

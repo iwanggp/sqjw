@@ -18,6 +18,14 @@ and open the template in the editor.
                 <input type="text" name="fzxm" id="fzxm"  size="50" class="required"/>
             </div>
             <div class="unit">
+                <label>房主身份证号码：</label>
+                <input type="text" name="fzsfzh" id="fzsfzh" size="20" maxlength="18" minlength="15" class="required"  />
+            </div>
+            <div class="unit">
+                <label>管辖公安机关：</label>
+                <input type="text" name="zgbm" id="zgbm"  size="50" class="required"/>
+            </div>
+            <div class="unit">
                 <label>联系方式：</label>
                 <input type="text" name="lxfs" id="lxfs" size="50" class="required"  />
             </div>
@@ -27,7 +35,7 @@ and open the template in the editor.
             </div>
             <div class="unit">
                 <label>备注：</label>
-                <input type="text" name="bz" id="bz"  size="50"/>
+                <textarea rows="5" cols="55" id="bz" name="bz" />
             </div>
             <div class="unit">
                 <label>创建人：</label>
@@ -41,7 +49,7 @@ and open the template in the editor.
         <div class="formBar">
             <ul>
                 <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="modify">修改</button></div></div></li>
-                <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="del">删除</button></div></div></li>
+<!--                <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="del">删除</button></div></div></li>-->
                 <li><div class="button"><div class="buttonContent"><button type="button" id="close" class="close">取消</button></div></div></li>
             </ul>
         </div>

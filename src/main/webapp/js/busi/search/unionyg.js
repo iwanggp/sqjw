@@ -6,10 +6,27 @@
 (function () {
     var $dialog = navTab.getCurrentPanel();
     var obj = JSON.parse(sessionStorage.unionyg);
+    initParaSelect('za_yg.yghy', $('#yghy', $dialog));
+    initParaSelect('za_people.xb', $('#xb', $dialog));
     $('#dwmc', $dialog).html(obj['mc']);//设置标题
     var tableData; // 存放临时数据
     var keyValue = {}; // 数据索引
     var currentPage = 1;
+    $('#sfzh', $dialog).change(function () {
+        currentPage = 1;//当改变查询条件时默认从第一行开始查询
+    });
+    $('#yghy', $dialog).change(function () {
+        currentPage = 1;//当改变查询条件时默认从第一行开始查询
+    });
+    $('#xm', $dialog).change(function () {
+        currentPage = 1;//当改变查询条件时默认从第一行开始查询
+    });
+    $('#xb', $dialog).change(function () {
+        currentPage = 1;//当改变查询条件时默认从第一行开始查询
+    });
+    $('#jtdz', $dialog).change(function () {
+        currentPage = 1;//当改变查询条件时默认从第一行开始查询
+    });
     // '分页查询', 显示全部数据
     getyg();
     /**
@@ -31,18 +48,21 @@
                 });
     });
     $('#edit', $dialog).click(function () {
-        var rowData = $(this).getRow();
-        if (rowData) {
+        var rowData1 = $(this).getRow();
+        detail = true;
+        if (rowData1 && detail) {
             $.pdialog.open('page/fz/yg0001-updateyg.html', 'mod_yg_info11', '员工信息修改', {
                 width: 600,
                 height: 380,
-                param: {row: rowData},
+                mask: true,
+                param: {row: rowData1},
                 close: function (param) {
                     if (param.isFlush) {
                         var index = keyValue[param.row.id];
                         tableData[index] = param.row;
                         padBackTable(tableData, $('#yginfos', $dialog));
                     }
+                    detail = false;
                     return true;
                 }
             });
@@ -64,7 +84,7 @@
                         o.put('service_code', 'P30007'); //删除社区建筑信息
                         o.sus = function (data) {
                             alertMsg.correct("删除成功");
-                            getyg();
+                            getCurrentResult();
                             $('#close', $dialog).trigger("click");
                         };
                         $.ajax(o);
@@ -99,7 +119,7 @@
                         }
                     });
                     currentPage = parseInt(currentPage / 30) + 1;
-                    getyg();
+                    getCurrentResult();
                 }
             });
         } else {
@@ -127,16 +147,7 @@
         });
     }
     function getCurrentResult() {
-        $('#yginfos', $dialog).cutPage({
-            yg_fz_id: obj['id'],
-            sfid: $('#sfzh', $dialog).val(),
-            xm: $('#xm', $dialog).val(),
-            jtdz: $('#dz', $dialog).val(),
-            xb: $('#xb', $dialog).val(),
-            service_code: 'S50002',
-            page_size: 30
-        }, function (data) {
-//            searchData = data;
+        $('#yginfos', $dialog).cutPage(form2JSON($('#search-form', $dialog), {yg_fz_id: obj['id'], service_code: 'S50002', page_size: 30,page:currentPage}), function (data) {
             for (var i = 0; i < data.length; i++) {
                 var item = data[i]; // 获取到table每一行数据
                 item.xz = $('<input type="checkbox"/>').attr({

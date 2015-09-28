@@ -30,7 +30,7 @@ public class AddFzYg extends BaseService {
 
 //校验不能为空的值，当key为空时会提示不能为空
     private final String[] KEY = {
-        "sfid", "省份证号码",
+        "sfzh", "省份证号码",
         "xm", "员工姓名"
     };
     private final Logger log = LoggerFactory.getLogger(AddFzYg.class);
@@ -47,10 +47,7 @@ public class AddFzYg extends BaseService {
         in.put("cjrxm", acd.get("xm"));
         //in从页面传来过得值
         in.put("cjr", acd.get(SystemUtil.loginRemark));
-        for (int i = 0; i < 50; i++) {
-            in.putStringValue("sfid", "412828199587854" + i);
-            in.putStringValue("id", SystemUtil.getSerialNum());//数据库的主码
-            update("add_jz_yg", in);
-        }
+        in.putStringValue("id", SystemUtil.getSerialNum());//数据库的主码
+        update("add_jz_yg", in);
     }
 }

@@ -41,6 +41,5 @@ public class GetFzYg extends BaseService {
         in.putObjectValue("args", new Object[]{in.getStringValue("yg_fz_id")});
         in.putIntValue("page_size", in.getIntValue("page_size"));
         runService("S10001", in, inHead, out, outHead);
-        List<AbstractCommonData> list = out.getArrayValue("result");
     }
 }

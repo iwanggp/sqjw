@@ -6,7 +6,6 @@
 (function () {
     var $page = $("body").data('add_sq_info');
     var param = $page.data('param'); //父窗口传递的参数
-    console.log(json2string(param)+"wwwwwwwwwwwwwwwwwwwww");
     var tableData;      // 存放临时数据
     var keyValue = {};  // 数据索引
     var sqid = param.sqid;
@@ -19,7 +18,8 @@
             mask: false,
             param: {sqid: sqid, jd: param.jd, wd: param.wd},
             close: function () {
-                serarch();
+//                serarch();
+                map.deleteOverlayById("lou");
                 return true;
             }
         });
@@ -39,6 +39,7 @@
                         tableData[index] = param.row;
                         padBackTable(tableData, $('#jzinfos', $page));
                     }
+                    map.deleteOverlayById("udlou");
                     return true;
                 }
             });
@@ -81,22 +82,24 @@
                 var item = data[i];     // 获取到table每一行数据
                 item.name_link = $('<a/>').attr({
                     "name": data[i].jzid,
-                    "jzmc": data[i].mc
+                    "jzmc": data[i].mc,
+                    "jd": data[i].jd,
+                    "wd": data[i].wd
                 }).addClass("check-link").css({"cursor": "pointer", "color": "blue"}).html('查看详情');
                 keyValue[item["jzid"]] = i;
             }
+            setTimeout(function () {
+                $(".check-link").unbind("click").bind("click", function (e) {
+                    $.pdialog.open("page/jz/jz0002-jzinfo.html", 'add_jz_info', $(this).attr('jzmc'), {width: 1000,
+                        height: 560,
+                        param: {sqid: sqid, jzid: $(this).attr('name'), jd: $(this).attr('jd'), wd: $(this).attr('wd'), jzmc: $(this).attr('jzmc')},
+                        close: function () {
+                            return true;//这样才能关闭窗口
+                        }
+                    });
+                });
+            }, 50);
         });
     }
-
-    $page.on("click", ".check-link", function () {
-        console.log($(this).attr('name') + sqid + "---" + param.jd + "-----" + param.wd + "jzinfos......");
-        $.pdialog.open("page/jz/jz0002-jzinfo.html", 'add_jz_info', $(this).attr('jzmc'), {width: 1000,
-            height: 650,
-            param: {sqid: sqid, jzid: $(this).attr('name'), jd: param.jd, wd: param.wd, jzmc: $(this).attr('jzmc')},
-            close: function () {
-                return true;//这样才能关闭窗口
-            }
-        });
-    });
 })();
 

@@ -16,7 +16,7 @@
     opt.put("service_code", "S21004");
     opt.put("sqid", param.sqid);
     $('#sqlb', $dialog).attr("disabled", "disabled");
-    $('#zgbm', $dialog).attr("disabled", "disabled");
+//    $('#zgbm', $dialog).attr("disabled", "disabled");
     $('#fw', $dialog).attr("disabled", "disabled");
     $("input", $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     opt.sus = function (data) {
@@ -83,7 +83,7 @@
         }
     });
     $('#info', $dialog).click(function () {
-        $.pdialog.open("page/add/sq0001-sqinfo.html", 'add_sq_info', sqname, {width: 870, height: 660,
+        $.pdialog.open("page/add/sq0001-sqinfo.html", 'add_sq_info', sqname, {width: 970, height: 600,
             param: {sqid: param.sqid, jd: param.jd, wd: param.wd},
             close: function () {
 //               $.pdialog.close('add_sq_info');

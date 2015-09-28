@@ -8,8 +8,11 @@
     var $dialog = $("body").data('add_yg_xx'); //必须通过这种方法
     bringDialogToFront($dialog);
     var param = $dialog.data('param'); //父窗口传递的参数
-    initServiceParaSelect('za_yg.yghy', $('#yghy', $dialog));
-//            param: {sqid: obj['sq_id'], jzid: obj['jz_id'], jd: obj['jd'], wd: obj['wd'], fzid: obj['did']};
+    initParaSelect('za_yg.yghy', $('#yghy', $dialog));
+    initParaSelect('za_people.xb', $('#xb', $dialog));
+    initParaSelect('za_people.hyzk_dm', $('#hyzk', $dialog));
+    initParaSelect('za_people.mz', $('#mz', $dialog));
+    initParaSelect('za_people.whcd', $('#whcd', $dialog));
     $("#add", $dialog).click(function () {
         if (!$('#fz_form', $dialog).valid()) {
             return false;
@@ -35,6 +38,7 @@
         o.put('yg_fz_id', param.fzid);
         o.put('jd', param.jd); //传递经度参数
         o.put('wd', param.wd); //传递维度参数
+        o.put('hylb', 'za_yg');
         o.sus = function () {
             alertMsg.correct("添加成功");
             var $dia = $("body").data('add_jz_info');

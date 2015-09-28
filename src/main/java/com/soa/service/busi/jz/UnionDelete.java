@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 /**
  * P00000 联合的删除多张表
  *
- * @author zkf
+ * @author wgp
  */
 @Service
 public class UnionDelete extends BaseService {
@@ -40,6 +40,8 @@ public class UnionDelete extends BaseService {
             update("za_delete_xf_id", obj);
         } else if ("za_zjh".equals(hy)) {
             update("za_delete_zjh_id", obj);
+        } else if ("za_dw".equals(hy)) {
+            update("za_delete_dw_id", obj);
         } else {
             update("za_delete_cs_id", obj);
         }

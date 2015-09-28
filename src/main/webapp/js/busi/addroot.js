@@ -89,7 +89,7 @@ function searchSq(sqmc, sqdz, page) {
     o.put("service_code", "S21003");
     o.put("sqmc", sqmc);
     o.put("sqdz", sqdz);
-    o.put("page_size", 100);
+    o.put("page_size", 10);
     o.put("page", page);
     o.sus = function (data) {
         if (data.result.length > 0) {

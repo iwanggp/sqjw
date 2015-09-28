@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <div class="pageContent">
 
-    <h1 style="text-align: center;size:24px;color: brown"><span id="dwmc"></span>人员详细信息</h1>
+    <h1 style="text-align: center;size:24px;color: brown"><span id="dwmc" style="color: red;size: 26sp"></span>&nbsp;&nbsp;人员详细信息</h1>
 
     <div class="pageHeader">
         <form id="search-form">
@@ -22,33 +22,28 @@ and open the template in the editor.
                         <td width="25%">
                             姓名：<input id="xm" name="xm" type="text" size="20"/>
                         </td>
-                        <!--                        <td width="50">
-                                                    员工行业：
-                                                    <select id="yghy">
-                                                        <option value="0">管理人员</option>
-                                                        <option value="1">从业人员</option>
-                                                        <option value="2">保安人员</option>
-                                                        <option value="3">其它</option>
-                                                    </select>
-                                                </td>-->
+                        <td width="50">
+                            员工行业：
+                            <select id="yghy" name="yghy">
+                                <option value="">全部</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td width="20%">
                             家庭地址:
                         </td>
                         <td>
-                            <input id="dz" name="dz" type="text"  size="50"/>
+                            <input id="jtdz" name="jtdz" type="text"  size="50"/>
                         </td>
                         <td width="50">
                             性别：
-                            <select id="xb">
-                                <option value="0">女</option>
-                                <option value="1">男</option>
+                            <select id="xb" name="xb">
+                                <option value="">全部</option>
                             </select>
                         </td>
                         <td width="25%">
                             <div class="buttonActive"><div class="buttonContent"><button type="button" id="search-button">查询</button></div></div>
-
                         </td>
                     </tr>
                 </table>
@@ -60,29 +55,29 @@ and open the template in the editor.
             <li><a class="add" id="add" rel="add"><span>添加人员</span></a></li>
             <li><a class="delete" id="delete" target-table="yginfos"><span>删除</span></a></li>
             <li><a class="delete" id="mutdelete" target-table="yginfos"><span>批量删除</span></a></li>
-            <li><a class="edit" id ="edit" target-table="yginfos"><span>修改</span></a></li>
+            <li><a class="edit" id ="edit" target-table="yginfos"><span>编辑</span></a></li>
             <!--<li><a class="edit" id ="change" target-table="yginfos"><span>集体迁移</span></a></li>-->
         </ul>
     </div>
-    <table class="table" width="100%" layoutH="220" id="yginfos">
+    <table class="table" width="100%" layoutH="185" id="yginfos">
         <thead>
             <tr>
                 <th data-key="xz" id="xz"></th>
                 <th data-key="xm">姓名</th>
-                <th data-key="xb"  st-param="za_yg.xb">性别</th>
+                <th data-key="xb"  st-param="za_people.xb">性别</th>
                 <th data-key="yghy" st-param="za_yg.yghy">员工类别</th>
                 <th data-key="csrq" date-format="yyyy-MM-dd">出生日期</th>
-                <th data-key="whcd">文化程度</th>
-                <th data-key="mz">民族</th>
+                <th data-key="whcd" st-param="za_people.whcd">文化程度</th>
+                <th data-key="mz" st-param="za_people.mz">民族</th>
                 <th data-key="sg">身高(cm)</th>
                 <th data-key="zw">职务</th>
-                <th data-key="hyzk"  st-param="za_yg.hyzk">婚姻状况</th>
+                <th data-key="hyzk"  st-param="za_people.hyzk_dm">婚姻状况</th>
                 <th data-key="gzdw">工作单位</th>
                 <th data-key="jtdz">家庭地址</th>
                 <th data-key="bz">备注</th>
                 <th data-key="cjrxm">创建人</th>
                 <th data-key="lrsj"  date-format="yyyy-MM-dd">创建时间</th>
-                <th data-key="sfid">身份证号码</th>
+                <th data-key="sfzh">身份证号码</th>
             </tr>
         </thead>
         <tbody>

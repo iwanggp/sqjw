@@ -821,6 +821,7 @@ function  detaiJz(data) {
             });
 }
 function  detaiSq(data) {
+    STMapCloseInfoWin();//关闭对话框
     $.pdialog.open("page/add/add0001-sqdetail.html", 'detailSq', "详情",
             {"width": 580, "height": 450, mask: false,
                 param: {sqid: $(data).attr('name'), jd: $(data).attr('jd'), wd: $(data).attr('wd')},
@@ -1006,6 +1007,6 @@ function getJZCS(h, page, rid) {
 }
 
 //全局变量：场所名称，所属行业,设备类型,分页类别,开始时间，截止时间,案件分类,建筑id,建筑经度，建筑维度，是否是搜索,是否查询
-var mc, hy, sblx, fylb, gangjd, gangwd, poly, kssj, jzsj, ajfl, jzid, jzjd, jzwd, sjxz, isSearch = false, dz, mph, currentPage = 1;
+var mc, hy, sblx, fylb, gangjd, gangwd, poly, kssj, jzsj, ajfl, jzid, jzjd, jzwd, sjxz, isSearch = false, dz, mph, currentPage = 1, detail = false;
 var sx = [];//属性点
 var server_root = "sqjw_upload\\";

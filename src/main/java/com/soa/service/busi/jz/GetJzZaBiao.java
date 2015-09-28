@@ -38,7 +38,7 @@ public class GetJzZaBiao extends BaseService {
         //in从页面传来过得值
         in.put("cjr", acd.get(SystemUtil.loginRemark));
         in.putStringValue("sql", "select_jz_zabiao");
-        in.putObjectValue("args", new Object[]{in.getStringValue("jz_id"), in.getStringValue("jz_id"), in.getStringValue("jz_id"), in.getStringValue("jz_id"), in.getStringValue("jz_id"), in.getStringValue("jz_id"), in.getStringValue("jz_id")});
+        in.putObjectValue("args", new Object[]{in.getStringValue("jz_id"), in.getStringValue("jz_id"),in.getStringValue("jz_id"),in.getStringValue("jz_id"), in.getStringValue("jz_id"), in.getStringValue("jz_id"), in.getStringValue("jz_id"), in.getStringValue("jz_id"), in.getStringValue("jz_id"),in.getStringValue("jz_id")});
         in.putIntValue("page_size", in.getIntValue("page_size"));
         runService("S10001", in, inHead, out, outHead);
     }

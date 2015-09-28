@@ -1,0 +1,86 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="pageContent">
+    <form  id="shop_form" class="pageForm">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>单位名称：</label>
+                <input type="text" name="mc" size="50" id="mc" class="required" readonly="readonly" />
+            </div>
+            <div class="unit">
+                <label>单位地址：</label>
+                <input type="text" name="dz" size="50" id="dz" class="required" readonly="readonly" />
+            </div>
+            <div class="unit">
+                <span style="background: bisque;size: 62sp">设立保卫机构（报公安机关备案）；配齐保卫人员（营业面积在100平方以下金银珠宝店至少配备3名以上保安；营业面积每增加100平方，增加配备保安1名。），保卫人员经培训持证上岗。：</span>
+                <input type="radio" name="jd1" id="jd1"  value="1" checked="true">是</input>
+                <input type="radio" name="jd1" id="jd1"  value="0">否</input>
+            </div>
+            <div class="unit">
+                <span style="background: bisque;size: 32sp">建立保安人员管理制度，配齐警用防护装备（警棍、警叉、催泪瓦斯等）：</span>
+                <input type="radio" name="jd2" id="jd2"  value="1" checked="true">是</input>
+                <input type="radio" name="jd2" id="jd2"  value="0">否</input>
+            </div>
+            <div class="unit">
+                <span style="background: bisque;size: 32sp">存放金银珠宝的保险柜应牢固在地面或墙体，并安装震动报警器。：</span>
+                <input type="radio" name="jd3" id="jd3"  value="1" checked="true">是</input>
+                <input type="radio" name="jd3" id="jd3"  value="0">否</input>
+            </div>
+            <div class="unit">
+                <span style="background: bisque;size: 32sp">大门口、收银台等处安装足够监控探头，要确保无盲区；视频监控要与公安机关110联网。：</span>
+                <input type="radio" name="jd4" id="jd4"  value="1" checked="true">是</input>
+                <input type="radio" name="jd4" id="jd4"  value="0">否</input>
+            </div>
+            <div class="unit">
+                <span style="background: bisque;size: 32sp">使用数字硬盘录像机，监控画面清晰并保存30天以上。：</span>
+                <input type="radio" name="jd5" id="jd5"  value="1" checked="true">是</input>
+                <input type="radio" name="jd5" id="jd5"  value="0">否</input>
+            </div>
+            <div class="unit">
+                <span style="background: bisque;size: 32sp">店铺门口要安装与110联网的现场声光报警器，在柜台内隐蔽处安装紧急报警按钮，报警装置要与110联网。：</span>
+                <input type="radio" name="jd6" id="jd6"  value="1" checked="true">是</input>
+                <input type="radio" name="jd6" id="jd6"  value="0">否</input>
+            </div>
+            <div class="unit">
+                <span style="background: bisque;size: 32sp">商场、超市应安排专人配备防护器械对金银珠宝营业区域进行巡护：</span>
+                <input type="radio" name="jd7" id="jd7"  value="1" checked="true">是</input>
+                <input type="radio" name="jd7" id="jd7"  value="0">否</input>
+            </div>
+            <div class="unit">
+                <span style="background: bisque;size: 32sp">禁止非从业人员进入营业柜台：</span>
+                <input type="radio" name="jd8" id="jd8"  value="1" checked="true">是</input>
+                <input type="radio" name="jd8" id="jd8"  value="0">否</input>
+            </div>
+            <div class="unit">
+                <span style="background: bisque;size: 32sp">营业员接待顾客时只能一次出示1件商品，非营业期间应将物品放置在专用库房。：</span>
+                <input type="radio" name="jd9" id="jd9"  value="1" checked="true">是</input>
+                <input type="radio" name="jd9" id="jd9"  value="0">否</input>
+            </div>
+            <div class="unit">
+                <span style="background: bisque;size: 32sp">明确专人负责技防、物防设施的管理、使用和维护：</span>
+                <input type="radio" name="jd10" id="jd10"  value="1" checked="true">是</input>
+                <input type="radio" name="jd10" id="jd10"  value="0">否</input>
+            </div>
+            <div class="unit">
+                <span style="background: bisque;size: 32sp">制度各类突发事件处置预案（火灾、抢劫、盗窃、行凶杀人等），每季度至少开展1次突发事件预案演练。：</span>
+                <input type="radio" name="jd11" id="jd11"  value="1" checked="true">是</input>
+                <input type="radio" name="jd11" id="jd11"  value="0">否</input>
+            </div>
+            <div class="unit">
+                <span style="background: bisque;size: 32sp">经营场所内发现不稳定苗头、安全隐患、矛盾纠纷、可疑人员、治安案件、刑事案件等，及时报告属地公安机关。：</span>
+                <input type="radio" name="jd12" id="jd12"  value="1" checked="true">是</input>
+                <input type="radio" name="jd12" id="jd12"  value="0">否</input>
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="modify">修改</button></div></div></li>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="del">删除</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" id="close" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

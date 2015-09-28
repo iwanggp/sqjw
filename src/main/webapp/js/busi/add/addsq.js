@@ -6,7 +6,7 @@
 (function () {
 //    $.pdialog.close('add_role_pl');//关闭对话框参数为id，此处的id为打开属性菜单的id
 
-    map.addOverlay(poly, true);
+//    map.addOverlay(poly, true);
     var $dialog = $.pdialog.getCurrent();
     initServiceParaSelect('jw_sq.lb', $('#sqlb', $dialog));
     initServiceParaSelect('jw_sq.zgbm', $('#zgbm', $dialog));
@@ -24,7 +24,7 @@
             alertMsg.correct("添加成功");
             map.locateMap(new STMapPoint(gangjd, gangwd), 1);
             $("#close", $dialog).trigger("click");
-            poly.moveable = false;
+//            poly.moveable = false;
             $('#xiye').text(1);
             getSq(mc, 1);
         };

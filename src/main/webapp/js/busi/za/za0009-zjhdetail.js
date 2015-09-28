@@ -39,14 +39,15 @@
                 opt.sus = function (data) {
                     alertMsg.correct("修改成功了！");
                     var $dia = $("body").data('add_jz_info');
-                    if (isSearch) {
-                        var page = parseInt($("#xiye").html());//获取当前的页数
-                        searchZjh('', '', '', 1);
-                    }
+//                    if (isSearch) {
+//                        var page = parseInt($("#xiye").html());//获取当前的页数
+//                        searchZjh('', '', '', 1);
+//                    }
                     isSearch = false;
                     setTimeout(function () {
                         $('#jzxx', $dia).click();
                     }, 50);
+                    $('#search-button', navTab.getCurrentPanel()).trigger('click');
                     $("#close", $dialog).trigger("click");
                 };
                 $.ajax(opt);

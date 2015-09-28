@@ -1,0 +1,217 @@
+<div class="pageFormContent" layoutH="58">
+    <form id="info">
+        <div class="panel" defH="125"  align="left">
+            <h1>身份证信息</h1>
+            <div align="center">
+                <table class="formtable" width="60%"  >
+                    <tr>
+                        <td width="10%" align="center">姓名</td>
+                        <td width="15%" id="xm" name="xm"></td>
+                        <td width="3%" align="center"></td>
+                        <td  width="4%" rowspan="3"><image id="zp" name="zp"/>  </td>
+                    </tr>
+                    <tr>
+                        <td width="10%" align="center">身份证号</td>
+                        <td width="15%"  name="sfzh" id="sfzh"></td>
+                        <td width="4%" rowspan="1" align="center">照片</td>
+                    </tr>
+                    <tr>
+                        <td width="10%" align="center">出生日期</td>
+                        <td width="15%" id="CSRQ" name="csrq" date-format="yyyy-MM-dd"></td>
+                    </tr>
+                    <tr>
+                        <td width="10%" align="center">性别</td>
+                        <td width="15%"><select id="xb" name="xb" class="required"></select></td>
+                        <td width="10%" align="center">民族</td>
+                        <td width="4%" ><select id="mz" name="mz"></select></td>
+                    </tr>
+                    <tr>
+                        <td width="10%" align="center">常住户口地</td>
+                        <td width="15%" id="czhkdz" name="czhkdz"></td>
+                        <td width="10%" align="center">身份证有效期</td>
+                        <td width="4%" id="sfz_yxq_z" name="sfz_yxq_z" date-format="yyyy-MM-dd"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="panel" defH="175"  align="left">
+            <h1>个人基本信息</h1>
+            <div align="center">
+                <table class="formtable" width="80%"  >
+                    <tr>
+                        <td width="10%" align="center">姓名拼音</td>
+                        <td width="15%" id="xmpy" name="xmpy"></td>
+                        <td width="10%" align="center">文化程度</td>
+                        <td width="15%" ><select id="whcd" name="whcd"></select></td>
+                        <td width="10%" align="center">政治面貌</td>
+                        <td width="15%" id="zznm" name="zzmm"></td>
+                    </tr>
+                    <tr>
+                        <td width="10%" align="center">户口所在地类型</td>
+                        <td width="15%" id="HKSZDLX_DM" name="HKSZDLX_DM"></td>
+                        <td width="10%" align="center">户口所在地派出所</td>
+                        <td width="15%" id="PCS_MC_HJ" name="PCS_MC_HJ"></td>
+                        <td width="10%" align="center">婚姻状况</td>
+                       <td width="15%" ><select id="hyzk_dm" name="hyzk_dm"></select></td>
+                    </tr>
+                    <tr>
+                        <td width="10%" align="center">户口所在地行政区划</td>
+                        <td width="15%" id="XZQH_HJ" name="XZQH_HJ"></td>
+                        <td width="10%" align="center">户口类别</td>
+                        <td width="15%" id="HKLB_DM" name="HKLB_DM"></td>
+                        <td width="10%" align="center">人员性质</td>
+                        <td width="15%" id="RYXZ" name="RYXZ"></td>
+                    </tr>
+                    <tr>
+                        <td width="10%" align="center">体型</td>
+                        <td width="15%" ><select id="tx" name="tx"></select></td>
+                        <td width="10%" align="center">脸型</td>
+                        <td width="15%" ><select id="lx" name="lx"></select></td>
+                        <td width="10%" align="center">口音</td>
+                        <td width="15%" ><select id="ky" name="ky"></select></td>
+                    </tr>
+                    <tr>
+                        <td width="10%" align="center">服兵役情况</td>
+                        <td width="15%" ><select id="fbyqk" name="fbyqk"></select></td>
+                        <td width="10%" align="center">个人专长</td>
+                        <td width="15%" ><select id="grzc" name="grzc"></select></td>
+                        <td width="10%" align="center">曾用名</td>
+                        <td width="15%" id="cym" name="cym"></td>
+                    </tr>
+                    <tr>
+                        <td width="10%" align="center">固定电话</td>
+                        <td width="15%" id="dh" name="dh"></td>
+                        <td width="10%" align="center">手机</td>
+                        <td width="15%" id="j" name="sj"></td>
+                        <td width="10%" align="center">身高</td>
+                        <td width="15%" id="sg" name="sg"></td>
+                    </tr>
+                    <tr>
+                        <td width="10%" align="center">体重</td>
+                        <td width="15%" id="TZ" name="TZ"></td>
+                        <td width="10%" align="center">足长</td>
+                        <td width="15%" id="ZC" name="ZC"></td>
+                        <td width="10%" align="center">鞋号</td>
+                        <td width="15%" id="XH" name="XH"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="panel" defH="95"  align="left">
+            <h1>人员居住信息</h1>
+            <div align="center">
+                <table class="formtable" width="80%"  >
+                    <tr>
+                        <td width="10%" align="center">是否有房屋居住</td>
+                        <td width="15%" ><select id="jzfw" name="jzfw">
+                                <option value="0">否</option>
+                                <option value="1">是</option></select></td>
+                        <td width="10%" align="center">居住是由</td>
+                        <td width="15%" ><select id="jzsy" name="jzsy"></select></td>
+                    </tr>
+                    <tr>
+                        <td width="10%" align="center">居住日期</td>
+                        <td width="15%" id="jzrq" name="jzrq" date-format="yyyy-MM-dd"></td>
+                        <td width="10%" align="center">拟居住期限</td>
+                        <td width="15%" id="njzqx" name="njzqx" date-format="yyyy-MM-dd"></td>
+                        <td width="10%" align="center">居住场所</td>
+                        <td width="15%" id="jzcs_dm" name="jzcs_dm"></td>
+                    </tr>
+                    <tr>
+                        <td width="10%" align="center">与房主关系</td>
+                        <td width="15%" id="yfzgx" name="yfzgx"></td>
+                        <td width="10%" align="center">详细地址名称</td>
+                        <td width="15%" id="xxdzmc" name="xxdzmc"></td>
+                        <td width="10%" align="center">协管员</td>
+                        <td width="15%" id="xgy" name="xgy"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="panel" defH="105"  align="left">
+            <h1>人员工作信息</h1>
+            <div align="center">
+                <table class="formtable" width="80%"  >
+                    <tr>
+                        <td width="10%" align="center">是否有固定工作单位</td>
+                        <td width="15%" ><select id="gdgzdwbz" name="gdgzdwbz">
+                                <option value="0">否</option>
+                                <option value="1">是</option></select></td>
+                        <td width="10%" align="center">所属行政区划</td>
+                        <td width="15%" id="fwdw_xzqh" name="fwdw_xzqh"></td>
+                    </tr>
+                    <tr>
+                        <td width="10%" align="center">所属警务室</td>
+                        <td width="15%" id="fwdw_jws" name="fwdw_jws"></td>
+                        <td width="10%" align="center">现从事职业</td>
+                        <td width="15%" id="xcszy" name="xcszy"></td>
+                        <td width="10%" align="center">入职日期</td>
+                        <td width="15%" id="rzrq" name="rzrq" date-format="yyyy-MM-dd"></td>
+                    </tr>
+                    <tr>
+                        <td width="10%" align="center">部门</td>
+                        <td width="15%" id="bm" name="bm"></td>
+                        <td width="10%" align="center">职务</td>
+                        <td width="15%" id="zw" name="zw"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="panel" defH="55"  align="left">
+            <h1>计划生育信息</h1>
+            <div align="center">
+                <table class="formtable" width="80%"  >
+                    <tr>
+                        <td width="10%" align="center">婚育证明号</td>
+                        <td width="15%" id="hyzmh" name="hyzmh"></td>
+                        <td width="10%" align="center">儿童是否接种</td>
+                        <td width="15%" ><select id="etsfyfjz" name="etsfyfjz">
+                                <option value="0">否</option>
+                                <option value="1">是</option></select></td>
+                        <td width="10%" align="center">现有子女数量</td>
+                        <td width="15%" id="etsfyfjz" name="xyznsl"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="panel" defH="115"  align="left">
+            <h1>社保信息</h1>
+            <div align="center">
+                <table class="formtable" width="80%"  >
+                    <tr>
+                        <td width="10%" align="center">缴纳开始时间</td>
+                        <td width="15%" id="jnkssj" name="jnkssj" date-format="yyyy-MM-dd"></td>
+                        <td width="10%" align="center">缴纳结束时间</td>
+                        <td width="15%" id="jnjssj" name="jnjssj" date-format="yyyy-MM-dd"></td>
+                        <td width="10%" align="center">是否参加养老保险</td>
+                        <td width="15%" ><select id="ylbx_0" name="ylbx_0">
+                                <option value="0">否</option>
+                                <option value="1">是</option></select></td>
+                    </tr>
+                    <tr>
+                        <td width="10%" align="center">是否参加医疗保险</td>
+                        <td width="15%" ><select id="ylbx_1" name="ylbx_1">
+                                <option value="0">否</option>
+                                <option value="1">是</option></select></td>
+                        <td width="10%" align="center">是否参加失业保险</td>
+                        <td width="15%"><select id="sybx_0" name="sybx_0">
+                                <option value="0">否</option>
+                                <option value="1">是</option></select></td>
+                        <td width="10%" align="center">是否参加公伤保险</td>
+                        <td width="15%" ><select id="gsbx" name="gsbx">
+                                <option value="0">否</option>
+                                <option value="1">是</option></select></td>
+                        <td width="10%" align="center">是否参加生育保险</td>
+                        <td width="15%" ><select id="sybx_1" name="sybx_1">
+                                <option value="0">否</option>
+                                <option value="1">是</option></select></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>

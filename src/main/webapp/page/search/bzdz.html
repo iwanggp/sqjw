@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<div class="tabs">
+    <div class="tabsHeader">
+        <div class="tabsHeaderContent">
+            <ul>
+                <li><a href="javascript:;"><span>标准地址信息管理</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tabsContent">
+        <div>
+            <div class="pageHeader">
+                <form id="search-form">
+                    <div class="searchBar">
+                        <table class="searchContent" width="60%">
+                            <tr>
+                                <td width="20%">
+                                    所属派出所:
+                                </td>
+                                <td width="20%">
+                                    <input id="xzq" name="xzq" type="text"  size="60"/>
+                                </td>
+                                <td width="25%">
+                                    门牌号：<input id="mph" name="mph" type="text"  size="60"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%">
+                                    标准地址关键字：
+                                </td>
+                                <td>
+                                    <input id="dz" name="dz" type="text" size="60"/>
+                                </td>
+                                <td width="25%">
+                                    街路巷：<input id="jlxmc" name="jlxmc" type="text"  size="60"/>
+                                </td>
+                                <td width="25%">
+                                    采集时间：
+                                </td>
+                                <td>
+                                    <input id="ks" name="ks" class="date" size="15"/>
+                                </td>
+                                <td>
+                                    至
+                                </td>
+                                <td>
+                                    <input id="js" name="js"  size="15" class="date"/>
+                                </td>
+                                <td width="25%">
+                                    <div class="buttonActive"><div class="buttonContent"><button type="button" id="search-button">查询</button></div></div>
+                                </td>
+
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            <div class="panelBar">
+                <ul class="toolBar">
+                    <li><a class="edit" id ="superedit" target-table="ssxx"><span>编辑</span></a></li>
+                    <li><a class="add" id="add" target-table="ssxx"><span>添加地址</span></a></li>
+                </ul>
+            </div>
+            <table class="table" width="100%" layoutH="170" id="ssxx">
+                <thead>
+                    <tr>
+                        <th data-key="xzq">行政区名称</th>
+                        <th data-key="dz">标准地址名称</th>
+                        <th data-key="dws">单元数</th>
+                        <th data-key="cjrxm">创建人</th>
+                        <th data-key="lrsj" date-format="yyyy-MM-dd">创建时间</th>
+                        <!--<th data-key="map_link">进入地图</th>-->
+                        <th data-key="name_link" id="xq">查看详情</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div> 
+            <div id="jbsxBoxcsyg" class="unitBox" style="margin-left:5px;"></div>
+        </div>
+    </div>
+
+
