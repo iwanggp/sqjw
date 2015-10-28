@@ -7,7 +7,8 @@
     var $page = navTab.getCurrentPanel();
     var searchData;
     var currentPage = 1;
-    getResult();
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $page));
+    getCurrentResult();
     /**
      * 查询服务
      */
@@ -81,43 +82,6 @@
             alertMsg.warn("请先选择一条数据！");
         }
     });
-    function getResult() {
-        $('#ssxx', $page).cutPage({
-            lb: 'za_lg',
-            service_code: 'S50000',
-            page_size: 30,
-        }, function (data) {
-            searchData = data;
-            for (var i = 0; i < data.length; i++) {
-                var item = data[i]; // 获取到table每一行数据
-                item.name_link = $('<a/>').attr({
-                    "hyid": item.id,
-                    "hylb": item.hylb,
-                    "hymc": item.mc,
-                }).addClass("xq-link").css({"cursor": "pointer", "color": "blue"}).html('查看详情');
-                item.map_link = $('<a/>').attr({
-                    "hyid": item.id,
-                    "hylb": item.hylb,
-                    "jd": item.jd,
-                    "wd": item.wd,
-                    "hymc": item.mc,
-                    "dz": item.dz
-                }).addClass("map-link").css({"cursor": "pointer", "color": "red"}).html('进入地图');
-            }
-            setTimeout(function () {
-                $(".xq-link").unbind("click").bind("click", function (e) {
-                    openDetail($(this).attr('hylb'), $(this).attr('hyid'), $(this).attr('hymc'));
-                });
-            }, 50);
-            setTimeout(function () {
-                $(".map-link").unbind("click").bind("click", function () {
-                    map.clearAllOverlays();
-                    locationSearch($(this).attr("hyid"), $(this).attr("jd"), $(this).attr("wd"), $(this).attr("hymc"), $(this).attr("dz"), $(this).attr("hylb"));
-                    $('.home_icon').click();
-                });
-            }, 100);
-        });
-    }
     function getCurrentResult() {
         $('#ssxx', $page).cutPage({
             zgbm: $('#zgbm', $page).val(),

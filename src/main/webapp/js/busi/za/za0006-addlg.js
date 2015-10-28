@@ -9,6 +9,7 @@
     bringDialogToFront($dialog);
     initServiceParaSelect('za_lg.hyl', $('#hyl', $dialog));
     initServiceParaSelect('za_lg.lgxj', $('#lgxj', $dialog));
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
     var param = $dialog.data('param'); //父窗口传递的参数
     $("#add", $dialog).click(function () {
         if ($("#shop_form", $dialog).valid()) {

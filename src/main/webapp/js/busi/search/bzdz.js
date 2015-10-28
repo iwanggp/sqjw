@@ -6,6 +6,8 @@
 (function () {
     var $page = navTab.getCurrentPanel();
     var searchData;
+    initParaSelect('jwsq_bzdzxx.xzqhdm', $('#xzqhdm', $page));
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#ssjwqdm', $page));
     var currentPage = 1;
     getResult();
     /**
@@ -27,93 +29,106 @@
         }
     });
     $("#add", $page).click(function () {
-        $.pdialog.open('page/za/za0011-addbzdz.html', 'add_za_dz', "添加标准地址",
+        $.pdialog.open('page/bzdzxx/dz0001-addbzdz.html', 'add_bz_dz', "添加标准地址",
                 {"width": 580, "height": 560, mask: true,
                     close: function (param) {
                         return true;
                     }
                 });
     });
-
+    $("#sort", $page).click(function () {
+        $.pdialog.open('page/bzdzxx/dz0000-czdz.html', 'cs_bz_dz', "添加标准地址",
+                {"width": 680, "height": 560, mask: true,
+                    close: function (param) {
+                        return true;
+                    }
+                });
+    });
+    $('#biaoji', $page).on('click', function () {
+        if (searchData.length) {
+            alertMsg.confirm("确定要全部标记到地图上吗？如果数据过多，可能需要等待一段时间", {"okCall": function () {
+                    map.clearAllOverlays();
+                    for (var i = 0; i < searchData.length; i++) {
+                        var item = searchData[i]; // 获取到table每一行数据     
+                        locationSearch(item.jzdzbm, item.zbwzx, item.zbwzy, item.dzjc, item.dzxz, item.hylb);
+                    }
+                    $('.home_icon').click();
+                }
+            });
+        }
+        else {
+            alertMsg.warn("没有任何数据！");
+        }
+    });
     function getResult() {
         $('#ssxx', $page).cutPage({
-            service_code: 'S44002',
+            service_code: 'S57001',
             page_size: 30,
         }, function (data) {
             searchData = data;
             for (var i = 0; i < data.length; i++) {
                 var item = data[i]; // 获取到table每一行数据
-                console.log(item.id + item.dz + item.hylb + "-------->>>><<<<<<<>>>>");
                 item.name_link = $('<a/>').attr({
-                    "hyid": item.id,
-                    "hymc": item.dz,
+                    "hyid": item.jzdzbm,
+                    "hymc": item.dzjc,
                     "hylb": item.hylb
                 }).addClass("xq-link").css({"cursor": "pointer", "color": "blue"}).html('查看详情');
-//                item.map_link = $('<a/>').attr({
-//                    "hyid": item.id,
-//                    "hylb": item.hylb,
-//                    "jd": item.jd,
-//                    "wd": item.wd,
-//                    "hymc": item.mc,
-//                    "dz": item.dz
-//                }).addClass("map-link").css({"cursor": "pointer", "color": "red"}).html('进入地图');
+                item.map_link = $('<a/>').attr({
+                    "hyid": item.jzdzbm,
+                    "hylb": item.hylb,
+                    "jd": item.zbwzx,
+                    "wd": item.zbwzy,
+                    "hymc": item.dzjc,
+                    "dz": item.dzxz
+                }).addClass("map-link").css({"cursor": "pointer", "color": "red"}).html('进入地图');
             }
             setTimeout(function () {
                 $(".xq-link").unbind("click").bind("click", function (e) {
                     openDetail($(this).attr('hylb'), $(this).attr('hyid'), $(this).attr('hymc'));
                 });
             }, 50);
-//            setTimeout(function () {
-//                $(".map-link").unbind("click").bind("click", function () {
-//                    map.clearAllOverlays();
-//                    locationSearch($(this).attr("hyid"), $(this).attr("jd"), $(this).attr("wd"), $(this).attr("hymc"), $(this).attr("dz"), $(this).attr("hylb"));
-//                    $('.home_icon').click();
-//                });
-//            }, 100);
+            setTimeout(function () {
+                $(".map-link").unbind("click").bind("click", function () {
+                    map.clearAllOverlays();
+                    locationSearch($(this).attr("hyid"), $(this).attr("jd"), $(this).attr("wd"), $(this).attr("hymc"), $(this).attr("dz"), $(this).attr("hylb"));
+                    $('.home_icon').click();
+                });
+            }, 100);
         });
     }
     function getCurrentResult() {
-        $('#ssxx', $page).cutPage({
-            xzq: $('#xzq', $page).val(),
-            mph: $('#mph', $page).val(),
-            dz: $('#dz', $page).val(),
-            jlxmc: $('#jlxmc', $page).val(),
-            ks: $('#ks', $page).val(),
-            js: $('#js', $page).val(),
-            service_code: 'S53001',
-            page_size: 30,
-            page: currentPage
-        }, function (data) {
-            searchData = data;
-            for (var i = 0; i < data.length; i++) {
-                var item = data[i]; // 获取到table每一行数据
-                item.name_link = $('<a/>').attr({
-                    "hyid": item.id,
-                    "hylb": item.hylb,
-                    "hymc": item.dz,
-                }).addClass("xq-link").css({"cursor": "pointer", "color": "blue"}).html('查看详情');
-//                item.map_link = $('<a/>').attr({
-//                    "hyid": item.id,
-//                    "hylb": item.hylb,
-//                    "jd": item.jd,
-//                    "wd": item.wd,
-//                    "hymc": item.mc,
-//                    "dz": item.dz
-//                }).addClass("map-link").css({"cursor": "pointer", "color": "red"}).html('进入地图');
-            }
-            setTimeout(function () {
-                $(".xq-link").unbind("click").bind("click", function (e) {
-                    openDetail($(this).attr('hylb'), $(this).attr('hyid'), $(this).attr('hymc'));
+        $('#ssxx', $page).cutPage(form2JSON($('#search-form', $page), {service_code: 'S57002', page_size: 30}),
+                function (data) {
+                    searchData = data;
+                    for (var i = 0; i < data.length; i++) {
+                        var item = data[i]; // 获取到table每一行数据
+                        item.name_link = $('<a/>').attr({
+                            "hyid": item.jzdzbm,
+                            "hymc": item.dzjc,
+                            "hylb": item.hylb
+                        }).addClass("xq-link").css({"cursor": "pointer", "color": "blue"}).html('查看详情');
+                        item.map_link = $('<a/>').attr({
+                            "hyid": item.jzdzbm,
+                            "hylb": item.hylb,
+                            "jd": item.zbwzx,
+                            "wd": item.zbwzy,
+                            "hymc": item.dzjc,
+                            "dz": item.dzxz
+                        }).addClass("map-link").css({"cursor": "pointer", "color": "red"}).html('进入地图');
+                    }
+                    setTimeout(function () {
+                        $(".xq-link").unbind("click").bind("click", function (e) {
+                            openDetail($(this).attr('hylb'), $(this).attr('hyid'), $(this).attr('hymc'));
+                        });
+                    }, 50);
+                    setTimeout(function () {
+                        $(".map-link").unbind("click").bind("click", function () {
+                            map.clearAllOverlays();
+                            locationSearch($(this).attr("hyid"), $(this).attr("jd"), $(this).attr("wd"), $(this).attr("hymc"), $(this).attr("dz"), $(this).attr("hylb"));
+                            $('.home_icon').click();
+                        });
+                    }, 100);
                 });
-            }, 50);
-//            setTimeout(function () {
-//                $(".map-link").unbind("click").bind("click", function () {
-//                    map.clearAllOverlays();
-//                    locationSearch($(this).attr("hyid"), $(this).attr("jd"), $(this).attr("wd"), $(this).attr("hymc"), $(this).attr("dz"), $(this).attr("hylb"));
-//                    $('.home_icon').click();
-//                });
-//            }, 100);
-        });
     }
 }).call();
 

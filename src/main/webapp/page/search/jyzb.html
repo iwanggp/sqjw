@@ -16,13 +16,15 @@
             <div class="pageHeader">
                 <form id="search-form">
                     <div class="searchBar">
-                        <table class="searchContent" width="60%">
+                        <table class="searchContent" width="50%">
                             <tr>
                                 <td width="20%">
-                                    所属派出所:
+                                    所属警务室:
                                 </td>
-                                <td width="20%">
-                                    <input id="zgbm" name="zgbm" type="text"  size="60"/>
+                                <td>
+                                    <select id="zgbm" name="zgbm">
+                                        <option value="">全部</option>
+                                    </select>
                                 </td>
                                 <td width="25%">
                                     行业类型：
@@ -37,10 +39,10 @@
                                     单位名称：
                                 </td>
                                 <td>
-                                    <input id="mc" name="mc" type="text" size="60"/>
+                                    <input id="mc" name="mc" type="text" size="50"/>
                                 </td>
                                 <td width="25%">
-                                    单位地址：<input id="dz" name="dz" type="text"  size="60"/>
+                                    单位地址：<input id="dz" name="dz" type="text"  size="50"/>
                                 </td>
                                 <td width="25%">
                                     采集时间：
@@ -76,7 +78,7 @@
             <table class="table" width="100%" layoutH="170" id="ssxx">
                 <thead>
                     <tr>
-                        <th data-key="zgbm">管辖部门</th>
+                        <th data-key="zgbm" st-param="jwsq_bzdzxx.ssjwqdm">所属警务室</th>
                         <th data-key="mc">单位名称</th>
                         <th data-key="dz">单位地址</th>
                         <th data-key="frdb">主要负责人</th>

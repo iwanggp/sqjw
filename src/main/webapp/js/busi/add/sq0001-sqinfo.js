@@ -7,9 +7,9 @@
     $.pdialog.closeCurrent();
     var $dialog = $("body").data('add_sq_info');
 //    var param = $dialog.data('param'); //父窗口传递的参数
-    $('#jbsxBoxjz', $dialog).loadUrl('page/search/unionyg.html', {}, function () {
-        $('#sqjz', $dialog).show().trigger('click');
-        $('#jbsxBoxjz', $dialog).find("[layoutH]").layoutH();
+    $('#jbsxBoxjz1', $dialog).loadUrl('page/search/unionyg.html', {}, function () {
+        $('#sqjz1', $dialog).show().trigger('click');
+        $('#jbsxBoxjz1', $dialog).find("[layoutH]").layoutH();
     });
 }).call();
 

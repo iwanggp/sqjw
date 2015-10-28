@@ -16,37 +16,42 @@
                         <table class="searchContent" width="60%">
                             <tr>
                                 <td width="20%">
-                                    所属派出所:
+                                    行政区名称
+                                    <select id="xzqhdm" name="xzqhdm">
+                                        <option value="">全部</option>
+                                    </select>
                                 </td>
                                 <td width="20%">
-                                    <input id="xzq" name="xzq" type="text"  size="60"/>
+                                    警务区
+                                    <select id="ssjwqdm" name="ssjwqdm">
+                                        <option value="">全部</option>
+                                    </select>
                                 </td>
-                                <td width="25%">
-                                    门牌号：<input id="mph" name="mph" type="text"  size="60"/>
-                                </td>
+
                             </tr>
                             <tr>
                                 <td width="25%">
+                                    门牌号：<input id="mlphm" name="mlphm" type="text"  size="30"/>
+                                </td>
+                                <td width="25%">
                                     标准地址关键字：
-                                </td>
-                                <td>
-                                    <input id="dz" name="dz" type="text" size="60"/>
+                                    <input id="dzjc" name="dzjc" type="text" size="30"/>
                                 </td>
                                 <td width="25%">
-                                    街路巷：<input id="jlxmc" name="jlxmc" type="text"  size="60"/>
+                                    街路巷：<input id="jlxmc" name="jlxmc" type="text"  size="30"/>
                                 </td>
-                                <td width="25%">
-                                    采集时间：
-                                </td>
-                                <td>
-                                    <input id="ks" name="ks" class="date" size="15"/>
-                                </td>
-                                <td>
-                                    至
-                                </td>
-                                <td>
-                                    <input id="js" name="js"  size="15" class="date"/>
-                                </td>
+                                <!--                                <td width="25%">
+                                                                    采集时间：
+                                                                </td>
+                                                                <td>
+                                                                    <input id="ks" name="ks" class="date" size="15"/>
+                                                                </td>
+                                                                <td>
+                                                                    至
+                                                                </td>
+                                                                <td>
+                                                                    <input id="js" name="js"  size="15" class="date"/>
+                                                                </td>-->
                                 <td width="25%">
                                     <div class="buttonActive"><div class="buttonContent"><button type="button" id="search-button">查询</button></div></div>
                                 </td>
@@ -58,19 +63,21 @@
             </div>
             <div class="panelBar">
                 <ul class="toolBar">
-                    <li><a class="edit" id ="superedit" target-table="ssxx"><span>编辑</span></a></li>
-                    <li><a class="add" id="add" target-table="ssxx"><span>添加地址</span></a></li>
+                    <!--<li><a class="edit" id ="superedit" target-table="ssxx"><span>编辑</span></a></li>-->
+                    <!--<li><a class="add" id="add" target-table="ssxx"><span>添加标准地址</span></a></li>-->
+                    <li><a class="add" id="biaoji" target-table="ssxx"><span>将当前页标记在地图上</span></a></li>
+                    <li><a class="icon" id="sort" target-table="ssxx"><span>查找并找回地址</span></a></li>
                 </ul>
             </div>
             <table class="table" width="100%" layoutH="170" id="ssxx">
                 <thead>
                     <tr>
-                        <th data-key="xzq">行政区名称</th>
-                        <th data-key="dz">标准地址名称</th>
-                        <th data-key="dws">单元数</th>
-                        <th data-key="cjrxm">创建人</th>
-                        <th data-key="lrsj" date-format="yyyy-MM-dd">创建时间</th>
-                        <!--<th data-key="map_link">进入地图</th>-->
+                        <th data-key="xzqmc">行政区名称</th>
+                        <th data-key="dzjc">地址简称</th>
+                        <th data-key="dzxz">地址详址</th>
+                        <th data-key="jwqmc">警务区名称</th>
+                        <th data-key="rksj">创建时间</th>
+                        <th data-key="map_link">进入地图</th>
                         <th data-key="name_link" id="xq">查看详情</th>
                     </tr>
                 </thead>

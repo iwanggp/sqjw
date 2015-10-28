@@ -3,7 +3,7 @@
     <div class="tabsHeader">
         <div class="tabsHeaderContent">
             <ul>
-                <li><a href="javascript:;"><span>内部单位信息管理</span></a></li>
+                <li><a href="javascript:;"><span>商贸场所信息管理</span></a></li>
                 <li style="display: none" id="unionyg"><a href="page/search/unionyg.html" rel="jbsxBoxyg" target="ajax"><span>人员信息</span></a></li>
                 <li style="display: none" id="jcdj"><a href="page/search/csjcdj.html" rel="jbsxBoxjcdj" target="ajax"><span>检查登记</span></a></li>
                 <li style="display: none" id="wzqk"><a href="page/search/cswzxx.html" rel="jbsxBoxwzqk" target="ajax"><span>违章情况</span></a></li>
@@ -15,13 +15,15 @@
             <div class="pageHeader">
                 <form id="search-form">
                     <div class="searchBar">
-                        <table class="searchContent" width="60%">
+                        <table class="searchContent" width="50%">
                             <tr>
                                 <td width="20%">
-                                    所属派出所:
+                                    所属警务室:
                                 </td>
-                                <td width="20%">
-                                    <input id="zgbm" name="zgbm" type="text"  size="60"/>
+                                <td>
+                                    <select id="zgbm" name="zgbm">
+                                        <option value="">---全部---</option>
+                                    </select>
                                 </td>
                                 <td width="25%">
                                     商贸场所类型：
@@ -37,10 +39,10 @@
                                     公共场所名称：
                                 </td>
                                 <td>
-                                    <input id="mc" name="mc" type="text" size="60"/>
+                                    <input id="mc" name="mc" type="text" size="50"/>
                                 </td>
                                 <td width="25%">
-                                    公共场所地址：<input id="dz" name="dz" type="text"  size="60"/>
+                                    公共场所地址：<input id="dz" name="dz" type="text"  size="50"/>
                                 </td>
                                 <td width="25%">
                                     采集时间：
@@ -75,7 +77,7 @@
             <table class="table" width="100%" layoutH="170" id="ssxx">
                 <thead>
                     <tr>
-                        <th data-key="zgbm">管辖部门</th>
+                        <th data-key="zgbm" st-param="jwsq_bzdzxx.ssjwqdm">所属警务室</th>
                         <th data-key="mc">场所名称</th>
                         <th data-key="dz">场所地址</th>
                         <th data-key="frdb">主要负责人</th>

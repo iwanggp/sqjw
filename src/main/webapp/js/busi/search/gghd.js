@@ -7,6 +7,8 @@
     var $page = navTab.getCurrentPanel();
     var searchData;
     var currentPage = 1;
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $page));
+
 //    getResult();
     getCurrentResult();
     /**

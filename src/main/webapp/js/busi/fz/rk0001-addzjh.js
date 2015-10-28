@@ -8,12 +8,14 @@
     var $dialog = $("body").data('add_yg_xx'); //必须通过这种方法
     bringDialogToFront($dialog);
     var param = $dialog.data('param'); //父窗口传递的参数
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
     initParaSelect('za_ssrk.rylb', $('#rylb', $dialog));
     initParaSelect('za_ssrk.fzgx', $('#fzgx', $dialog));
     initParaSelect('za_people.xb', $('#xb', $dialog));
     initParaSelect('za_people.hyzk_dm', $('#hyzk', $dialog));
     initParaSelect('za_people.mz', $('#mz', $dialog));
     initParaSelect('za_people.whcd', $('#whcd', $dialog));
+    initParaSelect('za_people.zzmm', $('#zzmm', $dialog));
     $("#add", $dialog).click(function () {
         if (!$('#fz_form', $dialog).valid()) {
             return false;

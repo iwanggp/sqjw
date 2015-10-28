@@ -8,6 +8,8 @@
     hidePic();
     var $dialog = $("body").data('mydetail');
     bringDialogToFront($dialog);
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
+    $('#zgbm', $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     $("input", $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     var param = $dialog.data('param'); //父窗口传递的参数
     var opt = new AjaxOptions();
@@ -37,7 +39,7 @@
     $('#modify', $dialog).click(function () {
         var btns = new Array(); //或者写成：var btns= [];
         if (f = !f) {
-            $("input", $dialog).removeAttr("disabled");
+            $(":input", $dialog).removeAttr("disabled");
             $('#jyxkz_pic, #ajhgz_pic,#jypmt_pic', $dialog).show();
             $('#cjrxm', '#lrsj', $dialog).hide();
             $(this).html("保存");
@@ -58,6 +60,7 @@
                 fileOptions.put("jypmt", $("#jypmt a").attr("href"));
                 fileOptions.sus = function (data) {
                     alertMsg.correct("修改成功");
+                    $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
                     var page = parseInt($("#xiye").html());//获取当前的页数
                     if (isSearch) {
                         getSpCS('za_sp', '', page);
@@ -67,7 +70,6 @@
                     setTimeout(function () {
                         $('#jzxx', $dia).click();
                     }, 0);
-                    $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
                     $("#close", $dialog).trigger("click");
                 };
                 fileOptions.after = function (c, d) {
@@ -98,7 +100,6 @@
                         setTimeout(function () {
                             $('#jzxx', $dia).click();
                         }, 0);
-                        $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
                         $('#close', $dialog).trigger('click');
                     };
                     $.ajax(o);

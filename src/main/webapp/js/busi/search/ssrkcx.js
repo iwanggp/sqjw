@@ -7,6 +7,7 @@
     var $dialog = navTab.getCurrentPanel();
     initParaSelect('za_ssrk.rylb', $('#rylb', $dialog));
     initParaSelect('za_people.xb', $('#xb', $dialog));
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
     $('#rylb', $dialog).change(function () {
         currentPage = 1;//当改变查询条件时默认从第一行开始查询
     });

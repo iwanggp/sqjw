@@ -6,6 +6,7 @@
 (function () {
     var $dialog = $("body").data('add_lou_sq');
     var $dialog1 = $("body").data('add_sq_info');
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
     $('.minimize', $dialog1).trigger('click');//让当前对话框在最前面
     bringDialogToFront($dialog);
     var param = $dialog.data('param'); //父窗口传递的参数

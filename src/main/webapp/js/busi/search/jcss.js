@@ -5,7 +5,8 @@
  */
 (function () {
     var $page = navTab.getCurrentPanel();
-    initServiceParaSelect('za_jcss.sslx', $('#sslx', $page));
+    initParaSelect('za_jcss.sslx', $('#sslx', $page));
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $page));
     var searchData;
     var currentPage = 1;
     getResult();

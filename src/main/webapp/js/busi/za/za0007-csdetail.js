@@ -9,6 +9,8 @@
     var $dialog = $("body").data('mydetail');
     bringDialogToFront($dialog);
     $("input", $dialog).attr("disabled", "disabled"); //让输入框为只读状态
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
+    $('#zgbm', $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     var param = $dialog.data('param'); //父窗口传递的参数
     var opt = new AjaxOptions();
     opt.put("service_code", "S40002");
@@ -37,7 +39,7 @@
 //        var mov = map.getOverlayById(param.id);
 //        mov.moveable = true;//是否可以拖动
         if (f = !f) {
-            $("input", $dialog).removeAttr("disabled");
+            $(":input", $dialog).removeAttr("disabled");
             $('#ajhgz_pic,#jyxkz_pic', $dialog).show();
             $(this).html("保存");
         } else {

@@ -18,7 +18,7 @@
         openAdd(myhy);
     });
     $('#add', $dialog).click(function () {
-        var omyhy = $('#dwlb', $dialog).val();
+        var omyhy = $('#jzhy', $dialog).val();
         openAdd(omyhy);
     });
     function openAdd(hyval) {

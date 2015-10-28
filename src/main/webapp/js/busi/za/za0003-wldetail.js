@@ -9,6 +9,8 @@
     hidePic();
     var $dialog = $("body").data('mydetail');
     bringDialogToFront($dialog);
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
+    $('#zgbm', $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     $("input", $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     var param = $dialog.data('param'); //父窗口传递的参数
     var opt = new AjaxOptions();
@@ -50,7 +52,7 @@
     $('#modify', $dialog).click(function () {
         var btns = new Array();
         if (f = !f) {
-            $("input").removeAttr("disabled");
+            $(":input", $dialog).removeAttr("disabled");
             $('#gsxkz_pic, #ysxkz_pic,#ajhgz_pic,#jypmt_pic,#yzxkz_pic', $dialog).show();
             $(this).html("保存");
         } else {

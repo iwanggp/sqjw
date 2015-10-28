@@ -8,8 +8,6 @@ window.map = null;
 //设置港区的经纬度
 var log = 113.84257496754428;
 var lat = 34.530768351088405;
-//var log = 113.82666;
-//var lat = 34.55882;
 /**
  * 初始化，在welcome.js中调用
  * @returns {undefined}
@@ -19,7 +17,7 @@ function init_map() {
     //初始化地图对象
     map = new STMapObj("STMap_map");
     //根据中心点和级别定位地图,STMapPoint表示具备x/y属性的二维点对象
-    map.locateMap(new STMapPoint(log, lat), 4);
+    map.locateMap(new STMapPoint(log, lat), 2);
     var poly = new STMapMarker();
 //    test();
     //设置放大缩小控件是否显示,默认显示
@@ -93,11 +91,24 @@ function add() {
         }
     });//打开树形菜单
 }
+function openSqDetail(hyid, sqmc) {
+    $.pdialog.open("page/bzdzxx/dz0002-sqdetail.html", 'detailSq', sqmc + "详细情况",
+            {"width": 580, "height": 560, mask: true,
+                param: {sqid: hyid},
+                close: function (param) {
+                    return true;
+                }
+            });
+}
 function openDetail(hyval, hyid, hymc) {
     if ("za_yl" == hyval) {
         url = 'page/za/za0002-yldetail.html';
     } else if ("za_sp" == hyval) {
         url = 'page/za/za0001-shopdetail.html';
+    } else if ("sqjz" == hyval) {
+        url = 'page/bzdzxx/dz0003-loudetail.html';
+    } else if ("bzdz" == hyval) {
+        url = 'page/bzdzxx/dz0001-bzdzdetail.html';
     } else if ("za_wl" == hyval) {
         url = 'page/za/za0003-wldetail.html';
     } else if ("za_wb" == hyval) {

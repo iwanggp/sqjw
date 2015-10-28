@@ -5,7 +5,8 @@
  */
 (function () {
     var $dialog = $.pdialog.getCurrent();
-    initServiceParaSelect('za_jcss.sslx', $('#sslx', $dialog));
+    initParaSelect('za_jcss.sslx', $('#sslx', $dialog));
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
     $("#add", $dialog).click(function () {
         if (!$('#shop_form', $dialog).valid()) {
             return false;

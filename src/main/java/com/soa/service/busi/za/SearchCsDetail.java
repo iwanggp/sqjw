@@ -40,12 +40,14 @@ public class SearchCsDetail extends BaseService {
             out.putDataValue("csdata", queryData("add_get_jcss_id", obj));
         } else if ("dw_jyz".equals(hy)) {
             out.putDataValue("csdata", queryData("za_select_dw_id", obj));
-        }else if ("za_yg".equals(hy)) {
+        } else if ("za_yg".equals(hy)) {
             out.putDataValue("csdata", queryData("za_select_za_yg", obj));
         } else if ("za_ssrk".equals(hy)) {
             out.putDataValue("csdata", queryData("za_select_za_ssrk_id", obj));
         } else if ("xb_xf".equals(hy)) {
             out.putDataValue("csdata", queryData("za_select_xf_id", obj));
+        } else if ("bzdz".equals(hy)) {
+            out.putDataValue("csdata", queryData("za_select_za_bzdz_id", obj));
         } else if ("za_zjh".equals(hy)) {
             out.putDataValue("csdata", queryData("za_select_zjh_id", obj));
         } else if ("za_fzll".equals(hy)) {

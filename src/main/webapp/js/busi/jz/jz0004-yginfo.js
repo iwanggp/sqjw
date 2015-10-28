@@ -54,15 +54,38 @@
                 alertMsg.warn("请先选择至少一条数据！");
             }
         });
+        $('#mutdelete', $dialog).click(function () {
+            var $mychecked = $("input[type='checkbox']:checked");
+            var len = $mychecked.length;
+            if (len) {
+                alertMsg.confirm("确定要删除这些人员信息吗！", {"okCall": function () {
+                        $mychecked.each(function () {
+                            var oid = $(this).attr('id');
+                            currentPage = $(this).attr('cut_row');
+                            if (oid) {
+                                var o = new AjaxOptions();
+                                o.put("id", oid);
+                                o.put('service_code', 'P31007'); //删除社区建筑信息
+                                o.sus = function (data) {
+                                    alertMsg.correct("删除成功");
+//                                $('#close', $dialog).trigger("click");
+                                };
+                                $.ajax(o);
+                            } else {
+                                alertMsg.error("没有找到该数据");
+                            }
+                        });
+                        currentPage = parseInt(currentPage / 15) + 1;
+                        getyg();
+                    }
+                });
+            } else {
+                alertMsg.warn("请先勾选至少一条数据！");
+            }
+        });
         $('#edit', $dialog).click(function () {
-//        $("input[type='checkbox']", $dialog).attr('checked', "checked");
             var rowData = $(this).getRow();
             console.log(json2string(rowData) + "---------->>>>>>>>>>>>>>>>>>");
-//        var $mychecked = $("input[type='checkbox']:checked");
-//        alert($mychecked.length);
-//        $mychecked.each(function () {
-//            alert($(this).attr('id'));
-//        });
             if (rowData) {
                 $.pdialog.open('page/fz/fz0000-rkdetail.html', 'mod_yg_info11', '人员信息修改', {
                     width: 600,

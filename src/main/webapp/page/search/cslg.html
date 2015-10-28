@@ -18,10 +18,12 @@
                         <table class="searchContent" width="60%">
                             <tr>
                                 <td width="20%">
-                                    所属派出所:
+                                    所属警务室:
                                 </td>
                                 <td>
-                                    <input id="zgbm" name="zgbm" type="text"  size="60"/>
+                                    <select id="zgbm" name="zgbm">
+                                        <option value="">----全部----</option>
+                                    </select>
                                 </td>
                                 <td width="25%">
                                     旅馆名称：<input id="mc" name="mc" type="text" size="60"/>
@@ -48,12 +50,13 @@
                                 <td width="50">
                                     旅馆星级：
                                     <select id="lgxj">
-                                        <option value="0">其他</option>
+                                        <option value="">全部</option>
                                         <option value="1">一星级</option>
                                         <option value="2">二星级</option>
                                         <option value="3">三星级</option>
                                         <option value="4">四星级</option>
                                         <option value="5">五星级</option>
+                                        <option value="0">其他</option>
                                     </select>
 
                                 </td>
@@ -80,7 +83,7 @@
             <table class="table" width="100%" layoutH="170" id="ssxx">
                 <thead>
                     <tr>
-                        <th data-key="zgbm">主管部门</th>
+                        <th data-key="zgbm" st-param="jwsq_bzdzxx.ssjwqdm">主管部门</th>
                         <th data-key="mc">旅馆名称</th>
                         <th data-key="dz">旅馆地址</th>
                         <th data-key="frdb">法人代表(户主)</th>

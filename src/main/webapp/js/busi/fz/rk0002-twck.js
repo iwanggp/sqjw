@@ -71,8 +71,7 @@
                             o.put('service_code', 'P31007'); //删除社区建筑信息
                             o.sus = function (data) {
                                 alertMsg.correct("删除成功");
-//                                $('#search-button', $dialog).trigger('click');
-                                $('#close', $dialog).trigger("click");
+//                                $('#close', $dialog).trigger("click");
                             };
                             $.ajax(o);
                         } else {

@@ -10,9 +10,11 @@
     bringDialogToFront($dialog);
     initServiceParaSelect('za_lg.hyl', $('#hyl', $dialog));
     initServiceParaSelect('za_lg.lgxj', $('#lgxj', $dialog));
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
     $("input", $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     $('#hyl', $dialog).attr("disabled", "disabled");
     $("#lgxj", $dialog).attr("disabled", "disabled"); //让输入框为只读状态
+    $("#zgbm", $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     var param = $dialog.data('param'); //父窗口传递的参数
     var opt = new AjaxOptions();
     opt.put("service_code", "S40002");

@@ -5,6 +5,7 @@
  */
 (function () {
     var $page = navTab.getCurrentPanel();
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $page));
     /**
      * 查询服务
      */

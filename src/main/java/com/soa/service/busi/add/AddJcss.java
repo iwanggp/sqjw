@@ -13,6 +13,7 @@ import com.soa.service.BaseService;
 import com.soa.util.SystemUtil;
 import com.soa.util.sqjw.SqjwUtil;
 import java.io.IOException;
+import java.sql.PreparedStatement;
 import javax.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

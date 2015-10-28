@@ -32,7 +32,7 @@
     /**
      * 查询服务
      */
-    $('#search-button', $dialog).on('click', function () {
+    $('#search_yg-button', $dialog).on('click', function () {
         // '分页查询', 显示全部数据
         getCurrentResult();
     });

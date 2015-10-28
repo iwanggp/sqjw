@@ -10,12 +10,16 @@
     initParaSelect('za_ssrk.rylb', $('#rylb', $dialog));
     initParaSelect('za_ssrk.fzgx', $('#fzgx', $dialog));
     initParaSelect('za_ssrk.fzgx', $('#fzgx', $dialog));
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
     initParaSelect('za_people.xb', $('#xb', $dialog));
     initParaSelect('za_people.hyzk_dm', $('#hyzk', $dialog));
     initParaSelect('za_people.mz', $('#mz', $dialog));
     initParaSelect('za_people.whcd', $('#whcd', $dialog));
+    initParaSelect('za_people.zzmm', $('#zzmm', $dialog));
     $("input", $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     $('#fzgx', $dialog).attr("disabled", "disabled"); //让输入框为只读状态
+    $('#zgbm', $dialog).attr("disabled", "disabled"); //让输入框为只读状态
+    $('#zzmm', $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     $('#rylb', $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     $("#fzgx", $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     $('#xb', $dialog).attr("disabled", "disabled"); //让输入框为只读状态

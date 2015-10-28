@@ -27,7 +27,7 @@ public class GetJcss extends BaseService {
     @Override
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
         in.putStringValue("sql", "add_get_jcss");
-        in.putObjectValue("args", new Object[]{in.getStringValue("sslx")});
+        in.putObjectValue("args", new Object[]{in.getStringValue("sslx"),in.getStringValue("zgbm")});
         in.putIntValue("page", in.getIntValue("page"));
         in.putIntValue("page_size", in.getIntValue("page_size"));
         runService("S10001", in, inHead, out, outHead);//调用分页服务 

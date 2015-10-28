@@ -1,0 +1,60 @@
+<div class="pageContent">
+    <h1 style="text-align: center;size:24px;color: brown"><span id="sqmc" style="color: red;size: 26sp"></span>&nbsp;&nbsp;建筑详细信息</h1>
+    <div class="pageHeader">
+        <form id="search-form">
+            <div class="searchBar">
+                <table class="searchContent" width="60%">
+                    <tr>
+                        <td width="25%">
+                            门牌号：<input id="mlphm" name="mlphm" type="text"  size="30"/>
+                        </td>
+                        <td width="25%">
+                            建筑名称：
+                            <input id="jzmc" name="jzmc" type="text" size="30"/>
+                        </td>
+                        <td width="25%">
+                            街路巷：<input id="jlxmc" name="jlxmc" type="text"  size="30"/>
+                        </td>
+                        <td width="25%">
+                            采集时间：
+                            <input id="ks" name="ks" class="date" size="15"/>
+                            至
+                            <input id="js" name="js"  size="15" class="date"/>
+                        </td>
+                        <td width="25%">
+                            <div class="buttonActive"><div class="buttonContent"><button type="button" id="search-button11">查询</button></div></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a class="add" id="add" rel="add"><span>添加建筑</span></a></li>
+            <!--<li><a class="delete" id="delete" target-table="jzinfos"><span>删除</span></a></li>-->
+            <!--<li><a class="edit" id ="edit" target-table="jzinfos"><span>修改</span></a></li>-->
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="155" id="jzinfos">
+        <thead>
+            <tr>
+                <th data-key="mph">门牌号</th>
+                <th data-key="mc">建筑名称</th>
+                <th data-key="dz">地址</th>
+                <th data-key="frdb">法人代表</th>
+                <th data-key="lxfs">联系方式</th>
+                <th data-key="jlx">街路巷</th>
+                <th data-key="jzmj">建筑面积</th>
+                <th data-key="bz">备注</th>
+                <th data-key="cjrxm">创建人</th>
+                <th data-key="lrsj"  date-format="yyyy-MM-dd">录入时间</th>
+                <th data-key="map_link">进入地图</th>
+                <th data-key="xq_detail">详情</th>
+                <th data-key="name_link" id="xq">进去看看</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>

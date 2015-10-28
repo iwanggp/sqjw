@@ -3,7 +3,8 @@
         <ul class="toolBar">
             <li><a class="add" id="add" rel="add"><span>添加人员</span></a></li>
             <li><a class="delete" id="delete" target-table="yginfos"><span>删除</span></a></li>
-<!--            <li><a class="edit" id ="edit" target-table="yginfos"><span>修改</span></a></li>-->
+            <li><a class="delete" id="mutdelete" target-table="rkinfo"><span>批量删除</span></a></li>
+            <!--            <li><a class="edit" id ="edit" target-table="yginfos"><span>修改</span></a></li>-->
             <!--<li><a class="edit" id ="change" target-table="yginfos"><span>集体迁移</span></a></li>-->
         </ul>
     </div>
@@ -14,10 +15,10 @@
                 <th data-key="xm">姓名</th>
                 <th data-key="xb"  st-param="za_yg.xb">性别</th>
                 <th data-key="csrq" date-format="yyyy-MM-dd">出生日期</th>
-                <th data-key="whcd">文化程度</th>
-                <th data-key="mz">民族</th>
+                <th data-key="whcd" st-param="za_people.whcd">文化程度</th>
+                <th data-key="mz"  st-param="za_people.mz">民族</th>
                 <th data-key="sg">身高</th>
-                <th data-key="hyzk"  st-param="za_yg.hyzk">婚姻状况</th>
+                <th data-key="hyzk"  st-param="za_people.hyzk_dm">婚姻状况</th>
                 <th data-key="gzdw">工作单位</th>
                 <th data-key="jtdz">家庭地址</th>
                 <th data-key="bz">备注</th>

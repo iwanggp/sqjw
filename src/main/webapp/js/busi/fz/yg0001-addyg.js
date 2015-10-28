@@ -13,6 +13,7 @@
     initParaSelect('za_people.hyzk_dm', $('#hyzk', $dialog));
     initParaSelect('za_people.mz', $('#mz', $dialog));
     initParaSelect('za_people.whcd', $('#whcd', $dialog));
+    initParaSelect('za_people.zzmm', $('#zzmm', $dialog));
     $("#add", $dialog).click(function () {
         if (!$('#fz_form', $dialog).valid()) {
             return false;

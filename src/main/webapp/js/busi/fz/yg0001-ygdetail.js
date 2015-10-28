@@ -7,9 +7,10 @@
     var f = false; //定义一个开关变量
     var $dialog = $("body").data('mydetail');
     bringDialogToFront($dialog);
-    initServiceParaSelect('za_yg.xb', $('#xb', $dialog));
-    initServiceParaSelect('za_yg.hyzk', $('#hyzk', $dialog));
-    initServiceParaSelect('za_yg.yghy', $('#yghy', $dialog));
+    initParaSelect('za_yg.xb', $('#xb', $dialog));
+    initParaSelect('za_yg.hyzk', $('#hyzk', $dialog));
+    initParaSelect('za_yg.yghy', $('#yghy', $dialog));
+    initParaSelect('za_people.zzmm', $('#zzmm', $dialog));
     $("input", $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     $('#xb', $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     $('#hyzk', $dialog).attr("disabled", "disabled"); //让输入框为只读状态

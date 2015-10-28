@@ -8,8 +8,12 @@
 
 //    map.addOverlay(poly, true);
     var $dialog = $.pdialog.getCurrent();
-    initServiceParaSelect('jw_sq.lb', $('#sqlb', $dialog));
-    initServiceParaSelect('jw_sq.zgbm', $('#zgbm', $dialog));
+//    initServiceParaSelect('jw_sq.lb', $('#sqlb', $dialog));
+//    initServiceParaSelect('jw_sq.zgbm', $('#zgbm', $dialog));
+    initParaSelect('jw_sq.lb', $('#sqlb', $dialog));
+    initParaSelect('jwsq_bzdzxx.xzqhdm', $('#xzqh', $dialog));
+//    initParaSelect('jw_sq.zgbm', $('#zgbm', $dialog));
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
     $("#add", $dialog).click(function () {
         if (!$('#sq_form', $dialog).valid()) {
             return false;
@@ -30,5 +34,26 @@
         };
         $.ajax(o);
     });
+    function form2JSONById($form, json) {
+        if ($form.length == 0) {
+            return {};
+        }
+        var data = json ? json : {};
+        $form.find(":text,:password,:radio:checked,:checkbox:checked,:hidden,textarea").each(function () {
+            if ($(this).attr("id")) {
+                data[$(this).attr("id")] = $(this).val();
+            }
+        });
+        $form.find("select").each(function (i, s) {
+            s = $(s);
+            if (s.attr("id")) {
+                s.find("option:selected").each(function (j, option) {
+                    option = $(option);
+                    data[s.attr("id")] = option.attr("id");
+                });
+            }
+        });
+        return data;
+    }
 }).call();
 

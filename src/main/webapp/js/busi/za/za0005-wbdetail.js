@@ -9,6 +9,8 @@
     var $dialog = $("body").data('mydetail');
     bringDialogToFront($dialog);
     $("input", $dialog).attr("disabled", "disabled"); //让输入框为只读状态
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
+    $('#zgbm', $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     var param = $dialog.data('param'); //父窗口传递的参数
     var opt = new AjaxOptions();
     opt.put("service_code", "S40002");
@@ -38,7 +40,7 @@
     $('#modify', $dialog).click(function () {
         var btns = new Array();
         if (f = !f) {
-            $("input", $dialog).removeAttr("disabled");
+            $(":input", $dialog).removeAttr("disabled");
             $('#ajhgz_pic,#jypmt_pic,#jyxkz_pic', $dialog).show();
             $(this).html("保存");
         } else {

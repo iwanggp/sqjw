@@ -4,9 +4,10 @@
  * and open the template in the editor.
  */
 (function () {
-    var $dialog=$.pdialog.getCurrent();
+    var $dialog = $.pdialog.getCurrent();
 //    var $dialog = $("body").data('add_jz_xx');//必须通过这种方法
     //    bringDialogToFront($dialog);
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
     var param = $dialog.data('param'); //父窗口传递的参数
     $("#add", $dialog).click(function () {
         if ($("#shop_form", $dialog).valid()) {
