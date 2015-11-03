@@ -26,8 +26,6 @@
         opt.sus = function (data) {
             alertMsg.correct("修改成功！");
             form2JSON($('#fz_form', $dialog), param.row);      //把修改后的数据写回
-//            $("#search_ry-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
-            $('#search_yg-button', navTab.getCurrentPanel()).trigger('click');
             param.isFlush = true;       //刷新表格
             param.row['xb_desc'] = data['xb_desc'];
             param.row['hyzk_desc'] = data['hyzk_desc'];

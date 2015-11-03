@@ -1006,6 +1006,28 @@ function getJZCS(h, page, rid) {
     };
     $.ajax(o);
 }
+var user = sessionStorage.user ? JSON.parse(sessionStorage.user) : {};
+function myInitUi($page) {
+    //于判断用户是否有修改权限,xgqx:0-无,1-仅修改,2-仅删除,3-修改+删除
+    switch (user.xgqx) {
+        case '1':
+            $('._delete').hide();
+            $('._update').show();
+            break;
+        case '2':
+            $('._delete').show();
+            $('._update').hide();
+            break;
+        case '3':
+            $('._delete').show();
+            $('._update').show();
+            break;
+        default:
+            $('._delete,._update').hide();
+            break;
+    }
+}
+
 
 //全局变量：场所名称，所属行业,设备类型,分页类别,开始时间，截止时间,案件分类,建筑id,建筑经度，建筑维度，是否是搜索,是否查询
 var mc, hy, sblx, fylb, gangjd, gangwd, poly, kssj, jzsj, ajfl, jzid, jzjd, jzwd, sjxz, isSearch = false, dz, mph, currentPage = 1, detail = false, currentsqid,currentjwq;

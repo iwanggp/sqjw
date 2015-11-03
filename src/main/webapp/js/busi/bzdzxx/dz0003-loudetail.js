@@ -13,7 +13,7 @@
     var sqname = "";//社区的名称
     var opt = new AjaxOptions();
     opt.put("service_code", "S31004");
-    opt.put("jzid", param.jzid);
+    opt.put("jzid", param.hyid);
     $('#zgbm', $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     $("input", $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     opt.sus = function (data) {

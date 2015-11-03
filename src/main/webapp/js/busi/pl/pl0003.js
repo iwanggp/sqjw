@@ -39,7 +39,7 @@
     $('#add', $page).click(function() {
         $.pdialog.open('page/pl/pl0003-add.html', 'add_user_pl', '添加用户', {
             width: 550,
-            height: 380,
+            height: 450,
             param: {roleList: roleList},
             /**
              * 关闭的回调函数，关闭时把新增加的数据显示到表格最后
@@ -61,7 +61,7 @@
         if (rowData) {
             $.pdialog.open('page/pl/pl0003-edit.html', 'mod_user_pl', '修改用户', {
                 width: 550,
-                height: 315,
+                height: 415,
                 param: {row: rowData, roleList: roleList},
                 close: function(param) {
                     if (param.isFlush) {

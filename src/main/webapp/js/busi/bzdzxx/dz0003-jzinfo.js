@@ -90,7 +90,7 @@
                     "jzmc": data[i].mc,
                 }).addClass("xq-link1").css({"cursor": "pointer", "color": "blue"}).html('查看详情');
                 item.map_link = $('<a/>').attr({
-                    "hyid": item.jzid,
+                    "hyid": data[i].jzid,
                     "hylb": "sqjz",
                     "jd": item.jd,
                     "wd": item.wd,
@@ -102,7 +102,7 @@
                 $(".xq-link1").unbind("click").bind("click", function (e) {
                     $.pdialog.open("page/bzdzxx/dz0003-loudetail.html", 'mydetail', $(this).attr('jzmc'), {width: 600,
                         height: 560,
-                        param: {jzid: $(this).attr('jzid'), jzmc: $(this).attr('jzmc')},
+                        param: {hyid: $(this).attr('jzid'), jzmc: $(this).attr('jzmc')},
                         close: function () {
                             return true;//这样才能关闭窗口
                         }

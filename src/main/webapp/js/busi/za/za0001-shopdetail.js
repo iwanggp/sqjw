@@ -91,6 +91,7 @@
                     o.put("service_code", "P41003");
                     o.sus = function (data) {
                         alertMsg.correct("删除成功");
+                        $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
                         var page = parseInt($("#xiye").html());//获取当前的页数
                         if (isSearch) {
                             getSpCS('za_sp', '', page);

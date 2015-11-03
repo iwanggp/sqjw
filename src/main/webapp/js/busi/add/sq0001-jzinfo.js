@@ -90,7 +90,7 @@
             }
             setTimeout(function () {
                 $(".check-link").unbind("click").bind("click", function (e) {
-                    $.pdialog.open("page/jz/jz0002-jzinfo.html", 'add_jz_info', $(this).attr('jzmc'), {width: 1000,
+                    $.pdialog.open("page/jz/jz0002-jzinfo.html", 'add_jz_info', $(this).attr('jzmc'), {width: 1200,
                         height: 560,
                         param: {sqid: sqid, jzid: $(this).attr('name'), jd: $(this).attr('jd'), wd: $(this).attr('wd'), jzmc: $(this).attr('jzmc')},
                         close: function () {

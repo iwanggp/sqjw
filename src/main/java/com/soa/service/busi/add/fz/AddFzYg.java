@@ -49,5 +49,6 @@ public class AddFzYg extends BaseService {
         in.put("cjr", acd.get(SystemUtil.loginRemark));
         in.putStringValue("id", SystemUtil.getSerialNum());//数据库的主码
         update("add_jz_yg", in);
+
     }
 }

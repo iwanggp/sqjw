@@ -58,6 +58,8 @@
                 param: {row: rowData1},
                 close: function (param) {
                     if (param.isFlush) {
+                        currentPage = rowData1.cut_row;
+                        currentPage = parseInt(currentPage / 30) + 1;
                         var index = keyValue[param.row.id];
                         tableData[index] = param.row;
                         padBackTable(tableData, $('#yginfos', $dialog));
@@ -147,7 +149,7 @@
         });
     }
     function getCurrentResult() {
-        $('#yginfos', $dialog).cutPage(form2JSON($('#search-form', $dialog), {yg_fz_id: obj['id'], service_code: 'S50002', page_size: 30,page:currentPage}), function (data) {
+        $('#yginfos', $dialog).cutPage(form2JSON($('#search-form', $dialog), {yg_fz_id: obj['id'], service_code: 'S50002', page_size: 30, page: currentPage}), function (data) {
             for (var i = 0; i < data.length; i++) {
                 var item = data[i]; // 获取到table每一行数据
                 item.xz = $('<input type="checkbox"/>').attr({

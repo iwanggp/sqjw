@@ -100,55 +100,35 @@ function openSqDetail(hyid, sqmc) {
                 }
             });
 }
+var urlmap = {
+    "za_yl": 'page/za/za0002-yldetail.html',
+    "za_sp": 'page/za/za0001-shopdetail.html',
+    "sqjz": 'page/bzdzxx/dz0003-loudetail.html',
+    "bzdz": 'page/bzdzxx/dz0001-bzdzdetail.html',
+    "za_wl": 'page/za/za0003-wldetail.html',
+    "za_wb": 'page/za/za0005-wbdetail.html',
+    "za_lg": 'page/za/za0006-lgdetail.html',
+    "za_zjh": 'page/za/za0009-zjhdetail.html',
+    "za_ssrk": 'page/fz/fz0000-rkdetail.html',
+    "za_dw": 'page/za/za0010-dwdetail.html',
+    "za_fzll": 'page/za/za0026-fzlldetail.html',
+    "dw_jyz": 'page/za/za0010-dwdetail.html',
+    "za_yg": 'page/fz/yg0001-ygdetail.html',
+    "za_jrhy": 'page/za/za0010-dwdetail.html',
+    "sc_sc": 'page/za/za0010-dwdetail.html',
+    "qtdw": 'page/za/za0010-dwdetail.html',
+    "za_ggcs": 'page/za/za0010-dwdetail.html',
+    "za_jcss": 'page/add/jcssdetail.html',
+    "ydtx": 'page/za/za0010-dwdetail.html',
+    "dw_shfl": 'page/za/za0010-dwdetail.html',
+    "za_school": 'page/za/za0015-schooldetail.html',
+    "za_yy": 'page/za/za0016-yydetail.html',
+    "za_dz": 'page/za/za0011-bzdzdetail.html',
+    "za_ttdp": 'page/za/za0012-ttdpdetail.html',
+};
 function openDetail(hyval, hyid, hymc) {
-    if ("za_yl" == hyval) {
-        url = 'page/za/za0002-yldetail.html';
-    } else if ("za_sp" == hyval) {
-        url = 'page/za/za0001-shopdetail.html';
-    } else if ("sqjz" == hyval) {
-        url = 'page/bzdzxx/dz0003-loudetail.html';
-    } else if ("bzdz" == hyval) {
-        url = 'page/bzdzxx/dz0001-bzdzdetail.html';
-    } else if ("za_wl" == hyval) {
-        url = 'page/za/za0003-wldetail.html';
-    } else if ("za_wb" == hyval) {
-        url = 'page/za/za0005-wbdetail.html';
-    } else if ("za_lg" == hyval) {
-        url = 'page/za/za0006-lgdetail.html';
-    } else if ("za_zjh" == hyval) {
-        url = 'page/za/za0009-zjhdetail.html';
-    } else if ("za_ssrk" == hyval) {
-        url = 'page/fz/fz0000-rkdetail.html';
-    } else if ("za_dw" == hyval) {
-        url = 'page/za/za0010-dwdetail.html';
-    } else if ("za_fzll" == hyval) {
-        url = 'page/za/za0026-fzlldetail.html';
-    } else if ("dw_jyz" == hyval) {
-        url = 'page/za/za0010-dwdetail.html';
-    } else if ("za_yg" == hyval) {
-        url = 'page/fz/yg0001-ygdetail.html';
-    } else if ("za_jrhy" == hyval) {
-        url = 'page/za/za0010-dwdetail.html';
-    } else if ("sc_sc" == hyval) {
-        url = 'page/za/za0010-dwdetail.html';
-    } else if ("qtdw" == hyval) {
-        url = 'page/za/za0010-dwdetail.html';
-    } else if ("za_ggcs" == hyval) {
-        url = 'page/za/za0010-dwdetail.html';
-    } else if ("za_jcss" == hyval) {
-        url = 'page/add/jcssdetail.html';
-    } else if ("ydtx" == hyval) {
-        url = 'page/za/za0010-dwdetail.html';
-    } else if ("dw_shfl" == hyval) {
-        url = 'page/za/za0010-dwdetail.html';
-    } else if ("za_school" == hyval) {
-        url = 'page/za/za0015-schooldetail.html';
-    } else if ("za_yy" == hyval) {
-        url = 'page/za/za0016-yydetail.html';
-    } else if ("za_dz" == hyval) {
-        url = 'page/za/za0011-bzdzdetail.html';
-    } else if ("za_ttdp" == hyval) {
-        url = 'page/za/za0012-ttdpdetail.html';
+    if (urlmap[hyval]) {
+        url = urlmap[hyval];
     } else {
         url = "page/za/za0007-csdetail.html";
     }

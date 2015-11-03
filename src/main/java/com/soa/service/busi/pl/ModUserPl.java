@@ -23,7 +23,6 @@ public class ModUserPl extends BaseService {
                                   "xm", "姓名",
                                   "sfzmhm", "身份证号",
                                   "xb", "性别",
-                                  "tstj", "是否推送业务报表",
                                   "role_id", "角色"};
 
     @Override

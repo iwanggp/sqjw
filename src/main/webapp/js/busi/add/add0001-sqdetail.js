@@ -83,7 +83,7 @@
         }
     });
     $('#info', $dialog).click(function () {
-        $.pdialog.open("page/add/sq0001-sqinfo.html", 'add_sq_info', sqname, {width: 970, height: 600,
+        $.pdialog.open("page/add/sq0001-sqinfo.html", 'add_sq_info', sqname, {width: 1270, height: 600,
             param: {sqid: param.sqid, jd: param.jd, wd: param.wd},
             close: function () {
 //               $.pdialog.close('add_sq_info');
