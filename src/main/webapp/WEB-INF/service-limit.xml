@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : service-limit.xml
+    Created on : 2015年11月7日
+    Author     : lianzt
+    Description:
+        服务执行的权限配置，当用户执行配置文件中的服务时，判断该用户与要修改的数据是否已于同一警务室
+
+    文档格式说明：
+        一个item标签表示一个服务
+        sql表示要修改数据的查询语句
+        id表示需要注入sql的参数，可以是多个，使用英文逗号分割
+        zgbm表示sql查询结果中表示警务室的列名
+-->
+
+
+<root>
+    <item service="P30002">
+        <sql>get_sq_jz</sql>
+        <id>jzid</id>
+        <zgbm></zgbm>
+    </item>
+</root>
