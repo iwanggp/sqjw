@@ -36,7 +36,7 @@
     <dependency>
       <groupId>com.jufantec</groupId>
       <artifactId>soa-frame-base</artifactId>
-      <version>1.1.8-BETA</version>
+      <version>1.1.10-BETA</version>
       <exclusions>
         <exclusion>
           <artifactId>mysql-connector-java</artifactId>

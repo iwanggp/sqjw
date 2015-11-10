@@ -44,18 +44,17 @@ public class SqjwController {
      */
     @RequestMapping(value = "/ajax-sqjw", method = RequestMethod.POST)
     public void ajaxServicePost(HttpServletRequest request, PrintWriter out) {
-
         AbstractCommonData req = null;
         AbstractCommonData reqHead = null;
         AbstractCommonData res = null;
-        AbstractCommonData resHead = null;
         req = (AbstractCommonData) request.getAttribute("page_data");
         reqHead = req.getDataValue("head");
         try {
             String serviceCode = reqHead.getStringValue("service_code");
             if (StringUtil.notNull(serviceCode) && serviceCode.startsWith("P")) {
-                BaseService.runService(req, "");
-                reqHead.putStringValue("service_code", serviceCode);
+                req.putStringValue("_service", serviceCode);        //原service_code做为参数
+                BaseService.runService(req, "S11014");
+                reqHead.putStringValue("service_code", serviceCode);        //放回原service_code
             }
             systemController.ajaxServicePost(request, out);
         } catch (GlobalException ge) {
@@ -69,6 +68,13 @@ public class SqjwController {
         } catch (Exception e) {
             log.warn("系统未知异常：" + e);
             log.debug("系统未知异常: ", e);
+            res = SystemUtil.creatErrorCommonData(new GlobalException(999999));
+        } finally {
+            if (res != null) {
+                AjaxUtil.sendJsonData(out, res);
+            } else {
+                log.error("响应报文为空！");
+            }
         }
 
     }
