@@ -1,4 +1,4 @@
--- Create table
+﻿-- Create table
 create table SQ_RKCQSY
 (
   id         VARCHAR2(32) not null,
@@ -7,7 +7,7 @@ create table SQ_RKCQSY
   czlx       VARCHAR2(3) not null,
   rksj       VARCHAR2(14) default to_char(sysdate,'yyyymmddhh24miss') not null,
   zhtbsj     VARCHAR2(14),
-  tbbs       VARCHAR2(1) default '0' not null,
+  tbbs      VARCHAR2(1) default '0' not null,
   rtablename VARCHAR2(30) not null,
   rsjidname  VARCHAR2(32) not null
 );
