@@ -39,7 +39,7 @@
             if ($("#jz_form", $dialog).valid()) {
                 var o = new AjaxOptions($('#jz_form', $dialog));
                 o.put("service_code", "P30002");
-                o.put("jzid", param.jzid);
+                o.put("jzid", param.hyid);
                 o.sus = function (data) {
                     alertMsg.correct("修改成功");
                     $("#search-button11", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新

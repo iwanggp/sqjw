@@ -26,7 +26,7 @@ public class UpdateSqJz extends BaseService {
     private final String[] KEY = {
         "mph", "社区门牌号",
         "mc", "社区名称",
-        "lxfs", "联系方式",
+//        "lxfs", "联系方式",
         "dz", "社区地址",};
     private final Logger log = LoggerFactory.getLogger(UpdateSqJz.class);
 

@@ -15,15 +15,21 @@
     initParaSelect('za_people.jzsy', $('#jzsy', $dialog));
     initParaSelect('za_people.mz', $('#mz', $dialog));
     initParaSelect('za_people.whcd', $('#whcd', $dialog));
+    initParaSelect('za_people.zzmm', $('#zzmm', $dialog));
+    initParaSelect('za_people.hklb_dm', $('#hklb_dm', $dialog));
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#fwdw_jws', $dialog));
     initParaSelect('za_people.hyzk_dm', $('#hyzk_dm', $dialog));
-    initParaSelect('za_people.hyzk_dm', $('#hyzk_dm', $dialog));
+    initParaSelect('za_people.hklb_dm', $('#hklb_dm', $dialog));
+    initParaSelect('za_people.xzqh_hj', $('#xzqh_hj', $dialog));
+    initParaSelect('za_people.xzqh_hj', $('#fwdw_xzqh', $dialog));
     $('select', $dialog).attr("disabled", "disabled");
+    var obj = JSON.parse(sessionStorage.unionyg);
     var opt = new AjaxOptions();
-    opt.put("service_code", "S99999");
-    opt.sus = function (data) {
-        padBackData(data.csdata, $('#info', $dialog)); //回填物流信息
-    };
-    $.ajax(opt);
+//    opt.put("service_code", "S88003");
+//    opt.sus = function (data) {
+    padBackData(obj, $('#info', $dialog)); //回填物流信息
+//    };
+//    $.ajax(opt);
 
     //#修改信息服务
     $('#modify', $dialog).click(function () {

@@ -43,13 +43,15 @@
             });
             if ($("#sq_form", $dialog).valid()) {
                 var fw = $('#fw', $dialog).val();
+                $('#jd', $dialog).val(mov.point.x);
+                $('#wd', $dialog).val(mov.point.y);
                 var o = new AjaxOptions($('#sq_form', $dialog));
                 o.put("sqid", param.sqid);
                 o.put("service_code", "P21006");
                 o.put("sqid", param.sqid);
                 o.put("fw", fw);
-                o.put('jd', mov.point.x);//传递经度参数
-                o.put('wd', mov.point.y);//传递维度参数
+//                o.put('jd', jd);//传递经度参数
+//                o.put('wd', wd);//传递维度参数
                 o.sus = function (data) {
                     alertMsg.correct("修改成功");
                     $("#close", $dialog).trigger("click");

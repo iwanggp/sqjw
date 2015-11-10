@@ -31,7 +31,7 @@
             alertMsg.warn('请先选择一个社区进行查看！');
         }
     });
-    $("#add", $page).click(function () {
+    $("#addsq", $page).click(function () {
         $.pdialog.open('page/bzdzxx/dz0002-addsq.html', 'add_sq_dz', "添加社区",
                 {"width": 580, "height": 560, mask: true,
                     close: function (param) {

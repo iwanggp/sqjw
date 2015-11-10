@@ -8,6 +8,7 @@ package com.soa.service.busi.za;
 import com.lianzt.commondata.AbstractCommonData;
 import com.soa.exception.GlobalException;
 import com.soa.service.BaseService;
+import static com.soa.service.BaseService.getSession;
 import com.soa.util.SystemUtil;
 import com.soa.util.sqjw.SqjwUtil;
 import java.io.IOException;

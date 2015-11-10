@@ -15,6 +15,7 @@
         if (!$('#sq_form', $dialog).valid()) {
             return false;
         }
+        var sqmc = $('#sqmc', $dialog).val();
         var fw = $('#fw', $dialog).val();
         var dz = $('#dz', $dialog).val();
         var jd = $('#jd', $dialog).val();
@@ -23,6 +24,7 @@
         var zgbm = $('#zgbm', $dialog).val();
         var o = new AjaxOptions($('#sq_form', $dialog));
         o.put('fw', fw);
+        o.put('sqmc', sqmc);
         o.put('dz', dz);
         o.put('xzqh', xzqh);
         o.put('zgbm', zgbm);

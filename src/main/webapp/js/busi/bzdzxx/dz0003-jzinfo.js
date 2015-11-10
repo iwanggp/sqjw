@@ -28,53 +28,18 @@
             }
         });
     });
-//    // 修改模板按钮的点击事件
-//    $('#edit', $page).on('click', function () {
-//        var rowData = $(this).getRow();
-//        console.log("rowDataORG = " + json2string(rowData));
-//        if (rowData) {
-//            $.pdialog.open('page/add/sq0003-modjz.html', 'mod_lou_sq', '社区建筑修改', {
-//                width: 600,
-//                height: 380,
-//                param: {row: rowData},
-//                close: function (param) {
-//                    if (param.isFlush) {
-//                        var index = keyValue[param.row.jzid];
-//                        tableData[index] = param.row;
-//                        padBackTable(tableData, $('#jzinfos', $page));
-//                    }
-//                    map.deleteOverlayById("udlou");
-//                    return true;
-//                }
-//            });
-//        } else {
-//            alertMsg.warn("请先选择一条数据！");
-//        }
-//    });
-//    $('#delete', $page).on('click', function () {
-//        var rowData = $(this).getRow();
-//        if (rowData) {
-//            if (rowData.jzid != null) {
-//                alertMsg.confirm("确定要删除该建筑吗？删除后建筑内所有信息都会删除！请谨慎操作！", {"okCall": function () {
-//                        var o = new AjaxOptions();
-//                        o.put("jzid", rowData.jzid);
-//                        o.put('service_code', 'P30003');//删除社区建筑信息
-//                        o.sus = function (data) {
-//                            alertMsg.correct("删除成功");
-//                            $('#close', $page).trigger("click");
-//                            serarch();
-//                        };
-//                        $.ajax(o);
-//                    }
-//                });
-//            } else {
-//                alertMsg.error("没有找到该数据");
-//            }
-//        }
-//        else {
-//            alertMsg.warn("请先选择一条数据！");
-//        }
-//    });
+    $('#fwinfolook', $page).click(function () {
+        var rowData = $(this).getRow();
+        sessionStorage.fwjzid = JSON.stringify(rowData);//放到session中暂存一段时间
+        if (rowData) {
+            $('#jbsxBoxfwinfo', $page).loadUrl('page/bzdzxx/dz0005-fwinfo.html', {}, function () {
+                $('#fwinfo', $page).show().trigger('click');
+                $('#jbsxBoxfwinfo', $page).find("[layoutH]").layoutH();
+            });
+        } else {
+            alertMsg.warn('请先选择一个社区进行查看！');
+        }
+    });
     function getSearchCurrentResult() {
         $('#jzinfos', $page).cutPage(form2JSON($('#search-form', $page), {service_code: 'S58002', page_size: 30, page: 1, sqid: sqid}), function (data) {
             for (var i = 0; i < data.length; i++) {
@@ -111,16 +76,9 @@
             }, 500);
             setTimeout(function () {
                 $(".check-link").unbind("click").bind("click", function (e) {
-//                    $('#jbsxBoxjzinfo', $page).loadUrl('page/bzdzxx/dz0004-jzinfo.html', {}, function () {
-//                        $('#jzinfo', $page).show().trigger('click');
-//                        $('#jbsxBoxjzinfo', $page).find("[layoutH]").layoutH();
-//                    });
-                    $.pdialog.open("page/jz/jz0002-jzinfo.html", 'add_jz_info', $(this).attr('jzmc'), {width: 1300,
-                        height: 560,
-                        param: {sqid: sqid, jzid: $(this).attr('name'), jd: $(this).attr('jd'), wd: $(this).attr('wd'), jzmc: $(this).attr('jzmc')},
-                        close: function () {
-                            return true;//这样才能关闭窗口
-                        }
+                    $('#jbsxBoxjz', $page).loadUrl('page/bzdzxx/dz0003-jzinfo.html', {}, function () {
+                        $('#sqjz', $page).show().trigger('click');
+                        $('#jbsxBoxjz', $page).find("[layoutH]").layoutH();
                     });
                 });
             }, 50);

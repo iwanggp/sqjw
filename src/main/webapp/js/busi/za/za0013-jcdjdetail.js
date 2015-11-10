@@ -42,7 +42,6 @@
         if (rowData) {
             alertMsg.confirm("确定要删除该检查信息吗！", {"okCall": function () {
                     var oid = param.rowData.id;
-                    alert(oid);
                     currentPage = rowData.cut_row;
                     currentPage = parseInt(currentPage / 30) + 1;
                     if (oid) {

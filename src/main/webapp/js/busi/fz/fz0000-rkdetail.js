@@ -26,6 +26,8 @@
     $('#hyzk', $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     $('#mz', $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     $('#whcd', $dialog).attr("disabled", "disabled"); //让输入框为只读状态
+
+    console.log('remark rkdetail....');
     var param = $dialog.data('param'); //父窗口传递的参数
     var opt = new AjaxOptions();
     opt.put("service_code", "S40002");
@@ -57,6 +59,7 @@
                 opt.sus = function (data) {
                     alertMsg.correct("修改成功了！");
                     var $dia = $("body").data('add_jz_info');
+                    param.shop = form2JSON($('#shop_form', $dialog));
                     setTimeout(function () {
                         $('#rkxx', $dia).click();
 //                        $('#jzxx', $dia).click();
@@ -71,7 +74,7 @@
     //#删除信息服务
     $('#del', $dialog).click(function () {
         if (param.hyid) {
-            alertMsg.confirm("确定要删除该场所吗？", {"okCall": function () {
+            alertMsg.confirm("确定要删除该人口信息吗？", {"okCall": function () {
                     $("input", $dialog).removeAttr("disabled");
                     var o = new AjaxOptions();
                     o.put("id", param.hyid);

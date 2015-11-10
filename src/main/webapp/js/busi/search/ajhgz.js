@@ -12,7 +12,7 @@
     /**
      * 查询服务
      */
-    $('#search-button', $page).on('click', function () {
+    $('#search-button1', $page).on('click', function () {
         // '分页查询', 显示全部数据
         getCurrentResult();
     });

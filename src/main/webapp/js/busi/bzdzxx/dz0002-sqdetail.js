@@ -27,6 +27,7 @@
     //#修改信息服务
     $('#add_modify', $dialog).click(function () {
         var btns = new Array();
+        $('.btnLook').show();
 //        var mov = map.getOverlayById(param.sqid);
 //        mov.moveable = true;//是否可以拖动
         if (f = !f) {
@@ -45,6 +46,9 @@
                 var fw = $('#fw', $dialog).val();
                 var o = new AjaxOptions($('#sq_form', $dialog));
                 o.put("sqid", param.sqid);
+                o.put('dz', $('#dz', $dialog).val());
+                o.put('jd', $('#jd', $dialog).val());
+                o.put('wd', $('#wd', $dialog).val());
                 o.put("service_code", "P21006");
                 o.put("sqid", param.sqid);
                 o.put("fw", fw);

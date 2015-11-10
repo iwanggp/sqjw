@@ -8,6 +8,8 @@
     var param = $dialog.data('param'); //父窗口传递的参数
     var keyValue = {}; // 数据索引
     var currentPage = 1;
+    var cutPageResult = null;       //分页查询结果
+    console.log('remark twck....');
     // '分页查询', 显示全部数据
     getCurrentResult();
     /**
@@ -15,6 +17,7 @@
      */
     $('#superedit', $dialog).click(function () {
         var rowData1 = $(this).getRow();
+        var $row = $(this).getRowObj();
         if (rowData1) {
             $.pdialog.open('page/fz/fz0000-rkdetail.html', 'mydetail', '人员信息详情', {
                 width: 600,
@@ -22,7 +25,10 @@
                 mask: true,
                 param: {hylb: rowData1.hylb, hyid: rowData1.id},
                 close: function (param) {
-
+                    if (param.shop) {
+                        $.extend(rowData1, param.shop);
+                        padBackTable(cutPageResult, $('#rkinfo', $dialog));
+                    }
                     return true;
                 }
             });
@@ -94,6 +100,7 @@
                 page_size: 15,
                 page: currentPage
             }, function (data) {
+                cutPageResult = data;
                 for (var i = 0; i < data.length; i++) {
                     var item = data[i]; // 获取到table每一行数据
                     item.xz = $('<input type="checkbox"/>').attr({

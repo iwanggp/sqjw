@@ -7,7 +7,7 @@ and open the template in the editor.
         <div class="pageFormContent" layoutH="58">
             <div class="unit">
                 <label>社区名称：</label>
-                <input type="text" name="sqmc" id="sqmc" class="required" size="40"/>
+                <input type="text" name="sqmc" id="sqmc" class="required" size="35"/>
             </div>
             <div class="unit">
                 <label>社区类别：</label>
@@ -25,15 +25,15 @@ and open the template in the editor.
             </div>
             <div class="unit">
                 <label>社区地址：</label>
-                <input type="text" id="dz" name="dz" size="40" class="required"/>
+                <input class="required"  id="dz"  name="dz" type="text"  size="35"/>	
             </div>
             <div class="unit">
                 <label>行政区划：</label>
-                <select id="xzqh" name="obj.xzqhdm"></select>
+                <select id="xzqh" name="xzqh"></select>
             </div>
             <div class="unit">
                 <label>建成日期：</label>
-                <input type="text" id="jcrq" name="jcrq" size="20" class="date" date-format="yyyy-MM-dd"/>
+                <input type="text" id="jcrq" name="jcrq" size="24" class="date" date-format="yyyy-MM-dd"/>
             </div>
             <div class="unit">
                 <label>楼栋数：</label>
@@ -61,35 +61,44 @@ and open the template in the editor.
             </div>
             <div class="unit">
                 <label>开发商：</label>
-                <input type="text" id="kfs" name="kfs" size="40" />
+                <input type="text" id="kfs" name="kfs" size="35" />
             </div>
             <div class="unit">
                 <label>物业公司：</label>
-                <input type="text" id="wygs" name="wygs" size="40" />
+                <input type="text" id="wygs" name="wygs" size="35" />
             </div>
             <div class="unit">
                 <label>物业负责人：</label>
-                <input type="text" id="frdb" name="frdb" size="40" />
+                <input type="text" id="frdb" name="frdb" size="35" />
             </div>
             <div class="unit">
                 <label>物业联系方式：</label>
-                <input type="text" id="lxfs" name="lxfs" size="40" />
+                <input type="text" id="lxfs" name="lxfs" size="35" />
             </div>
             <div class="unit">
                 <label>安保负责人：</label>
-                <input type="text" id="abfzr" name="abfzr" size="40" />
+                <input type="text" id="abfzr" name="abfzr" size="35" />
             </div>
             <div class="unit">
                 <label>安保联系电话：</label>
-                <input type="text" id="ablxdh" name="ablxdh" size="40" />
+                <input type="text" id="ablxdh" name="ablxdh" size="35" />
             </div>
             <div class="unit">
                 <label>保安人数：</label>
                 <input type="text" id="bars" name="bars" size="15" class="number"/>  
             </div>
             <div class="unit">
-                <label>所属辖区：</label>
+                <label>所属警务室：</label>
+                <!--<input type="text" id="zgbm" name="obj.zgbm" size="35" class="required"/>-->
                 <select id="zgbm" name="zgbm"></select>
+            </div>
+            <div class="unit">
+                <label>经度：</label>
+                <input id="jd" name="jd"  type="text"/>
+            </div>
+            <div class="unit">
+                <label>维度：</label>
+                <input id="wd" name="wd"  type="text"/>
             </div>
             <div class="unit">
                 <label>片警姓名：</label>
@@ -103,9 +112,9 @@ and open the template in the editor.
                 <label>社区备注：</label>
                 <textarea rows="3" cols="25" id="bz" name="bz" />
             </div>
-            <div class="unit">
+             <div class="unit">
                 <label>社区内信息：</label>
-                <a href="#" name="info" id="info"  size="40" ><span class="unit">查看社区内信息</span></a>
+                <a href="#" name="info" id="info"  size="35" ><span class="unit">查看社区内信息</span></a>
             </div>
         </div>
         <div class="formBar">
@@ -118,3 +127,4 @@ and open the template in the editor.
     </form>
 </div>
 
+    
