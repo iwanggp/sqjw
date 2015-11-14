@@ -10,7 +10,7 @@
     bringDialogToFront($dialog);
     var param = $dialog.data('param'); //父窗口传递的参数
     initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
-    console.log(param.sqid + "-" + param.jzid + "--" + param.jd + "---" + param.wd + "wwwwaddddshop");
+    console.log(param.sqid + "-" + param.jzid + "--" + param.jd + "---" + param.wd +param.fwid+ "wwwwaddddshop");
     $("#add", $dialog).click(function () {
         if ($("#shop_form", $dialog).valid()) {
             fileOptions.putForm($('#shop_form', $dialog));       //添加表单内容
@@ -18,6 +18,7 @@
             fileOptions.put('hylb', 'za_sp');
             fileOptions.put('sq_id', param.sqid);
             fileOptions.put('jz_id', param.jzid);
+            fileOptions.put('fw_id', param.fwid);
             fileOptions.put('jd', param.jd);//传递经度参数
             fileOptions.put('wd', param.wd);//传递维度参数
             fileOptions.sus = function (data) {

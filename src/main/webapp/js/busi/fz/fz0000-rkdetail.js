@@ -61,8 +61,7 @@
                     var $dia = $("body").data('add_jz_info');
                     param.shop = form2JSON($('#shop_form', $dialog));
                     setTimeout(function () {
-                        $('#rkxx', $dia).click();
-//                        $('#jzxx', $dia).click();
+                        $('#zjh', $dia).click();
                     }, 50);
                     $("#search_ry-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
                     $("#close", $dialog).trigger("click");
@@ -83,8 +82,7 @@
                         alertMsg.correct("删除成功了！");
                         var $dia = $("body").data('add_jz_info');
                         setTimeout(function () {
-                            $('#rkxx', $dia).click();
-//                            $('#jzxx', $dia).click();
+                            $('#zjh', $dia).click();
                         }, 50);
                         $("#search_ry-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
                         $('#close', $dialog).trigger("click");

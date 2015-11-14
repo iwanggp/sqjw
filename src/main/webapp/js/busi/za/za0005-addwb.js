@@ -16,6 +16,7 @@
             fileOptions.put('hylb', 'za_wb');
             fileOptions.put('sq_id', param.sqid);
             fileOptions.put('jz_id', param.jzid);
+            fileOptions.put('fw_id', param.fwid);
             fileOptions.put('jd', param.jd);//传递经度参数
             fileOptions.put('wd', param.wd);//传递维度参数
             fileOptions.sus = function (data) {

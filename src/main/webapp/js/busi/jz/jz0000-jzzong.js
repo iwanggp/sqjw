@@ -56,7 +56,7 @@
     function getResult() {
         // '分页查询', 显示全部数据
         $('#jzqbxx', $dialog).cutPage({
-            jz_id: param.jzid,
+            fw_id: param.fwid,
             service_code: 'S30004',
             page_size: 20,
         }, function (data) {

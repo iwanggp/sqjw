@@ -13,12 +13,12 @@ and open the template in the editor.
                 <label>单元号：</label>
                 <input type="text" name="dyh" id="dyh" size="35" class="required"  />
             </div>
-             <div class="unit">
+            <div class="unit">
                 <label>室号：</label>
                 <input type="text" name="sh" id="sh" size="35" class="required"  />
             </div>
             <div class="unit">
-                <label>家庭地址：</label>
+                <label>房屋地址：</label>
                 <input type="text" name="dz" id="dz" size="35" class="required"  />
             </div>
             <div class="unit">
@@ -30,12 +30,20 @@ and open the template in the editor.
                 <input type="text" name="fzsfzh" id="fzsfzh" size="20" maxlength="18" minlength="15" class="required"  />
             </div>
             <div class="unit">
-                <label>管辖公安机关：</label>
+                <label>所有人或单位：</label>
+                <input type="text" name="syrdw" id="syrdw"  size="35" />
+            </div>
+            <div class="unit">
+                <label>所有人或单位联系电话：</label>
+                <input type="text" name="syrdwlxdh" id="syrdwlxdh"  size="35"/>
+            </div>
+            <div class="unit">
+                <label>所属警务室：</label>
                 <select id="zgbm" name="zgbm"></select>
             </div>
             <div class="unit">
                 <label>联系方式：</label>
-                <input type="text" name="lxfs" id="lxfs" size="35" class="required"  />
+                <input type="text" name="lxfs" id="lxfs" size="35"/>
             </div>
             <div class="unit">
                 <label>房屋面积：</label>
@@ -56,7 +64,7 @@ and open the template in the editor.
         </div>
         <div class="formBar">
             <ul>
-               <li class="_update"><div class="buttonActive"><div class="buttonContent"><button type="button" id="modify">修改</button></div></div></li>
+                <li class="_update"><div class="buttonActive"><div class="buttonContent"><button type="button" id="modify">修改</button></div></div></li>
                 <!--                                <li class="_delete"><div class="buttonActive"><div class="buttonContent"><button type="button" id="del">删除</button></div></div></li>-->
                 <li><div class="button"><div class="buttonContent"><button type="button" id="close" class="close">取消</button></div></div></li>
             </ul>

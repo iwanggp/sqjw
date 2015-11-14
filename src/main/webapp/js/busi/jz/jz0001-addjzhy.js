@@ -39,7 +39,7 @@
         }
         $.pdialog.open(url, 'add_jz_xx', "添加建筑内信息",
                 {"width": 580, "height": 560, mask: true,
-                    param: {sqid: param.sqid, jzid: param.jzid, jd: param.jd, wd: param.wd, hylb: hyval},
+                    param: {sqid: param.sqid, jzid: param.jzid, fwid: param.fwid, jd: param.jd, wd: param.wd, hylb: hyval},
                     close: function (param) {
 //                        $.pdialog.close('add_jz_xx');
                         return true;

@@ -17,6 +17,7 @@
             o.put('service_code', 'P30014');
             o.put('sq_id', param.sqid);
             o.put('jz_id', param.jzid);
+            o.put('fw_id', param.fwid);
             o.put('jd', param.jd);//将修改后建筑的经度传递过来
             o.put('wd', param.wd);//传修改后建筑的维度传递过来
             o.put('fzlx', param.lb);

@@ -13,7 +13,7 @@
     var param = $dialog.data('param'); //父窗口传递的参数
     var opt = new AjaxOptions();
     opt.put("service_code", "S40002");
-    opt.put("hylb", param.hylb);
+    opt.put("hylb", 'za_zjh');
     opt.put("id", param.hyid);
     opt.sus = function (data) {
         padBackData(data.csdata, $('#shop_form', $dialog)); //回填物流信息
@@ -36,7 +36,7 @@
             });
             if ($("#shop_form", $dialog).valid()) {
                 var opt = new AjaxOptions($('#shop_form', $dialog));
-                opt.put("service_code", "P43014");
+                opt.put("service_code", "P70002");
                 opt.put("id", param.hyid);
                 opt.sus = function (data) {
                     alertMsg.correct("修改成功了！");

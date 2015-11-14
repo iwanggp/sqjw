@@ -7,6 +7,7 @@
 (function () {
     var f = false; //定义一个开关变量
     var $dialog = $("body").data('mydetail');
+    bringDialogToFront($dialog);
     initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
     initParaSelect('jwsq_bzdzxx.xzqhdm', $('#xzqh', $dialog));
     var param = $dialog.data('param'); //父窗口传递的参数

@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 (function () {
-    var $page = navTab.getCurrentPanel();
+//    var $page = $("body").data('add_sq_info');
+    var $page = $('body').data("add_sq_info");
     var obj = JSON.parse(sessionStorage.fwjzid);
     var jzid = obj['jzid'];
     var sqid = obj['sq_id'];
     console.log(jzid + "-------->>><><><hanqinghanqignhanqing" + sqid);
-//    alert(obj['mc']);
     $('#jzmc', $page).html(obj['mc']);
     getSearchCurrentResult();
     /**
@@ -43,7 +43,7 @@
                 var item = data[i]; // 获取到table每一行数据
                 item.name_link = $('<a/>').attr({
                     "name": data[i].id,
-                    "jzmc": data[i].dyh+data[i].sh,
+                    "jzmc": data[i].dyh + data[i].sh,
                     "jd": data[i].jd,
                     "wd": data[i].wd
                 }).addClass("check-link").css({"cursor": "pointer", "color": "blue"}).html('查看房屋内信息');

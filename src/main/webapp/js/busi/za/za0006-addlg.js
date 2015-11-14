@@ -16,6 +16,7 @@
             fileOptions.putForm($('#shop_form', $dialog));       //添加表单内容
             fileOptions.setService('P43006');
             fileOptions.put('hylb', 'za_lg');
+            fileOptions.put('fw_id', param.fwid);
             fileOptions.put('sq_id', param.sqid);
             fileOptions.put('jz_id', param.jzid);
             fileOptions.put('jd', param.jd);//传递经度参数

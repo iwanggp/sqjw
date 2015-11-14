@@ -20,22 +20,24 @@
         if (!$('#fz_form', $dialog).valid()) {
             return false;
         }
+//        sqid: param.sqid, jzid: param.jzid, fwid: param.fwid, jd: param.jd, wd: param.wd
         var o = new AjaxOptions($('#fz_form', $dialog));
         o.put('service_code', 'P31005');
         o.put('yg_sq_id', param.sqid);
         o.put('yg_jz_id', param.jzid);
-        o.put('yg_fz_id', param.fzid);
-        o.put('fzid', param.fzid);
+        o.put('yg_fz_id', param.fwid);
+//        o.put('fzid', param.fzid);
         o.put('jd', param.jd); //传递经度参数
         o.put('wd', param.wd); //传递维度参数
         o.put('hylb', "za_ssrk");
-        o.sus = function () {
+        o.sus = function (param) {
             alertMsg.correct("添加成功");
+            param.isAdd = true;
             var $dia = $("body").data('add_jz_info');
             setTimeout(function () {
-                $('#rkxx', $dia).click();
+                $('#zjh', $dia).click();
             }, 50);
-            $("#search_ry-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新   
+//            $("#search_ry-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新   
             $("#close", $dialog).trigger("click");
         };
         $.ajax(o);

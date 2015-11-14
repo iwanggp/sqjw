@@ -25,7 +25,7 @@
         url = 'page/za/za0023-addydtx.html';
         $.pdialog.open(url, 'add_jz_xx', "添加建筑内信息",
                 {"width": 580, "height": 560, mask: true,
-                    param: {sqid: param.sqid, jzid: param.jzid, jd: param.jd, wd: param.wd, lb: hyval},
+                    param: {sqid: param.sqid, jzid: param.jzid, fwid: param.fwid, jd: param.jd, wd: param.wd, lb: hyval},
                     close: function (param) {
                         return true;
                     }

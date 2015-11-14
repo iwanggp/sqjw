@@ -53,7 +53,7 @@
                 item.xq_detail = $('<a/>').attr({
                     "jzid": data[i].jzid,
                     "jzmc": data[i].mc,
-                }).addClass("xq-link1").css({"cursor": "pointer", "color": "blue"}).html('查看详情');
+                }).addClass("jz_xq-link1").css({"cursor": "pointer", "color": "blue"}).html('查看详情');
                 item.map_link = $('<a/>').attr({
                     "hyid": data[i].jzid,
                     "hylb": "sqjz",
@@ -64,7 +64,7 @@
                 }).addClass("map-link").css({"cursor": "pointer", "color": "red"}).html('进入地图');
             }
             setTimeout(function () {
-                $(".xq-link1").unbind("click").bind("click", function (e) {
+                $(".jz_xq-link1").unbind("click").bind("click", function (e) {
                     $.pdialog.open("page/bzdzxx/dz0003-loudetail.html", 'mydetail', $(this).attr('jzmc'), {width: 600,
                         height: 560,
                         param: {hyid: $(this).attr('jzid'), jzmc: $(this).attr('jzmc')},
