@@ -38,16 +38,17 @@ public class AddSq extends BaseService {
         "wd", "维度"
     };
     private final Logger log = LoggerFactory.getLogger(AddSq.class);
-
+    
     @Override
     public String[] keys() {
         return KEY;
     }
-
+    
     @Override
     @Transactional
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
         AbstractCommonData acd = getSession(in);
+        
         in.put("cjrxm", acd.get("xm"));
         //in从页面传来过得值
         in.put("cjr", acd.get(SystemUtil.loginRemark));
@@ -67,18 +68,18 @@ public class AddSq extends BaseService {
         String wd = "";
         AbstractCommonData mph = null;
         String mphm = "";
-        String dzxz="";
+        String dzxz = "";
         for (AbstractCommonData _acd : acdList) {
             if (!_acd.isEmpty()) {
                 dzbm = _acd.getStringValue("jzdzbm");
-                dzxz=_acd.getStringValue("dzxz");
+                dzxz = _acd.getStringValue("dzxz");
                 mlphm = _acd.getStringValue("mlphm");
                 jd = _acd.getStringValue("zbwzx");
                 wd = _acd.getStringValue("zbwzy");
                 mph = queryData("get_mph_jz", mlphm);
                 mphm = mph.getStringValue("mpmc");
                 jzArgsList.add(new Object[]{sqid, dzbm, _acd.getStringValue("dzxz"), _acd.getStringValue("dzxz"), _acd.getStringValue("jlxmc"), jd, wd, _acd.getStringValue("ssjwqdm"), _acd.getStringValue("dys"), _acd.getStringValue("hs"), _acd.getStringValue("lcs"), dzbm, mphm, _acd.getDateValue("cjrq"), _acd.getStringValue("cjry"), _acd.getStringValue("jlxdm"), _acd.getStringValue("mlphm")});//自动添加该社区内的所有建筑信息#servic_code:P24001
-                fwArgsList.add(new Object[]{mphm, dzxz,jd, wd, dzbm, sqid, dzbm});
+                fwArgsList.add(new Object[]{mphm, dzxz, acd.get(SystemUtil.loginRemark).getValue(), in.getStringValue("cjrxm"), jd, wd, dzbm, sqid, dzbm});
             }
         }
         batchUpdate("autoadd_sq_jz", jzArgsList);

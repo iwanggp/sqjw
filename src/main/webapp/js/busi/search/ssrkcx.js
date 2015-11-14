@@ -50,7 +50,7 @@
         var rowData1 = $(this).getRow();
         $.pdialog.open('page/fz/rk0002-twck.html', 'add_twck', "查看同屋人员",
                 {"width": 880, "height": 560, mask: true,
-                    param: {fzid: rowData1.fzid},
+                    param: {yg_fz_id: rowData1.yg_fz_id},
                     close: function (param) {
                         currentPage = 1;
                         return true;
@@ -167,8 +167,8 @@
                     "sfzh": item.sfzh
                 }).addClass("info-link").css({"cursor": "pointer", "color": "brown"}).html('随行人员');
                 item.name_link = $('<a/>').attr({
-                    "fzid": item.yg_fz_id,
-                    "sh": "所在房屋"
+                    "hyid": item.yg_fz_id,
+                    "hymc": "所属房屋"
                 }).addClass('name-link').css({"cursor": "pointer", "color": "blue"}).html('人房关联');
                 setTimeout(function () {
                     $(".map-link").unbind("click").bind("click", function () {
@@ -179,13 +179,7 @@
                 }, 100);
                 setTimeout(function () {
                     $(".name-link").unbind("click").bind("click", function () {
-                        $.pdialog.open("page/za/za0009-zjhdetail.html", 'mydetail', $(this).attr('sh'), {width: 600,
-                            height: 560,
-                            param: {hyid: $(this).attr('fzid'), sh: $(this).attr('sh'),hylb:"za_zjh"},
-                            close: function () {
-                                return true;//这样才能关闭窗口
-                            }
-                        });
+                        openDetail('za_zjh', $(this).attr('hyid'), $(this).attr('hymc'));
                     });
                 }, 100);
                 setTimeout(function () {
@@ -225,7 +219,8 @@
                     "sfzh": item.sfzh
                 }).addClass("info-link").css({"cursor": "pointer", "color": "brown"}).html('随行人员');
                 item.name_link = $('<a/>').attr({
-                    "fzid": item.fzid
+                    "hyid": item.yg_fz_id,
+                    "hymc": "所属房屋"
                 }).addClass('name-link').css({"cursor": "pointer", "color": "blue"}).html('人房关联');
                 setTimeout(function () {
                     $(".map-link").unbind("click").bind("click", function () {
@@ -236,14 +231,7 @@
                 }, 100);
                 setTimeout(function () {
                     $(".name-link").unbind("click").bind("click", function () {
-                        $.pdialog.open('page/za/za0009-zjhdetail.html', 'mydetail', "人房关联",
-                                {"width": 680, "height": 560, mask: true,
-                                    param: {hyid: $(this).attr('fzid'),
-                                        hylb: 'za_zjh'},
-                                    close: function (param) {
-                                        return true;
-                                    }
-                                });
+                        openDetail('za_zjh', $(this).attr('hyid'), $(this).attr('hymc'));
                     });
                 }, 100);
                 setTimeout(function () {

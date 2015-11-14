@@ -96,7 +96,7 @@
         setTimeout(function () {
             $('#rkinfo', $dialog).cutPage({
                 service_code: 'S55551',
-                fzid: param.fzid,
+                yg_fz_id: param.yg_fz_id,
                 page_size: 15,
                 page: currentPage
             }, function (data) {

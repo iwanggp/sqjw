@@ -8,6 +8,7 @@
     var obj = JSON.parse(sessionStorage.unionyg);
     initParaSelect('za_ssrk.rylb', $('#rylb', $dialog));
     initParaSelect('za_people.xb', $('#xb', $dialog));
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
     var tableData; // 存放临时数据
     var keyValue = {}; // 数据索引
     var currentPage = 1;
@@ -41,7 +42,7 @@
         if (rowData1) {
             $.pdialog.open('page/fz/rk0001-addzjh.html', 'add_yg_xx', "添加实有人口信息信息",
                     {"width": 580, "height": 560, mask: true,
-                        param: {sqid: obj['sq_id'], jzid: obj['jz_id'], jd: obj['jd'], wd: obj['wd'], fzid: obj['id']},
+                        param: {sqid: obj['sq_id'], jzid: obj['jz_id'], fwid: obj['id'], jd: obj['jd'], wd: obj['wd'], fzid: obj['id']},
                         close: function (param) {
                             return true;
                         }
@@ -106,7 +107,7 @@
         }
     });
     function getCurrentResult() {
-        $('#rkinfo', $dialog).cutPage(form2JSON($('#search-form', $dialog), {service_code: 'S55552', fzid: obj['id'], page_size: 30, page: currentPage}), function (data) {
+        $('#rkinfo', $dialog).cutPage(form2JSON($('#search-form', $dialog), {service_code: 'S55552', yg_fz_id: obj['id'], page_size: 30, page: currentPage}), function (data) {
             for (var i = 0; i < data.length; i++) {
                 var item = data[i]; // 获取到table每一行数据
                 item.xz = $('<input type="checkbox"/>').attr({

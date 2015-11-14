@@ -32,7 +32,7 @@ public class SearchRkJz extends BaseService {
     @Transactional
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
         in.putStringValue("sql", "search_select_rk_jz");
-        in.putObjectValue("args", new Object[]{in.getStringValue("zgbm"), in.getStringValue("xm"), in.getStringValue("rylb"), in.getStringValue("sfid"), in.getStringValue("xb"), in.getStringValue("csks"), in.getStringValue("csjs"), in.getStringValue("ks"), in.getStringValue("js"), in.getStringValue("fzid")});
+        in.putObjectValue("args", new Object[]{in.getStringValue("zgbm"), in.getStringValue("xm"), in.getStringValue("rylb"), in.getStringValue("sfid"), in.getStringValue("xb"), in.getStringValue("csks"), in.getStringValue("csjs"), in.getStringValue("ks"), in.getStringValue("js"), in.getStringValue("yg_fz_id")});
         in.putIntValue("page_size", in.getIntValue("page_size"));
         runService("S10001", in, inHead, out, outHead);
     }

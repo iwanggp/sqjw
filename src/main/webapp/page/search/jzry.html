@@ -8,10 +8,10 @@
                         <table class="searchContent" width="50%">
                             <tr>
                                 <td width="20%">
-                                    管辖公安机关:
-                                </td>
-                                <td width="20%">
-                                    <input id="zgbm" name="zgbm" type="text"  size="35"/>
+                                    所属管辖公安机关:
+                                    <select id="zgbm" name="zgbm">
+                                        <option value="">全部</option>
+                                    </select>
                                 </td>
                                 <td width="25%">
                                     姓名：<input id="xm" name="xm" type="text" size="20"/>
@@ -26,8 +26,7 @@
                             <tr>
                                 <td width="20%">
                                     身份证号:
-                                </td>
-                                <td>
+
                                     <input id="sfzh" name="sfzh" type="text"  size="20"/>
                                 </td>
 
@@ -47,8 +46,6 @@
                             <tr>
                                 <td width="15%">
                                     采集时间：
-                                </td>
-                                <td>
                                     <input id="ks" name="ks" class="date" size="15"/>
                                     <span class="unit">至</span>
                                     <input id="js" name="js"  size="15" class="date"/>
@@ -83,8 +80,6 @@
                         <th data-key="bz">备注</th>
                         <th data-key="lrsj" date-format="yyyy-MM-dd">采集时间</th>
                         <th data-key="map_link">进入地图</th>
-<!--                        <th data-key="info" data-key="info1">信息管理</th>-->
-                        <!--                        <th data-key="jd_link" id="jd">监督检查表</th>-->
                     </tr>
                 </thead>
                 <tbody>

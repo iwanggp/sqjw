@@ -33,7 +33,7 @@ public class SearchRkTw extends BaseService {
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
         in.putStringValue("sql", "search_select_rk_tw");
         in.putIntValue("page_size", in.getIntValue("page_size"));
-        in.putObjectValue("args", new Object[]{in.getStringValue("fzid")});
+        in.putObjectValue("args", new Object[]{in.getStringValue("yg_fz_id")});
         runService("S10001", in, inHead, out, outHead);
     }
 }
