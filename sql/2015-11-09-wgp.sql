@@ -65,3 +65,13 @@ alter table ZA_FZLL add FW_ID varchar(30) ;
 comment on column ZA_FZLL.fw_id is '所属房屋的id';
 insert into ST_SERVICE_BEAN values('S70003','getFwRk','查询房屋内的人员信息','Y','fw');
 alter table SQ_JZ modify(MPBM varchar(50))
+alter table ZA_SCHOOLJD add zgbm varchar(30);
+comment on column ZA_SCHOOLJD.zgbm is '所属警务室';
+alter table ZA_YYJD add zgbm varchar(30);
+comment on column ZA_YYJD.zgbm is '所属警务室';
+alter table ZA_JCDJ add zgbm varchar(30);
+comment on column ZA_JCDJ.zgbm is '所属警务室';
+alter table ZA_WZXX add zgbm varchar(30);
+comment on column ZA_WZXX.zgbm is '所属警务室';
+alter table ZA_YG add zgbm varchar(30);
+comment on column ZA_YG.zgbm is '所属警务室';

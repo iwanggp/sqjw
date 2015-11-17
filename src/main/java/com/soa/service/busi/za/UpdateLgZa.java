@@ -80,6 +80,7 @@ public class UpdateLgZa extends BaseService {
                 }
             }
             update("modify_lg_za", in);
+//            out.putDataValue("result", queryData("if_dis_lg_za", in));
         } catch (IOException ex) {
             log.debug("error:", ex);
             throw new GlobalException(140001, ex);      //上传文件出错了

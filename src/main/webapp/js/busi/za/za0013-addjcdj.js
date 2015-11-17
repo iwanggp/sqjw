@@ -16,6 +16,7 @@
             o.put('fid', param.fid);
             o.put('mc', param.mc);
             o.put('dz', param.dz);
+            o.put('zgbm',param.zgbm);
             o.sus = function () {
                 alertMsg.correct("添加成功");
                 $("#close", $dialog).trigger("click");

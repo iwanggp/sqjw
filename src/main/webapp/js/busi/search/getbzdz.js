@@ -48,7 +48,7 @@
                     "wd": item.zbwzy,
                     "hymc": item.dzjc,
                     "dz": item.dzxz,
-                    "href": "javascript:$.bringBack({orgName:'" + item.dzxz + "',sqmc:'" + item.dzjc + "',jd:'" + item.zbwzx + "',wd:'" + item.zbwzy + "',xzqhdm:'" + item.xzqhdm + "',zgbm:'" + item.ssjwqdm + "'})"
+                    "href": "javascript:$.bringBack({orgName:'" + item.dzxz + "',jzdzbm:'" + item.jzdzbm + "',sqmc:'" + item.dzjc + "',jd:'" + item.zbwzx + "',wd:'" + item.zbwzy + "',xzqhdm:'" + item.xzqhdm + "',zgbm:'" + item.ssjwqdm + "'})"
                 }).addClass("btnSelect").css({"cursor": "pointer", "color": "red"});
             }
             setTimeout(function () {

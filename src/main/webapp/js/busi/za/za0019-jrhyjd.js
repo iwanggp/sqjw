@@ -16,6 +16,7 @@
         var o = new AjaxOptions($('#shop_form', $dialog));
         o.put('service_code', 'P44100');
         o.put('id', obj['id']);
+        o.put('zgbm', obj['zgbm']);
         o.sus = function () {
             alertMsg.correct("添加成功");
             $("#close", $dialog).trigger("click");

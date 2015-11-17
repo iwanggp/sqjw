@@ -7,7 +7,7 @@ var words = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N
 $.ajax({
     url: ajaxUrl,
     data: 'service_code=S11002&_type=ajax', //获取用户权限
-    success: function(data) {
+    success: function (data) {
         try {
             returnData = eval('(' + data + ')');       //把字符串转为json
         } catch (e) {
@@ -29,7 +29,7 @@ $.ajax({
             cMenu(returnData, 1);       //创建菜单
         }
     },
-    error: function(request, status, error) {
+    error: function (request, status, error) {
         switch (status) {
             case "timeout":
                 console.error("请求超时，请稍候检查操作是否成功！");
@@ -77,7 +77,7 @@ $.ajax({
             this.after(request.status, error_msg);
         }
     },
-    complete: function(request, status) {
+    complete: function (request, status) {
         if (returnData.head.response_code == "000000") {
             console.debug("开始执行initDWZ()");
             initDWZ();
@@ -108,10 +108,10 @@ function cMenu(data, level) {
 //                                alert("根权限："+data.m_id)
 //根权限
         var rootNodes = data.menus
-        $(rootNodes).each(function(i, n) {
+        $(rootNodes).each(function (i, n) {
             rootDom(n);
             //递归
-            $(n.chidren).each(function(i, n) {
+            $(n.chidren).each(function (i, n) {
                 var levelC = level + 1;
                 cMenu(n, levelC)
             });
@@ -121,7 +121,7 @@ function cMenu(data, level) {
         if (data.m_type == 1) {
             cTreeDom(data);
             //递归
-            $(data.chidren).each(function(i, n) {
+            $(data.chidren).each(function (i, n) {
                 var levelC = level + 1;
                 cMenu(n, levelC)
             });
@@ -139,12 +139,12 @@ function initDWZ() {
         statusCode: {ok: 200, error: 300, timeout: 301}, //【可选】
         pageInfo: {pageNum: "pageNum", numPerPage: "numPerPage", orderField: "orderField", orderDirection: "orderDirection"}, //【可选】
         debug: true, // 调试模式 【true|false】
-        callback: function() {
+        callback: function () {
             initEnv();
             $("#themeList").theme({themeBase: "themes"}); // themeBase 相对于index页面的主题base路径
 
             //为hphm加载一个keydown事件，自动把字母转大写
-            $('#hphm').live('keypress ', function(e) {
+            $('#hphm').live('keypress ', function (e) {
                 console.log(e.keyCode);
                 if (e.keyCode >= 97 && e.keyCode <= 122) {
 //a~z 触发
@@ -152,10 +152,10 @@ function initDWZ() {
                     e.preventDefault();
                 }
             });
-            $("#welcome_logout").click(function() {
+            $("#welcome_logout").click(function () {
                 var o = new AjaxOptions();
                 o.put("service_code", "S11001"); //用户注销
-                o.after = function() {
+                o.after = function () {
                     localStorage.removeItem('sqjw_user');
                     localStorage.removeItem('sqjw_pwd');
                     location.href = "index.html";
@@ -165,11 +165,11 @@ function initDWZ() {
             var o = new AjaxOptions();
             o.put("service_code", "S10002"); //获取系统参数
             o.isPadBack = false;
-            o.beforeSend = function() {
+            o.beforeSend = function () {
                 this.data = this.data + "&_type=ajax";
                 return true;
             };
-            o.sus = function(data) {
+            o.sus = function (data) {
                 var list = data.st_para;
                 for (var i = 0; i < list.length; i++) {
                     var key = list[i].table_name + "." + list[i].col_name;
@@ -190,7 +190,7 @@ function initDWZ() {
     });
 }
 
-var createMenu = function(menus, menuTag) {
+var createMenu = function (menus, menuTag) {
     if (!menus)
         return; //为空时，退出
     var m, a, li, ul;
@@ -271,13 +271,13 @@ function createBusiMenu(menus, menuTag) {
 
 //每次查询之后，存储单元格各个宽度，兼容过滤
 function cacheWidths(panel, page_widths) {
-    $.each($($("#xy_list-grid tbody tr", panel).eq(0)).find("td"), function(i, n) {
+    $.each($($("#xy_list-grid tbody tr", panel).eq(0)).find("td"), function (i, n) {
         page_widths[i] = $(n).css("width");
     });
 }
 //重绘，每次过滤完，重新设置首行不隐藏的宽度
 function reSetWidths(panel, page_widths) {
-    $.each($($("#xy_list-grid tbody tr:visible", panel).eq(0)).find("td"), function(i, n) {
+    $.each($($("#xy_list-grid tbody tr:visible", panel).eq(0)).find("td"), function (i, n) {
         $(n).css("width", page_widths[i]);
     });
 }
@@ -290,18 +290,18 @@ var UnloadConfirm = {}; //窗口关闭事件
  * @param {type} fun 点击确定的回调函数
  * @returns {undefined}
  */
-UnloadConfirm.set = function(msg, fun) {
-    window.onbeforeunload = function(e) {
+UnloadConfirm.set = function (msg, fun) {
+    window.onbeforeunload = function (e) {
         e = e || window.event;
         e.returnValue = msg;
         return msg
     };
     $(window).unbind('unload').unload(fun);
 };
-UnloadConfirm.clear = function() {
-    window.onbeforeunload = function() {
+UnloadConfirm.clear = function () {
+    window.onbeforeunload = function () {
     };
-    window.onunload = function() {
+    window.onunload = function () {
     };
 //    fckDraft.delDraftById();
 };
@@ -319,7 +319,7 @@ function getSession() {
 
 //高亮显示坐标点
 function clickLi(data) {
-    $(data).siblings().each(function() {
+    $(data).siblings().each(function () {
         var one = map.getOverlayById($(this).attr('name'));
         one.size = new STMapSize(30, 30);
         one.refresh();
@@ -330,7 +330,7 @@ function clickLi(data) {
 }
 //高亮显示坐标点
 function clickSqLi(data) {
-    $(data).siblings().each(function() {
+    $(data).siblings().each(function () {
         var one = map.getOverlayById($(this).attr('name'));
         one.size = new STMapSize(60, 60);
         one.refresh();
@@ -350,7 +350,7 @@ function getCS(h, m, page) {
     o.put("hy", hy);
     o.put("page_size", 10);
     o.put("page", page);
-    o.sus = function(data) {
+    o.sus = function (data) {
         if (data.result.length > 0) {
             $.pdialog.closeCurrent();
             LocationPoint(data);
@@ -377,7 +377,7 @@ function getSpCS(h, m, page) {
     o.put("hy", hy);
     o.put("page_size", 10);
     o.put("page", page);
-    o.sus = function(data) {
+    o.sus = function (data) {
         if (data.result.length > 0) {
             $.pdialog.closeCurrent();
             LocationPoint(data);
@@ -411,7 +411,7 @@ function getJfss(one, two, page) {
     o.put("jzw", two[2]);
     o.put("page_size", 10);
     o.put("page", page);
-    o.sus = function(data) {
+    o.sus = function (data) {
         if (data.result.length > 0) {
             $.pdialog.closeCurrent();
             LocationPointJfss(data);
@@ -453,7 +453,7 @@ function getJqxx(one, two, page, ks, jz) {
     o.put("jzsj", jz);
     o.put("page_size", 10);
     o.put("page", page);
-    o.sus = function(data) {
+    o.sus = function (data) {
         if (data.result.length > 0) {
             $.pdialog.closeCurrent();
             LocationPointJqxx(data);
@@ -553,10 +553,10 @@ function bringDialogToFront($dialog) {
     $("<input />")
             .attr({"id": "_temp_d", "type": "hidden"})
             .appendTo($dialog.find(".formBar"))
-            .click(function() {
-        $(this).remove();
-    });
-    setTimeout(function() {
+            .click(function () {
+                $(this).remove();
+            });
+    setTimeout(function () {
         $('#_temp_d', $dialog).click();
     }, 100);
 }
@@ -770,7 +770,7 @@ function detailAjdq(data) {
     $.pdialog.open(url, 'mydetail', "详情",
             {"width": 580, "height": 560, mask: true,
                 param: {hylb: hylb, hyid: $(data).attr('name')},
-                close: function(param) {
+                close: function (param) {
                     return true;
                 }
             });
@@ -796,7 +796,7 @@ function detailCs(data) {
     $.pdialog.open(url, 'mydetail', "详情",
             {"width": 580, "height": 560, mask: true,
                 param: {hylb: hy, hyid: $(data).attr('name')},
-                close: function(param) {
+                close: function (param) {
                     return true;
                 }
             });
@@ -806,7 +806,7 @@ function  detaiZjh(data) {
     $.pdialog.open("page/za/za0009-zjhdetail.html", 'mydetail', "详情",
             {"width": 580, "height": 280, mask: false,
                 param: {hyid: $(data).attr('name'), hylb: 'za_zjh'},
-                close: function(param) {
+                close: function (param) {
                     return true;
                 }
             });
@@ -815,7 +815,7 @@ function  detaiJz(data) {
     $.pdialog.open("page/add/add0001-loudetail.html", 'detailJz', "详情",
             {"width": 580, "height": 280, mask: false,
                 param: {jzid: $(data).attr('name')},
-                close: function(param) {
+                close: function (param) {
 //                    map.getOverlayById($(data).attr('name')).moveable = false;//是否可以拖动
                     return true;
                 }
@@ -826,7 +826,7 @@ function  detaiSq(data) {
     $.pdialog.open("page/add/add0001-sqdetail.html", 'detailSq', "详情",
             {"width": 580, "height": 450, mask: false,
                 param: {sqid: $(data).attr('name'), jd: $(data).attr('jd'), wd: $(data).attr('wd')},
-                close: function(param) {
+                close: function (param) {
                     return true;
                 }
             });
@@ -835,7 +835,7 @@ function detailJfss(data) {
     $.pdialog.open("page/za/za0004-jfssdetail.html", 'detailJfss', "详情",
             {"width": 580, "height": 280, mask: true,
                 param: {id: $(data).attr('name')},
-                close: function(param) {
+                close: function (param) {
                     map.getOverlayById($(data).attr('name')).moveable = false;//是否可以拖动
                     return true;
                 }
@@ -845,7 +845,7 @@ function detailJqxx(data) {
     $.pdialog.open("page/za/za0007-jqxxdetail.html", 'detailJqxx', "详情",
             {"width": 580, "height": 320, mask: true,
                 param: {id: $(data).attr('name')},
-                close: function(param) {
+                close: function (param) {
                     map.getOverlayById($(data).attr('name')).moveable = false;//是否可以拖动
                     return true;
                 }
@@ -891,7 +891,7 @@ function searchZjh(omph, odz, m, page) {
     o.put("fzxm", m);
     o.put("page_size", 10);
     o.put("page", page);
-    o.sus = function(data) {
+    o.sus = function (data) {
         if (data.result.length > 0) {
             $.pdialog.closeCurrent();
             LocationPointZjh(data);
@@ -916,7 +916,7 @@ function searchAjdq(dqsj, page) {
     o.put("dqsj", dqsj);
     o.put("page_size", 10);
     o.put("page", page);
-    o.sus = function(data) {
+    o.sus = function (data) {
         if (data.result.length > 0) {
             $.pdialog.closeCurrent();
             LocationPointDq(data);
@@ -990,7 +990,7 @@ function getJZCS(h, page, rid) {
     o.put("page_size", 10);
     o.put("rid", rid);
     o.put("page", page);
-    o.sus = function(data) {
+    o.sus = function (data) {
         if (data.result.length > 0) {
             $.pdialog.closeCurrent();
             LocationPoint(data);
@@ -1007,6 +1007,7 @@ function getJZCS(h, page, rid) {
     $.ajax(o);
 }
 var user = sessionStorage.user ? JSON.parse(sessionStorage.user) : {};
+window.ssjws = user.ssjws;//定义一个用户所属警务室的全局变量
 function myInitUi($page) {
     //于判断用户是否有修改权限,xgqx:0-无,1-仅修改,2-仅删除,3-修改+删除
     switch (user.xgqx) {
@@ -1032,7 +1033,7 @@ function myInitUi($page) {
 //全局变量：场所名称，所属行业,设备类型,分页类别,开始时间，截止时间,案件分类,建筑id,建筑经度，建筑维度，是否是搜索,是否查询
 var mc, hy, sblx, fylb, gangjd, gangwd, poly, kssj, jzsj, ajfl, jzid, jzjd, jzwd, sjxz, isSearch = false, dz, mph, currentPage = 1, detail = false, currentsqid, currentjwq;
 var sx = [];//属性点
-
+//var ssjws = '';
 AjaxOptions.prototype.url = BaseUrl + 'ajax-sqjw.do';         //修改ajax url
 
 /**
@@ -1040,7 +1041,7 @@ AjaxOptions.prototype.url = BaseUrl + 'ajax-sqjw.do';         //修改ajax url
  * 这是一个 Ajax 事件。如果返回false可以取消本次ajax请求。
  * 类型： function(XMLHttpRequest)
  */
-AjaxOptions.prototype.beforeSend = function(XMLHttpRequest) {
+AjaxOptions.prototype.beforeSend = function (XMLHttpRequest) {
     if (this.$form && this.$form.length) {//判断表单是否为空
         this.data = this.$form.serialize() + '&' + this.data;
         if (!$.trim(this.data)) {

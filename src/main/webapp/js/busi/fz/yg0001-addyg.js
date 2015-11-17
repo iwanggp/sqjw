@@ -14,6 +14,7 @@
     initParaSelect('za_people.mz', $('#mz', $dialog));
     initParaSelect('za_people.whcd', $('#whcd', $dialog));
     initParaSelect('za_people.zzmm', $('#zzmm', $dialog));
+    alert(param.zgbm);
     $("#add", $dialog).click(function () {
         if (!$('#fz_form', $dialog).valid()) {
             return false;
@@ -37,6 +38,7 @@
         o.put('yg_sq_id', param.sqid);
         o.put('yg_jz_id', param.jzid);
         o.put('yg_fz_id', param.fzid);
+        o.put('zgbm',param.zgbm);
         o.put('jd', param.jd); //传递经度参数
         o.put('wd', param.wd); //传递维度参数
         o.put('hylb', 'za_yg');

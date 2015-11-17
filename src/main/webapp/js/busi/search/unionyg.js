@@ -5,12 +5,15 @@
  */
 (function () {
     var $dialog = navTab.getCurrentPanel();
+    var ssjws = window.ssjws;
+    var zgbm = "";
     var obj = JSON.parse(sessionStorage.unionyg);
     initParaSelect('za_yg.yghy', $('#yghy', $dialog));
     initParaSelect('za_people.xb', $('#xb', $dialog));
     $('#dwmc', $dialog).html(obj['mc']);//设置标题
     var tableData; // 存放临时数据
     var keyValue = {}; // 数据索引
+    zgbm = obj['zgbm'];
     var currentPage = 1;
     $('#sfzh', $dialog).change(function () {
         currentPage = 1;//当改变查询条件时默认从第一行开始查询
@@ -39,7 +42,7 @@
     $("#add", $dialog).click(function () {
         $.pdialog.open('page/fz/yg0001-addyg.html', 'add_yg_xx', "添加员工信息",
                 {"width": 580, "height": 560, mask: true,
-                    param: {sqid: obj['sq_id'], jzid: obj['jz_id'], jd: obj['jd'], wd: obj['wd'], fzid: obj['id']},
+                    param: {sqid: obj['sq_id'], jzid: obj['jz_id'], jd: obj['jd'], wd: obj['wd'], fzid: obj['id'], zgbm: obj['zgbm']},
                     close: function (param) {
                         currentPage = 1;
                         getyg();
@@ -76,25 +79,29 @@
     $('#delete', $dialog).click(function () {
         var rowData = $(this).getRow();
         if (rowData) {
-            alertMsg.confirm("确定要删除该员工信息吗！", {"okCall": function () {
-                    var oid = rowData.id;
-                    currentPage = rowData.cut_row;
-                    currentPage = parseInt(currentPage / 30) + 1;
-                    if (oid) {
-                        var o = new AjaxOptions();
-                        o.put("id", oid);
-                        o.put('service_code', 'P30007'); //删除社区建筑信息
-                        o.sus = function (data) {
-                            alertMsg.correct("删除成功");
-                            getCurrentResult();
-                            $('#close', $dialog).trigger("click");
-                        };
-                        $.ajax(o);
-                    } else {
-                        alertMsg.error("没有找到该数据");
+            if (zgbm != ssjws && ssjws) {
+                alertMsg.error("只能修改自己所属的警务室所属信息!");
+            } else {
+                alertMsg.confirm("确定要删除该员工信息吗！", {"okCall": function () {
+                        var oid = rowData.id;
+                        currentPage = rowData.cut_row;
+                        currentPage = parseInt(currentPage / 30) + 1;
+                        if (oid) {
+                            var o = new AjaxOptions();
+                            o.put("id", oid);
+                            o.put('service_code', 'P30007'); //删除社区建筑信息
+                            o.sus = function (data) {
+                                alertMsg.correct("删除成功");
+                                getCurrentResult();
+                                $('#close', $dialog).trigger("click");
+                            };
+                            $.ajax(o);
+                        } else {
+                            alertMsg.error("没有找到该数据");
+                        }
                     }
-                }
-            });
+                });
+            }
         } else {
             alertMsg.warn("请先选择至少一条数据！");
         }
@@ -103,27 +110,31 @@
         var $mychecked = $("input[type='checkbox']:checked");
         var len = $mychecked.length;
         if (len) {
-            alertMsg.confirm("确定要删除该员工信息吗！", {"okCall": function () {
-                    $mychecked.each(function () {
-                        var oid = $(this).attr('id');
-                        currentPage = $(this).attr('cut_row');
-                        if (oid) {
-                            var o = new AjaxOptions();
-                            o.put("id", oid);
-                            o.put('service_code', 'P30007'); //删除社区建筑信息
-                            o.sus = function (data) {
-                                alertMsg.correct("删除成功");
-                                $('#close', $dialog).trigger("click");
-                            };
-                            $.ajax(o);
-                        } else {
-                            alertMsg.error("没有找到该数据");
-                        }
-                    });
-                    currentPage = parseInt(currentPage / 30) + 1;
-                    getCurrentResult();
-                }
-            });
+            if (zgbm != ssjws && ssjws) {
+                alertMsg.error("只能修改自己所属的警务室所属信息!");
+            } else {
+                alertMsg.confirm("确定要删除该员工信息吗！", {"okCall": function () {
+                        $mychecked.each(function () {
+                            var oid = $(this).attr('id');
+                            currentPage = $(this).attr('cut_row');
+                            if (oid) {
+                                var o = new AjaxOptions();
+                                o.put("id", oid);
+                                o.put('service_code', 'P30007'); //删除社区建筑信息
+                                o.sus = function (data) {
+                                    alertMsg.correct("删除成功");
+                                    $('#close', $dialog).trigger("click");
+                                };
+                                $.ajax(o);
+                            } else {
+                                alertMsg.error("没有找到该数据");
+                            }
+                        });
+                        currentPage = parseInt(currentPage / 30) + 1;
+                        getCurrentResult();
+                    }
+                });
+            }
         } else {
             alertMsg.warn("请先勾选至少一条数据！");
         }

@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 (function () {
+    var ssjws = window.ssjws;
+    var zgbm = "";
     var f = false; //定义一个开关变量
     hidePic();
     var $dialog = $("body").data('mydetail');
@@ -20,94 +22,104 @@
         if (isNaN(data.csdata.ajhgz)) {
             data.csdata.ajhgz = "<a href='" + server_root + data.csdata.ajhgz + "' target='_blank'>" + "查看安检合格证" + "</a>";
         } else {
-            data.csdata.ajhgz = "<span>" + "无" + "</span>";
+            data.csdata.ajhgz = "<span>" + "无" + "</span>" + "<a href=''>" + "</a>";
         }
         if (isNaN(data.csdata.jypmt)) {
             data.csdata.jypmt = "<a href='" + server_root + data.csdata.jypmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
         } else {
-            data.csdata.jypmt = "<span>" + "无" + "</span>";
+            data.csdata.jypmt = "<span>" + "无" + "</span>" + "<a href=''>" + "</a>";
         }
         if (isNaN(data.csdata.jyxkz)) {
             data.csdata.jyxkz = "<a href='" + server_root + data.csdata.jyxkz + "' target='_blank'>" + "查看经营许可证" + "</a>";
         } else {
-            data.csdata.jyxkz = "<span>" + "无" + "</span>";
+            data.csdata.jyxkz = "<span>" + "无" + "</span>" + "<a href=''>" + "</a>";
         }
         padBackData(data.csdata, $('#shop_form', $dialog)); //回填物流信息
+        zgbm = data.csdata.zgbm;
     };
     $.ajax(opt);
 
     //#修改信息服务
     $('#modify', $dialog).click(function () {
-        var btns = new Array();
-        if (f = !f) {
-            $(":input", $dialog).removeAttr("disabled");
-            $('#ajhgz_pic,#jypmt_pic,#jyxkz_pic', $dialog).show();
-            $(this).html("保存");
+        if (zgbm != ssjws&&ssjws) {
+            alertMsg.error("只能修改自己所属的警务室所属信息!");
         } else {
-            f = !f;
-            $('.required').each(function (key, value) {
-                btns[key] = $(this).val();
-                if (btns[key] != null) {
-                    $('#modify').html("保存");
-                }
-            });
-            if ($("#shop_form", $dialog).valid()) {
-                fileOptions.putForm($('#shop_form', $dialog));       //添加表单内容
-                fileOptions.setService('P43005');
-                fileOptions.put("id", param.hyid);
-                fileOptions.put("ajhgz", $('#ajhgz a').attr("href"));
-                fileOptions.put("jypmt", $("#jypmt a").attr("href"));
-                fileOptions.put("jyxkz", $("#jyxkz a").attr("href"));
-                fileOptions.sus = function (data) {
-                    hidePic();
-                    alertMsg.correct("修改成功了！");
-                    var page = parseInt($("#xiye").html());//获取当前的页数
-                    if (isSearch) {
-                        getCS('za_wb', '', page);
+            var btns = new Array();
+            if (f = !f) {
+                $(":input", $dialog).removeAttr("disabled");
+                $('#ajhgz_pic,#jypmt_pic,#jyxkz_pic', $dialog).show();
+                $(this).html("保存");
+            } else {
+                f = !f;
+                $('.required').each(function (key, value) {
+                    btns[key] = $(this).val();
+                    if (btns[key] != null) {
+                        $('#modify').html("保存");
                     }
-                    isSearch = false;
-                    var $dia = $("body").data('add_jz_info');
-                    setTimeout(function () {
-                        $('#jzxx', $dia).click();
-                    }, 0);
-                    $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
-                    $("#close", $dialog).trigger("click");
-                };
-                fileOptions.after = function (c, d) {
-                    console.log(c);
-                };
-                fileOptions.send();
+                });
+                if ($("#shop_form", $dialog).valid()) {
+                    fileOptions.putForm($('#shop_form', $dialog));       //添加表单内容
+                    fileOptions.setService('P43005');
+                    fileOptions.put("id", param.hyid);
+                    fileOptions.put("ajhgz", $('#ajhgz a').attr("href"));
+                    fileOptions.put("jypmt", $("#jypmt a").attr("href"));
+                    fileOptions.put("jyxkz", $("#jyxkz a").attr("href"));
+                    fileOptions.sus = function (data) {
+                        hidePic();
+                        alertMsg.correct("修改成功了！");
+                        var page = parseInt($("#xiye").html());//获取当前的页数
+                        if (isSearch) {
+                            getCS('za_wb', '', page);
+                        }
+                        isSearch = false;
+                        var $dia = $("body").data('add_jz_info');
+                        setTimeout(function () {
+                            $('#jzxx', $dia).click();
+                        }, 0);
+                        $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
+                        $("#close", $dialog).trigger("click");
+                    };
+                    fileOptions.after = function (c, d) {
+                        console.log(c);
+                    };
+                    fileOptions.send();
+                }
             }
         }
     });
     //#删除信息服务
     $('#del', $dialog).click(function () {
         if (param.hyid != null) {
-            alertMsg.confirm("确定要删除该网吧吗？", {"okCall": function () {
-                    $("input", $dialog).removeAttr("disabled");
-                    var o = new AjaxOptions();
-                    o.put("ajhgz", $('#ajhgz a').html());
-                    o.put("jypmt", $("#jypmt a").html());
-                    o.put("jyxkz", $("#jyxkz a").html());
-                    o.put("id", param.hyid);
-                    o.put("service_code", 'P43004');
-                    o.sus = function (data) {
-                        alertMsg.correct("删除成功了！");
+            if (zgbm != ssjws&&ssjws) {
+                alertMsg.error("只能删除自己所属的警务室所属信息!");
+            } else {
+                alertMsg.confirm("确定要删除该网吧吗？", {"okCall": function () {
+                        $("input", $dialog).removeAttr("disabled");
+                        var o = new AjaxOptions();
+                        o.put("ajhgz", $('#ajhgz a').html());
+                        o.put("jypmt", $("#jypmt a").html());
+                        o.put("jyxkz", $("#jyxkz a").html());
+                        o.put("id", param.hyid);
+                        o.put("service_code", 'P43004');
+                        o.sus = function (data) {
+                            alertMsg.correct("删除成功了！");
 //                        var page = parseInt($("#xiye").html());//获取当前的页数
 //                        if (isSearch) {
 //                            getCS('za_wb', '', page);
 //                        }
 //                        isSearch = false;
-                        var $dia = $("body").data('add_jz_info');
-                        setTimeout(function () {
-                            $('#jzxx', $dia).click();
-                        }, 0);
-                        $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
-                        $('#close', $dialog).trigger("click");
-                    };
-                    $.ajax(o);
-                }
-            });
+                            var $dia = $("body").data('add_jz_info');
+                            setTimeout(function () {
+                                $('#jzxx', $dia).click();
+                            }, 0);
+                            $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
+                            $('#close', $dialog).trigger("click");
+                        };
+                        $.ajax(o);
+                    }
+
+                });
+            }
         } else {
             alertMsg.error("没有找到该数据");
         }

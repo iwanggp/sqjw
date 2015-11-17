@@ -20,4 +20,19 @@
         <id>jzid</id>
         <zgbm></zgbm>
     </item>
+    <item service="P21006">
+        <sql>select_sq_id</sql>
+        <id>sqid</id>
+        <zgbm></zgbm>
+    </item>
+    <item service="P70002">
+        <sql>za_select_zjh_id</sql>
+        <id>id</id>
+        <zgbm></zgbm>
+    </item>
+    <item service="P43008">
+        <sql>za_select_lg_id</sql>
+        <id>id</id>
+        <zgbm></zgbm>
+    </item>
 </root>

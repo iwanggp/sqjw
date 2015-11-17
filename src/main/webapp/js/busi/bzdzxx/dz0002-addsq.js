@@ -22,12 +22,14 @@
         var wd = $('#wd', $dialog).val();
         var xzqh = $('#xzqh', $dialog).val();
         var zgbm = $('#zgbm', $dialog).val();
+        var jzdzbm=$('#jzdzbm',$dialog).val();
         var o = new AjaxOptions($('#sq_form', $dialog));
         o.put('fw', fw);
         o.put('sqmc', sqmc);
         o.put('dz', dz);
         o.put('xzqh', xzqh);
         o.put('zgbm', zgbm);
+        o.put('jzdzbm',jzdzbm);
         o.put('service_code', 'P21001');
         o.put('jd', jd);//传递经度参数
         o.put('wd', wd);//传递维度参数

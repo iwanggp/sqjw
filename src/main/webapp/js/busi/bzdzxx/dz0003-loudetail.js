@@ -6,6 +6,8 @@
  */
 (function () {
     var f = false; //定义一个开关变量
+    var ssjws = window.ssjws;
+    var zgbm = "";
     var $dialog = $("body").data('mydetail');
     bringDialogToFront($dialog);
     initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
@@ -19,54 +21,63 @@
     $("input", $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     opt.sus = function (data) {
         padBackData(data.jzdata, $('#jz_form', $dialog)); //回填信息
+        zgbm = data.jzdata.zgbm;
     };
     $.ajax(opt);
     //#修改信息服务
     $('#add_modify', $dialog).click(function () {
-        var btns = new Array();
+        if (zgbm != ssjws&&ssjws) {
+            alertMsg.error("只能修改自己所属的警务室所属信息!");
+        } else {
+            var btns = new Array();
 //        var mov = map.getOverlayById(param.sqid);
 //        mov.moveable = true;//是否可以拖动
-        if (f = !f) {
-            $(":input", $dialog).removeAttr("disabled");
-            $(this).html("保存");
-        } else {
-            f = !f;
-            $('.required').each(function (key, value) {
-                btns[key] = $(this).val();
-                if (btns[key] != null) {
-                    $('#add_modify').html("保存");
+            if (f = !f) {
+                $(":input", $dialog).removeAttr("disabled");
+                $(this).html("保存");
+            } else {
+                f = !f;
+                $('.required').each(function (key, value) {
+                    btns[key] = $(this).val();
+                    if (btns[key] != null) {
+                        $('#add_modify').html("保存");
+                    }
+                });
+                if ($("#jz_form", $dialog).valid()) {
+                    var o = new AjaxOptions($('#jz_form', $dialog));
+                    o.put("service_code", "P30002");
+                    o.put("jzid", param.hyid);
+                    o.sus = function (data) {
+                        alertMsg.correct("修改成功建筑");
+                        $("#search-button11", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
+                        $("#add_close", $dialog).trigger("click");
+                    };
+                    $.ajax(o);
                 }
-            });
-            if ($("#jz_form", $dialog).valid()) {
-                var o = new AjaxOptions($('#jz_form', $dialog));
-                o.put("service_code", "P30002");
-                o.put("jzid", param.hyid);
-                o.sus = function (data) {
-                    alertMsg.correct("修改成功");
-                    $("#search-button11", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
-                    $("#add_close", $dialog).trigger("click");
-                };
-                $.ajax(o);
             }
 
         }
     });
     //#删除信息服务
     $('#del', $dialog).click(function () {
-        if (param.jzid != null) {
-            alertMsg.confirm("确定要删除该社区吗？如果删除则该社区所有的信息都将删除！请谨慎操作！", {"okCall": function () {
-                    $("input", $dialog).removeAttr("disabled");
-                    var o = new AjaxOptions();
-                    o.put("jzid", param.jzid);
-                    o.put("service_code", "P30003");
-                    o.sus = function (data) {
-                        alertMsg.correct("删除成功");
-                        $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
-                        $('#close', $dialog).trigger("click");
-                    };
-                    $.ajax(o);
-                }
-            });
+        if (param.hyid) {
+            if (zgbm != ssjws&&ssjws) {
+                alertMsg.error("只能删除自己所属的警务室所属信息!");
+            } else {
+                alertMsg.confirm("确定要删除该建筑吗？如果删除则该社区所有的信息都将删除！请谨慎操作！", {"okCall": function () {
+                        $("input", $dialog).removeAttr("disabled");
+                        var o = new AjaxOptions();
+                        o.put("jzid", param.hyid);
+                        o.put("service_code", "P30003");
+                        o.sus = function (data) {
+                            alertMsg.correct("删除成功");
+                            $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
+                            $('#close', $dialog).trigger("click");
+                        };
+                        $.ajax(o);
+                    }
+                });
+            }
         } else {
             alertMsg.error("没有找到该数据");
         }

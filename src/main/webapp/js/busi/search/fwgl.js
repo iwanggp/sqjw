@@ -7,7 +7,7 @@
     var $page = navTab.getCurrentPanel();
     var searchData;
     var currentPage = 1;
-    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $page));
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm1', $page));
     getCurrentResult();
 
     /**
@@ -81,7 +81,7 @@
             alertMsg.warn("请先选择一条数据！");
         }
     });
-    function getCurrentResult() {
+    function  getCurrentResult() {
         $('#ssxx', $page).cutPage(form2JSON($('#search-form', $page), {
             service_code: 'S56001',
             page_size: 25,

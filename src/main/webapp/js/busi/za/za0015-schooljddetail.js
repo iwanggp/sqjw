@@ -5,8 +5,8 @@
  */
 (function () {
     var f = false; //定义一个开关变量
-//    var $dialog = $("body").data('za_schooljd_detail');
-//    bringDialogToFront($dialog);
+    var ssjws = window.ssjws;
+    var zgbm = "";
     var $dialog = $.pdialog.getCurrent();
     $("input", $dialog).attr("disabled", "disabled"); //让输入框为只读状态
     var param = $dialog.data('param'); //父窗口传递的参数
@@ -16,6 +16,7 @@
     opt.sus = function (data) {
         if (data.csdata) {
             padBackData(data.csdata, $('#shop_form', $dialog)); //回填表单信息
+            zgbm = data.csdata.zgbm;
         } else {
             $.pdialog.closeCurrent();
             alertMsg.confirm("尚未添加该学校的监督信息！是否添加", {okCall: function () {//提示信息   
@@ -27,27 +28,31 @@
 
     //#修改信息服务
     $('#modify', $dialog).click(function () {
-        var btns = new Array();
-        if (f = !f) {
-            $("input", $dialog).removeAttr("disabled");
-            $(this).html("保存");
+        if (zgbm != ssjws&&ssjws) {
+            alertMsg.error("只能修改自己所属的警务室所属信息!");
         } else {
-            f = !f;
-            $('.required', $dialog).each(function (key, value) {
-                btns[key] = $(this).val();
-                if (btns[key] != null) {
-                    $('#modify').html("保存");
+            var btns = new Array();
+            if (f = !f) {
+                $("input", $dialog).removeAttr("disabled");
+                $(this).html("保存");
+            } else {
+                f = !f;
+                $('.required', $dialog).each(function (key, value) {
+                    btns[key] = $(this).val();
+                    if (btns[key] != null) {
+                        $('#modify').html("保存");
+                    }
+                });
+                if ($("#shop_form", $dialog).valid()) {
+                    var opt = new AjaxOptions($('#shop_form', $dialog));
+                    opt.put("service_code", "P44103");
+                    opt.put("id", param.hyid);
+                    opt.sus = function (data) {
+                        alertMsg.correct("修改成功了！");
+                        $("#close", $dialog).trigger("click");
+                    };
+                    $.ajax(opt);
                 }
-            });
-            if ($("#shop_form", $dialog).valid()) {
-                var opt = new AjaxOptions($('#shop_form', $dialog));
-                opt.put("service_code", "P44103");
-                opt.put("id", param.hyid);
-                opt.sus = function (data) {
-                    alertMsg.correct("修改成功了！");
-                    $("#close", $dialog).trigger("click");
-                };
-                $.ajax(opt);
             }
         }
     });

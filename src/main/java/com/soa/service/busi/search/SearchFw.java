@@ -31,7 +31,7 @@ public class SearchFw extends BaseService {
     @Transactional
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
         in.putStringValue("sql", "search_select_fw");
-        in.putObjectValue("args", new Object[]{in.getStringValue("zgbm"), in.getStringValue("mph"), in.getStringValue("fzxm"), in.getStringValue("dz"), in.getStringValue("ks"), in.getStringValue("js")});
+        in.putObjectValue("args", new Object[]{in.getStringValue("zgbm1"), in.getStringValue("mph"), in.getStringValue("fzxm"), in.getStringValue("dz"), in.getStringValue("ks"), in.getStringValue("js")});
         in.putIntValue("page_size", in.getIntValue("page_size"));
         runService("S10001", in, inHead, out, outHead);
     }

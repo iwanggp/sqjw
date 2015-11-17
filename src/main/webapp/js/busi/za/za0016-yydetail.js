@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 (function () {
+    var ssjws = window.ssjws;
+    var zgbm = "";
     var f = false; //定义一个开关变量
     var $dialog = $("body").data('mydetail');
     bringDialogToFront($dialog);
@@ -17,60 +19,69 @@
     opt.put("id", param.hyid);
     opt.sus = function (data) {
         padBackData(data.csdata, $('#shop_form', $dialog)); //回填物流信息
+        zgbm = data.csdata.zgbm;
     };
     $.ajax(opt);
 
     //#修改信息服务
     $('#modify', $dialog).click(function () {
-        var btns = new Array();
-        if (f = !f) {
-            $(":input", $dialog).removeAttr("disabled");
-            $(this).html("保存");
+        if (zgbm != ssjws&&ssjws) {
+            alertMsg.error("只能修改自己所属的警务室所属信息!");
         } else {
-            f = !f;
-            $('.required', $dialog).each(function (key, value) {
-                btns[key] = $(this).val();
-                if (btns[key] != null) {
-                    $('#modify').html("保存");
+            var btns = new Array();
+            if (f = !f) {
+                $(":input", $dialog).removeAttr("disabled");
+                $(this).html("保存");
+            } else {
+                f = !f;
+                $('.required', $dialog).each(function (key, value) {
+                    btns[key] = $(this).val();
+                    if (btns[key] != null) {
+                        $('#modify').html("保存");
+                    }
+                });
+                if ($("#shop_form", $dialog).valid()) {
+                    var opt = new AjaxOptions($('#shop_form', $dialog));
+                    opt.put("service_code", "P43016");
+                    opt.put("id", param.hyid);
+                    opt.sus = function (data) {
+                        alertMsg.correct("修改成功了！");
+                        var $dia = $("body").data('add_jz_info');
+                        setTimeout(function () {
+                            $('#jzxx', $dia).click();
+                        }, 50);
+                        $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
+                        $("#close", $dialog).trigger("click");
+                    };
+                    $.ajax(opt);
                 }
-            });
-            if ($("#shop_form", $dialog).valid()) {
-                var opt = new AjaxOptions($('#shop_form', $dialog));
-                opt.put("service_code", "P43016");
-                opt.put("id", param.hyid);
-                opt.sus = function (data) {
-                    alertMsg.correct("修改成功了！");
-                    var $dia = $("body").data('add_jz_info');
-                    setTimeout(function () {
-                        $('#jzxx', $dia).click();
-                    }, 50);
-                    $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
-                    $("#close", $dialog).trigger("click");
-                };
-                $.ajax(opt);
             }
         }
     });
     //#删除信息服务
     $('#del', $dialog).click(function () {
         if (param.hyid) {
-            alertMsg.confirm("确定要删除该场所吗？", {"okCall": function () {
-                    $("input", $dialog).removeAttr("disabled");
-                    var o = new AjaxOptions();
-                    o.put("id", param.hyid);
-                    o.put("service_code", 'P43015');
-                    o.sus = function () {
-                        alertMsg.correct("删除成功了！");
-                        var $dia = $("body").data('add_jz_info');
-                        setTimeout(function () {
-                            $('#jzxx', $dia).click();
-                        }, 50);
-                        $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
-                        $('#close', $dialog).trigger("click");
-                    };
-                    $.ajax(o);
-                }
-            });
+            if (zgbm != ssjws&&ssjws) {
+                alertMsg.error("只能删除自己所属的警务室所属信息!");
+            } else {
+                alertMsg.confirm("确定要删除该场所吗？", {"okCall": function () {
+                        $("input", $dialog).removeAttr("disabled");
+                        var o = new AjaxOptions();
+                        o.put("id", param.hyid);
+                        o.put("service_code", 'P43015');
+                        o.sus = function () {
+                            alertMsg.correct("删除成功了！");
+                            var $dia = $("body").data('add_jz_info');
+                            setTimeout(function () {
+                                $('#jzxx', $dia).click();
+                            }, 50);
+                            $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
+                            $('#close', $dialog).trigger("click");
+                        };
+                        $.ajax(o);
+                    }
+                });
+            }
         } else {
             alertMsg.error("没有找到该数据");
         }

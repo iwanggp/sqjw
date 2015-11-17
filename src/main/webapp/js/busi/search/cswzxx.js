@@ -21,9 +21,9 @@
         getCurrentResult();
     });
     $("#add", $dialog).click(function () {
-        $.pdialog.open('page/za/za0014-addwzxx.html', 'add_wz_xx', "添加检查登记信息",
+        $.pdialog.open('page/za/za0014-addwzxx.html', 'add_wz_xx', "添加违章登记信息",
                 {"width": 580, "height": 600, mask: true,
-                    param: {fid: fid, mc: obj['mc'], dz: obj['dz']},
+                    param: {fid: fid, mc: obj['mc'], dz: obj['dz'],zgbm:obj['zgbm']},
                     close: function (param) {
                         currentPage = 1;
                         getResult();

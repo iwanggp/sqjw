@@ -19,12 +19,12 @@
         if (isNaN(data.csdata.zdbwnbt)) {
             data.csdata.zdbwnbt = "<a href='" + server_root + data.csdata.zdbwnbt + "' target='_blank'>" + "查看重点部位内部图" + "</a>";
         } else {
-            data.csdata.zdbwnbt = "<span>" + "无" + "</span>";
+            data.csdata.zdbwnbt = "<span>" + "无" + "</span>"+"<a href=''>" +"</a>";
         }
         if (isNaN(data.csdata.zdbwwbt)) {
             data.csdata.zdbwwbt = "<a href='" + server_root + data.csdata.zdbwwbt + "' target='_blank'>" + "查看重点部位外部图" + "</a>";
         } else {
-            data.csdata.zdbwwbt = "<span>" + "无" + "</span>";
+            data.csdata.zdbwwbt = "<span>" + "无" + "</span>"+"<a href=''>" +"</a>";
         }
 
         padBackData(data.csdata, $('#shop_form', $dialog)); //回填信息

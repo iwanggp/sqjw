@@ -6,6 +6,8 @@
  */
 (function () {
     var f = false; //定义一个开关变量
+    var ssjws = window.ssjws;
+    var zgbm = "";
     var $dialog = $("body").data('detailSq');
     initParaSelect('jw_sq.lb', $('#sqlb', $dialog));
     initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
@@ -22,46 +24,50 @@
     opt.sus = function (data) {
         padBackData(data.sqdata, $('#sq_form', $dialog)); //回填信息
         sqname = data.sqdata.sqmc;
+        zgbm = data.sqdata.zgbm;
     };
     $.ajax(opt);
     //#修改信息服务
     $('#add_modify', $dialog).click(function () {
-        var btns = new Array();
-        $('.btnLook').show();
+        if (zgbm != ssjws&&ssjws) {
+            alertMsg.error("只能修改自己所属的警务室所属信息!");
+        } else {
+            var btns = new Array();
+            $('.btnLook').show();
 //        var mov = map.getOverlayById(param.sqid);
 //        mov.moveable = true;//是否可以拖动
-        if (f = !f) {
-            $(":input", $dialog).removeAttr("disabled");
-            $(this).html("保存");
-        } else {
-            f = !f;
-            $('.required').each(function (key, value) {
-                btns[key] = $(this).val();
-                if (btns[key] != null) {
-                    $('#add_modify').html("保存");
+            if (f = !f) {
+                $(":input", $dialog).removeAttr("disabled");
+                $(this).html("保存");
+            } else {
+                f = !f;
+                $('.required').each(function (key, value) {
+                    btns[key] = $(this).val();
+                    if (btns[key] != null) {
+                        $('#add_modify').html("保存");
 //                    mov.moveable = false;
+                    }
+                });
+                if ($("#sq_form", $dialog).valid()) {
+                    var fw = $('#fw', $dialog).val();
+                    var o = new AjaxOptions($('#sq_form', $dialog));
+                    o.put("sqid", param.sqid);
+                    o.put('dz', $('#dz', $dialog).val());
+                    o.put('jd', $('#jd', $dialog).val());
+                    o.put('wd', $('#wd', $dialog).val());
+                    o.put("service_code", "P21006");
+                    o.put("sqid", param.sqid);
+                    o.put("fw", fw);
+                    o.sus = function (data) {
+                        alertMsg.correct("修改成功");
+                        $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
+                        $("#close", $dialog).trigger("click");
+                        $('#xiye').text(1);
+                        getSq(mc, 1);
+                    };
+                    $.ajax(o);
                 }
-            });
-            if ($("#sq_form", $dialog).valid()) {
-                var fw = $('#fw', $dialog).val();
-                var o = new AjaxOptions($('#sq_form', $dialog));
-                o.put("sqid", param.sqid);
-                o.put('dz', $('#dz', $dialog).val());
-                o.put('jd', $('#jd', $dialog).val());
-                o.put('wd', $('#wd', $dialog).val());
-                o.put("service_code", "P21006");
-                o.put("sqid", param.sqid);
-                o.put("fw", fw);
-                o.sus = function (data) {
-                    alertMsg.correct("修改成功");
-                    $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
-                    $("#close", $dialog).trigger("click");
-                    $('#xiye').text(1);
-                    getSq(mc, 1);
-                };
-                $.ajax(o);
             }
-
         }
     });
     //#删除信息服务

@@ -1,7 +1,7 @@
 <!--
 To change this template, choose Tools | Templates
 and open the template in the editor.
--->
+
 <div class="pageContent">
     <form  id="sq_form" class="pageForm">
         <div class="pageFormContent" layoutH="58">
@@ -30,7 +30,7 @@ and open the template in the editor.
             <div class="unit">
                 <label>行政区划：</label>
                 <select id="xzqh" name="xzqh"></select>
-                <!--<input type="text" id="xzqh" name="obj.xzqhdm" size="35" class="required"/>-->
+                <input type="text" id="xzqh" name="obj.xzqhdm" size="35" class="required"/>
             </div>
             <div class="unit">
                 <label>建成日期：</label>
@@ -112,5 +112,140 @@ and open the template in the editor.
             </ul>
         </div>
     </form>
+</div>-->
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="pageContent">
+    <form  id="sq_form" class="pageForm">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>社区名称：</label>
+                <input type="text"  id="sqmc" name="sqmc" class="required" size="35"/>
+
+            </div>
+            <div class="unit">
+                <label>社区类别：</label>
+                <select id="sqlb" name="sqlb" ></select>
+            </div>
+            <div class="unit">
+                <label>社区面积：</label>
+                <select id="fw">
+                    <option value=300>300平方米</option>
+                    <option value=500>500平方米</option>
+                    <option value=1000>1000平方米</option>
+                    <option value=1500>1500平方米</option>
+                    <option value=2000>2000平方米</option>
+                </select>
+            </div>
+            <div class="unit">
+                <label>社区地址：</label>
+                <input class="required"  id="dz"  name="obj.orgName" type="text" size="35"/>
+                <!--<input class="required"  id="sqmc"  name="obj.sqmc" type="text" lookupGroup="obj" lookupPk="orgNum" size="35"/>-->
+                <a class="btnLook" href="page/search/getbzdz.html" lookupGroup="obj" lookupPk="id">查找地址</a>	
+                <!--                <input class="required"  id="dz"  name="obj.orgName" type="text" lookupGroup="obj" lookupPk="orgNum" size="35"/>
+                                <a class="btnLook" href="page/search/getbzdz.html" lookupGroup="obj" lookupPk="id">查找地址 </a>	-->
+            </div>
+            <div class="unit">
+                <label>行政区名称：</label>
+                <select id="xzqh" name="obj.xzqhdm"></select>
+                <!--<input type="text" id="xzqh" name="obj.xzqhdm" size="35" class="required"/>-->
+            </div>
+            <div class="unit">
+                <label>建成日期：</label>
+                <input type="text" id="jcrq" name="jcrq" size="24" class="date"/>
+            </div>
+            <div class="unit">
+                <label>楼栋数：</label>
+                <input type="text" id="lds" name="lds" size="15" class="number"/>  
+            </div>
+            <div class="unit">
+                <label>单元数：</label>
+                <input type="text" id="dys" name="dys" size="15" class="number"/>  
+            </div>
+            <div class="unit">
+                <label>小区大门数：</label>
+                <input type="text" id="dms" name="dms" size="15" class="number"/>  
+            </div>
+            <div class="unit">
+                <label>总户数：</label>
+                <input type="text" id="zhs" name="zhs" size="15" class="number"/>  
+            </div>
+            <div class="unit">
+                <label>入住户数：</label>
+                <input type="text" id="lzhs" name="lzhs" size="15" class="number"/>  
+            </div>
+            <div class="unit">
+                <label>家有人口数：</label>
+                <input type="text" id="rks" name="rks" size="15" class="number"/>  
+            </div>
+            <div class="unit">
+                <label>开发商：</label>
+                <input type="text" id="kfs" name="kfs" size="35" />
+            </div>
+            <div class="unit">
+                <label>物业公司：</label>
+                <input type="text" id="wygs" name="wygs" size="35" />
+            </div>
+            <div class="unit">
+                <label>物业负责人：</label>
+                <input type="text" id="frdb" name="frdb" size="35" />
+            </div>
+            <div class="unit">
+                <label>物业联系方式：</label>
+                <input type="text" id="lxfs" name="lxfs" size="35" />
+            </div>
+            <div class="unit">
+                <label>安保负责人：</label>
+                <input type="text" id="abfzr" name="abfzr" size="35" />
+            </div>
+            <div class="unit">
+                <label>安保联系电话：</label>
+                <input type="text" id="ablxdh" name="ablxdh" size="35" />
+            </div>
+            <div class="unit">
+                <label>保安人数：</label>
+                <input type="text" id="bars" name="bars" size="15" class="number"/>  
+            </div>
+            <div class="unit">
+                <label>所属警务室：</label>
+                <!--<input type="text" id="zgbm" name="obj.zgbm" size="35" class="required"/>-->
+                <select id="zgbm" name="obj.zgbm"></select>
+            </div>
+            <div class="unit">
+                <label>经度：</label>
+                <input id="jd" name="obj.jd"  type="text"/>
+            </div>
+            <div class="unit">
+                <label>维度：</label>
+                <input id="wd" name="obj.wd"  type="text"/>
+            </div>
+            <div class="unit">
+                <label>片警姓名：</label>
+                <input type="text" id="zgrxm" name="zgrxm" size="23"/>
+            </div>
+            <div class="unit">
+                <label>片警联系方式：</label>
+                <input type="text" id="zgrdh" name="zgrdh" size="23"/>
+            </div>
+            <div class="unit">
+                <label>社区备注：</label>
+                <textarea rows="3" cols="25" id="bz" name="bz" />
+            </div>
+            <div class="unit">
+                <label>地址编码：</label>
+                <input type="text" id="jzdzbm" name=obj.jzdzbm />
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li class="_update"><div class="buttonActive"><div class="buttonContent"><button type="button" id="add">添加</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" id="close" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
 </div>
+
+
 
