@@ -29,7 +29,7 @@
         for (var i = 0; i < files.length; i++) {
             console.log(files[i].name + '---' + files[i].size);
             if (files[i].size > 50 * 1024 * 1024) {
-                alertMsg.error(files[i].name + ' 文件大于是5M');
+                alertMsg.error(files[i].name + ' 文件大于是50M');
                 return false;
             } else if (files[i].size == 0) {
                 return false;

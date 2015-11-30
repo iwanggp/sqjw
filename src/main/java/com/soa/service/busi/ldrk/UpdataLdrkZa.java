@@ -5,6 +5,7 @@
  */
 package com.soa.service.busi.ldrk;
 
+import ch.qos.logback.classic.util.ContextInitializer;
 import com.lianzt.commondata.AbstractCommonData;
 import com.lianzt.util.Base64;
 import com.soa.exception.GlobalException;
@@ -42,7 +43,6 @@ public class UpdataLdrkZa extends BaseService {
 
     //校验不能为空的值，当key为空时会提示不能为空
     private final String[] KEY = {};
-    private final Logger log = LoggerFactory.getLogger(AddShopZa.class);
 
     @Override
     public String[] keys() {
@@ -57,12 +57,24 @@ public class UpdataLdrkZa extends BaseService {
         byte[] file = (byte[]) in.getObjectValue("ldrkdata");
         String name = in.getStringValue("ldrkdata_name");
         final String modul_name = "LDRKDATA";
-        FileOutputStream fos;
         try {
             final String file_path = sqjwUtil.upLoad(file, "zaldrk", modul_name, name);
+//            insertDb(file_path);
             /**
              * 添加一个定时器的作用让写数据库写延迟两分钟执行
              */
+            new Timer().schedule(new TimerTask() {
+
+                @Override
+                public void run() {
+                    try {
+                        insertDb(file_path);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                }
+            }, 2000);
             new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -79,7 +91,7 @@ public class UpdataLdrkZa extends BaseService {
     }
 
     public void insertDb(String file_Path) throws IOException {
-        FileReader fr = new FileReader(file_Path);
+//        FileReader fr = new FileReader(file_Path);
         final String ldrkpic = "LDRKZP";
         String pic_path = "";
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file_Path), "utf-8"));

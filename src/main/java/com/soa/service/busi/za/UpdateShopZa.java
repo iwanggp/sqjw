@@ -50,7 +50,6 @@ public class UpdateShopZa extends BaseService {
         byte[] file1 = (byte[]) in.getObjectValue("pic_ajhgz");
         byte[] file2 = (byte[]) in.getObjectValue("pic_jypmt");
         final String modul_name = "ZASHOP";
-        log.debug(in.getStringValue("jyxkz") + "][][[[][][[[------->>>>>");
         AbstractCommonData acd = getSession(in);
         in.put("cjrxm", acd.get("xm"));
         //in从页面传来过得值

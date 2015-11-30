@@ -14,6 +14,7 @@ import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+
 /**
  *
  * 一个工具类
@@ -49,7 +50,7 @@ public class SqjwUtil {
         }
         try {
             String dbFileName = SystemUtil.getSerialNum() + "." + extension;
-            String dbFilePath = _Path + line + dbFileName;//数据库中要保存的相对路径及文件名
+            String dbFilePath = module_name+line + dbFileName;//数据库中要保存的相对路径及文件名
 //            dbFilePath = dbFilePath.replaceAll("\\\\", "/");
             String filePath = rel_path + line + dbFileName;//绝对路径，就是要写文件的名字
             bos = new BufferedOutputStream(new FileOutputStream(filePath));     //最终的文件带文件名和扩展名
@@ -75,7 +76,9 @@ public class SqjwUtil {
      */
     public String getRelPath(String dbPath) {
         String _path = SystemUtil.getSysConfig("za0001_file_path1");
-        return _path + dbPath;
+         String line = File.separator;//通用文件分割符
+        return _path +line+dbPath;
+        
     }
 
     /**
@@ -110,16 +113,17 @@ public class SqjwUtil {
             return true;
         }
     }
+
     /**
-     * 
-     * @param file   字节数组
+     *
+     * @param file 字节数组
      * @param sys_path
      * @param module_name 模块的名称
-     * @param fileName  文件的名字
+     * @param fileName 文件的名字
      * @return
-     * @throws IOException 
+     * @throws IOException
      */
-      public String upLoadIDPicture(byte[] file, String sys_path, String module_name, String fileName) throws IOException {
+    public String upLoadIDPicture(byte[] file, String sys_path, String module_name, String fileName) throws IOException {
         String filepath = SystemUtil.getSysConfig(sys_path);
         String serverRoot = SystemUtil.getSysConfig("za0001_server_root");//服务器的根目录
         BufferedOutputStream bos = null;
@@ -134,6 +138,7 @@ public class SqjwUtil {
         try {
             String dbFileName = fileName + "." + "jpg";
             String dbFilePath = _Path + line + dbFileName;//数据库中要保存的相对路径及文件名
+//            String dbFilePath = line + module_name + line + dbFileName;//数据库中要保存的相对路径及文件名
 //            dbFilePath = dbFilePath.replaceAll("\\\\", "/");
             String filePath = rel_path + line + dbFileName;//绝对路径，就是要写文件的名字
             bos = new BufferedOutputStream(new FileOutputStream(filePath));     //最终的文件带文件名和扩展名

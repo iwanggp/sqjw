@@ -5,9 +5,9 @@
  */
 (function () {
     var $dialog = navTab.getCurrentPanel();
-//    initParaSelect('za_ssrk.rylb', $('#rylb', $dialog));
-//    initParaSelect('za_people.xb', $('#xb', $dialog));
-//    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
+    initParaSelect('za_people.ryxz', $('#ryxz_s', $dialog));
+    initParaSelect('za_people.xb', $('#xb_s', $dialog));
+    initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#tbdw_dm', $dialog));
 //    $('#rylb', $dialog).change(function () {
 //        currentPage = 1;//当改变查询条件时默认从第一行开始查询
 //    });
@@ -57,6 +57,9 @@
                     }
                 });
     });
+    $('#lrry', $dialog).click(function () {
+        $('select', $dialog).removeAttr('disabled');
+    });
     // 查看人员信息
     $('#look', $dialog).on('click', function () {
         var rowData11 = $(this).getRow();
@@ -78,6 +81,7 @@
             $('#jbsxBoxyg', $dialog).loadUrl('page/search/people.html', {}, function () {
                 $('#people', $dialog).show().trigger('click');
                 $('#jbsxBoxyg', $dialog).find("[layoutH]").layoutH();
+
             });
         } else {
             alertMsg.warn("请先选择一条数据！");
@@ -141,7 +145,7 @@
         }
     });
     function getCurrentResult() {
-        $('#rkinfo', $dialog).cutPage(form2JSON($('#search-form', $dialog), {service_code: 'S55550', page_size: 30, page: currentPage}), function (data) {
+        $('#rkinfo', $dialog).cutPage(form2JSON($('#search-form', $dialog), {service_code: 'S88004', page_size: 30, page: currentPage}), function (data) {
             for (var i = 0; i < data.length; i++) {
                 var item = data[i]; // 获取到table每一行数据
                 item.xz = $('<input type="checkbox"/>').attr({
@@ -199,16 +203,16 @@
         });
     }
     function getSearchCurrentResult() {
-        $('#rkinfo', $dialog).cutPage(form2JSON($('#search-form', $dialog), {service_code: 'S88002', page_size: 30, page: 1}), function (data) {
+        $('#rkinfo', $dialog).cutPage(form2JSON($('#search-form', $dialog), {service_code: 'S88004', page_size: 30, page: 1}), function (data) {
             for (var i = 0; i < data.length; i++) {
                 var item = data[i]; // 获取到table每一行数据
                 item.xz = $('<input type="checkbox"/>').attr({
-                    "id": item.id,
+                    "id": item.lrryid,
                     "cut_row": item.cut_row,
                     "checked": false
                 }).css({"cursor": "pointer"});
                 item.map_link = $('<a/>').attr({
-                    "hyid": item.id,
+                    "hyid": item.lrryid,
                     "hylb": item.hylb,
                     "jd": item.jd,
                     "wd": item.wd,
@@ -219,7 +223,7 @@
                     "sfzh": item.sfzh
                 }).addClass("info-link").css({"cursor": "pointer", "color": "brown"}).html('随行人员');
                 item.name_link = $('<a/>').attr({
-                    "fzid": item.fzid
+                    "id": item.lrryid
                 }).addClass('name-link').css({"cursor": "pointer", "color": "blue"}).html('人房关联');
                 setTimeout(function () {
                     $(".map-link").unbind("click").bind("click", function () {
@@ -230,10 +234,9 @@
                 }, 100);
                 setTimeout(function () {
                     $(".name-link").unbind("click").bind("click", function () {
-                        $.pdialog.open('page/za/za0009-zjhdetail.html', 'mydetail', "人房关联",
+                        $.pdialog.open('page/ldrk/ldrk0002-jzdetail.html', 'jzdetail', "人房关联",
                                 {"width": 680, "height": 560, mask: true,
-                                    param: {hyid: $(this).attr('fzid'),
-                                        hylb: 'za_zjh'},
+                                    param: {lrryid: $(this).attr('id')},
                                     close: function (param) {
                                         return true;
                                     }

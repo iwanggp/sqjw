@@ -3,7 +3,7 @@
     <div class="tabsHeader">
         <div class="tabsHeaderContent">
             <ul>
-                <li><a href="javascript:;"><span>流动人口信息管理</span></a></li>
+                <li id="lrry"><a href="javascript:void(0)" name="lrry"><span id="lrry">流动人口信息管理</span></a></li>
                 <li id="people" style="display: none"><a href="page/search/people.html" rel="jbsxBoxyg" target="ajax"><span>人员详细信息</span></a></li>
             </ul>
         </div>
@@ -17,10 +17,10 @@
                         <table class="searchContent" width="50%">
                             <tr>
                                 <td width="20%">
-                                    管辖公安机关:
+                                    同步警务室:
                                 </td>
                                 <td width="20%">
-                                    <select id="zgbm" name="zgbm">
+                                    <select id="tbdw_dm" name="tbdw_dm">
                                         <option value="">全部</option>
                                     </select>
                                 </td>
@@ -28,10 +28,14 @@
                                     姓名：<input id="xm" name="xm" type="text" size="20"/>
                                 </td>
                                 <td width="25%">
-                                    人员类别：
-                                    <select id="rylb" name="rylb">
+                                    人员性质：
+                                    <select id="ryxz_s" name="ryxz_s">
                                         <option value="">全部</option>
                                     </select>
+                                </td>
+                                <td width="25%">
+                                    同步人员：
+                                    <input id="tbr" name="tbr" type="text" size="20"/>
                                 </td>
                             </tr>
                             <tr>
@@ -41,10 +45,9 @@
                                 <td>
                                     <input id="sfzh" name="sfzh" type="text"  size="20"/>
                                 </td>
-
                                 <td width="50">
                                     性别：
-                                    <select id="xb" name="xb">
+                                    <select id="xb_s" name="xb_s">
                                         <option value="">全部</option>
                                     </select>
                                 </td>
@@ -57,7 +60,7 @@
                             </tr>
                             <tr>
                                 <td width="15%">
-                                    采集时间：
+                                    同步时间：
                                 </td>
                                 <td>
                                     <input id="ks" name="ks" class="date" size="15"/>
@@ -90,10 +93,10 @@
                         <th data-key="sfzh">证件号</th>
                         <th data-key="mz" st-param="za_people.mz">民族</th>
                         <th data-key="csrq" date-format="yyyy-MM-dd">出生日期</th>
-                        <th data-key="cjrxm">采集人</th>
-                        <th data-key="bz">备注</th>
-                        <th data-key="lrsj" date-format="yyyy-MM-dd">采集时间</th>
-                        <th data-key="info" data-key="info1">随行人员</th>
+                        <th data-key="tbr">采集人</th>
+                        <th data-key="czhkdz">常住户口地址 </th>
+                        <th data-key="tbrq" date-format="yyyy-MM-dd">同步日期</th>
+                        <th data-key="name_link">人房关联</th>
                     </tr>
                 </thead>
                 <tbody>
