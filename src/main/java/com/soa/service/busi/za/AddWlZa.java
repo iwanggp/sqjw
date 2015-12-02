@@ -70,7 +70,7 @@ public class AddWlZa extends BaseService {
             String file2_path = null;
             String file3_path = null;
             String file4_path = null;
-            if (name != null) {
+         if (name != null && file != null) {
                 file_path = sqjwUtil.upLoad(file, "za0001_file_path1", modul_name, name);
                 in.putStringValue("gsxkz", file_path.toString());//数据库中保存的路径
             }

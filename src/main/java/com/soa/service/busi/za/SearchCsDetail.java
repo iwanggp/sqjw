@@ -77,6 +77,5 @@ public class SearchCsDetail extends BaseService {
         } else {
             out.putDataValue("csdata", queryData("za_select_cs_id", obj));
         }
-
     }
 }

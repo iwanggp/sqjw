@@ -62,7 +62,7 @@ public class AddYlZa extends BaseService {
             String file1_path = null;
             String file2_path = null;
             String file3_path = null;
-            if (name != null) {
+         if (name != null && file != null) {
                 file_path = sqjwUtil.upLoad(file, "za0001_file_path1", "za0001_addyl", name);
                 in.putStringValue("jyxkz", file_path.toString());//数据库中保存的路径
             }

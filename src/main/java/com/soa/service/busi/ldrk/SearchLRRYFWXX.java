@@ -26,7 +26,7 @@ public class SearchLRRYFWXX extends BaseService {
     @Override
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
         AbstractCommonData acd = queryData("get_lrry_fwbm", new Object[]{in.getStringValue("id")});
-        if (acd == null) {
+        if (acd == null||"0".equals(acd)) {
             throw new GlobalException(100003);
         } else {
             out.putDataValue("csdata", queryData("get_lrry_fwxx", new Object[]{acd.getStringValue("fwbm")}));

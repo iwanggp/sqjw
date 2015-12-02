@@ -60,7 +60,7 @@ public class AddLgZa extends BaseService {
             String file_path = null;
             String file1_path = null;
             String file2_path = null;
-            if (name != null) {
+         if (name != null && file != null) {
                 file_path = sqjwUtil.upLoad(file, "za0001_file_path1", modul_name, name);
                 in.putStringValue("jyxkz", file_path.toString());//数据库中保存的路径
             }

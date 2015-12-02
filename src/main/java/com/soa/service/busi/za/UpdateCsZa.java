@@ -11,6 +11,7 @@ import com.soa.service.BaseService;
 import static com.soa.service.BaseService.getSession;
 import com.soa.util.SystemUtil;
 import com.soa.util.sqjw.SqjwUtil;
+import java.io.File;
 import java.io.IOException;
 import javax.annotation.Resource;
 import org.slf4j.Logger;
@@ -43,7 +44,6 @@ public class UpdateCsZa extends BaseService {
     @Override
     @Transactional
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
-
         byte[] file = (byte[]) in.getObjectValue("pic_jyxkz");
         byte[] file1 = (byte[]) in.getObjectValue("pic_ajhgz");
         final String modul_name = "ZACS";
@@ -56,17 +56,22 @@ public class UpdateCsZa extends BaseService {
             String name1 = in.getStringValue("pic_ajhgz_name");
             String file_path = null;
             String file1_path = null;
-            if (name != null) {
+            String line = File.separator;//通用文件分割符
+            if (name != null && file != null) {
                 file_path = sqjwUtil.upLoad(file, "za0001_file_path1", modul_name, name);
                 if (sqjwUtil.deleteFile(sqjwUtil.getRelPath(in.getStringValue("jyxkz")))) {//删除以前的文件
                     in.putStringValue("jyxkz", file_path.toString());//数据库中保存的路径
                 }
+            } else {
+                in.putStringValue("jyxkz", in.getStringValue("jyxkz").replace(SystemUtil.getSysConfig("za0001_server_root") , ""));//当不修改图片时默认加上根目录，还没找到具体原因，暂时这样暴力解决
             }
-            if (name1 != null) {
+            if (name1 != null && file1 != null) {
                 file1_path = sqjwUtil.upLoad(file1, "za0001_file_path1", modul_name, name1);
                 if (sqjwUtil.deleteFile(sqjwUtil.getRelPath(in.getStringValue("ajhgz")))) {//删除以前的文件
                     in.putStringValue("ajhgz", file1_path.toString());
                 }
+            } else {
+                in.putStringValue("ajhgz", in.getStringValue("ajhgz").replace(SystemUtil.getSysConfig("za0001_server_root") , ""));
             }
             update("modify_cs_za", in);
         } catch (IOException ex) {

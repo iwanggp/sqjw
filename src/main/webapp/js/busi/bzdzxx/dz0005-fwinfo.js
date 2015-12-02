@@ -8,7 +8,6 @@
     var obj = JSON.parse(sessionStorage.fwjzid);
     var jzid = obj['jzid'];
     var sqid = obj['sq_id'];
-    console.log(jzid + "-------->>><><><hanqinghanqignhanqing" + sqid);
 //    alert(obj['mc']);
     $('#jzmc', $page).html(obj['mc']);
     getSearchCurrentResult();
@@ -18,6 +17,18 @@
     $('#search_fw-button', $page).on('click', function () {
         // '分页查询', 显示全部数据
         getSearchCurrentResult();
+    });
+     $('#lookry', $page).click(function () {
+        var rowData = $(this).getRow();
+        sessionStorage.fwbmid = JSON.stringify(rowData);//放到session中暂存一段时间
+        if (rowData) {
+            $('#jbsxBoxfwryinfo', $page).loadUrl('page/bzdzxx/dz0006-fwpeople.html', {}, function () {
+                $('#fwryinfo', $page).show().trigger('click');
+                $('#jbsxBoxfwryinfo', $page).find("[layoutH]").layoutH();
+            });
+        } else {
+            alertMsg.warn('请先选择一个社区进行查看！');
+        }
     });
 //    // 查看居民人员信息
 //    $('#jminfo', $page).on('click', function () {
