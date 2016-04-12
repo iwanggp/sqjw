@@ -20,7 +20,7 @@
         // '分页查询', 显示全部数据
         getCurrentResult();
     });
-    $("#add", $dialog).click(function () {
+    $("#add_j", $dialog).click(function () {
         $.pdialog.open('page/za/za0013-addjcdj.html', 'add_yg_xx', "添加检查登记信息",
                 {"width": 580, "height": 460, mask: true,
                     param: {fid: fid, mc: obj['mc'], dz: obj['dz'],zgbm:obj['zgbm']},

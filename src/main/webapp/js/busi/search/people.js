@@ -17,7 +17,7 @@
     initParaSelect('za_people.mz', $('#mz', $dialog1));
     initParaSelect('za_people.whcd', $('#whcd', $dialog1));
     initParaSelect('za_people.zzmm', $('#zzmm', $dialog1));
-     initParaSelect('za_people.hkszdlx_dm', $('#hkszdlx_dm', $dialog1));
+    initParaSelect('za_people.hkszdlx_dm', $('#hkszdlx_dm', $dialog1));
     initParaSelect('za_people.hklb_dm', $('#hklb_dm', $dialog1));
     initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#fwdw_jws', $dialog1));
     initParaSelect('za_people.hyzk_dm', $('#hyzk_dm', $dialog1));
@@ -26,12 +26,7 @@
     initParaSelect('za_people.xzqh_hj', $('#fwdw_xzqh', $dialog1));
     $('select', $dialog1).attr("disabled", "disabled");
     var obj = JSON.parse(sessionStorage.unionyg);
-    var opt = new AjaxOptions();
-//    opt.put("service_code", "S88003");
-//    opt.sus = function (data) {
-    padBackData(obj, $('#info', $dialog1)); //回填物流信息
-//    };
-//    $.ajax(opt);
+    padBackData(obj, $('#info', $dialog1)); //回填人员详细信息
 
     //#修改信息服务
     $('#modify', $dialog1).click(function () {

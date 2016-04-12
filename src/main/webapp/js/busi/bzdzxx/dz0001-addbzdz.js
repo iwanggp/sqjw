@@ -6,6 +6,7 @@
 
 (function () {
     var $dialog = $.pdialog.getCurrent();
+     initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#ssjwqdm', $dialog));
     $("#add", $dialog).click(function () {
         if (!$('#shop_form', $dialog).valid()) {
             return false;

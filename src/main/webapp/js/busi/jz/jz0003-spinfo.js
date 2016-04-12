@@ -22,10 +22,6 @@
             height: 580,
             mask: false,
             param: {sqid: sqid, jzid: param.jzid, jd: param.jd, wd: param.wd}
-//            close: function () {
-//                serarch();
-//                return true;
-//            }
         });
     });
     // 修改按钮的点击事件
@@ -91,16 +87,5 @@
             }
         });
     }
-//    $(".check-link").live("click", function (e) {
-//        console.log($(this).attr('name') + spid + "---" + param.jd + "-----" + param.wd);
-//        $.pdialog.open("page/jz/jz0002-jzinfo.html", 'add_jz_info', $(this).attr('jzmc'), {width: 870,
-//            height: 680,
-//            param: {sqid: sqid, jzid: $(this).attr('name'), jd: param.jd, wd: param.wd, jzmc: $(this).attr('jzmc')},
-//            close: function () {
-//                return true;//这样才能关闭窗口
-//            }
-//        });
-//    });
-    // 
 }).call();
 

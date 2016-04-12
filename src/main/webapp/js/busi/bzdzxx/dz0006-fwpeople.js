@@ -10,6 +10,7 @@
     initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#tbdw_dm', $dialog));
     var obj = JSON.parse(sessionStorage.fwbmid);
     var fwbm = obj['id'];
+    $('#jzry', $dialog).html(obj['dyh']+obj['sh']);//设置标题
     getSearchCurrentResult();
 //    $('#rylb', $dialog).change(function () {
 //        currentPage = 1;//当改变查询条件时默认从第一行开始查询

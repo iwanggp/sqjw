@@ -15,12 +15,12 @@
                     <div class="searchBar">
                         <table class="searchContent" width="60%">
                             <tr>
-                                <td width="20%">
-                                    行政区名称
-                                    <select id="xzqhdm" name="xzqhdm">
-                                        <option value="">全部</option>
-                                    </select>
-                                </td>
+                                <!--                                <td width="20%">
+                                                                    行政区名称
+                                                                    <select id="xzqhdm" name="xzqhdm">
+                                                                        <option value="">全部</option>
+                                                                    </select>
+                                                                </td>-->
                                 <td width="20%">
                                     警务区
                                     <select id="ssjwqdm" name="ssjwqdm">
@@ -64,7 +64,7 @@
             <div class="panelBar">
                 <ul class="toolBar">
                     <!--<li><a class="edit" id ="superedit" target-table="ssxx"><span>编辑</span></a></li>-->
-                    <!--<li><a class="add" id="add" target-table="ssxx"><span>添加标准地址</span></a></li>-->
+                    <li><a class="add" id="add" target-table="ssxx"><span>添加标准地址</span></a></li>
                     <li><a class="add" id="biaoji" target-table="ssxx"><span>将当前页标记在地图上</span></a></li>
                     <li><a class="icon" id="sort" target-table="ssxx"><span>查找并找回地址</span></a></li>
                 </ul>
@@ -72,13 +72,12 @@
             <table class="table" width="100%" layoutH="170" id="ssxx">
                 <thead>
                     <tr>
-                        <th data-key="xzqmc">行政区名称</th>
-                        <th data-key="dzjc">地址简称</th>
-                        <th data-key="dzxz">地址详址</th>
-                        <th data-key="jwqmc">警务区名称</th>
-                        <th data-key="rksj">创建时间</th>
-                        <th data-key="map_link">进入地图</th>
-                        <th data-key="name_link" id="xq">查看详情</th>
+                        <th data-key="dzjc" align="center">地址简称</th>
+                        <th data-key="dzxz" align="center">地址详址</th>
+                        <th data-key="ssjwqdm" align="center" st-param="jwsq_bzdzxx.ssjwqdm">警务区名称</th>
+                        <th data-key="rksj" align="center">创建时间</th>
+                        <th data-key="map_link" align="center">进入地图</th>
+                        <th data-key="name_link" id="xq" align="center">查看详情</th>
                     </tr>
                 </thead>
                 <tbody>

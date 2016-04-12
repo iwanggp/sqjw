@@ -39,7 +39,7 @@
             $("#close", $dialog).trigger("click");
             $("#search-button", navTab.getCurrentPanel()).trigger("click");//激发一次查询按钮的点击，实现了页面的刷新
             $('#xiye').text(1);
-            getSq(mc, 1);
+//            getSq(mc, 1);
         };
         $.ajax(o);
     });

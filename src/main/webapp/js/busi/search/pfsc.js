@@ -49,7 +49,6 @@
         var rowData11 = $(this).getRow();
         if (rowData11) {
             sessionStorage.unionyg = JSON.stringify(rowData11);//放到session中暂存一段时间
-            console.log(sessionStorage.unionyg + "tandidezhiddddddddddddddddd");
             $('#jbsxBoxyg', $page).loadUrl('page/search/unionyg.html', {}, function () {
                 $('#unionyg', $page).show().trigger('click');
                 $('#jbsxBoxyg', $page).find("[layoutH]").layoutH();
