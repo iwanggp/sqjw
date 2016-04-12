@@ -5,7 +5,7 @@
  */
 (function () {
     var $page = navTab.getCurrentPanel();
-    var obj = JSON.parse(sessionStorage.sqid);
+    var obj = JSON.parse(sessionStorage.mysqid);
     var sqid = obj['sqid'];
     var zgbm = obj['zgbm'];
     $('#sqmc', $page).html(obj['sqmc']);//设置标题

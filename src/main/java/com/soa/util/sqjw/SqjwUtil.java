@@ -138,8 +138,6 @@ public class SqjwUtil {
         try {
             String dbFileName = fileName + "." + "jpg";
             String dbFilePath = _Path + line + dbFileName;//数据库中要保存的相对路径及文件名
-//            String dbFilePath = line + module_name + line + dbFileName;//数据库中要保存的相对路径及文件名
-//            dbFilePath = dbFilePath.replaceAll("\\\\", "/");
             String filePath = rel_path + line + dbFileName;//绝对路径，就是要写文件的名字
             bos = new BufferedOutputStream(new FileOutputStream(filePath));     //最终的文件带文件名和扩展名
             bos.write(file);

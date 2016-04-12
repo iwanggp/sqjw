@@ -19,7 +19,6 @@
     opt.sus = function (data) {
         padBackData(data.csdata, $('#shop_form', $dialog)); //回填物流信息
         zgbm = data.csdata.ssgajgdm;
-
     };
     $.ajax(opt);
 

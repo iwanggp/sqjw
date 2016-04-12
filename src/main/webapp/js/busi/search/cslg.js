@@ -16,6 +16,18 @@
         // '分页查询', 显示全部数据
         getCurrentResult();
     });
+    //添加旅馆业
+    $('#add', $page).click(function () {
+        $.pdialog.open('page/za/za0006-addlg.html', 'add_jz_xx', '添加旅馆业', {
+            width: 900,
+            height: 600,
+            mask: true,
+            close: function (param) {
+                return true;
+            }
+        });
+
+    });
     //打开修改用户对话框
     $('#superedit', $page).click(function () {
         var rowData = $(this).getRow();

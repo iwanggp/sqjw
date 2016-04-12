@@ -49,7 +49,7 @@
             close: function(param) {
                 if (param.newUser) {        //如果存在新增数据，就显示
                     users.push(param.newUser);
-                    padBackTable(users, $('#users', $page));
+                    padBackTable(users, $('#users', $page));//回填表单的方法
                 }
                 return true;            //只有返回 true 时弹出窗口才会关闭
             }

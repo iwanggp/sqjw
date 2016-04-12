@@ -9,7 +9,7 @@
     initParaSelect('jwsq_bzdzxx.xzqhdm', $('#xzqhdm', $page));
     initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#ssjwqdm', $page));
     var currentPage = 1;
-    getResult();
+    getCurrentResult();
     /**
      * 查询服务
      */

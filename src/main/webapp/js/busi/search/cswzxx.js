@@ -20,7 +20,7 @@
         // '分页查询', 显示全部数据
         getCurrentResult();
     });
-    $("#add", $dialog).click(function () {
+    $("#add_w", $dialog).click(function () {
         $.pdialog.open('page/za/za0014-addwzxx.html', 'add_wz_xx', "添加违章登记信息",
                 {"width": 580, "height": 600, mask: true,
                     param: {fid: fid, mc: obj['mc'], dz: obj['dz'],zgbm:obj['zgbm']},

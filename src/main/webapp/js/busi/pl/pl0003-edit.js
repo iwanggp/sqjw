@@ -6,6 +6,7 @@
     initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#ssjws', $dialog));
     initParaSelect('pl_user.xgqx', $('#xgqx', $dialog));
     initServiceParaSelect('pl_user.tstj', $('#tstj', $dialog));
+
     //加载角色列表
     initRole();
     //回填表单数据并增加只读属性

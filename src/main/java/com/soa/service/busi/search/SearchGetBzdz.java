@@ -31,7 +31,7 @@ public class SearchGetBzdz extends BaseService {
     @Transactional
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
         in.putStringValue("sql", "search_get_bzdz");
-        in.putObjectValue("args", new Object[]{in.getStringValue("xzqhdm"), in.getStringValue("ssjwqdm"), in.getStringValue("mlphm"), in.getStringValue("dzjc"), in.getStringValue("jlxmc")});
+        in.putObjectValue("args", new Object[]{in.getStringValue("ssjwqdm"), in.getStringValue("mlphm"), in.getStringValue("dzjc"), in.getStringValue("jlxmc")});//修改为只查询航空港区的地址
         in.putIntValue("page_size", in.getIntValue("page_size"));
         runService("S10001", in, inHead, out, outHead);
     }

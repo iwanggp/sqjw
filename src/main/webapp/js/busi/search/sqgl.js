@@ -17,12 +17,16 @@
         // '分页查询', 显示全部数据
         getCurrentResult();
     });
+    //当点击选项卡时触发的事件
+    $('#sqgl', $page).click(function () {
+        $('#xzqhdm', $page).removeAttr("disabled");
+        $('#ssjwqdm', $page).removeAttr("disabled");
+    });
     //打开修改用户对话框
     $('#look', $page).click(function () {
         var rowData = $(this).getRow();
-//        currentsqid = rowData.sqid;
-        sessionStorage.sqid = JSON.stringify(rowData);//放到session中暂存一段时间
         if (rowData) {
+            sessionStorage.mysqid = JSON.stringify(rowData);//放到session中暂存一段时间
             $('#jbsxBoxjz', $page).loadUrl('page/bzdzxx/dz0003-jzinfo.html', {}, function () {
                 $('#sqjz', $page).show().trigger('click');
                 $('#jbsxBoxjz', $page).find("[layoutH]").layoutH();
@@ -72,4 +76,3 @@
                 });
     }
 }).call();
-
