@@ -1,0 +1,1 @@
+insert into ST_SERVICE_BEAN (service_code, bean_name, service_desc, is_login, module) values ('S88007', 'searchLRRYInfo', '查询人员的居住和工作社保信息', 'Y', 'ldrk'); 

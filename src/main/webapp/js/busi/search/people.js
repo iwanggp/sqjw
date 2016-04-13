@@ -26,8 +26,18 @@
     initParaSelect('za_people.xzqh_hj', $('#fwdw_xzqh', $dialog1));
     $('select', $dialog1).attr("disabled", "disabled");
     var obj = JSON.parse(sessionStorage.unionyg);
+    var lrryid = obj.lrryid;
+    var o = new AjaxOptions();
+    o.put("service_code", "S88007");
+    o.put("lrryid", lrryid);
+    o.sus = function (data) {
+        padBackData(data.jzdata, $('#info', $dialog1)); //回填人员居住详细信息
+        padBackData(data.gzdata, $('#info', $dialog1)); //回填人员工作详细信息
+        padBackData(data.jhxxdata, $('#info', $dialog1)); //回填人员计划生育详细信息
+        padBackData(data.sbdata, $('#info', $dialog1)); //回填人员社保详细信息
+    };
+    $.ajax(o);
     padBackData(obj, $('#info', $dialog1)); //回填人员详细信息
-
     //#修改信息服务
     $('#modify', $dialog1).click(function () {
         var btns = new Array();

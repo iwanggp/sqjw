@@ -44,7 +44,8 @@
      */
     $('#search_ry-button', $dialog).on('click', function () {
         // '分页查询', 显示全部数据
-        getCurrentResult();
+        getSearchCurrentResult();
+//        getCurrentResult();
     });
     $("#updateData", $dialog).click(function () {
 //        var rowData1 = $(this).getRow();
@@ -144,64 +145,64 @@
             alertMsg.warn("请先勾选至少一条数据！");
         }
     });
-    function getCurrentResult() {
-        $('#rkinfo', $dialog).cutPage(form2JSON($('#search-form', $dialog), {service_code: 'S88004', page_size: 30, page: currentPage}), function (data) {
-            for (var i = 0; i < data.length; i++) {
-                var item = data[i]; // 获取到table每一行数据
-                item.xz = $('<input type="checkbox"/>').attr({
-                    "id": item.id,
-                    "cut_row": item.cut_row,
-                    "checked": false
-                }).css({"cursor": "pointer"});
-                item.map_link = $('<a/>').attr({
-                    "hyid": item.id,
-                    "hylb": item.hylb,
-                    "jd": item.jd,
-                    "wd": item.wd,
-                    "hymc": item.xm,
-                    "dz": item.jtdz
-                }).addClass("map-link").css({"cursor": "pointer", "color": "red"}).html('进入地图');
-                item.info = $('<a/>').attr({
-                    "sfzh": item.sfzh
-                }).addClass("info-link").css({"cursor": "pointer", "color": "brown"}).html('随行人员');
-                item.name_link = $('<a/>').attr({
-                    "fzid": item.fzid
-                }).addClass('name-link').css({"cursor": "pointer", "color": "blue"}).html('人房关联');
-                setTimeout(function () {
-                    $(".map-link").unbind("click").bind("click", function () {
-                        map.clearAllOverlays();
-                        locationSearch($(this).attr("hyid"), $(this).attr("jd"), $(this).attr("wd"), $(this).attr("hymc"), $(this).attr("dz"), $(this).attr("hylb"));
-                        $('.home_icon').click();
-                    });
-                }, 100);
-                setTimeout(function () {
-                    $(".name-link").unbind("click").bind("click", function () {
-                        $.pdialog.open('page/za/za0009-zjhdetail.html', 'mydetail', "人房关联",
-                                {"width": 680, "height": 560, mask: true,
-                                    param: {hyid: $(this).attr('fzid'),
-                                        hylb: 'za_zjh'},
-                                    close: function (param) {
-                                        return true;
-                                    }
-                                });
-                    });
-                }, 100);
-                setTimeout(function () {
-                    $(".info-link").unbind("click").bind("click", function () {
-                        $.pdialog.open('page/fz/rk0003-ssry.html', 'add_ssry', "查看随行人员人员",
-                                {"width": 880, "height": 560, mask: true,
-                                    param: {gssfzh: $(this).attr('sfzh')},
-                                    close: function (param) {
-                                        currentPage = 1;
-                                        return true;
-                                    }
-                                });
-
-                    });
-                }, 100);
-            }
-        });
-    }
+//    function getCurrentResult() {
+//        $('#rkinfo', $dialog).cutPage(form2JSON($('#search-form', $dialog), {service_code: 'S88004', page_size: 30, page: currentPage}), function (data) {
+//            for (var i = 0; i < data.length; i++) {
+//                var item = data[i]; // 获取到table每一行数据
+//                item.xz = $('<input type="checkbox"/>').attr({
+//                    "id": item.id,
+//                    "cut_row": item.cut_row,
+//                    "checked": false
+//                }).css({"cursor": "pointer"});
+//                item.map_link = $('<a/>').attr({
+//                    "hyid": item.id,
+//                    "hylb": item.hylb,
+//                    "jd": item.jd,
+//                    "wd": item.wd,
+//                    "hymc": item.xm,
+//                    "dz": item.jtdz
+//                }).addClass("map-link").css({"cursor": "pointer", "color": "red"}).html('进入地图');
+//                item.info = $('<a/>').attr({
+//                    "sfzh": item.sfzh
+//                }).addClass("info-link").css({"cursor": "pointer", "color": "brown"}).html('随行人员');
+//                item.name_link = $('<a/>').attr({
+//                    "fzid": item.fzid
+//                }).addClass('name-link').css({"cursor": "pointer", "color": "blue"}).html('人房关联');
+//                setTimeout(function () {
+//                    $(".map-link").unbind("click").bind("click", function () {
+//                        map.clearAllOverlays();
+//                        locationSearch($(this).attr("hyid"), $(this).attr("jd"), $(this).attr("wd"), $(this).attr("hymc"), $(this).attr("dz"), $(this).attr("hylb"));
+//                        $('.home_icon').click();
+//                    });
+//                }, 100);
+//                setTimeout(function () {
+//                    $(".name-link").unbind("click").bind("click", function () {
+//                        $.pdialog.open('page/za/za0009-zjhdetail.html', 'mydetail', "人房关联",
+//                                {"width": 680, "height": 560, mask: true,
+//                                    param: {hyid: $(this).attr('fzid'),
+//                                        hylb: 'za_zjh'},
+//                                    close: function (param) {
+//                                        return true;
+//                                    }
+//                                });
+//                    });
+//                }, 100);
+//                setTimeout(function () {
+//                    $(".info-link").unbind("click").bind("click", function () {
+//                        $.pdialog.open('page/fz/rk0003-ssry.html', 'add_ssry', "查看随行人员人员",
+//                                {"width": 880, "height": 560, mask: true,
+//                                    param: {gssfzh: $(this).attr('sfzh')},
+//                                    close: function (param) {
+//                                        currentPage = 1;
+//                                        return true;
+//                                    }
+//                                });
+//
+//                    });
+//                }, 100);
+//            }
+//        });
+//    }
     function getSearchCurrentResult() {
         $('#rkinfo', $dialog).cutPage(form2JSON($('#search-form', $dialog), {service_code: 'S88004', page_size: 30, page: 1}), function (data) {
             for (var i = 0; i < data.length; i++) {

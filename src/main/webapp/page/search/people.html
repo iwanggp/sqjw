@@ -17,7 +17,7 @@
                     </tr>
                     <tr>
                         <td width="10%" align="center">出生日期</td>
-                        <td width="15%" id="csrq" name="csrq" date-format="yyyy-mm-dd"></td>
+                        <td width="15%" id="csrq" name="csrq" date-format="yyyy-MM-dd"></td>
                     </tr>
                     <tr>
                         <td width="10%" align="center">性别</td>
@@ -29,7 +29,7 @@
                         <td width="10%" align="center">常住户口地</td>
                         <td width="15%" id="czhkdz" name="czhkdz"></td>
                         <td width="10%" align="center">身份证有效期</td>
-                        <td width="4%" id="sfz_yxq_z" name="sfz_yxq_z" date-format="yyyy-mm-dd"></td>
+                        <td width="4%" id="sfz_yxq_z" name="sfz_yxq_z" date-format="yyyy-MM-dd"></td>
                     </tr>
                 </table>
             </div>
@@ -113,9 +113,9 @@
                     </tr>
                     <tr>
                         <td width="10%" align="center">居住日期</td>
-                        <td width="15%" id="jzrq" name="jzrq" date-format="yyyy-mm-dd"></td>
+                        <td width="15%" id="jzrq" name="jzrq" date-format="yyyy-MM-dd"></td>
                         <td width="10%" align="center">拟居住期限</td>
-                        <td width="15%" id="njzqx" name="njzqx" date-format="yyyy-mm-dd"></td>
+                        <td width="15%" id="njzqx" name="njzqx" date-format="yyyy-MM-dd"></td>
                         <td width="10%" align="center">居住场所</td>
                         <td width="15%" id="jzcs_dm" name="jzcs_dm"></td>
                     </tr>
@@ -138,18 +138,22 @@
                     <tr>
                         <td width="10%" align="center">是否有固定工作单位</td>
                         <td width="15%" ><select id="gdgzdwbz" name="gdgzdwbz">
-                                <option value="0">否</option>
-                                <option value="1">是</option></select></td>
-                        <td width="10%" align="center">所属行政区划</td>
-                        <td width="15%" ><select id="fwdw_xzqh" name="fwdw_xzqh"></select></td>
+                                <option value="0">是</option>
+                                <option value="1">否</option></select></td>
+                        <!--                        <td width="10%" align="center">所属行政区划</td>
+                                                <td width="15%" ><select id="fwdw_xzqh" name="fwdw_xzqh"><option value="">--无--</option></select></td>-->
+                        <td width="10%" align="center">员工单位名称</td>
+                        <td width="15%" id="ygdwmc" name="ygdwmc"></td>
                     </tr>
                     <tr>
                         <td width="10%" align="center">所属警务室</td>
-                        <td width="15%"><select id="fwdw_jws" name="fwdw_jws"></select></td>
+                        <td width="15%"><select id="fwdw_jws" name="fwdw_jws">
+                                <option value="">--无--</option>
+                            </select></td>
                         <td width="10%" align="center">现从事职业</td>
                         <td width="15%" id="xcszy" name="xcszy"></td>
                         <td width="10%" align="center">入职日期</td>
-                        <td width="15%" id="rzrq" name="rzrq" date-format="yyyy-mm-dd"></td>
+                        <td width="15%" id="rzrq" name="rzrq" date-format="yyyy-MM-dd"></td>
                     </tr>
                     <tr>
                         <td width="10%" align="center">部门</td>
@@ -173,7 +177,7 @@
                                 <option value="0">否</option>
                                 <option value="1">是</option></select></td>
                         <td width="10%" align="center">现有子女数量</td>
-                        <td width="15%" id="etsfyfjz" name="xyznsl"></td>
+                        <td width="15%" id="xyznsl" name="xyznsl"></td>
                     </tr>
                 </table>
             </div>
@@ -184,9 +188,9 @@
                 <table class="formtable" width="80%"  >
                     <tr>
                         <td width="10%" align="center">缴纳开始时间</td>
-                        <td width="15%" id="jnkssj" name="jnkssj" date-format="yyyy-mm-dd"></td>
+                        <td width="15%" id="jnkssj" name="jnkssj" date-format="yyyy-MM-dd"></td>
                         <td width="10%" align="center">缴纳结束时间</td>
-                        <td width="15%" id="jnjssj" name="jnjssj" date-format="yyyy-mm-dd"></td>
+                        <td width="15%" id="jnjssj" name="jnjssj" date-format="yyyy-MM-dd"></td>
                         <td width="10%" align="center">是否参加养老保险</td>
                         <td width="15%" ><select id="ylbx_0" name="ylbx_0">
                                 <option value="0">否</option>
