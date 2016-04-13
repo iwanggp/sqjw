@@ -71,7 +71,7 @@
     <dependency>
       <groupId>com.lianzt</groupId>
       <artifactId>util-frame</artifactId>
-      <version>1.6.5.release</version>
+      <version>1.6.6.release</version>
     </dependency>
     <!-- util-frame 依赖 end -->
 
