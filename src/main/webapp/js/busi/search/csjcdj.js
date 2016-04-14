@@ -31,7 +31,7 @@
                     }
                 });
     });
-    $('#edit', $dialog).click(function () {
+    $('#edit_jcdj', $dialog).click(function () {
         var rowData1 = $(this).getRow();
         detail = true;
         if (rowData1 && detail) {
