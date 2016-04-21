@@ -26,7 +26,6 @@ public class SearchFw extends BaseService {
     public String[] keys() {
         return null;
     }
-
     @Override
     @Transactional
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {

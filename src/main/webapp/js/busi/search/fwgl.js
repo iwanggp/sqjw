@@ -106,7 +106,11 @@
             }
             setTimeout(function () {
                 $(".xq-link").unbind("click").bind("click", function (e) {
-                    openDetail($(this).attr('hylb'), $(this).attr('hyid'), $(this).attr('hymc'));
+                    if ($(this).attr('hylb') && $(this).attr('hyid') && $(this).attr('hymc')) {
+                        openDetail("za_zjh", $(this).attr('hyid'), $(this).attr('hymc'));
+                    } else {
+                        alertMsg.error("没有查到该房屋的信息");
+                    }
                 });
             }, 50);
             setTimeout(function () {

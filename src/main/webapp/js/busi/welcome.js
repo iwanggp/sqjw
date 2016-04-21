@@ -547,9 +547,6 @@ function LocationPointDq(data) {
     }
 }
 function bringDialogToFront($dialog) {
-//       setTimeout(function () {
-//        $('#ygxx', $dialog).click();
-//    }, 50);
     $("<input />")
             .attr({"id": "_temp_d", "type": "hidden"})
             .appendTo($dialog.find(".formBar"))
