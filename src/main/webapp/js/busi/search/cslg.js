@@ -16,16 +16,40 @@
         // '分页查询', 显示全部数据
         getCurrentResult();
     });
-    //添加旅馆业
-    $('#add', $page).click(function () {
-        $.pdialog.open('page/za/za0006-addlg.html', 'add_jz_xx', '添加旅馆业', {
-            width: 900,
-            height: 600,
-            mask: true,
-            close: function (param) {
-                return true;
-            }
-        });
+    //查看旅馆业的经营平面图
+    $('#look_jypmt', $page).click(function () {
+        var rowData = $(this).getRow();
+        if (rowData) {
+            $.pdialog.open('page/za/za0000-ckjypmt.html', 'look_jypmt', '查看经营平面图', {
+                width: 800,
+                height: 780,
+                mask: true,
+                param: {row: rowData},
+                close: function (param) {
+                    return true;
+                }
+            });
+        } else {
+            alertMsg.warn("请选择一条数据");
+        }
+
+    });
+    //添加旅馆业的经营平面图
+    $('#add_jypmt', $page).click(function () {
+        var rowData = $(this).getRow();
+        if (rowData) {
+            $.pdialog.open('page/za/za0000_jypmt.html', 'add_jypmt', '添加经营平面图', {
+                width: 620,
+                height: 580,
+                mask: true,
+                param: {row: rowData},
+                close: function (param) {
+                    return true;
+                }
+            });
+        } else {
+            alertMsg.warn("请选择一条数据");
+        }
 
     });
     //打开修改用户对话框

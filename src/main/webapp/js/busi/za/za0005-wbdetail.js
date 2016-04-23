@@ -24,11 +24,6 @@
         } else {
             data.csdata.ajhgz = "<span>" + "无" + "</span>" + "<a href=''>" + "</a>";
         }
-        if (isNaN(data.csdata.jypmt)) {
-            data.csdata.jypmt = "<a href='" + server_root + data.csdata.jypmt + "' target='_blank'>" + "查看经营平面图" + "</a>";
-        } else {
-            data.csdata.jypmt = "<span>" + "无" + "</span>" + "<a href=''>" + "</a>";
-        }
         if (isNaN(data.csdata.jyxkz)) {
             data.csdata.jyxkz = "<a href='" + server_root + data.csdata.jyxkz + "' target='_blank'>" + "查看经营许可证" + "</a>";
         } else {

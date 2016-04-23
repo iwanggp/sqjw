@@ -39,7 +39,7 @@ public class SqjwUtil {
         String filepath = SystemUtil.getSysConfig(sys_path);
         String serverRoot = SystemUtil.getSysConfig("za0001_server_root");//服务器的根目录
         BufferedOutputStream bos = null;
-        String extension = getFileExtension(fileName);
+        String extension = getFileExtension(fileName);//获取文件的扩展名
         String line = File.separator;//通用文件分割符
         String _Path = line + serverRoot + line + module_name;
         String rel_path = filepath + _Path;//得到绝对路径

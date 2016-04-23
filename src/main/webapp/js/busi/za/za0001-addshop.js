@@ -10,7 +10,17 @@
     bringDialogToFront($dialog);
     var param = $dialog.data('param'); //父窗口传递的参数
     initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
-    console.log(param.sqid + "-" + param.jzid + "--" + param.jd + "---" + param.wd +param.fwid+ "wwwwaddddshop");
+    console.log(param.sqid + "-" + param.jzid + "--" + param.jd + "---" + param.wd + param.fwid + "wwwwaddddshop");
+//    $('#jypmt_a', $dialog).on('click', function () {
+//        $.pdialog.open('page/za/za0000_jypmt.html', 'add_jypmt', '添加经营平面图', {
+//            width: 600,
+//            height: 600,
+//            mask: true,
+//            close: function (param) {
+//                return true;
+//            }
+//        });
+//    });
     $("#add", $dialog).click(function () {
         if ($("#shop_form", $dialog).valid()) {
             fileOptions.putForm($('#shop_form', $dialog));       //添加表单内容
@@ -36,8 +46,11 @@
         }
     });
 //需要在页面加载完成时加载文件拖拽div，不同于AjaxOptions对象
-    var fileOptions = new FileOptions($('#jyxkz', $dialog), $('#ajhgz', $dialog), $('#jypmt', $dialog));
+//    var fileOptions = new FileOptions($('#jyxkz', $dialog), $('#ajhgz', $dialog), $('#jypmt', $dialog));
+    var fileOptions = new FileOptions($('#jyxkz', $dialog), $('#ajhgz', $dialog));
     fileOptions.readFile = function (id, files) {      //加载文件的回调函数，可在该函数中进行文件格式与大小校验
+        debugger;
+        id;
         for (var i = 0; i < files.length; i++) {
             console.log(files[i].name + '---' + files[i].size);
             if (files[i].size > 5 * 1024 * 1024) {
@@ -49,4 +62,5 @@
         }
         return true;        //返回false时将中止文件加载，需要给出提示
     };
+
 }).call();

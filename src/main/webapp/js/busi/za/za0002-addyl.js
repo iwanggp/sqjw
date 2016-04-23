@@ -8,7 +8,6 @@
     var $dialog = $("body").data('add_jz_xx');//必须通过这种方法
     bringDialogToFront($dialog);
     var param = $dialog.data('param'); //父窗口传递的参数
-    alert(param.fwid);
     initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
     $("#add", $dialog).click(function () {
         if ($("#shop_form", $dialog).valid()) {

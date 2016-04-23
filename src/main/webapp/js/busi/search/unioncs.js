@@ -81,6 +81,42 @@
             alertMsg.warn("请先选择一条数据！");
         }
     });
+    //查看旅馆业的经营平面图
+    $('#look_jypmt', $page).click(function () {
+        var rowData = $(this).getRow();
+        if (rowData) {
+            $.pdialog.open('page/za/za0000-ckjypmt.html', 'look_jypmt', '查看经营平面图', {
+                width: 800,
+                height: 780,
+                mask: true,
+                param: {row: rowData},
+                close: function (param) {
+                    return true;
+                }
+            });
+        } else {
+            alertMsg.warn("请选择一条数据");
+        }
+
+    });
+    //添加旅馆业的经营平面图
+    $('#add_jypmt', $page).click(function () {
+        var rowData = $(this).getRow();
+        if (rowData) {
+            $.pdialog.open('page/za/za0000_jypmt.html', 'add_jypmt', '添加经营平面图', {
+                width: 620,
+                height: 580,
+                mask: true,
+                param: {row: rowData},
+                close: function (param) {
+                    return true;
+                }
+            });
+        } else {
+            alertMsg.warn("请选择一条数据");
+        }
+
+    });
     function getResult() {
         $('#ssxx', $page).cutPage({
             zgbm: $('#zgbm', $page).val(),

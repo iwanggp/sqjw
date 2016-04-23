@@ -50,6 +50,5 @@ public class UpdateSq extends BaseService {
         update("update_sq_id", in);//修改社区的相应信息
         update("update_jz_jws", in);//将建筑的警务室和社区的保持一致
         update("update_fw_jws", in);//将房屋的警务室和社区的一致
-
     }
 }

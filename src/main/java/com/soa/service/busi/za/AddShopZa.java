@@ -52,7 +52,8 @@ public class AddShopZa extends BaseService {
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
         byte[] file = (byte[]) in.getObjectValue("jyxkz");
         byte[] file1 = (byte[]) in.getObjectValue("ajhgz");
-        byte[] file2 = (byte[]) in.getObjectValue("jypmt");
+//        byte[] file2 = (byte[]) in.getObjectValue("jypmt");
+        log.debug(file1.toString()+"测试图片");
         final String modul_name = "ZASHOP";
         AbstractCommonData acd = getSession(in);
         in.put("cjrxm", acd.get("xm"));
@@ -61,7 +62,7 @@ public class AddShopZa extends BaseService {
         try {
             String name = in.getStringValue("jyxkz_name");
             String name1 = in.getStringValue("ajhgz_name");
-            String name2 = in.getStringValue("jypmt_name");
+//            String name2 = in.getStringValue("jypmt_name");
             String file_path = null;
             String file1_path = null;
             String file2_path = null;
@@ -73,14 +74,14 @@ public class AddShopZa extends BaseService {
                 file1_path = sqjwUtil.upLoad(file1, "za0001_file_path1", modul_name, name1);
                 in.putStringValue("ajhgz", file1_path.toString());
             }
-            if (name2 != null) {
-                file2_path = sqjwUtil.upLoad(file2, "za0001_file_path1", modul_name, name2);
-                in.putStringValue("jypmt", file2_path.toString());
-            }
+//            if (name2 != null) {
+//                file2_path = sqjwUtil.upLoad(file2, "za0001_file_path1", modul_name, name2);
+//                in.putStringValue("jypmt", file2_path.toString());
+//            }
 
             //in从页面传来过得值
             in.putStringValue("spid", SystemUtil.getSerialNum());//数据库的主码
-            update("add_shop_za", in);
+            update("add_shop_za", in);//添加商铺信息
 
         } catch (IOException ex) {
             log.debug("error:", ex);
