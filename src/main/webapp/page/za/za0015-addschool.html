@@ -19,11 +19,15 @@ and open the template in the editor.
             </div>
             <div class="unit">
                 <label>法人代表：</label>
-                <input type="text" name="frdb" size="35" id="frdb"/>
+                <input type="text" name="frdb" size="35" id="frdb" class="required"/>
             </div>
             <div class="unit">
                 <label>法人代表身份证：</label>
-                <input type="text" name="frsfz" size="20" maxlength="18" minlength="15" class="required"  id="frsfz"/>
+                <input type="text" name="frsfz" size="20" maxlength="18" minlength="15" class="required"  id="frsfz" />
+            </div>
+            <div class="unit">
+                <label>法人联系方式：</label>
+                <input type="text" name="frlxfs" id="frlxfs"  size="20" class="required"/>
             </div>
             <div class="unit">
                 <label>联系方式：</label>
@@ -64,7 +68,7 @@ and open the template in the editor.
         </div>
         <div class="formBar">
             <ul>
-             <li class="_update"><div class="buttonActive"><div class="buttonContent"><button type="button" id="add">添加</button></div></div></li>
+                <li class="_update"><div class="buttonActive"><div class="buttonContent"><button type="button" id="add">添加</button></div></div></li>
                 <li><div class="button"><div class="buttonContent"><button type="button" id="close" class="close">取消</button></div></div></li>
             </ul>
         </div>

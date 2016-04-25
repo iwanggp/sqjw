@@ -53,7 +53,6 @@ public class AddShopZa extends BaseService {
         byte[] file = (byte[]) in.getObjectValue("jyxkz");
         byte[] file1 = (byte[]) in.getObjectValue("ajhgz");
 //        byte[] file2 = (byte[]) in.getObjectValue("jypmt");
-        log.debug(file1.toString()+"测试图片");
         final String modul_name = "ZASHOP";
         AbstractCommonData acd = getSession(in);
         in.put("cjrxm", acd.get("xm"));

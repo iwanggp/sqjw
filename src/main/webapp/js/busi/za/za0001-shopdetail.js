@@ -120,7 +120,7 @@
         $('#jyxkz_pic, #ajhgz_pic,#jypmt_pic', $dialog).hide();
     }
     //需要在页面加载完成时加载文件拖拽div，不同于AjaxOptions对象
-    var fileOptions = new FileOptions($('#pic_jyxkz', $dialog), $('#pic_ajhgz', $dialog), $('#pic_jypmt', $dialog));
+    var fileOptions = new FileOptions($('#pic_jyxkz', $dialog), $('#pic_ajhgz', $dialog));
     fileOptions.readFile = function (id, files) {      //加载文件的回调函数，可在该函数中进行文件格式与大小校验
         for (var i = 0; i < files.length; i++) {
             if (files[i].size > 5 * 1024 * 1024) {
