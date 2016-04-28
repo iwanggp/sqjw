@@ -72,7 +72,7 @@
                     "hyid": item.jzdzbm,
                     "hymc": item.dzjc,
                     "hylb": item.hylb
-                }).addClass("xq-link").css({"cursor": "pointer", "color": "blue"}).html('查看详情');
+                }).addClass("xq-link1").css({"cursor": "pointer", "color": "blue"}).html('查看详情');
                 item.map_link = $('<a/>').attr({
                     "hyid": item.jzdzbm,
                     "hylb": item.hylb,
@@ -83,7 +83,7 @@
                 }).addClass("map-link").css({"cursor": "pointer", "color": "red"}).html('进入地图');
             }
             setTimeout(function () {
-                $(".xq-link").unbind("click").bind("click", function (e) {
+                $(".xq-link1").unbind("click").bind("click", function (e) {
                     openDetail($(this).attr('hylb'), $(this).attr('hyid'), $(this).attr('hymc'));
                 });
             }, 50);

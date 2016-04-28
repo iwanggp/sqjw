@@ -23,7 +23,7 @@ and open the template in the editor.
             </div>
             <div class="unit">
                 <label>前台电话：</label>
-                <input type="text" name="lxfs" id="lxfs"  size="35"/>
+                <input type="text" name="lxfs" id="lxfs"  size="35" class="required"/>
             </div>
             <div class="unit">
                 <label>行业类别：</label>
@@ -38,8 +38,16 @@ and open the template in the editor.
                 <input type="text" name="ygrs" id="ygrs"  size="23"  class="number"/>
             </div>
             <div class="unit">
-                <label>建筑面积：</label>
-                <input type="text" name="jzmj" id="jzmj"  size="23" class="number" />
+                <label>机器台数：</label>
+                <input type="text" name="jqts" id="jqts"  size="23"  class="number required"/>
+            </div>
+            <div class="unit">
+                <label>主机ip：</label>
+                <input type="text" name="zjip" id="zjip"  size="35" class="required"/>
+            </div>
+            <div class="unit">
+                <label>实际面积：</label>
+                <input type="text" name="jzmj" id="jzmj"  size="23" class="number" class="required"/>
             </div>
             <div class="unit">
                 <label>技防设施：</label>
@@ -59,9 +67,25 @@ and open the template in the editor.
             </div>
             <div class="unit">
                 <label>经营负责人：</label>
-                <input type="text" name="jyfzr" id="jyfzr"  size="35" />
+                <input type="text" name="jyfzr" id="jyfzr"  size="35" class="required"/>
             </div>
-
+            <div class="unit">
+                <label>经营负责人联系方式：</label>
+                <input type="text" name="jyfzrlxfs" id="jyfzrlxfs"  size="35" class="required"/>
+            </div>
+            <div class="unit">
+                <label>监控数量：</label>
+                <input type="text" name="ttsl" id="ttsl"  size="6" maxlength="4" minlength="1" class="number required" />
+            </div>
+            <div class="unit">
+                <label>是否保存30天：</label>
+                <input type="radio" name="bc30" id="bc30"  value="1">是</input>
+                <input type="radio" name="bc30" id="bc30"  value="0" checked="true">否</input>
+            </div>
+            <div class="unit">
+                <label>社区民警</label>
+                <input type="text" name="sqmj" id="sqmj"  size="35" class="required"/>
+            </div>
             <div class="unit">
                 <label>消防设施是否齐全：</label>
                 <input type="radio" name="xfss" id="xfss"  value="1" checked="true">是</input>
@@ -105,11 +129,6 @@ and open the template in the editor.
             <div class="unit">
                 <label>网吧录入系统运转情况：</label>
                 <input type="text" name="xtyzqk" id="xtyzqk"  size="35" />
-            </div>
-
-            <div class="unit">
-                <label>安检记录：</label>
-                <input type="text" name="ajlj" id="ajlj"  size="35" />
             </div>
             <div class="unit">
                 <label>备注：</label>

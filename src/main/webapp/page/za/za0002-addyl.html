@@ -18,8 +18,8 @@ and open the template in the editor.
                 <select id="zgbm" name="zgbm"></select>
             </div>
             <div class="unit">
-                <label>联系方式：</label>
-                <input type="text" name="lxfs" size="35" id="lxfs" />
+                <label>单位联系方式：</label>
+                <input type="text" name="lxfs" size="35" id="lxfs" class="required"/>
             </div>
             <div class="unit">
                 <label>法人代表：</label>
@@ -35,15 +35,19 @@ and open the template in the editor.
             </div>
             <div class="unit">
                 <label>主要投资人：</label>
-                <input type="text" name="tzr" size="35" id="tzr" />
+                <input type="text" name="tzr" size="35" id="tzr" class="required"/>
             </div>
             <div class="unit">
                 <label>主要负责人：</label>
-                <input type="text" name="fzr" size="35" id="fzr" />
+                <input type="text" name="fzr" size="35" id="fzr" class="required"/>
             </div>
             <div class="unit">
                 <label>保安负责人：</label>
-                <input type="text" name="bafzr" size="35" id="bafzr" />
+                <input type="text" name="bafzr" size="35" id="bafzr" class="required"/>
+            </div>
+            <div class="unit">
+                <label>保安负责人联系方式：</label>
+                <input type="text" name="bafzrlxfs" size="35" id="bafzrlxfs" class="required"/>
             </div>
             <div class="unit">
                 <label>场所类型：</label>
@@ -51,11 +55,11 @@ and open the template in the editor.
             </div>
             <div class="unit">
                 <label>实际面积</label>
-                <input type="text" name="jzmj" id="jzmj" size="23"  class="number"><span class="unit">平方米</span></input>
+                <input type="text" name="jzmj" id="jzmj" size="23"  class="number required"><span class="unit">平方米</span></input>
             </div>
             <div class="unit">
                 <label>建筑楼层：</label>
-                <input type="text" name="jzlcs" id="jzlcs" style="width:152px;">层</input>
+                <input type="text" name="jzlcs" id="jzlcs" style="width:152px;" class="required">层</input>
             </div>
             <div class="unit">
                 <label>占用楼层：</label>
@@ -74,12 +78,17 @@ and open the template in the editor.
                 <input type="text" name="spbas" id="spbas" size="23" class="number"/>
             </div>
             <div class="unit">
-                <label>探头数量：</label>
+                <label>监控数量：</label>
                 <input type="text" name="tts" id="tts" size="23" class="number" />
             </div>
             <div class="unit">
-                <label>安检门数量：</label>
-                <input type="text" name="ajms" id="ajms" size="23" class="number" />
+                <label>是否保存30天：</label>
+                <input type="radio" name="bc30" id="bc30"  value="1">是</input>
+                <input type="radio" name="bc30" id="bc30"  value="0" checked="true">否</input>
+            </div>
+            <div class="unit">
+                <label>社区民警</label>
+                <input type="text" name="sqmj" id="sqmj"  size="35" class="required"/>
             </div>
             <div class="unit">
                 <label>金属探测器数量：</label>

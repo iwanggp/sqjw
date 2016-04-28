@@ -160,5 +160,10 @@
             }, 100);
         });
     }
+    //导出Excel
+    $('#export', $page).click(function () {
+        location.href = BaseUrl + 'xls.do?service_code=S88888';
+
+    });
 }).call();
 

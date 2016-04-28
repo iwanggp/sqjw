@@ -30,20 +30,33 @@ and open the template in the editor.
                 <input type="text" name="frlxfs" id="frlxfs"  size="20" class="required"/>
             </div>
             <div class="unit">
+                <label>监控数量：</label>
+                <input type="text" name="ttsl" id="ttsl"  size="6" maxlength="4" minlength="1" class="number required" />
+            </div>
+            <div class="unit">
+                <label>是否保存30天：</label>
+                <input type="radio" name="bc30" id="bc30"  value="1">是</input>
+                <input type="radio" name="bc30" id="bc30"  value="0" checked="true">否</input>
+            </div>
+            <div class="unit">
+                <label>社区民警</label>
+                <input type="text" name="sqmj" id="sqmj"  size="35" class="required"/>
+            </div>
+            <div class="unit">
                 <label>联系方式：</label>
-                <input type="text" name="lxfs" size="35" id="lxfs" />
+                <input type="text" name="lxfs" size="35" id="lxfs" class="required"/>
             </div>
             <div class="unit">
                 <label>安保负责人：</label>
-                <input type="text" name="abfzr" size="35" id="abfzr" />
+                <input type="text" name="abfzr" size="35" id="abfzr" class="required"/>
             </div>
             <div class="unit">
                 <label>安保负责人身份证号：</label>
-                <input type="text" name="absfzh" size="23" id="absfzh" />
+                <input type="text" name="absfzh" size="23" id="absfzh" class="required"/>
             </div>
             <div class="unit">
                 <label>安保负责人联系电话：</label>
-                <input type="text" name="dh" size="35" id="dh" />
+                <input type="text" name="dh" size="35" id="dh" class="required"/>
             </div>
             <div class="unit">
                 <label>保安人数：</label>
@@ -55,7 +68,7 @@ and open the template in the editor.
             </div>
             <div class="unit">
                 <label>责任民警：</label>
-                <input type="text" name="zrmj" id="zrmj" size="20"/>
+                <input type="text" name="zrmj" id="zrmj" size="20" class="required"/>
             </div>
             <div class="unit">
                 <label>所属警务室：</label>

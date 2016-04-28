@@ -1,0 +1,1 @@
+insert into ST_SERVICE_BEAN (service_code, bean_name, service_desc, is_login, module) values ('S88888', 'exportExcel', '导出Excel汇总信息', 'Y', 'search'); 
