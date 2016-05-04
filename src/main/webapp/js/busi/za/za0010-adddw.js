@@ -10,7 +10,7 @@
     bringDialogToFront($dialog);
     var param = $dialog.data('param'); //父窗口传递的参数
     initParaSelect('jwsq_bzdzxx.ssjwqdm', $('#zgbm', $dialog));
-    console.log(param.sqid + "-" + param.jzid + "--" + param.jd + "---" + param.wd + "wwwwaddddshop" + param.lb);
+    
     $("#add", $dialog).click(function () {
         if ($("#shop_form", $dialog).valid()) {
             var o = new AjaxOptions($('#shop_form', $dialog));

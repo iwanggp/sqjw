@@ -162,7 +162,16 @@
     }
     //导出Excel
     $('#export', $page).click(function () {
-        location.href = BaseUrl + 'xls.do?service_code=S88888';
+//        location.href = BaseUrl + 'xls.do?service_code=S88888';
+        $.pdialog.open('page/za/za0000_tzhyhz.html', 'hz_tzhy', '特种行业汇总', {
+            width: 420,
+            height: 180,
+            mask: true,
+            close: function (param) {
+                return true;
+            }
+        });
+//        location.href = BaseUrl + 'page/jz/jz0000-jzzong.html';
 
     });
 }).call();

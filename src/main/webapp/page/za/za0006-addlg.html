@@ -6,7 +6,7 @@ and open the template in the editor.
     <form  id="shop_form" class="pageForm">
         <div class="pageFormContent" layoutH="58">
             <div class="unit">
-                <label>单位编号：</label>
+                <label>录入系统编号：</label>
                 <input type="text" name="pid" id="pid"  size="35" class="required"  />
             </div>
             <div class="unit">
@@ -36,6 +36,14 @@ and open the template in the editor.
             <div class="unit">
                 <label>经济性质：</label>
                 <input type="text" name="jjxz" id="jjxz"  size="35" />
+            </div>
+            <div class="unit">
+                <label>许可证号：</label>
+                <input type="text" name="xkzh" id="xkzh"  size="35" />
+            </div>
+            <div class="unit">
+                <label>年审日期：</label>
+                <input type="text" name="nsrq" id="nsrq"  size="23" class="date"  date-format="yyyy-MM-dd"/>
             </div>
             <div class="unit">
                 <label>主营：</label>
@@ -97,7 +105,7 @@ and open the template in the editor.
                 <label>保安人数：</label>
                 <input type="text" name="bars" id="bars"  size="23"  class="number"/>
             </div>
-              <div class="unit">
+            <div class="unit">
                 <label>监控数量：</label>
                 <input type="text" name="ttsl" id="ttsl"  size="6" maxlength="4" minlength="1" class="number required" />
             </div>

@@ -18,7 +18,7 @@
             if (data != null) {
                 var length = parseInt(data.pic_list.length);
                 if (!length) {
-                    alertMsg.warn("还没有上传证件亲");
+                    alertMsg.warn("还没有上传经营平面图");
                 }
                 var rowCount = Math.ceil(length / 3);
                 var imags = [];

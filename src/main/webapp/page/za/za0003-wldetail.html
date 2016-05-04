@@ -36,6 +36,14 @@ and open the template in the editor.
                 <input type="text" name="sspcs" id="sspcs"  size="35" />
             </div>
             <div class="unit">
+                <label>许可证号：</label>
+                <input type="text" name="xkzh" id="xkzh"  size="35" />
+            </div>
+            <div class="unit">
+                <label>年审日期：</label>
+                <input type="text" name="nsrq" id="nsrq"  size="23" class="date"  date-format="yyyy-MM-dd"/>
+            </div>
+            <div class="unit">
                 <label>经济形式：</label>
                 <input type="text" name="jjxs" id="jjxs"  size="35" />
             </div>
@@ -54,6 +62,19 @@ and open the template in the editor.
             <div class="unit">
                 <label>法人联系方式：</label>
                 <input type="text" name="frlxfs" id="frlxfs"  size="20" class="required"/>
+            </div>
+            <div class="unit">
+                <label>监控数量：</label>
+                <input type="text" name="ttsl" id="ttsl"  size="6" maxlength="4" minlength="1" class="number required" />
+            </div>
+            <div class="unit">
+                <label>是否保存30天：</label>
+                <input type="radio" name="bc30" id="bc30"  value="1">是</input>
+                <input type="radio" name="bc30" id="bc30"  value="0" checked="true">否</input>
+            </div>
+            <div class="unit">
+                <label>社区民警</label>
+                <input type="text" name="sqmj" id="sqmj"  size="35" class="required"/>
             </div>
             <div class="unit">
                 <label>实际经营者：</label>

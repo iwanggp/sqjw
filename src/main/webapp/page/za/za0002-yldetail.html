@@ -34,6 +34,14 @@ and open the template in the editor.
                 <input type="text" name="frlxfs" id="frlxfs"  size="20" class="required"/>
             </div>
             <div class="unit">
+                <label>许可证号：</label>
+                <input type="text" name="xkzh" id="xkzh"  size="35" />
+            </div>
+            <div class="unit">
+                <label>年审日期：</label>
+                <input type="text" name="nsrq" id="nsrq"  size="23" class="date"  date-format="yyyy-MM-dd"/>
+            </div>
+            <div class="unit">
                 <label>主要投资人：</label>
                 <input type="text" name="tzr" size="35" id="tzr" class="required"/>
             </div>
@@ -79,7 +87,7 @@ and open the template in the editor.
             </div>
             <div class="unit">
                 <label>监控数量：</label>
-                <input type="text" name="tts" id="tts" size="23" class="number required" />
+                <input type="text" name="tts" id="tts" size="6" maxlength="4" minlength="1" class="number required"  />
             </div>
             <div class="unit">
                 <label>是否保存30天：</label>
