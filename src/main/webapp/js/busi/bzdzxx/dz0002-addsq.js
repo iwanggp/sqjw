@@ -25,7 +25,7 @@
         var jzdzbm=$('#jzdzbm',$dialog).val();
         var o = new AjaxOptions($('#sq_form', $dialog));
         o.put('fw', fw);
-        o.put('sqmc', sqmc);
+//        o.put('sqmc', sqmc);
         o.put('dz', dz);
         o.put('xzqh', xzqh);
         o.put('zgbm', zgbm);

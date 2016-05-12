@@ -1,0 +1,1 @@
+insert into pl_menu(m_id,m_name,m_url,m_title,m_type,m_super,m_order,width,height) values('cswb','网吧信息管理','search/cswb','网吧信息管理','0','cs0001','99110002',null,null);

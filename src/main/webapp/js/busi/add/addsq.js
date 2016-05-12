@@ -5,7 +5,7 @@
 // */
 (function () {
 //    $.pdialog.close('add_role_pl');//关闭对话框参数为id，此处的id为打开属性菜单的id
-
+//    var $dialog = $("body").data('add_sq_dz');//必须通过这种方法
 //    map.addOverlay(poly, true);
     var $dialog = $.pdialog.getCurrent();
 //    initServiceParaSelect('jw_sq.lb', $('#sqlb', $dialog));

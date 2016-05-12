@@ -122,8 +122,7 @@ and open the template in the editor.
         <div class="pageFormContent" layoutH="58">
             <div class="unit">
                 <label>社区名称：</label>
-                <input type="text"  id="sqmc" name="sqmc" class="required" size="35"/>
-
+                <input type="text"  id="sqmc" name="sqmc" class="required"   maxlength="10" minlength="3"  size="35"/>
             </div>
             <div class="unit">
                 <label>社区类别：</label>
@@ -141,7 +140,7 @@ and open the template in the editor.
             </div>
             <div class="unit">
                 <label>社区地址：</label>
-                <input class="required"  id="dz"  name="obj.orgName" type="text" size="35"/>
+                <input class="required"  id="dz"  name="obj.orgName" type="text" size="35" readonly="true"/>
                 <!--<input class="required"  id="sqmc"  name="obj.sqmc" type="text" lookupGroup="obj" lookupPk="orgNum" size="35"/>-->
                 <a class="btnLook" href="page/search/getbzdz.html" lookupGroup="obj" lookupPk="id">查找地址</a>	
             </div>
@@ -213,11 +212,11 @@ and open the template in the editor.
             </div>
             <div class="unit">
                 <label>经度：</label>
-                <input id="jd" name="obj.jd"  type="text"/>
+                <input id="jd" name="obj.jd"  type="text" class="required"/>
             </div>
             <div class="unit">
                 <label>维度：</label>
-                <input id="wd" name="obj.wd"  type="text"/>
+                <input id="wd" name="obj.wd"  type="text" class="required"/>
             </div>
             <div class="unit">
                 <label>片警姓名：</label>

@@ -7,7 +7,7 @@ and open the template in the editor.
         <div class="pageFormContent" layoutH="58">
             <div class="unit">
                 <label>社区名称：</label>
-                <input type="text" name="sqmc" id="sqmc" class="required" size="35"/>
+                <input type="text" name="sqmc" id="sqmc" class="required" maxlength="10" minlength="3" size="35"/>
             </div>
             <div class="unit">
                 <label>社区类别：</label>
@@ -95,11 +95,11 @@ and open the template in the editor.
             </div>
             <div class="unit">
                 <label>经度：</label>
-                <input id="jd" name="obj.jd"  type="text"/>
+                <input id="jd" name="obj.jd"  type="text" class="required"/>
             </div>
             <div class="unit">
                 <label>维度：</label>
-                <input id="wd" name="obj.wd"  type="text"/>
+                <input id="wd" name="obj.wd"  type="text" class="required"/>
             </div>
             <div class="unit">
                 <label>片警姓名：</label>

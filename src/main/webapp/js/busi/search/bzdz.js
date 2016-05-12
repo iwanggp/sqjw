@@ -84,7 +84,7 @@
             }
             setTimeout(function () {
                 $(".xq-link1").unbind("click").bind("click", function (e) {
-                    openDetail($(this).attr('hylb'), $(this).attr('hyid'), $(this).attr('hymc'));
+                    openDetail("bzdz", $(this).attr('hyid'), $(this).attr('hymc'));
                 });
             }, 50);
             setTimeout(function () {
