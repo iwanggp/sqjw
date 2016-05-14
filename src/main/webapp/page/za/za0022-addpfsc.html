@@ -30,6 +30,10 @@ and open the template in the editor.
                 <input type="text" name="frlxfs" id="frlxfs"  size="20" class="required"/>
             </div>
             <div class="unit">
+                <label>单位面积：</label>
+                <input type="text" name="mj" size="13" id="mj" class="number"/><span class="unit">平方米</span>
+            </div>
+            <div class="unit">
                 <label>监控数量：</label>
                 <input type="text" name="ttsl" id="ttsl"  size="6" maxlength="4" minlength="1" class="number required" />
             </div>
@@ -47,6 +51,10 @@ and open the template in the editor.
                 <input type="text" name="lxfs" size="35" id="lxfs" />
             </div>
             <div class="unit">
+                <label>重要部位多少：</label>
+                <input type="text" name="zybw" id="zybw"  size="15"  class="required"/>
+            </div>
+            <div class="unit">
                 <label>许可证号：</label>
                 <input type="text" name="xkzh" id="xkzh"  size="35" />
             </div>
@@ -57,23 +65,27 @@ and open the template in the editor.
 
             <div class="unit">
                 <label>安保负责人：</label>
-                <input type="text" name="abfzr" size="35" id="abfzr" />
+                <input type="text" name="abfzr" size="35" id="abfzr" class="required"/>
             </div>
             <div class="unit">
                 <label>安保负责人身份证号：</label>
-                <input type="text" name="absfzh" size="23" id="absfzh" />
+                <input type="text" name="absfzh" size="23" id="absfzh" class="required"/>
             </div>
             <div class="unit">
                 <label>安保负责人联系电话：</label>
-                <input type="text" name="dh" size="35" id="dh" />
+                <input type="text" name="dh" size="35" id="dh" class="required"/>
             </div>
             <div class="unit">
                 <label>消防安检合格证合格证到期日期：</label>
                 <input type="text" name="dqrq" id="dqrq"  size="23" class="date" date-format="yyyy-MM-dd"/>
             </div>
             <div class="unit">
-                <label>保安人数：</label>
-                <input type="text" name="bars" size="35" id="bars" class="number" />
+                <label>保安人数(专职)：</label>
+                <input type="text" name="bars" size="15" id="bars" class="number required"/>
+            </div>
+            <div class="unit">
+                <label>保安人数(兼职)：</label>
+                <input type="text" name="barsjz" size="15" id="barsjz" class="number required"/>
             </div>
             <div class="unit">
                 <label>在职职工总数：</label>

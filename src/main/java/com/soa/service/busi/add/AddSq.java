@@ -47,7 +47,6 @@ public class AddSq extends BaseService {
     @Transactional
     public void execute(AbstractCommonData in, AbstractCommonData inHead, AbstractCommonData out, AbstractCommonData outHead) {
         AbstractCommonData acd = getSession(in);
-        
         in.put("cjrxm", acd.get("xm"));
         //in从页面传来过得值
         in.put("cjr", acd.get(SystemUtil.loginRemark));
@@ -56,6 +55,5 @@ public class AddSq extends BaseService {
         update("sq_add_sq", in);
         update("autoadd_sq_jz", sqid, in.getStringValue("sqmc"));//自动添加该社区内的所有建筑信息
         update("autoadd_sq_jz_zjh", sqid, in.getStringValue("sqmc"));//向建筑内添加相应的服务信息
-
     }
 }
