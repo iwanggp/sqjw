@@ -1,0 +1,71 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<div class="pageContent">
+    <div class="pageFormContent">
+        <form id="info">
+            <dl>
+                <dt>用户名：</dt>
+                <dd><input type="text" id="username" name="username" maxlength="20" class="required"/></dd>
+            </dl>
+            <dl>
+                <dt>密码：</dt>
+                <dd><input type="password" id="password" name="password" maxlength="200" class="required" /></dd>
+            </dl>
+            <dl>
+                <dt>确认密码：</dt>
+                <dd><input type="password" id="repassword" name="repassword" maxlength="200" class="required" equalTo="#password"/></dd>
+            </dl>
+            <dl>
+                <dt>姓名：</dt>
+                <dd><input type="text" id="xm" name="xm" maxlength="200" class="required" /></dd>
+            </dl>
+            <dl>
+                <dt>身份证明号码：</dt>
+                <dd><input type="text" id="sfzmhm" name="sfzmhm" maxlength="18" minlength="15" class="required" /></dd>
+            </dl>
+            <dl>
+                <dt>性别：</dt>
+                <dd>
+                    <select id="xb" name="xb">
+                        <option value="男" selected="selected">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </dd>
+            </dl>
+            <dl>
+                <dt>所属警务室：</dt>
+                <dd>
+                    <select id="ssjws" name="ssjws">
+                    </select>
+                </dd>
+            </dl>
+            <dl>
+                <dt>角色：</dt>
+                <dd>
+                    <select style="width:100px;" class="combox" id="role_id" name="role_id">
+                    </select>
+                </dd>
+            </dl>
+            <dl>
+                <dt>修改权限：</dt>
+                <dd>
+                    <select id="xgqx" name="xgqx">
+                    </select>
+                </dd>
+            </dl>
+            <dl>
+                <dt>备注：</dt>
+                <dd><input type="text" id="bz" name="bz" maxlength="200"/></dd>
+            </dl>
+        </form>
+    </div>
+    <div class="formBar">
+        <ul>
+            <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="save">保存</button></div></div></li>
+            <li><div class="button"><div class="buttonContent"><button type="button" id ="close" class="close">取消</button></div></div></li>
+        </ul>
+    </div>
+</div>

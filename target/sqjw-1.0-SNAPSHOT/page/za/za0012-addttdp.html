@@ -1,0 +1,90 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="pageContent">
+    <form  id="shop_form" class="pageForm">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>录入系统编号：</label>
+                <input type="text" name="pid" size="35" id="pid" class="required"  />
+            </div>
+            <div class="unit">
+                <label>单位名称：</label>
+                <input type="text" name="mc" size="35" id="mc" class="required"  />
+            </div>
+            <div class="unit">
+                <label>单位地址：</label>
+                <input type="text" name="dz" size="35" id="dz" class="required"  />
+            </div>
+            <div class="unit">
+                <label>法人代表：</label>
+                <input type="text" name="frdb" size="35" id="frdb" class="required"/>
+            </div>
+            <div class="unit">
+                <label>法人代表身份证：</label>
+                <input type="text" name="frsfz" size="20" maxlength="18" minlength="15"  id="frsfz" class="required"/>
+            </div>
+            <div class="unit">
+                <label>法人联系方式：</label>
+                <input type="text" name="frlxfs" id="frlxfs"  size="20" class="required"/>
+            </div>
+            <div class="unit">
+                <label>单位面积：</label>
+                <input type="text" name="mj" size="13" id="mj" class="number"/><span class="unit">平方米</span>
+            </div>
+            <div class="unit">
+                <label>联系方式：</label>
+                <input type="text" name="lxfs" size="35" id="lxfs" />
+            </div>
+            <div class="unit">
+                <label>安保负责人：</label>
+                <input type="text" name="abfzr" size="35" id="abfzr" />
+            </div>
+            <div class="unit">
+                <label>安保负责人身份证号：</label>
+                <input type="text" name="absfzh" size="23" id="absfzh" />
+            </div>
+            <div class="unit">
+                <label>安保负责人联系电话：</label>
+                <input type="text" name="dh" size="35" id="dh" />
+            </div>
+            <div class="unit">
+                <label>保安人数：</label>
+                <input type="text" name="bars" size="35" id="bars" class="number" />
+            </div>
+            <div class="unit">
+                <label>在职职工总数：</label>
+                <input type="text" name="zzzg" size="23" id="zzzg" class="number"/>
+            </div>
+            <div class="unit">
+                <label>监控数量：</label>
+                <input type="text" name="ttsl" id="ttsl"  size="6" maxlength="4" minlength="1" class="number required" />
+            </div>
+            <div class="unit">
+                <label>是否保存30天：</label>
+                <input type="radio" name="bc30" id="bc30"  value="1">是</input>
+                <input type="radio" name="bc30" id="bc30"  value="0" checked="true">否</input>
+            </div>
+            <div class="unit">
+                <label>社区民警：</label>
+                <input type="text" name="zrmj" id="zrmj" size="20"/>
+            </div>
+            <div class="unit">
+                <label>所属警务室：</label>
+                <select id="zgbm" name="zgbm"></select>
+            </div>
+            <div class="unit">
+                <label>备注：</label>
+                <textarea rows="3" cols="25" id="bz" name="bz" />
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li class="_update"><div class="buttonActive"><div class="buttonContent"><button type="button" id="add">添加</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" id="close" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

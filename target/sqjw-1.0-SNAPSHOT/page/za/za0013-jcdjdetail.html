@@ -1,0 +1,34 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="pageContent">
+    <form  id="shop_form" class="pageForm">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>检查人：</label>
+                <input type="text" name="jcr" size="35" id="jcr" class="required"  />
+            </div>
+            <div class="unit">
+                <label>检查时间：</label>
+                <input type="text" name="jcsj" id="jcsj"  size="23" class="date" date-format="yyyy-MM-dd"/>
+            </div>
+            <div class="unit">
+                <label>检查内容：</label>
+                <textarea rows="8" cols="50" id="jcnr" name="jcnr" />
+            </div>
+            <div class="unit">
+                <label>存在问题：</label>
+                <textarea rows="8" cols="50" id="czwt" name="czwt" />
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+               <li class="_update"><div class="buttonActive"><div class="buttonContent"><button type="button" id="modify">修改</button></div></div></li>
+               <li class="_delete"><div class="buttonActive"><div class="buttonContent"><button type="button" id="del">删除</button></div></div></li>
+               <li><div class="button"><div class="buttonContent"><button type="button" id="close" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

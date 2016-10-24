@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="pageContent">
+
+    <h1 style="text-align: center;size:24px;color: brown"><span id="dwmc" style="color: red;size: 26sp"></span>&nbsp;&nbsp;检查信息</h1>
+
+    <div class="pageHeader">
+        <form id="search-form">
+            <div class="searchBar">
+                <table class="searchContent" width="60%">
+                    <tr>
+                        <td width="25%">
+                            检查人：<input id="jcr" name="jcr" type="text" size="20"/>
+                        </td>
+                        <td width="25%">
+                            检查日期：
+                            <input id="ks" name="ks" class="date" size="15"/> 至 <input id="js" name="js"  size="15" class="date"/>
+                        </td>
+                        <td width="25%">
+                            <div class="buttonActive"><div class="buttonContent"><button type="button" id="search-button">查询</button></div></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li class="_update"><a class="add" id="add_j" rel="jcdjinfos"><span>添加检查登记</span></a></li>
+            <!--<li class="_delete"><a class="delete" id="delete" target-table="jcdjinfos"><span>删除</span></a></li>-->
+            <li><a class="edit" id ="edit_jcdj" target-table="jcdjinfos"><span>查看详情</span></a></li>
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="185" id="jcdjinfos">
+        <thead>
+            <tr>
+                <th data-key="mc">特业名称</th>
+                <th data-key="dz">特业地址</th>
+                <th data-key="jcr">检查人</th>
+                <th data-key="jcsj" date-format="yyyy-MM-dd">检查日期</th>
+                <th data-key="dz">特业地址</th>
+                <th data-key="jcnr">检查内容</th>
+                <th data-key="czwt">存在问题</th>
+                <th data-key="lrsj"  date-format="yyyy-MM-dd">创建时间</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>

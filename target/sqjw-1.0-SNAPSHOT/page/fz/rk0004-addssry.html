@@ -1,0 +1,42 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="pageContent" id="addyg" role="dialog">
+    <form  id="fz_form" class="pageForm">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>身份证号码：</label>
+                <input type="text" name="sfzh" id="sfzh" size="20" maxlength="18" minlength="15" class="required"  />
+            </div>
+            <div class="unit">
+                <label>姓名：</label>
+                <input type="text" name="xm" id="xm" size="35" class="required"  />
+            </div>
+            <div class="unit">
+                <label>家庭关系：</label>
+                <select id="gx" name="gx"></select>
+            </div>
+            <div class="unit">
+                <label>性别：</label>
+                <input type="radio" name="xb" id="xb"  value="1">男</input>
+                <input type="radio" name="xb" id="xb"  value="0" checked="true">女</input>
+            </div>
+            <div class="unit">
+                <label>出生日期：</label>
+                <input type="text" name="csrq" id="csrq"  size="15" class="date required" />
+            </div>
+            <div class="unit">
+                <label>跟随者身份证号：</label>
+                <input type="text" name="gssfzh" id="gssfzh" size="20" maxlength="18" minlength="15" class="required" readonly="readonly" />
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+             <li class="_update"><div class="buttonActive"><div class="buttonContent"><button type="button" id="add">添加</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" id="close" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

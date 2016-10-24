@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<div class="tabs">
+    <div class="tabsHeader">
+        <div class="tabsHeaderContent">
+            <ul>
+                <li><a href="javascript:;"><span>基础设施信息管理</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="tabsContent">
+        <div>
+            <div class="pageHeader">
+                <form id="search-form">
+                    <div class="searchBar">
+                        <table class="searchContent" width="60%">
+                            <tr>
+                                <td width="20%">
+                                    所属警务室:
+                                </td>
+                                <td>
+                                    <select id="zgbm" name="zgbm">
+                                        <option value="">---全部---</option>
+                                    </select>
+                                </td>
+                                <td width="25%">
+                                    基础设施类型：
+                                    <select id="sslx" name="sslx">
+                                        <option value="">--全部--</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%">
+                                    设施名称：
+                                </td>
+                                <td>
+                                    <input id="mc" name="mc" type="text" size="35"/>
+                                </td>
+                                <td width="25%">
+                                    设施地址：<input id="dz" name="dz" type="text"  size="35"/>
+                                </td>
+                                <td width="25%">
+                                    采集时间：
+                                </td>
+                                <td>
+                                    <input id="ks" name="ks" class="date" size="15"/>
+                                </td>
+                                <td>
+                                    至
+                                </td>
+                                <td>
+                                    <input id="js" name="js"  size="15" class="date"/>
+                                </td>
+                                <td width="25%">
+                                    <div class="buttonActive"><div class="buttonContent"><button type="button" id="search-button">查询</button></div></div>
+                                </td>
+
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            <div class="panelBar">
+                <ul class="toolBar">
+                    <li class="_update"><a class="edit" id ="superedit" target-table="ssxx"><span>编辑</span></a></li>
+                    <li><a class="add" id="biaoji" target-table="ssxx"><span>将当前页标记在地图上</span></a></li>
+
+                </ul>
+            </div>
+            <table class="table" width="100%" layoutH="170" id="ssxx">
+                <thead>
+                    <tr>
+                        <!--<th data-key="xzqh">行政区名称</th>-->
+                        <th data-key="zgbm" st-param="jwsq_bzdzxx.ssjwqdm">所属警务室</th>
+                        <th data-key="mc">设施名称</th>
+                        <th data-key="sslx" st-param="za_jcss.sslx">设施类型</th>
+                        <th data-key="dz">设施地址</th>
+                        <th data-key="fzr">负责人</th>
+                        <th data-key="dh">联系电话</th>
+                        <th data-key="bz">备注</th>
+                        <th data-key="lrsj" date-format="yyyy-MM-dd">采集时间</th>
+                        <th data-key="map_link">进入地图</th>
+                        <th data-key="name_link" id="xq">查看详情</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div> 
+            <div id="jbsxBoxyg" class="unitBox" style="margin-left:5px;"></div>
+        </div>
+        <div> 
+            <div id="jbsxBoxjcdj" class="unitBox" style="margin-left:5px;"></div>
+        </div>
+        <div> 
+            <div id="jbsxBoxwzqk" class="unitBox" style="margin-left:5px;"></div>
+        </div>
+    </div>
+</div>
+
+

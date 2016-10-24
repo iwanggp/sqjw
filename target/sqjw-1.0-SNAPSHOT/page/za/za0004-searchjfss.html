@@ -1,0 +1,39 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<style>
+    .sxd,.unit input{cursor:pointer;}
+    .searchContent input{vertical-align:middle}
+</style>
+
+<div class="pageHeader" style="border:1px #B8D0D6 solid">
+    <form id="jfss_form">
+        <div class="searchBar">
+
+            <table class="searchContent">
+                <tr>
+
+                    <td>
+                        设备类型：
+                        <select id="sblx" name="sblx">
+                            <option value="">--全部--</option>
+                        </select>
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        属性点:
+                        <input type="checkbox" value="0" name="sx"/><span class="sxd">道路</span>
+                        <input type="checkbox" value="1" name="sx"/><span class="sxd">机构</span>
+                        <input type="checkbox" value="2" name="sx"/><span class="sxd">建筑物</span>
+                    </td>
+
+                    <td><div class="buttonActive"><div class="buttonContent"><button type="button" id="sear">搜索</button></div></div></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>

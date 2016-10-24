@@ -1,0 +1,38 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="pageContent">
+    <form  id="shop_form" class="pageForm">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>处理人：</label>
+                <input type="text" name="clr" size="35" id="clr" class="required"  />
+            </div>
+            <div class="unit">
+                <label>违章时间：</label>
+                <input type="text" name="wzsj" id="wzsj"  size="23" class="date" />
+            </div>
+
+            <div class="unit">
+                <label>存在问题：</label>
+                <textarea rows="8" cols="50" id="czwt" name="czwt" />
+            </div>
+            <div class="unit">
+                <label>整改措施：</label>
+                <textarea rows="8" cols="50" id="zgcs" name="zgcs" />
+            </div>
+            <div class="unit">
+                <label>处理结果：</label>
+                <textarea rows="8" cols="50" id="cljg" name="cljg" />
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+             <li class="_update"><div class="buttonActive"><div class="buttonContent"><button type="button" id="add">添加</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" id="close" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

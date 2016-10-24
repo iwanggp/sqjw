@@ -1,0 +1,26 @@
+
+<div class="pageContent">
+    <form method="post" class="pageForm" id="data_form">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>原密码：</label>
+                <input type="password" name="old_password" id="old_password" size="30" class="required" minlength="5"/>
+            </div>
+            <div class="unit">
+                <label>新密码：</label>
+                <input type="password" name="new_password" id="new_password" size="30" class="required" minlength="6"/>
+            </div>
+            <div class="unit">
+                <label>再次输入：</label>
+                <input type="password" name="again_password" id="again_password" size="30" class="required" equalto="#new_password" minlength="6"/>
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="button" id="update">修改</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

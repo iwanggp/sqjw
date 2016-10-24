@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/sqjw">
+  <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxActive="10" maxIdle="5" maxWait="12000" name="jdbc/sqjwDB" password="sqjw" type="javax.sql.DataSource" url="jdbc:oracle:thin:@192.168.1.108:1521:wzzp" username="sqjw"/>
+</Context>

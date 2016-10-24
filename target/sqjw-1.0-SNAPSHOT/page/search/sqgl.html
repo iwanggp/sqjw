@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<div class="tabs">
+    <div class="tabsHeader">
+        <div class="tabsHeaderContent">
+            <ul>
+                <li><a href="javascript:;"><span id="sqgl">社区信息管理</span></a></li>
+                <li style="display: none" id="sqjz"><a href="javascript:;"><span>社区建筑信息</span></a></li>
+                <li style="display: none" id="jzinfo"><a href="page/bzdzxx/dz0004-jzinfo.html" rel="jbsxBoxjzinfo" target="ajax"><span>社区建筑内部信息</span></a></li>
+                <!--<li style="display: none" id="fwinfo"><a href="page/bzdzxx/dz0005-fwinfo.html" rel="jbsxBoxfwinfo" target="ajax"><span>社区建筑房屋信息</span></a></li>-->
+            </ul>
+        </div>
+    </div>
+    <div class="tabsContent">
+        <div>
+            <div class="pageHeader">
+                <form id="search-form">
+                    <div class="searchBar">
+                        <table class="searchContent" width="60%">
+                            <tr>
+<!--                                <td width="20%">
+                                    行政区名称
+                                    <select id="xzqhdm" name="xzqhdm">
+                                        <option value="">全部</option>
+                                    </select>
+                                </td>-->
+                                <td width="20%">
+                                    警务区:
+                                    <select id="ssjwqdm" name="ssjwqdm">
+                                        <option value="">全部</option>
+                                    </select>
+                                </td>
+                                <td width="25%">
+                                    社区名称：<input id="sqmc" name="sqmc" type="text"  size="30"/>
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td width="25%">
+                                    地址关键字：
+                                    <input id="dzjc" name="dzjc" type="text" size="30"/>
+                                </td>
+                                <td width="25%">
+                                    采集时间：
+                                    <input id="ks" name="ks" class="date" size="15"/>
+                                    至
+                                    <input id="js" name="js"  size="15" class="date"/>
+                                </td>
+                                <td width="25%">
+                                    <div class="buttonActive"><div class="buttonContent"><button type="button" id="search-button">查询</button></div></div>
+                                </td>
+
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            <div class="panelBar">
+                <ul class="toolBar">
+                    <li class="_update"><a class="add" id="addsq" target-table="ssxx"><span>添加社区</span></a></li>
+                    <li><a class="icon" id ="look" target-table="ssxx"><span>查看社区信息</span></a></li>
+                </ul>
+            </div>
+            <table class="table" width="100%" layoutH="170" id="ssxx">
+                <thead>
+                    <tr>
+                        <!--<th data-key="xzqh" st-param="jwsq_bzdzxx.xzqhdm">行政区名称</th>-->
+                        <th data-key="sqmc">社区名称</th>
+                        <th data-key="dz">地址简称</th>
+                        <th data-key="zgbm" st-param="jwsq_bzdzxx.ssjwqdm">警务区名称</th>
+                        <th data-key="cjsj" date-format="yyyy-MM-dd">创建时间</th>
+                        <th data-key="map_link">进入地图</th>
+                        <th data-key="name_link" id="xq">查看详情</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div> 
+            <div id="jbsxBoxjz" class="unitBox" style="margin-left:5px;"></div>
+        </div>
+        <div> 
+            <div id="jbsxBoxjzinfo" class="unitBox" style="margin-left:5px;"></div>
+        </div>
+<!--         <div> 
+            <div id="jbsxBoxfwinfo" class="unitBox" style="margin-left:5px;"></div>
+        </div>-->
+    </div>
+
+

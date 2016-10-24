@@ -1,0 +1,60 @@
+<div class="pageContent">
+    <h1 style="text-align: center;size:24px;color: brown"><span id="jzmc" style="color: red;size: 26sp"></span>&nbsp;&nbsp;房屋详细信息</h1>
+    <div class="pageHeader">
+        <form id="search-form">
+            <div class="searchBar">
+                <table class="searchContent" width="60%">
+                    <tr>
+                        <td width="25%">
+                            单元号：<input id="dyh" name="dyh" type="text"  size="20"/>
+                        </td>
+                        <td width="25%">
+                            室号：
+                            <input id="sh" name="sh" type="text" size="20"/>
+                        </td>
+                        <td width="25%">
+                            产权人：<input id="fzxm" name="fzxm" type="text"  size="20"/>
+                        </td>
+                        <td width="25%">
+                            采集时间：
+                            <input id="ks" name="ks" class="date" size="15"/>
+                            至
+                            <input id="js" name="js"  size="15" class="date"/>
+                        </td>
+                        <td width="25%">
+                            <div class="buttonActive"><div class="buttonContent"><button type="button" id="search_fw-button">查询</button></div></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li class="_update"><a class="add" id="add" target-table="fwinfos"  rel="add"><span>添加房屋信息</span></a></li>
+            <li><a class="icon" id="lookry" target-table="fwinfos"><span>查看该房屋人员信息</span></a></li>
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="205" id="fwinfos">
+        <thead>
+            <tr>
+                <th data-key="dyh">单元号</th>
+                <th data-key="sh">室号</th>
+                <!--<th data-key="dz">地址</th>-->
+                <th data-key="fzxm">产权人</th>
+                <th data-key="syrdw">所有者</th>
+                <th data-key="syrdwlxdh">联系方式</th>
+                <!--<th data-key="jlx">街路巷</th>-->
+                <th data-key="jzmj">房屋面积</th>
+                <th data-key="bz">备注</th>
+                <th data-key="cjrxm">创建人</th>
+                <th data-key="lrsj"  date-format="yyyy-MM-dd">录入时间</th>
+                <th data-key="map_link">进入地图</th>
+                <th data-key="xq_detail">详情</th>
+                <th data-key="name_link" id="xq">进去看看</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,95 @@
+INFO  2016-05-05 10:32:23 [localhost-startStop-1] com.soa.listener.ReadGlobalArgsListener 55 ---> 开始加载配置文件 ...
+INFO  2016-05-05 10:32:23 [localhost-startStop-1] com.soa.listener.ReadGlobalArgsListener 97 ---> 配置文件 path : D:\sqjw\sqjw\target\sqjw-1.0-SNAPSHOT\WEB-INF\
+INFO  2016-05-05 10:32:23 [localhost-startStop-1] com.soa.listener.ReadGlobalArgsListener 138 ---> 
+配置文件加载完成:
+	服务名 ：sqjw
+	超时时间（毫秒） ：10000
+	字符集：UTF-8
+	请求耗时预警时间，单位 ms：10000
+	是否使用session做缓存：false
+	登录状态的校验标记：username
+INFO  2016-05-05 10:32:23 [localhost-startStop-1] com.soa.listener.ReadGlobalArgsListener 259 ---> 开始加载sql语句。。
+INFO  2016-05-05 10:32:23 [localhost-startStop-1] com.soa.listener.ReadGlobalArgsListener 261 ---> sql语句配置文件 path : D:\sqjw\sqjw\target\sqjw-1.0-SNAPSHOT\WEB-INF\sql\
+INFO  2016-05-05 10:32:24 [localhost-startStop-1] com.soa.listener.ReadGlobalArgsListener 319 ---> 共加载SQL语句 284 条。
+INFO  2016-05-05 10:32:24 [localhost-startStop-1] com.soa.listener.ReadGlobalArgsListener 147 ---> 开始加载下拉列表选项。。。
+INFO  2016-05-05 10:32:24 [localhost-startStop-1] com.soa.service.BaseService 396 ---> 开始执行查询语句： 
+sql_name = st_select_table_para 
+sql = select * from st_table_paramet order by table_name, col_name, col_value
+args = 
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.lianzt.util.LogUtil 128 ---> 分析日志
+['log-sql-time']	{"sql":"st_select_table_para", "args":"", "database":"local", "_runTime":1047}
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.listener.ReadGlobalArgsListener 152 ---> 加载下拉列表选项完成，共加载 40 项
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.listener.ReadGlobalArgsListener 155 ---> 开始加载service bean。。。
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.service.BaseService 396 ---> 开始执行查询语句： 
+sql_name = st_select_service_bean 
+sql = select * from st_service_bean
+args = 
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.lianzt.util.LogUtil 128 ---> 分析日志
+['log-sql-time']	{"sql":"st_select_service_bean", "args":"", "database":"local", "_runTime":63}
+WARN  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.service.UtilServiceImpl 108 ---> service ： P11015( saveUserBusiPl ) 不存在. 
+WARN  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.service.UtilServiceImpl 108 ---> service ： S11012( getUserBusiPl ) 不存在. 
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.listener.ReadGlobalArgsListener 160 ---> 加载service bean完成，共加载 175 项
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.listener.ReadGlobalArgsListener 162 ---> 开始加载异常代码和异常信息。。。
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.service.BaseService 396 ---> 开始执行查询语句： 
+sql_name = st_select_err_msg 
+sql = select * from st_err_msg
+args = 
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.lianzt.util.LogUtil 128 ---> 分析日志
+['log-sql-time']	{"sql":"st_select_err_msg", "args":"", "database":"local", "_runTime":31}
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.listener.ReadGlobalArgsListener 170 ---> 读取数据库成功，共 81 条异常信息
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.listener.ReadGlobalArgsListener 187 ---> 打开配置文件：timer.xml
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.listener.ReadGlobalArgsListener 202 ---> 开始读取定时器：清理异常日志
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.listener.ReadGlobalArgsListener 215 ---> 加载定时器：run-time:03:00, cycle:null, service-code:P10002, args:null, desc:清理异常日志
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.listener.ReadGlobalArgsListener 249 ---> 定时器加载完成，共 1 项，成功 1 项。
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.listener.ReadGlobalArgsListener 71 ---> 开始初始化系统参数！
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.service.BaseService 213 ---> 开始调用服务: com.soa.bean.StServiceBean { 
+	getService = com.soa.service.busi.pl.LoadServiceLimitPl@77f2fbff 
+	getServiceCode = S11013 
+	getBeanName = loadServiceLimitPl 
+	getIsLogin = N 
+	getSourceChannel = 
+	getServiceDesc = 加载服务执行权限配置文件 
+	getClass = class com.soa.bean.StServiceBean 
+}
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.service.BaseService 167 ---> 服务 S11013 的校验参数为null！！！
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.porxy.ServicePorxy 43 ---> aop拦截==========调用服务'S11013'，请求数据：{
+	head=[name : head,  type : data,  length : null,  value : {
+		_web_inf=[name : _web_inf,  type : string,  length : null,  value : D:\sqjw\sqjw\target\sqjw-1.0-SNAPSHOT\WEB-INF\]
+		_servlet=[name : _servlet,  type : object,  className : javax.servlet.ServletContextEvent,  length : null,  value : javax.servlet.ServletContextEvent[source=org.apache.catalina.core.ApplicationContextFacade@6a998c1]]
+		service_code=[name : service_code,  type : string,  length : null,  value : S11013]
+	}]
+}
+DEBUG 2016-05-05 10:32:25 [localhost-startStop-1] com.soa.service.busi.pl.LoadServiceLimitPl 39 ---> web-inf path : D:\sqjw\sqjw\target\sqjw-1.0-SNAPSHOT\WEB-INF\
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.service.busi.pl.LoadServiceLimitPl 43 ---> 打开配置文件：service-limit.xml
+DEBUG 2016-05-05 10:32:25 [localhost-startStop-1] com.soa.service.busi.pl.LoadServiceLimitPl 65 ---> 配置文件加载完成：{
+	P30002=[name : P30002,  type : data,  length : null,  value : {
+		sql=[name : sql,  type : string,  length : null,  value : get_sq_jz]
+		id=[name : id,  type : string,  length : null,  value : jzid]
+		zgbm=[name : zgbm,  type : string,  length : null,  value : ]
+	}]
+	P21006=[name : P21006,  type : data,  length : null,  value : {
+		sql=[name : sql,  type : string,  length : null,  value : select_sq_id]
+		id=[name : id,  type : string,  length : null,  value : sqid]
+		zgbm=[name : zgbm,  type : string,  length : null,  value : ]
+	}]
+	P70002=[name : P70002,  type : data,  length : null,  value : {
+		sql=[name : sql,  type : string,  length : null,  value : za_select_zjh_id]
+		id=[name : id,  type : string,  length : null,  value : id]
+		zgbm=[name : zgbm,  type : string,  length : null,  value : ]
+	}]
+	P43008=[name : P43008,  type : data,  length : null,  value : {
+		sql=[name : sql,  type : string,  length : null,  value : za_select_lg_id]
+		id=[name : id,  type : string,  length : null,  value : id]
+		zgbm=[name : zgbm,  type : string,  length : null,  value : ]
+	}]
+}
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.porxy.ServicePorxy 48 ---> aop拦截==========调用服务'S11013'，响应数据数据：{
+	head=[name : head,  type : data,  length : null,  value : {}]
+}
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.lianzt.util.LogUtil 118 ---> 分析日志
+['log-service-time']	{"head":{"_web_inf":"D:\\sqjw\\sqjw\\target\\sqjw-1.0-SNAPSHOT\\WEB-INF\\","_servlet":"javax.servlet.ServletContextEvent[source=org.apache.catalina.core.ApplicationContextFacade@6a998c1]","service_code":"S11013"},"_runTime":16}
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.listener.ReadGlobalArgsListener 84 ---> 初始化系统参数完成。
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.listener.ReadGlobalArgsListener 87 ---> 启动项加载完成。。。
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.lianzt.util.LogUtil 128 ---> 分析日志
+['log-start-log']	{"opt":"start"}
+INFO  2016-05-05 10:32:25 [localhost-startStop-1] com.soa.interceptor.CookiesInterceptor 44 ---> 192.168.1.168:wgp/节点Cookies拦截器初始化完成。。

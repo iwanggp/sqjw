@@ -1,0 +1,167 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="pageContent">
+    <form  id="shop_form" class="pageForm">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>商铺名称：</label>
+                <input type="text" name="mc" id="mc" size="35" class="required"  />
+            </div>
+            <div class="unit">
+                <label>主管部门：</label>
+                <input type="text" name="jwq" id="jwq"  size="35" class="required"  />
+            </div>
+            <div class="unit">
+                <label>所属警务室：</label>
+                <select id="zgbm" name="zgbm"></select>
+            </div>
+            <div class="unit">
+                <label>经济性质：</label>
+                <input type="text" name="jjxz" id="jjxz"  size="35" class="required"/>
+            </div>
+            <div class="unit">
+                <label>单位地址：</label>
+                <input type="text" name="dz" id="dz"  size="35"  class="required" />
+            </div>
+            <div class="unit">
+                <label>联系方式：</label>
+                <input type="text" name="lxfs" id="lxfs"  size="35" class="required"/>
+            </div>
+            <div class="unit">
+                <label>许可证号：</label>
+                <input type="text" name="xkzh" id="xkzh"  size="35" />
+            </div>
+            <div class="unit">
+                <label>年审日期：</label>
+                <input type="text" name="nsrq" id="nsrq"  size="23" class="date"  date-format="yyyy-MM-dd"/>
+            </div>
+            <div class="unit">
+                <label>主营：</label>
+                <input type="text" name="zy" id="zy"  size="35" />
+            </div>
+            <div class="unit">
+                <label>兼营：</label>
+                <input type="text" name="jy" id="jy"  size="35" />
+            </div>
+            <div class="unit">
+                <label>员工人数：</label>
+                <input type="text" name="ygrs" id="ygrs"  size="23" class="number"/>
+            </div>
+            <div class="unit">
+                <label>实际面积</label>
+                <input type="text" name="jzmj" id="jzmj" size="23"  class="number"><span class="unit">平方米</span></input>
+            </div>
+            <div class="unit">
+                <label>法人代表：</label>
+                <input type="text" name="frdb" id="frdb"  size="20" class="required"/>
+            </div>
+            <div class="unit">
+                <label>法人身份证号码：</label>
+                <input type="text" name="frsfz" id="frsfz"  size="20" maxlength="18" minlength="15" class="required"/>
+            </div>
+            <div class="unit">
+                <label>法人联系方式：</label>
+                <input type="text" name="frlxfs" id="frlxfs"  size="20" class="required"/>
+            </div>
+            <div class="unit">
+                <label>房屋是否租凭：</label>
+                <input type="radio" name="fwzl" id="fwzl"  value="1" checked="true">是</input>
+                <input type="radio" name="fwzl" id="fwzl"  value="0">否</input>
+            </div>
+            <div class="unit" >
+                <label>经营许可证文件：</label>
+                <table class="searchContent" >
+                    <tr>
+                        <td>
+                            <div id="jyxkz" name="jyxkz" style="width: 120px; height: 80px"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="unit">
+                <label>消防安检合格证：</label>
+                <table class="searchContent" >
+                    <tr>
+                        <td>
+                            <div  name="ajhgz" id="ajhgz" style="width: 120px; height: 80px"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="unit">
+                <label>合格证到期日期：</label>
+                <input type="text" name="dqrq" id="dqrq"  size="23" class="date" />
+            </div>
+            <div class="unit">
+                <label>建立安全管理制度：</label>
+                <input type="radio" name="jlaqzd" id="jlaqzd"  value="1" checked="true">是</input>
+                <input type="radio" name="jlaqzd" id="jlaqzd"  value="0">否</input>
+            </div>
+            <div class="unit">
+                <label>是否安装监控设施：</label>
+                <input type="radio" name="jkss" id="jkss"  value="1">是</input>
+                <input type="radio" name="jkss" id="jkss"  value="0" checked="true">否</input>
+            </div>
+            <div class="unit">
+                <label>监控数量：</label>
+                <input type="text" name="ttsl" id="ttsl"  size="6" maxlength="4" minlength="1" class="number required" />
+            </div>
+            <div class="unit">
+                <label>是否保存30天：</label>
+                <input type="radio" name="bc30" id="bc30"  value="1">是</input>
+                <input type="radio" name="bc30" id="bc30"  value="0" checked="true">否</input>
+            </div>
+            <div class="unit">
+                <label>社区民警</label>
+                <input type="text" name="sqmj" id="sqmj"  size="35" class="required"/>
+            </div>
+            <div class="unit">
+                <label>运行情况：</label>
+                <input type="text" name="yxqk" id="yxqk"  size="35" />
+            </div>
+            <div class="unit">
+                <label>保存时间：</label>
+                <input type="text" name="bcsj" id="bcsj"  size="23" class="number" />
+            </div>
+
+            <div class="unit">
+                <label>安全出口是否通畅：</label>
+                <input type="radio" name="aqcktc" id="aqcktc"  value="1" checked="true">是</input>
+                <input type="radio" name="aqcktc" id="aqcktc"  value="0">否</input>
+            </div>
+            <div class="unit">
+                <label>灭火器材齐全有效：</label>
+                <input type="radio" name="mhqcyx" id="mhqcyx"  value="1" checked="true">是</input>
+                <input type="radio" name="mhqcyx" id="mhqcyx"  value="0">否</input>
+            </div>
+            <div class="unit">
+                <label>是否有疏散标志：</label>
+                <input type="radio" name="ssbz" id="ssbz"  value="1" checked="true">是</input>
+                <input type="radio" name="ssbz" id="ssbz"  value="0">否</input>
+            </div>
+            <div class="unit">
+                <label>消防设施擅自关停：</label>
+                <input type="radio" name="xfszgt" id="xfszgt"  value="1" checked="true">是</input>
+                <input type="radio" name="xfszgt" id="xfszgt"  value="0">否</input>
+            </div>
+            <div class="unit">
+                <label>消防人员经过培训：</label>
+                <input type="radio" name="xfrypx" id="xfrypx"  value="1">是</input>
+                <input type="radio" name="xfrypx" id="xfrypx"  value="0" checked="true">否</input>
+            </div>
+            <div class="unit">
+                <label>备注：</label>
+                <input type="text" name="bz" id="bz"  size="35"/>
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li class="_update"><div class="buttonActive"><div class="buttonContent"><button type="button" id="add">添加</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" id="close" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+

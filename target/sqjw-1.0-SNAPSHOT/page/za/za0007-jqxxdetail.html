@@ -1,0 +1,50 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="pageContent">
+    <form  id="jqxx_form" class="pageForm">
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>警情时间：</label>
+                <input type="datetime-local" name="jqsj" id="jqsj" class="required"/>
+            </div>
+            <div class="unit">
+                <label>报警人：</label>
+                <input type="text" id="bjr" name="bjr" size="17"/>
+            </div>
+            <div class="unit">
+                <label>联系电话：</label>
+                <input type="text" id="lxdh" name="lxdh" size="17"/>
+            </div>
+            <div class="unit">
+                <label>所属辖区：</label>
+                <select id="ssxq" name="ssxq"></select>
+            </div>
+            <div class="unit">
+                <label>案件分类：</label>
+                <select id="ajfl" name="ajfl"></select>
+            </div>
+            <div class="unit">
+                <label>案件性质：</label>
+                <select id="ajxz" name="ajxz"></select>
+            </div>
+            <div class="unit">
+                <label>属性：</label>
+                <select id="sx" name="sx"></select>
+            </div>
+            <div class="unit">
+                <label>警情介绍：</label>
+                <input type="text" name="jqjs" id="jqjs" size="35"/>
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+               <li class="_update"><div class="buttonActive"><div class="buttonContent"><button type="button" id="modify">修改</button></div></div></li>
+                                <li class="_delete"><div class="buttonActive"><div class="buttonContent"><button type="button" id="del">删除</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" id="close" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+
